@@ -1,7 +1,7 @@
 #[ -d "$HOME/House" ] && echo "Erreur innatendu, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancer ce script." && exit
 #cd ~/
 Hey salut tout le monde et bienvenu sur la ligne de commande linux.
-Avant de pouvoir utiliser notre première commande, il va falloir d'abord comprendre la logique derrière l'organisation des répertoires et des fichiers sur Linux.
+Avant de pouvoir apprendre notre première commande, il va falloir d'abord comprendre la logique derrière l'organisation des répertoires et des fichiers sur Linux.
 Commençons par nous intéresser aux 'répertoires', qui portent aussi le nom de 'dossiers'.
 #real_tree_1
 Vous pouvez imaginer le système d'organisation des dossiers linux comme un arbre.
