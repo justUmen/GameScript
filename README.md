@@ -1,8 +1,10 @@
 #Gamescript.sh
 
-Execute with :
+Add argument after "bash -s -- " in curl with :
 
-    wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash
+    wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
+
+Or you can download `gamescript.sh` and execute it.
 
 Bash script to learn about :
 

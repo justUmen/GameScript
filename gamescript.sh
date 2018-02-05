@@ -1,8 +1,7 @@
 #!/bin/bash
 
-mkdir ~/.GameScript/ 2> /dev/null
-mkdir ~/.GameScript/Audio/ 2> /dev/null
-cd ~/.GameScript/
+# mkdir ~/.GameScript/ 2> /dev/null
+# mkdir ~/.GameScript/Audio/ 2> /dev/null
 
 function download_audio(){
   echo "DL"
@@ -13,20 +12,56 @@ function download_audio(){
 
 function gamescript_help(){
   case $1 in
-    en) echo HELP ;;
-    fr) echo AIDE ;;
+    en) echo "
+===> HELP en
+
+Available arguments :
+\"--help\" or \"-h\"
+\"--language XX\" or \"-l XX\" to change the language (en/english is the default language)
+ Example : \"-l fr\" or \"--language fr\" set the language on french
+
+Complete example, to launch gamescript on bash in french :
+
+wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
+
+or you can create an alias : (alias in $HOME/.bashrc for example)
+
+alias gamescript=\"wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --\"
+
+You can then launch it with \"gamescript\", or even with arguments like \"gamescript --language fr bash\".
+"
+;;
+    fr) echo "
+===> AIDE fr
+Arguments disponibles :
+\"--help\" ou \"-h\" pour afficher l'aide
+\"--language XX\" ou \"-l XX\" pour change la langue (en/english est la langue par défaut)
+ Exemple : \"-l fr\" or \"--language fr\" pour sélectionner la langue française
+
+Exemple complet, pour lancer gamescript sur bash en français :
+
+wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
+
+ou vous pouvez créer un alias : (alias dans $HOME/.bashrc par exemple)
+
+alias gamescript=\"wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --\"
+
+Vous pouvez alors simplement lancer \"gamescript\", ou avec des argument comme \"gamescript --language fr bash\".
+"
+;;
+    *) echo "unknown language"
   esac
-  exit
+  exit #exit after display help
 }
 
 function gamescript_available_arguments(){
   case $1 in
     fr) echo <<END
-===> bash FR :
+===> Juste bash de disponible pour le moment
 END
 ;;
     en) echo <<END
-===> bash EN :
+===> Nothing in english yet :(
 END
 ;;
   esac
@@ -41,8 +76,9 @@ function launch_gamescript(){
   curl https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$1/$2/$3/standalone_1.sh | /bin/bash
 }
 
-if [ $# -eq 0 ]; then gamescript_help en; fi
 LANGUAGE="en"
+if [ $# -eq 0 ]; then gamescript_help $LANGUAGE; fi
+
 POSITIONAL=()
 HELP=0
 while [[ $# -gt 0 ]]; do
