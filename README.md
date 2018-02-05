@@ -1,6 +1,6 @@
-#Gamescript.sh
+# Gamescript.sh
 
-##Usage
+## Usage
 
 Add argument after "bash -s -- " in curl with :
 
@@ -22,13 +22,13 @@ With an alias you just have to launch it with for example :
     gamescript -l fr --help
 
 
-##What is it ?
+## What is it ?
 
 It is a bash script to learn about :
 
 * bash
 
-##ToDo :
+## ToDo :
 
 * archlinux (+ install)
 * i3wm
@@ -39,11 +39,11 @@ It is a bash script to learn about :
 * "classic" = normal teaching, audio version + text
 * "story" = learning with stories (several versions possible)
 
-##Ideas
+## Ideas
 
 * the same command must be repeated at least 3 times in the script (+ clever time interval)
 
-##Details :
+## Details :
 
 * gen all in one file, dirty but simple
 
