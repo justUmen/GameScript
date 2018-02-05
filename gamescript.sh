@@ -14,7 +14,6 @@ function gamescript_help(){
   case $1 in
     en) echo "
 ===> HELP en
-
 Available arguments :
 \"--help\" or \"-h\"
 \"--language XX\" or \"-l XX\" to change the language (en/english is the default language)

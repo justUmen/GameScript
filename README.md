@@ -1,12 +1,24 @@
 #Gamescript.sh
 
+##Usage
+
 Add argument after "bash -s -- " in curl with :
 
     wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
 
-Or you can download `gamescript.sh` and execute it.
+Example : print Help in french :
 
-Bash script to learn about :
+    wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr --help
+
+Or you can download `gamescript.sh` and execute it, or even create an alias in `.bashrc` for example :
+
+    alias gamescript="wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr"
+
+This alias will launch gamescript always in french because of the "-l fr".
+
+##What is it ?
+
+It is a bash script to learn about :
 
 * bash
 
