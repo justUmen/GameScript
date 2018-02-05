@@ -2,7 +2,7 @@
 
 ## Usage
 
-Add arguments after `bash -s -- ` in curl with, here adding `-l fr bash` will launch gamescript for bash in french :
+Add arguments after `bash -s -- ` in curl/wget, here adding `-l fr bash` will launch gamescript for bash in french :
 
     wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
 
