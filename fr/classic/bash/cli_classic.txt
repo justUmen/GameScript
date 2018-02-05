@@ -1,0 +1,146 @@
+BASED ON ../KNOWLEDGE/CLI.txt
+
+VIDEO : CLI vs GUI
+why learn this ?
+
+HELP IF STUCK ? POSSIBLE ???
+
+COLOR : commands, syntaxe linux (chemins...), words + english word
+
+Bot Script pour niveau 1 avec mot de passe ;)
+Version rapide pour ceux qui connaissent.
+
+
+PASSWORD 692fa7ce29942852c30081f943e39413
+
+pas de texte = pas d'erreur de commande
+[0] [parent / child relationship (more about path)
+[0] absolute path
+[0] relative path
+[0] "pwd"
+[0] "ls"
+[0] "cd"
+[0] ".."
+[0] "mkdir"
+"." (useful to execute)
+command line argument(s) "ls /"
+	some dont have : "pwd ." (Too many arguments, one is too many)
+	some can have several "ls / /home"
+"man" RTFM (you shouldnt ask someone about something that is in the manual)
+	if you want to do something, check the manual first,
+		if you cant find your answer then you can ask for help
+command line options (dash) "ls -l /" or "ls / -l"
+	options often have long and short names
+		sometimes options have values "ls --sort=size"
+"touch"
+"nano"
+"mv"
+"cp"
+"rm"
+"rmdir"
+"echo"
+">"
+">>"
+";"
+how to identify if an element is a directory or a file ?
+"&&"
+"||"
+"&"
+"|"
+"chmod" + numbers
+"chown"
+recursive
+"du"
+MAKE SCRIPTS INSTEAD OF ONE LINE :p
+"!!"
+history + "!2892"
+"-rw-r--r--" and so on ...
+
+">"
+"<"
+"<<" (EOF ?)
+"1>"
+"2>"
+"/dev/null"
+"2>&1"
+"1>&2"
+
+"-" argument file ??????????
+
+#ADD THE OTHERS HERE (top), SO FULL LIST TO AD TO THE WIKI :p
+#files
+"ln"
+#variables
+VAR="sss";echo $VAR
+$$, $?, $!, $1...$x, $@
+"printf" :P
+#text show
+"cat","tac","nl","head","tail","more","less"
+#text manipulation
+"echo","grep","awk","cmp","comm","diff","diff3","cut","csplit","sdiff"
+"fold","fmt","expand","unexpand","paste","join","wc","sort","sed","tr","uniq"
+"col"
+#Shortcuts and tricks
+CTRL + E / A, TAB, Arrow top / down
+#SYSTEM informations or control
+"df","fdisk","free","env","hostname","id","uname -a","tty"
+"shutdown","reboot"
+"systemctl","journalctl"
+#PROCESSES
+"ps","kill","pkill","top","pidof"
+"pstree" ? native
+"nohup","nice"
+"screen"
+#files
+"touch","tee"
+"split"
+"dd"
+"find","locate"("updatedb")
+"whereis","which"
+#USERS
+"adduser","usermod","users","groups","passwd"
+"who","w"
+"su"
+#COMPRESSION
+"gzip","tar"
+#NETWORK
+"ifconfig","route","iptables","traceroute","ip","netstat"
+"wget"
+"curl" ?????
+#NETWORK LINKS
+"ssh" & co, "scp", "rsync"
+#STORAGE
+"mount","umount"
+#MISC
+"tty","sleep","time","history","date","cal","clear","cron", "crontab","expr","bc"
+"md5sum"
+"info"
+"dc","bc"
+"watch"
+"sync" ??? find good example
+"namei"
+"bind"
+
+#MOST USEFUL IN SCRIPT BASH
+"true","false" usefulness ??
+"while","for"
+``, '', "", $(xxx)
+
+CTRL+R, CTRL+S ??? more ???
+
+
+
+# TILING TERMINALS ??
+- use tiling manager (i3, awesome)
+- use terminator
+* use tmux
+#
+
+
+
+
+fsck	Filesystem consistency check and repair	???????????????
+mkfifo	Make FIFOs (named pipes)	???????????????/
+mknod	Make block or character special files	 ????????????????
+symlink	Make a new name for a file	??????????????
+tsort	Topological sort	 ?????
