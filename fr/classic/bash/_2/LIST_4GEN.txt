@@ -118,3 +118,4 @@ Si vous limitez cette longueur à 1, il y aura un nom de fichier par ligne.
 La version longue des options avec valeur est parfois différente avec l'utilisation du signe ${voc}=${reset} au lieu d'un espace.
 +Essayez d'utiliser la version longue avec ${learn}ls --width=100${reset}
 !ls --width=100£Non
+Maintenant le quiz, pour vérifier que vous connaissez tout ça.
