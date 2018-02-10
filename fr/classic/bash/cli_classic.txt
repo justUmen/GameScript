@@ -13,32 +13,42 @@ Version rapide pour ceux qui connaissent.
 
 PASSWORD 692fa7ce29942852c30081f943e39413
 
-pas de texte = pas d'erreur de commande
-[0] [parent / child relationship (more about path)
-[0] absolute path
-[0] relative path
-[0] "pwd"
-[0] "ls"
-[0] "cd"
-[0] ".."
-[0] "mkdir"
-"." (useful to execute)
-command line argument(s) "ls /"
-	some dont have : "pwd ." (Too many arguments, one is too many)
-	some can have several "ls / /home"
-"man" RTFM (you shouldnt ask someone about something that is in the manual)
-	if you want to do something, check the manual first,
-		if you cant find your answer then you can ask for help
+[1] ARG some dont have : "pwd ." (Too many arguments, one is too many)
+		some can have several "ls / /home"
+[1] pas de texte = pas d'erreur de commande
+[1] [parent / child relationship (more about path)
+[1] absolute path
+[1] relative path
+[1] "pwd"
+[1] "ls"
+[1] "cd"
+[1] ".."
+[1] "mkdir"
+[1] "rm"
+[1] "rmdir"
+
+"~"
+".hidden"
+"../"
+"../../"
+"."
+command line argument(s) "ls ../../"
 command line options (dash) "ls -l /" or "ls / -l"
 	options often have long and short names
 		sometimes options have values "ls --sort=size"
-"touch"
+"man" RTFM (you shouldnt ask someone about something that is in the manual)
+	if you want to do something, check the manual first,
+		if you cant find your answer then you can ask for help
+
+
 "nano"
+
+
+"." (useful to execute)
+"touch"
+"echo"
 "mv"
 "cp"
-"rm"
-"rmdir"
-"echo"
 ">"
 ">>"
 ";"

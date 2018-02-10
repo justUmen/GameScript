@@ -1,6 +1,8 @@
 function quiz(){
   echo -en "\e[0;33m...\e[0m"
   talk_not_press_key justumen "Bash 'Bourne Again SHell' : Chapitre 1"
+  talk_not_press_key justumen "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
+  talk_not_press_key justumen "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
   answer_text_fr "Quel symbole représente le répertoire racine sur Linux ?" "/"
   answer_text_fr "Quelle commande affiche le chemin absolu du répertoire courant ?" "pwd"
   answer_text_fr "Quelle commande affiche le contenu du répertoire racine ?" "ls /"

@@ -1,5 +1,20 @@
 #!/bin/bash
-
+function answer_quizCOPY_bash(){
+	key="9"
+	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "3" ]; do
+		echo ""
+		echo -e "\\e[0;100m 1) \\e[0m $1"
+		echo -e "\\e[0;100m 2) \\e[0m $2"
+		echo -e "\\e[0;100m 3) \\e[0m $3"
+		echo -en "\\e[1;31;42m # \\e[0m"
+		read -n1 key < /dev/tty
+		case $key in
+			1) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$4" ;;
+			2) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$5" ;;
+			3) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$6" ;;
+		esac
+	done
+}
 # mkdir ~/.GameScript/ 2> /dev/null
 # mkdir ~/.GameScript/Audio/ 2> /dev/null
 
@@ -67,12 +82,28 @@ END
   exit
 }
 
+
+function enter_bash(){
+case $1 in
+	1) echo -e "\e[0;33m...\e[0m" ;&
+	2) echo -en " - Bash Bourne Again SHell :" ;&
+	3) answer_quizCOPY_bash "Bash : chapitre 1" "Bash : chapitre 2" "Quitter" "4" "5" "6" ;;
+	4) wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_1.sh | bash; exit ;;
+	5) wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_2.sh | bash; exit ;;
+	6) exit ;;
+esac
+}
 function launch_gamescript(){
-  echo "LANGUAGE = $1"
-  echo "TYPE = $2"
-  echo "SUBJECT = $3"
-  echo "curl https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$1/$2/$3/standalone_1.sh | /bin/bash"
-  curl https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$1/$2/$3/standalone_1.sh | /bin/bash
+  echo "LANGUAGE = $LANGUAGE"
+  TYPE=$2
+  echo "TYPE = $TYPE"
+  SUBJECT=$3
+  echo "SUBJECT = $SUBJECT"
+  if [ "$3" == "bash" ]; then
+	enter_bash 1
+  fi
+  #~ echo "curl https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$1/$2/$3/standalone_1.sh | /bin/bash"
+  #~ curl https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$1/$2/$3/standalone_1.sh | /bin/bash
 }
 
 LANGUAGE="en"
