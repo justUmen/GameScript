@@ -67,7 +67,16 @@ function answer_run(){
 	if [ ! "$1" == "" ];then
 		echo -e "\e[1m"
 		printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-		$1
+		#??? remplacer ~ par $HOME ???
+		if [ "$1" == "rmdir ~/.GameScript_bash2" ];then
+			rmdir ${HOME}/.GameScript_bash2
+		else
+			if [ "$1" == "cd ~" ];then
+				cd ${HOME}
+			else
+				$1
+			fi
+		fi
 		printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 		echo -e "\\e[0m"
 	fi
