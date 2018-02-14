@@ -10,10 +10,10 @@ function answer_quizCOPY_bash(){
 		echo -en "\\e[1;31;42m # \\e[0m"
 		read -n1 key < /dev/tty
 		case $key in
-			1) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$4" ;;
-			2) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$5" ;;
-			3) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$6" ;;
-			4) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$7" ;;
+			1) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$5" ;;
+			2) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$6" ;;
+			3) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$7" ;;
+			4) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$8" ;;
 		esac
 	done
 }
