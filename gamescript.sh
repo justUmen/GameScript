@@ -1,7 +1,7 @@
 #!/bin/bash
 function answer_quizCOPY_bash(){
 	key="9"
-	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "3" ]; do
+	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "3" ] || [ "$key" != "4" ]; do
 		echo ""
 		echo -e "\\e[0;100m 1) \\e[0m $1"
 		echo -e "\\e[0;100m 2) \\e[0m $2"

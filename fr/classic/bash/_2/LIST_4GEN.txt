@@ -124,3 +124,4 @@ La version longue des options avec valeur est parfois différente avec l'utilisa
 +Essayez d'utiliser la version longue avec ${learn}ls --width=100${reset}
 !ls --width=100£Non
 Vous êtes maintenant prêt pour le questionnaire ! Allez vérifier vos connaissances !
+#rmdir $HOME/.GameScript_bash2
