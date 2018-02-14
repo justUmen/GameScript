@@ -27,37 +27,44 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 [1] "rm"
 [1] "rmdir"
 
-"~"
-".hidden"
-"../"
-"../../"
-"."
-command line argument(s) "ls ../../"
-command line options (dash) "ls -l /" or "ls / -l"
-	options often have long and short names
-		sometimes options have values "ls --sort=size"
-"man" RTFM (you shouldnt ask someone about something that is in the manual)
+[2] "~"
+[2] ".hidden"
+[2] "../"
+[2] "../../"
+[2] "."
+[2] command line argument(s) "ls ../../"
+	command line options (dash) "ls -l /" or "ls / -l"
+		options often have long and short names
+			sometimes options have values "ls --sort=size"
+[2] "man" RTFM (you shouldnt ask someone about something that is in the manual)
 	if you want to do something, check the manual first,
 		if you cant find your answer then you can ask for help
 
+[3] "echo"
+[3] ">"
+[3] ">>"
+[3] "cat"
+[3] "" and ''
 
 "nano"
-
-
-"." (useful to execute)
 "touch"
-"echo"
+
 "mv"
 "cp"
-">"
-">>"
-";"
 how to identify if an element is a directory or a file ?
+";"
 "&&"
 "||"
 "&"
+
+$VAR
 "|"
+$()
+`` - backtick
+
 "chmod" + numbers
+"." (useful to execute)
+
 "chown"
 recursive
 "du"
@@ -66,7 +73,8 @@ MAKE SCRIPTS INSTEAD OF ONE LINE :p
 history + "!2892"
 "-rw-r--r--" and so on ...
 
-">"
+stdout
+stdin
 "<"
 "<<" (EOF ?)
 "1>"
@@ -76,6 +84,8 @@ history + "!2892"
 "1>&2"
 
 "-" argument file ??????????
+
+.txt extensions, MIME
 
 #ADD THE OTHERS HERE (top), SO FULL LIST TO AD TO THE WIKI :p
 #files

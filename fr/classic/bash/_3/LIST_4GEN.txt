@@ -1,0 +1,155 @@
+#[ -d "$HOME/.GameScript_bash3" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash3 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash3 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash3
+#cd $HOME/.GameScript_bash3
+Dans le chapitre 2, nous avons vu que les options peuvent avoir deux formes, l'une courte comme dans ${learn}ls -l${reset}, et l'autre longue comme dans ${learn}ls --all${reset}.
+Si vous avez plusieures options à passer à la même commande, vous pouvez les mettre les unes après les autres : ${learn}ls -a -w 1${reset}.
++Essayez donc avec l'exemple que l'on a déjà vu : ${learn}ls -a -w 1${reset}
+!ls -a -w 1£Non
+Vous pouvez bien évidemment aussi utiliser les versions longues de la même manière.
++Essayez donc la même chose avec : ${learn}ls --all --width=1${reset}
+!ls --all --width=1£Non
+Mais n'oubliez pas les options courtes commencent par ${code}-${reset} et les options longues commencent par ${code}--${reset}.
+Si vous utilisez les versions courtes, vous pouvez également les regrouper avec le même ${code}-${reset}.
+Par exemple pour passez l'option ${code}-a${reset} et l'option ${code}-w 10${reset} à ${code}ls${reset}, vous pouvez tapez ${code}ls -aw 10${reset}
++Essayez donc cette commande : ${learn}ls -aw 10${reset}
+!ls -aw 10£Non
+Attention donc à ne pas oublier qu'il y a deux ${code}-${reset} avant les options longues.
+Les commandes ${learn}ls --all${reset} et ${learn}ls -all${reset} ne sont pas du tout identiques.
+${learn}ls -a${reset} est identique à ${learn}ls --all${reset}.
+Mais ${learn}ls -all${reset} est identique à ${learn}ls -a -l -l${reset}
++Ouvrez maintenant le manuel de ${code}ls${reset} et cherchez l'option pour afficher son numéro de version.
+!man ls£Non
++Affichez le numéro de version de ${code}ls${reset}.
+!ls --version£Non
+Parfait !
+Le script que vous utilisez en ce moment affiche du texte dans votre terminal.
+Ce script étant lui-même en bash, quelle commande est utilisée ici pour affichez ces phrases ?
+Pour afficher quelque chose dans un terminal, il vous faudra utiliser la commande ${code}echo${reset}.
+Il vous renverra simplement un écho de ce que vous lui donnez en argument.
++Affichez donc le mot bonjour dans votre terminal avec la commande : ${learn}echo bonjour${reset}
+!echo bonjour£Non
++La commande ${code}echo${reset} accepte plusieurs arguments, vous pouvez tester : ${learn}echo bonjour tout le monde${reset}
+!echo bonjour tout le monde£Non
+Simple comme bonjour !
+On a déjà vu ensemble que ${code}mkdir${reset} est utilisé pour créer de nouveaux dossiers.
+Mais comment créer de nouveaux fichiers ?
+Figurez-vous que vous pouvez utiliser la commande ${code}echo${reset} !
+Lorsque vous utilisez la commande ${code}echo${reset}, le résultat s'affichera dans votre terminal.
+Mais il est aussi possible de ${voc}rediriger${reset} ce résultat ailleurs, par exemple dans un fichier texte.
+Il vous faudra utiliser le symbole ${code}>${reset}. Il représente une ${voc}redirection${reset} du résultat.
++Créez donc le fichier texte 'test' avec la commande : ${code}echo bonjour>test${reset}
+!echo bonjour>test£Non
+Lorsque vous utilisez ${code}>${reset}, si le fichier n'existe pas il sera créé.
++Affichez donc les éléments de votre répertoire de travail.
+!ls£Non
+Ici vous avez non seulement créé le fichier texte 'test' mais vous lui avez également donné un contenu.
+Ce contenu est le résultat de la commande à gauche du symbole ${code}>${reset}.
+Pour afficher le contenu de ce fichier, il vous faudra utiliser la commande ${code}cat${reset}.
+Encore une fois il suffira de donner en argument à ${code}cat${reset} le nom du fichier en question, comme vous le feriez pour la commande ${code}rm${reset}.
++Affichez donc le contenu du fichier 'test' avec : ${learn}cat test${reset}
+!cat test£Non
+La commande ${code}cat${reset} porte ce nom car elle peut être utilisé pour la con${code}cat${reset}énation. (Mettre bout à bout des chaines de caractère.)
+Pour concaténer, il suffit de mettre les fichiers en argument les uns après les autres.
+Il est aussi possible d'utiliser plusieures fois le même fichier.
++Testez donc la commande : ${learn}cat test test${reset}
+!cat test test£Non
+${learn}cat test test${reset} affiche ici deux fois le contenu du fichier 'test'.
+Encore une fois : lorsque vous utilisez ${code}>${reset}, si le fichier n'existe pas il sera créé.
+Si le fichier existe déjà le contenu sera remplacé.
++Testons donc la commande : ${learn}echo au revoir>test${reset}
+!echo au revoir>test£Non
++Affichez maintenant le fichier 'test'.
+!cat test£Non
+Ici le contenu a été remplacé ! Les mots 'bonjour' n'existent plus.
+Attention donc à ${code}>${reset}, car il peut supprimer le contenu de vos fichiers.
+Si vous voulez ${voc}concaténer${reset} du nouveau contenu dans ce fichier il vous faudra utiliser ${code}>>${reset}.
+Encore une fois si vous utilisez ${code}>>${reset}, si le fichier n'existe pas il sera créé.
+Mais si le fichier existe déjà, le nouveau contenu s'ajoutera à la fin du fichier.
++Testez donc avec : ${learn}echo bonjour>>test${reset}
+!echo bonjour>>test£Non
++Puis affichez le fichier 'test'.
+!cat test£Non
+Ici le mot 'bonjour' a été rajouté à la fin du fichier texte.
+Vous pouvez continuer à utiliser ${code}>>${reset} pour ajouter le contenu les uns à la suite des autres.
+Mais ces redirections (${code}>>${reset} et ${code}>${reset}) ne se limitent pas à ${code}echo${reset}.
+Toutes les commandes peuvent les utiliser.
++Mettez par exemple le résultat de la commande ${learn}ls${reset} à la suite de ce  !
+!ls>>test£Non
++Et affichez le fichier 'test'.
+!cat test£Non
+C'est le ${voc}résultat${reset} de la commande qui sera redirigé. Ici ${learn}ls>>test${reset} donne comme résultat : 'test'.
+Si vous voulez y ajouter du texte, il faudra utiliser ${code}>>${reset} en combinaison avec la commande ${code}echo${reset}.
+Si vous voulez ajouter le mot 'pwd' à la fin du fichier il faudra utiliser : ${learn}echo pwd>>test${reset}
++Ajoutons les trois lettres : 'pwd' à la fin du fichier 'test'.
+!echo pwd>>test£Non
+Donc attention à ne pas confondre ${learn}pwd>>test${reset} avec ${learn}echo pwd>>test${reset}.
++Maintenant ajoutons le ${voc}résultat${reset} de ${code}pwd${reset} à la fin du fichier 'test'.
+!pwd>>test£Non
++Et affichez le fichier 'test'.
+!cat test£Non
+Très Bien ! J'espère que le résultat ne vous surprend pas.
+Maintenant revenons à la commande ${code}echo${reset}.
+Certains caractères spéciaux ne sont pas simple à afficher.
++Essayez d'afficher la lettre 'a' et la lettre 'b', séparé par deux espaces avec : ${learn}echo a  b${reset}
+!echo a  b£Non
+Le résultat n'est pas celui qui était prévu... Il n'y a qu'un seul espace entre a et b.
+Ici, ${code}echo${reset} considère qu'il y a deux arguments, le premier argument 'a' et le deuxième argument 'b'.
+Il affiche donc les deux arguments séparé par un espace.
+Il est donc parfois utile de limiter le nombre d'argument à un !
+Mais comment afficher cet espace pour que la suite ne soit pas considéré comme un nouvel argument ?
+Il faudra utiliser ce que l'on appele en informatique un ${voc}caractère d'échappement${reset}.
+Sur bash, il s'agit du caractère ${code} \\ ${reset}.
+Le caractère d'échappement affectera uniquement le prochain caractère.
+Dans notre cas pour représenter un espace nous pouvons utiliser ${code}\\\\ ${reset}.
++Essayez donc avec ce caractère d'échappement : ${learn}echo a \\\\ b${reset}
+!echo a \\ b£Non
+Cependant dans cet exemple il y a toujours deux arguments, le premier est 'a' et le deuxième est '\\\\ b'.
+Pour avoir un seul et unique argument il faut supprimer cet espace après le 'a'.
++Essayez donc avec un seul argument : ${learn}echo a\\\\ b${reset}
+!echo a\\ b£Non
++Maintenant rajoutez un deuxième espace.
+!echo a\\ \\ b£Non
+Ce caractère d'échappement est très utile pour afficher des caractères que vous ne pouvez pas afficher autrement.
+Comme par exemple le symbole ${learn}>${reset}, qui comme vous le savez est aussi interprété par bash comme un caractère spécial.
++Testez donc cette commande : ${learn}echo x\\\\>y${reset}
+!echo x\\>y£Non
+Ici, vous comprenez bien ${voc}l'énorme${reset} différence qu'il y a entre ${learn}echo x\\>y${reset} et ${learn}echo x>y${reset}.
+${learn}echo x>y${reset} va créer un nouveau fichier 'y' avec comme contenu 'x' !
+${learn}echo x\\\\>y${reset} affiche simplement du texte dans le terminal.
+Pour affichez le symbole ${code} \\ ${reset} avec echo, il suffit de rajouter avant votre caractère d'échappement.
++Essayez par exemple d'afficher : ${code}\\\\quitter${reset}.
+!echo \\\\\\\\quitter£Non
+Dans ${code} \\\\\\\\\\\\quitter ${reset}, le premier ${code} \\ ${reset} est le caractère d'échappement, mais le deuxième est simplement le caractère qui doit être interprété littéralement par le terminal.
+Pour ne pas avoir à utiliser ce ${code} \\ ${reset} à chaque espace, vous pouvez également utiliser les ${code}\\"${reset}.
+Deux ${code}\\"${reset} peuvent agir en temps que ${code}délimiteur${reset} d'arguments.
+C'est à dire que ${learn}echo x\\>y${reset} peut être remplacé par ${learn}echo \\"x>y\\"${reset}.
+Le contenu entre le premier ${code}\\"${reset} et le deuxième ${code}\\"${reset} sera considéré comme un seul argument pour la commande ${code}echo${reset}.
+Faisant partie de l'argument, les espaces seront donc traités et affichés en temps que tel.
++Essayez donc de faire : ${learn}echo \\"X   X\\"${reset}
+!echo \\"X   X\\"£Non
+Ici les espaces s'affichent correctement.
++Vous pouvez aussi remplacer les ${code}\\"${reset} par des ${code}'${reset} : ${learn}echo 'X   X'${reset}
+!echo 'X   X'£Non
+Si vous avez de nombreux ${code}'${reset} à afficher, utilisez ${code}\\"${reset} comme délimiteur, et vice versa.
+Par exemple, ${learn}echo '\\"Pierre\\" et \\"Marie\\"'${reset} est une commande plus lisible que ${learn}echo \\"\\\\\\\"Pierre\\\\\\\" et \\\\\\\"Marie\\\\\\\"\\"${reset}.
+Le ${voc}caractère d'échappement${reset} ${code} \\ ${reset} peut aussi être utilisé pour afficher d'autres caractères spéciaux, comme des mises à la ligne ou des tabulations.
++Regardez rapidement cette liste dans le manuel de la commmande ${code}echo${reset}.
+!man echo£Non
+Si vous avez bien lu le manuel vous avez compris que cela ne fonctionnera que si l'option ${code}-e${reset} est présente.
+Sur bash, la lettre 'n' est utilisée avec ${code} \\ ${reset} pour représenter une mise à la ligne, 'n' comme ${code}n${reset}ouvelle ligne.
++Affichez donc la lettre 'a', puis la lettre 'b' sur une nouvelle ligne en utilisant ${code}'${reset} comme délimiteur.
+!echo -e 'a\\nb'£Non
++Trouvez la syntaxe d'une ${voc}tabulation${reset} horizontale dans le manuel de la commande echo.
+!man echo£Non
++En utilisant ${code}'${reset}, affichez la lettre 'a', suivi d'une tabulation, puis de la lettre 'b'.
+!echo -e 'a\\tb'£Non
++Maintenant au lieu d'afficher le résultat dans le terminal, mettez le dans un fichier avec le nom 'tab'.
+!echo -e 'a\\tb'>tab£Non
++Affichez le contenu du fichier 'tab'.
+!cat tab£Non
++Affichez maintenant le fichier 'test' puis le fichier 'tab' à la suite.
+!cat test tab£Non
++Supprimez maintenant 'tab' et 'test' en une seule commande.
+!rm tab test£Non
+Excellent ! Vous êtes prêt pour le questionnaire.
+#rmdir $HOME/.GameScript_bash3

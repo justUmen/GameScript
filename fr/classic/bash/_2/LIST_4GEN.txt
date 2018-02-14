@@ -26,7 +26,7 @@ Vous l'avez compris, ${code}.${reset} est l'abréviation du répertoire courant 
 +Affichez donc le chemin du répertoire courant.
 !pwd£Non
 Attention à ce symbole ${code}.${reset}, dans une autre situation il peut avoir une autre signification.
-Ici ce ${code}.${reset} dans ${learn}$HOME/.GameScript_bash2${reset} fait simplement partie du nom du dossier.
+Ici ce ${code}.${reset} dans ${code}$HOME/.GameScript_bash2${reset} fait simplement partie du nom du dossier.
 Le nom du dossier est ${code}.GameScript_bash2${reset}.
 Mais sur Linux si un nom de fichier ou dossier commence par un ${code}.${reset}, il sera ${voc}caché${reset}.
 En faisant ${learn}pwd${reset}, vous avez bien vu que le terminal est dans le dossier ${code}${HOME}/.GameScript_bash2${reset}.

@@ -46,7 +46,7 @@ function answer_quiz(){
 function answer_text_fr(){
 	echo "> $1"
 	echo -en "\\e[1;31;42m # \\e[0m"
-	read USER_CODE < /dev/tty
+	read -r USER_CODE < /dev/tty
 	if [ ! "$USER_CODE" == "$2" ]; then
 		talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de relancer ce script et de suivre le cours.\\e[0m"
 		exit
@@ -56,27 +56,29 @@ function answer_text_fr(){
 }
 function answer_run(){
 	echo -en "\\e[1;31;42m # \\e[0m"
-	read USER_CODE < /dev/tty
+	read -r USER_CODE < /dev/tty
 	while [ ! "$USER_CODE" == "$1" ]; do
 		#$3 is the correct answer
 		#~ talk_not_press_key "$2" "$3 \\e[4;37m$1\\e[0m"
 		talk_not_press_key "$2" "\\e[4;37m$1\\e[0m"
 		echo -en "\\e[1;31;42m # \\e[0m"
-		read USER_CODE < /dev/tty
+		read -r USER_CODE < /dev/tty
 	done
 	if [ ! "$1" == "" ];then
 		echo -e "\e[1m"
 		printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 		#??? remplacer ~ par $HOME ???
-		if [ "$1" == "rmdir ~/.GameScript_bash2" ];then
-			rmdir ${HOME}/.GameScript_bash2
-		else
-			if [ "$1" == "cd ~" ];then
-				cd ${HOME}
-			else
-				$1
-			fi
-		fi
+		#~ if [ "$1" == "rmdir ~/.GameScript_bash2" ];then
+			#~ rmdir ${HOME}/.GameScript_bash2
+		#~ else
+			#~ if [ "$1" == "cd ~" ];then
+				#~ cd ${HOME}
+			#~ else
+				#$1
+			#~ fi
+		#~ fi
+		#SIMPLE REPLACE BY EVAL (test bash 2 ???)
+		eval "$1"
 		printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 		echo -e "\\e[0m"
 	fi
