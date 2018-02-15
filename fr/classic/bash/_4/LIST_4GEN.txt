@@ -1,0 +1,69 @@
+#[ -d "$HOME/.GameScript_bash4" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash4 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash4 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash4
+#cd $HOME/.GameScript_bash4
+Dans le chapitre précédent, nous avons vu comment créer et modifier les fichiers textes.
+Ici nous allons continuer sur d'autres controles sur ces fichiers.
++Commencez par créer un nouveau fichier 'test' avec comme contenu le mot 'bonjour'.
+!echo bonjour>test£Non
++Créez un nouveau dossier nommé 'DIR'.
+!mkdir DIR£Non
++Affichez les éléments du répertoire courant.
+!ls£Non
+Pour déplacer un fichier il faudra utiliser la commande ${code}mv${reset}.
+'m' et 'v' sont les consonnes de 'move', le mot anglais pour 'déplacer'.
++Déplacez donc ce fichier 'test' dans le dossier DIR avec la commande : ${learn}mv test DIR${reset}
+!mv test DIR£Non
++Affichez les éléments du dossier 'DIR'.
+!ls DIR£Non
++Déplacer le terminal dans le dossier 'DIR'.
+!cd DIR£Non
++Affichez le chemin absolu du répertoire courant.
+!pwd£Non
++Affichez les éléments du répertoire courant.
+!ls£Non
+Ici le fichier 'test' a bien été déplacé dans le répertoire 'DIR' avec la commande : ${learn}mv test DIR${reset}
+Dans cet exemple, notre premier argument est un fichier ('test') et le second est un dossier. ('DIR')
+Comme le deuxième argument est un dossier, la commande aurait pu être : ${learn}mv test DIR/${reset}
+Cette version est nettement plus lisible que la première.
+Parce que ${code}mv${reset} peut avoir indifféremment en arguments des fichiers ou des dossiers.
+Mais si le premier argument est un fichier et que le deuxième est aussi un fichier, qu'est ce que cela veut dire ?
+Dans ce contexte le fichier sera déplacé dans un autre fichier avec un nom différent.
+Ou pour plus de clarté on peut dire qu'il sera simplement ${voc}renommé${reset}.
+Dans votre répertoire courant vous avez toujours ce fichier 'test'.
++Utilisez cette commande pour renommer 'test' en 'test2' : ${learn}mv test test2${reset}
+!mv test test2£Non
++Affichez les éléments du répertoire courant.
+!ls£Non
++Affichez le contenu du fichier 'test2'.
+!cat test2£Non
+Le contenu est bien toujours le même, seul le nom du fichier à changé.
++Maintenant créez un nouveau dossier nommé : 'DOS'.
+!mkdir DOS£Non
+Je le répète, ${code}mv${reset} peut avoir indifféremment en arguments des fichiers ou des dossiers.
+C'est à dire que si les deux arguments sont des dossiers, ${code}mv${reset} va encore une fois simplement renommer.
++Maintenant créez un nouveau dossier nommé : 'DOS'.
+!mkdir DOS£Non
++Renommer ce dossier 'DOS' en 'DOS2'.
+!mv DOS DOS2£Non
++Et affichez les éléments du répertoire courant.
+!ls£Non
+Attention donc à la commande ${code}mv${reset} qui peut avoir deux rôles différents, déplacer et renommer.
+${code}mv${reset} peut également faire les deux en une seule commande.
+
++Déplacez 'test2' dans 'DOS2' et renommez le 'test3' avec : ${learn}mv test2 DOS2/test${reset}
+!£Non
+
+#rmdir $HOME/.GameScript_bash4
+
+
+"mv"
+"cp"
+";"
+"&&"
+"||"
+"nano"
+
+è
+é
+à
+

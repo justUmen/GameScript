@@ -41,20 +41,20 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 		if you cant find your answer then you can ask for help
 
 [3] "echo"
+[3] "\"
 [3] ">"
 [3] ">>"
 [3] "cat"
 [3] "" and ''
 
-"nano"
-"touch"
-
+[4]
 "mv"
 "cp"
-how to identify if an element is a directory or a file ?
 ";"
 "&&"
 "||"
+"nano"
+
 "&"
 
 $VAR
@@ -64,14 +64,16 @@ $()
 
 "chmod" + numbers
 "." (useful to execute)
-
+how to identify if an element is a directory or a file ?
 "chown"
+
 recursive
 "du"
 MAKE SCRIPTS INSTEAD OF ONE LINE :p
 "!!"
 history + "!2892"
 "-rw-r--r--" and so on ...
+"touch"
 
 stdout
 stdin
@@ -82,6 +84,7 @@ stdin
 "/dev/null"
 "2>&1"
 "1>&2"
+{1..100}
 
 "-" argument file ??????????
 

@@ -27,6 +27,13 @@ function talk_not_press_key(){
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 	restore=$(expr $restore + 1)
 }
+function talk_not_press_key_ASNWER(){
+	echo -en "($restore)\e[0;32m $1\e[0m - "
+	echo -ne "\\e[4;37m"
+	echo -nE "$2"
+	echo -e "\\e[0m"
+	restore=$(expr $restore + 1)
+}
 function answer_quiz(){
 	key="9"
 	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "3" ]; do
@@ -60,7 +67,8 @@ function answer_run(){
 	while [ ! "$USER_CODE" == "$1" ]; do
 		#$3 is the correct answer
 		#~ talk_not_press_key "$2" "$3 \\e[4;37m$1\\e[0m"
-		talk_not_press_key "$2" "\\e[4;37m$1\\e[0m"
+		#~ talk_not_press_key "$2" "\\e[4;37m$1\\e[0m"
+		talk_not_press_key_ASNWER "$2" "$1"
 		echo -en "\\e[1;31;42m # \\e[0m"
 		read -r USER_CODE < /dev/tty
 	done

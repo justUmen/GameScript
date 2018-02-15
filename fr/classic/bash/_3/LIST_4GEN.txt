@@ -107,7 +107,7 @@ Cependant dans cet exemple il y a toujours deux arguments, le premier est 'a' et
 Pour avoir un seul et unique argument il faut supprimer cet espace après le 'a'.
 +Essayez donc avec un seul argument : ${learn}echo a\\\\ b${reset}
 !echo a\\ b£Non
-+Maintenant rajoutez un deuxième espace.
++Maintenant, essayez d'afficher un deuxième espace entre a et b.
 !echo a\\ \\ b£Non
 Ce caractère d'échappement est très utile pour afficher des caractères que vous ne pouvez pas afficher autrement.
 Comme par exemple le symbole ${learn}>${reset}, qui comme vous le savez est aussi interprété par bash comme un caractère spécial.

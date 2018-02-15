@@ -4,15 +4,15 @@
 
 Add arguments after `bash -s -- ` in curl/wget, here adding `-l fr bash` will launch gamescript for bash in french :
 
-    wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
+    wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
 
 Example : print Help in french :
 
-    wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr --help
+    wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr --help
 
 Or you can download `gamescript.sh` and execute it, or even create an alias in `.bashrc` for example :
 
-    alias gamescript="wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr"
+    alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr"
 
 This alias will launch gamescript always in french because of the `-l fr`.
 With an alias you just have to launch it with for example :
