@@ -49,9 +49,27 @@ C'est à dire que si les deux arguments sont des dossiers, ${code}mv${reset} va 
 !ls£Non
 Attention donc à la commande ${code}mv${reset} qui peut avoir deux rôles différents, déplacer et renommer.
 ${code}mv${reset} peut également faire les deux en une seule commande.
++Déplacez 'test2' dans 'DOS2' et renommez le 'test' avec : ${learn}mv test2 DOS2/test${reset}
+!mv test2 DOS2/test£Non
++Affichez les éléments du répertoire DOS2.
+!ls DOS2£Non
+Le fichier 'test2' a bien été déplacé dans DOS2 et renommé en 'test3'.
++Affichez le contenu de ce fichier 'test3'.
+!cat DOS2/test3£Non
+Le contenu est toujours identique.
+Si vous ajoutez le texte 'tout le monde', le texte sera ajouté sur une nouvelle ligne.
+Parce que lorsque vous utilisez ${code}echo${reset}, il ajoutera par défaut une mise à la ligne à la fin.
+Si vous ne voulez pas cette mise à la ligne il faudra utiliser l'option ${learn}-n${reset}.
++Remplacez donc le contenu du fichier 'test3' par 'bonjour', mais sans ce '\\n' automatique à la fin.
+!echo -n bonjour>DOS2/test3£Non
++Maintenant ajoutez le texte ' tout le monde', en utisant ${learn}\\"${reset} avec bien évidemment un espace avant 'tout'.
+!echo " tout le monde">>DOS2/test3£Non
++Enfin, affichez le contenu de 'test3'.
+!cat DOS2/test3£Non
+Et voilà, bonjour tout le monde !
 
-+Déplacez 'test2' dans 'DOS2' et renommez le 'test3' avec : ${learn}mv test2 DOS2/test${reset}
-!£Non
+!cat DOS2/test3£Non
+
 
 #rmdir $HOME/.GameScript_bash4
 

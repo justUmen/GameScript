@@ -8,7 +8,7 @@ function quiz(){
   answer_text_fr "Comment remplacer le contenu du fichier 'test' par 'exemple' ?" "echo exemple>test"
   answer_text_fr "Comment afficher le contenu du fichier 'test' ?" "cat test"
   answer_text_fr "Sur bash, quel est le caractère d'échappement ?" "\\"
-  answer_text_fr "Comment afficher dans le terminal 'a>b' ?" "echo a\>b"
+  answer_text_fr "Comment afficher dans le terminal : a>b ?" "echo a\>b"
   answer_text_fr "Quel est la lettre à utiliser après le caractère d'échappement pour représenter une mise à la ligne ?" "n"
   answer_text_fr "Affichez, sans utiliser le caractère d'échappement, la phrase : j'ai bon" "echo \"j'ai bon\""
   answer_text_fr "Affichez trois guillemets (\"), sans utiliser le caractère d'échappement." "echo '\"\"\"'"
