@@ -153,3 +153,6 @@ Sur bash, la lettre 'n' est utilisée avec ${code} \\ ${reset} pour représenter
 !rm tab test£Non
 Excellent ! Vous êtes prêt pour le questionnaire.
 #rmdir $HOME/.GameScript_bash3
+
+
+echo 'alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --"'>>~/.bashrc

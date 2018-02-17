@@ -1,26 +1,16 @@
 # Gamescript.sh
 
-## Usage
+## Installation :
 
-Add arguments after `bash -s -- ` in curl/wget, here adding `-l fr bash` will launch gamescript for bash in french :
+Add `gamescript` alias to your ~.bashrc file with :
 
-    wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
+    echo 'alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --"'>>~/.bashrc
 
-Example : print Help in french :
+## Usage :
 
-    wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr --help
-
-Or you can download `gamescript.sh` and execute it, or even create an alias in `.bashrc` for example :
-
-    alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr"
-
-This alias will launch gamescript always in french because of the `-l fr`.
-With an alias you just have to launch it with for example :
-
+    gamescript
+    gamescript -l fr
     gamescript -l fr bash
-    gamescript --help
-    gamescript -l fr --help
-
 
 ## What is it ?
 
@@ -47,4 +37,22 @@ It is a bash script to learn about :
 
 * gen all in one file, dirty but simple
 
+##Advanced Usage
+
+Add arguments after `bash -s -- ` in curl/wget, here adding `-l fr bash` will launch gamescript for bash in french :
+
+    wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
+
+Example : print Help in french :
+
+    wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr --help
+
+Or you can download `gamescript.sh` and execute it, or even create an alias in `.bashrc` for example :
+
+    alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr"
+
+This alias will launch gamescript always in french because of the `-l fr`.
+
+
 Support me and my projects on https://www.patreon.com/justumen :-)
+

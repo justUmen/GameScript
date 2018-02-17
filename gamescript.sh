@@ -72,14 +72,8 @@ Vous pouvez alors simplement lancer \"gamescript\", ou avec des argument comme \
 
 function gamescript_available_arguments(){
   case $1 in
-    fr) echo <<END
-===> Juste bash de disponible pour le moment
-END
-;;
-    en) echo <<END
-===> Nothing in english yet :(
-END
-;;
+    fr) echo -e "===> Arguments disponibles : \n\tbash" ;;
+    en) echo -e "===> Nothing in english yet :(" ;;
   esac
   exit
 }
@@ -109,8 +103,19 @@ function launch_gamescript(){
   #~ curl https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$1/$2/$3/standalone_1.sh | /bin/bash
 }
 
-LANGUAGE="en"
-if [ $# -eq 0 ]; then gamescript_help $LANGUAGE; fi
+LANGUAGE="xx"
+#IF no arguments
+if [ $# -eq 0 ]; then
+	#~ gamescript_help $LANGUAGE
+	echo "GameScript in english  : gamescript -l en"
+	echo "GameScript en français : gamescript -l fr"
+	exit
+fi
+
+#Pkoi c'est la ???
+#~ gamescript_available_arguments 
+
+
 
 POSITIONAL=()
 HELP=0
@@ -143,15 +148,16 @@ if [[ -n $1 ]]; then
     fr)
       case ${POSITIONAL[-1]} in
         bash) launch_gamescript $LANGUAGE classic bash ;;
-        *) gamescript_available_arguments $LANGUAGE
+        *) echo "Mauvais argument..."; gamescript_available_arguments $LANGUAGE
       esac
     ;;
     en)
       case ${POSITIONAL[-1]} in
-        *) gamescript_available_arguments $LANGUAGE
+        *) Echo "Wrong argument..."; gamescript_available_arguments $LANGUAGE
       esac
     ;;
   esac
 else
-  gamescript_help $LANGUAGE
+  gamescript_available_arguments $LANGUAGE
+  #~ gamescript_help $LANGUAGE
 fi

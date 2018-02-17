@@ -67,9 +67,8 @@ Si vous ne voulez pas cette mise à la ligne il faudra utiliser l'option ${learn
 +Enfin, affichez le contenu de 'test3'.
 !cat DOS2/test3£Non
 Et voilà, bonjour tout le monde !
-
-!cat DOS2/test3£Non
-
+Quand une commande ne fait pas exactement ce que voulez qu'elle fasse, visitez son manuel !
+Il est très probable qu'une simple option soit la réponse à votre problème.
 
 #rmdir $HOME/.GameScript_bash4
 
