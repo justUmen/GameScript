@@ -65,7 +65,7 @@ C'est ce que vous avez fait avec la commande ${learn}cd House${reset}, vous avez
 !pwd£Non
 Le résultat que vous voyiez ici est le ${voc}chemin absolu${reset} du répertoire ou vous êtes en ce moment.
 Ce répertoire où vous êtes porte un nom spécial : le ${voc}${voc}répertoire courant${reset} ${reset}.
-Comme je vous l'ai déjà dit, il n'est pas obligatoire de mettre un / pour le dernier dossier c'est pourquoi vous voyez ici ${learn}$(pwd)${reset} et£Non pas ${learn}$(pwd)/${reset}.
+Comme je vous l'ai déjà dit, il n'est pas obligatoire de mettre un / pour le dernier dossier c'est pourquoi vous voyez ici ${learn}$(pwd)${reset} et non pas ${learn}$(pwd)/${reset}.
 Voilà donc 4 commandes linux fondamentales : ${learn}pwd${reset}, ${learn}ls${reset}, ${learn}cd${reset} et ${learn}mkdir${reset}.
 ${learn}pwd${reset} et ${learn}ls${reset} sont des commandes particulièrement innoffensives, elle ne font que vous donnez des renseignements.
 N'hésitez donc pas à les taper systématiquement, dès que vous êtes dans un terminal.

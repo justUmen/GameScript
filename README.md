@@ -2,11 +2,9 @@
 
 ## Simple installation :
 
-Add `gamescript` alias to your ~.bashrc file with copy/paste this command :
+Add `gamescript` alias to your .bashrc file with copy/paste this command :
 
-    echo 'alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --"'>>~/.bashrc
-
-After this change, you need to open a NEW terminal, for it to use the new content of `.bashrc`.
+    echo 'alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --"'>>~/.bashrc; source ~/.bashrc
 
 ## Simple usage :
 
