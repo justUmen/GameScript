@@ -10,6 +10,7 @@ Add `gamescript` alias to your .bashrc file with copy/paste this command :
 
     gamescript
     gamescript -l fr
+    gamescript --language fr
     gamescript -l fr bash
 
 ## What is it ?
@@ -24,7 +25,7 @@ It is a bash script to learn about :
 * i3wm
 * + more
 
-##Types :
+## Types :
 
 * "classic" = normal teaching, audio version + text
 * "story" = learning with stories (several versions possible)
@@ -37,7 +38,7 @@ It is a bash script to learn about :
 
 * gen all in one file, dirty but simple
 
-##Advanced Usage
+## Advanced Usage
 
 Add arguments after `bash -s -- ` in curl/wget, here adding `-l fr bash` will launch gamescript for bash in french :
 
