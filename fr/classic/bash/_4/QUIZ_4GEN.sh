@@ -6,12 +6,19 @@ function quiz(){
   answer_text_fr "Quelle est la commande pour déplacer des fichiers ou dossiers ?" "mv"
   answer_text_fr "Quelle est la commande pour renommer des fichiers ou dossiers ?" "mv"
   answer_text_fr "Comment renommer un fichier nommé 'oui' en 'non' et le déplacer dans son répertoire parent ?" "mv oui ../non"
+  answer_text_fr "Comment copier dans votre répertoire courant un fichier dont le chemin absolu est '/root/file' ?" "cp /root/file ."
+  answer_text_fr "Comment copier un fichier caché '.file' situé dans votre répertoire parent et le renommer en un fichier non caché 'file' dans le dossier '/root' ?" "cp ../.file /root/file "
   answer_text_fr "" ""
   unlock
 }
 
 function unlock(){
-  talk_not_press_key justumen "Pour débloquer \"bash 3\" dans le chat, allez sur https://rocket.bjornulf.org/direct/boti et tapez : password 2421a9d18fbb" #Super secure password ! Please don't cheat for your own good. :-)
+  #~ talk_not_press_key justumen "Pour débloquer \"bash 3\" dans le chat, allez sur https://rocket.bjornulf.org/direct/boti et tapez : password 2421a9d18fbb" #Super secure password ! Please don't cheat for your own good. :-)
+  talk_not_press_key justumen "Pour débloquer \"bash 1\" dans le chat, veuillez saisir votre pseudo :"
+  echo -n " > "
+  read -r PSEUDO
+  PASS=`encode $PSEUDO "2421" "8fbb"`
+  talk_not_press_key justumen "Allez sur https://rocket.bjornulf.org/direct/boti et tapez : password$PASS"
 }
 
 function enter(){

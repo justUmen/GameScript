@@ -12,6 +12,7 @@ Add `gamescript` alias to your .bashrc file with copy/paste this command :
     gamescript -l fr
     gamescript --language fr
     gamescript -l fr bash
+    gamecriptt -l fr --help
 
 ## What is it ?
 

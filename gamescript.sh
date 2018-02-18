@@ -1,4 +1,13 @@
 #!/bin/bash
+#Dependancies
+if ((BASH_VERSINFO[0] < 4)); then
+	bash --version
+	echo "Bash is too old, please update it."
+	exit 1
+fi
+command -v base64 >/dev/null 2>&1 || { echo "The command base64 is needed to continue." >&2; exit 2; }
+
+
 function answer_quizCOPY_bash(){
 	key="9"
 	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "3" ] || [ "$key" != "4" ]; do

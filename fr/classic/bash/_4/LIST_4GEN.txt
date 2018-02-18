@@ -69,6 +69,33 @@ Si vous ne voulez pas cette mise à la ligne il faudra utiliser l'option ${learn
 Et voilà, bonjour tout le monde !
 Quand une commande ne fait pas exactement ce que voulez qu'elle fasse, visitez son manuel !
 Il est très probable qu'une simple option soit la réponse à votre problème.
+${code}mv${reset} utilise deux arguments, le premier est ${voc}<SOURCE>${reset} et le deuxième est ${voc}<DESTINATION>${reset}.
+Et la syntaxe comme on l'a déjà vu est donc : ${code}mv <SOURCE> <DESTINATION>${reset}
+${voc}<SOURCE>${reset} et ${voc}<DESTINATION>${reset} sont à remplacer par les fichiers ou les dossiers voulus.
+Lorsqu'une commande a besoin de deux arguments, la plupart du temps cette logique s'applique.
+Pour ${voc}copier${reset} ou ${voc}dupliquer${reset} un fichier sur linux il faudra utiliser la commande ${code}cp${reset}.
+Son comportement est sensiblement identique à ${code}mv${reset}, sauf que le fichier ${voc}<SOURCE>${reset} ne sera pas supprimée.
++Affichez les éléments du répertoire courant.
+!ls£Non
++Copiez donc le fichier 'test3' dans votre répertoire courant.
+!cp DOS2/test3 .£Non
+Et ici nous avons notre première utilisation pratique du ${code}.${reset} qui je vous le rappelle représente le répertoire courant.
++Listez à nouveau les éléments du répertoire courant.
+!ls£Non
+Encore une fois ${code}.${reset} étant un dossier, vous pouvez également utiliser ${code}./${reset} à la place.
++Maintenant testez cette commande : ${learn}cp DOS2/test3 .new${reset}
+!cp DOS2/test3 .new£Non
++Puis listez les éléments du répertoire courant.
+!ls£Non
+Ce résultat ne devrait pas vous choquer.
+Encore une fois, ${code}.new${reset} et  ${code}./new${reset} représentent deux choses différentes.
+${code}.new${reset} est bien évidemment un fichier caché.
++Listez les fichiers cachés du répertoire courant.
+!ls -a£Non
+Si vous vouliez copier le fichier 'test3' et renommer cette copie en 'new' dans le répertoire courant, la commande sera : ${learn}cp DOS2/test3 ./new${reset}.
+Ici la commande ${learn}cp DOS2/test3 .new${reset} est identique à ${learn}cp DOS2/test3 ./.new${reset}.
+
+
 
 #rmdir $HOME/.GameScript_bash4
 

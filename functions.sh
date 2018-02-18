@@ -1,5 +1,8 @@
 #SOME ADDED AND CHANGE IN CLI learn_cli.sh in CLASSIC
 
+function encode(){
+	echo -n "$2$1$3" | base64
+}
 
 function press_key(){
 	echo -en "\e[0;33m...\e[0m"
