@@ -54,11 +54,8 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 [4] "||"
 
 "nano"
-
 "&"
-
 $VAR
-"|"
 $()
 `` - backtick
 
@@ -77,13 +74,15 @@ history + "!2892"
 
 stdout
 stdin
+"|"
 "<"
 "<<" (EOF ?)
 "1>"
 "2>"
-"/dev/null"
 "2>&1"
 "1>&2"
+
+"/dev/null"
 {1..100}
 
 "-" argument file ??????????

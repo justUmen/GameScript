@@ -57,7 +57,7 @@ Le contenu est toujours identique.
 Si vous ajoutez le texte 'tout le monde' à la suite de ce fichier, le texte sera ajouté sur une nouvelle ligne.
 Parce que lorsque vous utilisez ${code}echo${reset}, il ajoutera par défaut une mise à la ligne à la fin.
 Si vous ne voulez pas de cette mise à la ligne, il faudra utiliser l'option ${learn}-n${reset} de la commande ${code}echo${reset}.
-+Remplacez donc le contenu du fichier 'test3' par 'bonjour', mais sans cet retour à la ligne automatique à la fin.
++Remplacez donc le contenu du fichier 'test3' par 'bonjour', mais sans ce retour à la ligne automatique à la fin.
 !echo -n bonjour>DOS2/test3£Non
 +Maintenant ajoutez le texte ' tout le monde' à ce fichier 'test3', en utisant ${learn}\\"${reset}.
 !echo \\" tout le monde\\">>DOS2/test3£Non
