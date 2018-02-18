@@ -10,7 +10,7 @@ command -v base64 >/dev/null 2>&1 || { echo "The command base64 is needed to con
 
 function answer_quizCOPY_bash(){
 	key="9"
-	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "3" ] || [ "$key" != "4" ] || [ "$key" != "5" ]; do
+	while [ "$key" -ge 6 ]; do
 		echo ""
 		echo -e "\\e[0;100m 1) \\e[0m $1"
 		echo -e "\\e[0;100m 2) \\e[0m $2"
@@ -18,7 +18,7 @@ function answer_quizCOPY_bash(){
 		echo -e "\\e[0;100m 4) \\e[0m $4"
 		echo -e "\\e[0;100m 5) \\e[0m $5"
 		echo -en "\\e[1;31;42m # \\e[0m"
-		read -n1 key < /dev/tty		
+		read -n1 key < /dev/tty
 	done
 	echo -en "\n\e[0;33m...\e[0m" 
 	enter_bash `expr $key + 3`
