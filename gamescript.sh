@@ -13,17 +13,17 @@ function answer_quizCOPY_bash(){
 	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "3" ] || [ "$key" != "4" ] || [ "$key" != "5" ]; do
 		echo ""
 		echo -e "\\e[0;100m 1) \\e[0m $1"
-		echo -e "\\e[0;100m 2) \\e[0m $2"
-		echo -e "\\e[0;100m 3) \\e[0m $3"
-		echo -e "\\e[0;100m 4) \\e[0m $4"
-		echo -e "\\e[0;100m 5) \\e[0m $5"
+		echo -e "\\e[0;100m 2) \\e[0m $3"
+		echo -e "\\e[0;100m 3) \\e[0m $5"
+		echo -e "\\e[0;100m 4) \\e[0m $7"
+		echo -e "\\e[0;100m 5) \\e[0m $9"
 		echo -en "\\e[1;31;42m # \\e[0m"
 		read -n1 key < /dev/tty
 		case $key in
-			1) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$6" ;;
-			2) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$7" ;;
-			3) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$8" ;;
-			4) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$9" ;;
+			1) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$2" ;;
+			2) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$4" ;;
+			3) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$6" ;;
+			4) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$8" ;;
 			5) echo -en "\n\e[0;33m...\e[0m" ;enter_bash "$10" ;;
 		esac
 	done
@@ -94,7 +94,7 @@ function enter_bash(){
 case $1 in
 	1) echo -e "\e[0;33m...\e[0m" ;&
 	2) echo -en " - Bash Bourne Again SHell :" ;&
-	3) answer_quizCOPY_bash "Bash : chapitre 1" "Bash : chapitre 2" "Bash : chapitre 3" "Bash : chapitre 4" "Quitter" "4" "5" "6" "7" "8" ;;
+	3) answer_quizCOPY_bash "Bash : chapitre 1" "4" "Bash : chapitre 2" "5" "Bash : chapitre 3" "6" "Bash : chapitre 4" "7" "Quitter" "8" ;;
 	4) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_1.sh | bash; exit ;;
 	5) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_2.sh | bash; exit ;;
 	6) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_3.sh | bash; exit ;;
