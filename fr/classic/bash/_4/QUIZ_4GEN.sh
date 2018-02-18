@@ -16,7 +16,7 @@ function unlock(){
   #~ talk_not_press_key justumen "Pour débloquer \"bash 3\" dans le chat, allez sur https://rocket.bjornulf.org/direct/boti et tapez : password 2421a9d18fbb" #Super secure password ! Please don't cheat for your own good. :-)
   talk_not_press_key justumen "Pour débloquer \"bash 1\" dans le chat, veuillez saisir votre pseudo :"
   echo -n " > "
-  read -r PSEUDO
+  echo -en "\\e[1;31;42m # \\e[0m"
   PASS=`encode $PSEUDO "2421" "8fbb"`
   talk_not_press_key justumen "Allez sur https://rocket.bjornulf.org/direct/boti et tapez : password$PASS"
 }
