@@ -18,7 +18,7 @@ function unlock(){
   PSEUDO=""
   while [[ $PSEUDO = "" ]]; do
     echo -en "\\e[1;31;42m # \\e[0m"
-    read -r PSEUDO
+    read -r PSEUDO < /dev/tty
   done
   PASS=`encode $PSEUDO "2421" "8fbb"`
   talk_not_press_key justumen "Allez sur https://rocket.bjornulf.org/direct/boti et tapez : password$PASS"
