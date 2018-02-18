@@ -50,7 +50,7 @@ ${code}mv${reset} peut également faire les deux en une seule commande.
 !mv test2 DOS2/test3£Non
 +Affichez les éléments du répertoire DOS2.
 !ls DOS2£Non
-Le fichier 'test2' a bien été déplacé dans DOS2 et renommé en 'test'.
+Le fichier 'test2' a bien été déplacé dans DOS2 et renommé en 'test3'.
 +Affichez le contenu de ce fichier 'test3'.
 !cat DOS2/test3£Non
 Le contenu est toujours identique.
