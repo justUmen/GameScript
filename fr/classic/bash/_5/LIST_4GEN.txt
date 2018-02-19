@@ -1,0 +1,91 @@
+#[ -d "$HOME/.GameScript_bash5" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash5 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash5 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash5
+#cd $HOME/.GameScript_bash5
+#mkdir Dossier;touch Dossier/fichier;chmod 444 Dossier
+#echo "a">f1;chmod 000 f1;echo "ab">f2;chmod 444 f2;echo "abc">f3;chmod 600 f3;echo "abcd">f4;chmod 777 f4
+Dans ce chapitre nous revenons sur la commande ${code}ls${reset}, l'une des commandes les plus importantes.
+Et ici nous allons parler de son option la plus importante : ${code}-l${reset}
++Vous pouvez taper : ${learn}ls -l${reset}
+!ls -l£Non
+Avec cette option, ${code}ls${reset} nous donne plus d'informations sur les éléments du répertoire courant.
+Vous avez au début une chaine de caractères étrange composé de ${code}-${reset} et de lettres à gauche du premier espace de chaque ligne.
+Le premier caractère représente le type de l'élément.
+Si c'est un ${code}-${reset}, c'est un fichier, si c'est un ${code}d${reset}, c'est un dossier.
+Avec ce premier caractère, on voit clairement que 'Dossier' est un dossier et que les autres sont des fichiers.
+Les neufs autres caractères représentent les ${voc}permissions${reset} du fichier.
+Il est possible d'avoir plusieurs utilisateurs sur un même ordinateur.
+Mais certains de vos fichiers méritent peut-être d'être protégés.
+Par exemple, si vous ne voulez pas que votre petite soeur soit capable de supprimer votre travail.
+En revanche, même si vous ne voulez pas qu'elle puisse supprimer vos fichiers, vous avez peut-être besoin de lui donner la permission de les lire.
+Ces neufs caractères sont utilisés pour définir avec précision les permissions que vous désirez.
+La permission 'minimale' est ${code}---------${reset} et la permission 'maximale' est ${code}rwxrwxrwx${reset}.
+Chaque ${code}-${code} veut dire que qu'un certain type de permission est ${voc}désactivé${reset}.
+A l'inverse, lorsque vous voyez une lettre, c'est qu'un certain type de permission est ${voc}activé${reset}.
+Mais chaque caractère doit respecter cet ordre : ${code}rwxrwxrwx${reset}.
+C'est à dire qu'ils n'auront pour simplifier que deux états possibles.
+Le premier caractère pourra être soit un ${code}-${reset} soit un ${code}r${reset}.
+Ce ${code}r${reset} vient de l'anglais ${code}r${reset}ead et donne le droit de lecture.
+Le second caractère pourra être soit un ${code}-${reset} soit un ${code}w${reset}.
+Ce ${code}w${reset} vient de l'anglais ${code}W${reset}rite et donne le droit d'écriture : modification et suppression.
+Le troisième caractère pourra être soit un ${code}-${reset} soit un ${code}x${reset}.
+Ce ${code}x${reset} vient de l'anglais e${code}X${reset}ecute et donne le droit d'exécution.
+Et ce schéma de trois caractères ${code}rwx${reset} se répète trois fois.
+Les trois premiers caractères sont les permissions du ${voc}propriétaire${reset} du fichier.
+Pour vous donner un exemple de résultat : -${codeFile}rw-${reset}r----- 2 ${codeFile}albert${reset} Einstein 4096 Feb 19 00:51 Exemple
+Le nom du propriétaire du fichier 'Exemple' est ici 'albert'.
+Les trois caractères suivants sont les permissions des membres du ${voc}groupe${reset} 'Einstein'.
+Pour vous donner le même exemple : -rw-${codeFile}r--${reset}--- 2 albert ${codeFile}Einstein${reset} 4096 Feb 19 00:51 Exemple
+Ici on peut imaginer l'existence d'un groupe pour la famille 'Einstein'.
+Et enfin, les trois derniers caractères sont les permissions des autres utilisateurs.
+Pour le même exemple : -rw-r--${codeFile}---${reset} 2 albert Einstein 4096 Feb 19 00:51 Exemple
+Ceux qui ne sont pas dans le groupe "Einstein".
+Dans cet exemple, albert, le propriétaire du fichier a le droit de lecture avec ce ${code}r${reset} et le droit d'écriture avec ce ${code}w${reset}.
+Les membres du groupe 'Einstein' ont uniquement le droit de lecture sur ce fichier avec ce ${code}r${reset}.
+Ils n'ont pas le droit de le modifier ou de le supprimer, car il n'y a pas de ${code}w${reset} !
+Le reste des utilisateurs n'ont aucune permission, car il n'y a pour eux aucune lettre : ${codeFile}---${reset}.
++Maintenant revenons à nos fichiers et relançons : ${learn}ls -l${reset}
+!ls -l£Non
+Sur un système simple, il est probable que vous ayez un nom de groupe similaire à votre nom d'utilisateur, mais ça n'est pas un problème.
+Il y a donc de nombreuses combinaisons de permission possibles, ici nous avons 'f1' avec les permissions minimales : ${code}---------${reset}.
+Nous avons 'f4' avec les permissions maximales : ${code}rwxrwxrwx${reset}.
+Et nous avons d'autres combinaisons de permissions pour les autres éléments.
++Commençez par afficher le contenu du fichier 'f1'.
+!cat f1£Non
+Et oui, il n'est pas possible d'afficher le contenu de ce fichier, car vous n'avez pas le droit de lecture.
+Pour pouvoir utiliser la commande ${code}cat${reset}, il vous aurez fallu un ${code}r${reset} à la place de ce tiret rouge : ${codeError}-${reset}--------.
++Sur le fichier 'f2', vous avez ce ${code}r${reset}--r--r-- qui vous donne le droit de lecture. Affichez le contenu de 'f2'.
+!cat f2£Non
+Ici pas de problème à l'affichage.
++Ajoutez 'cd' au fichier 'f2'.
+!echo cd>>f2£Non
+Sur 'f2' nous avons encore un problème de permission.
+Cette fois c'est un ${code}w${reset} qui nous manque à la place de ce tiret rouge : r${codeError}-${reset}-r--r--.
+Mais 'f3' semble avoir à la fois le ${code}r${reset} et le ${code}w${reset}.
++Affichez le contenu de 'f3'.
+!cat f3£Non
++Ajoutez 'def' au fichier 'f3'.
+!echo def>>f3£Non
++Affichez le contenu de 'f3' a nouveau.
+!cat f3£Non
+Parfait ! Nous pouvons enfin utiliser nos commandes sans soucis.
+
+
+#rmdir $HOME/.GameScript_bash5
+
++Pour créer un fichier texte vide vous pouvez aussi utiliser la commande ${code}touch${reset}, faites donc : ${learn}touch file${reset}
+!touch fichier£Non
+
+
+
+"-rw-r--r--" and so on ...
+whoami
+how to identify if an element is a directory or a file ?
+"chmod" + numbers
+"chown"
+"touch"
+
+
+é
+à
+è
+ê

@@ -53,24 +53,28 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 [4] "&&"
 [4] "||"
 
+"-rw-r--r--" and so on ...
+how to identify if an element is a directory or a file ?
+"chmod" + numbers
+"chown"
+"touch"
+
+
+more info on permissions. exec binary, folders x, parent permissions...
+
 "nano"
 "&"
 $VAR
 $()
 `` - backtick
 
-"chmod" + numbers
 "." (useful to execute)
-how to identify if an element is a directory or a file ?
-"chown"
 
 recursive
 "du"
 MAKE SCRIPTS INSTEAD OF ONE LINE :p
 "!!"
 history + "!2892"
-"-rw-r--r--" and so on ...
-"touch"
 
 stdout
 stdin
