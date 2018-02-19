@@ -10,13 +10,14 @@ command -v base64 >/dev/null 2>&1 || { echo "The command base64 is needed to con
 
 function answer_quizCOPY_bash(){
 	key="9"
-	while [ "$key" -ge 6 ]; do
+	while [ "$key" -ge 7 ]; do
 		echo ""
 		echo -e "\\e[0;100m 1) \\e[0m $1"
 		echo -e "\\e[0;100m 2) \\e[0m $2"
 		echo -e "\\e[0;100m 3) \\e[0m $3"
 		echo -e "\\e[0;100m 4) \\e[0m $4"
 		echo -e "\\e[0;100m 5) \\e[0m $5"
+		echo -e "\\e[0;100m 6) \\e[0m $6"
 		echo -en "\\e[1;31;42m # \\e[0m"
 		read -n1 key < /dev/tty
 	done
@@ -94,7 +95,8 @@ case $1 in
 	5) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_2.sh | bash; exit ;;
 	6) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_3.sh | bash; exit ;;
 	7) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_4.sh | bash; exit ;;
-	8) exit ;;
+	8) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_4.sh | bash; exit ;;
+	9) exit ;;
 esac
 }
 function launch_gamescript(){

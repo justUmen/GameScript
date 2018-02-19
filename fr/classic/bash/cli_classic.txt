@@ -60,6 +60,8 @@ how to identify if an element is a directory or a file ?
 "touch"
 
 
+revenir sur ls -l : metadata
+touch change last time modified
 more info on permissions. exec binary, folders x, parent permissions...
 
 "nano"
@@ -67,6 +69,9 @@ more info on permissions. exec binary, folders x, parent permissions...
 $VAR
 $()
 `` - backtick
+
+"*"
+regex
 
 "." (useful to execute)
 
