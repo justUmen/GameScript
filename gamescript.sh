@@ -95,7 +95,7 @@ case $1 in
 	5) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_2.sh | bash; exit ;;
 	6) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_3.sh | bash; exit ;;
 	7) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_4.sh | bash; exit ;;
-	8) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_4.sh | bash; exit ;;
+	8) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_5.sh | bash; exit ;;
 	9) exit ;;
 esac
 }
