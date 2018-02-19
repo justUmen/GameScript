@@ -9,7 +9,7 @@ function quiz(){
   answer_text_fr "Quelle lettre représente le droit d'écriture dans le résultat de 'ls -l' ?" "w"
   answer_text_fr "Quelle lettre représente le droit de lecture dans le résultat de 'ls -l' ?" "r"
   answer_text_fr "Quelle lettre représente le droit d'exécution dans le résultat de 'ls -l' ?" "x"
-  answer_text_fr "Quelle est la commande pour modifier les permissions d'un fichier ?" "chmod"
+  answer_text_fr "Quelle est la commande capable de modifier les permissions d'un fichier ?" "chmod"
   answer_text_fr "Quelle lettre représente le propriétaire pour la commande chmod ?" "u"
   answer_text_fr "Comment supprimer la permission de lecture au propriétaire du fichier 'test' ?" "chmod u-r test"
   answer_text_fr "Comment ajouter la permission d'exécution sur le fichier 'test' à tous les utilisateurs sauf pour le propriétaire ?" "chmod go+x test"
