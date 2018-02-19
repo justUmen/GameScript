@@ -22,7 +22,7 @@ function press_key(){
 #	echo -en "\e[0;33m...\e[0m "
 function talk(){
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
-	echo -n "$restore" > ~/PERSONAL_PROGRESS
+	#~ echo -n "$restore" > ~/PERSONAL_PROGRESS
 	press_key
 	restore=$(expr $restore + 1)
 }
