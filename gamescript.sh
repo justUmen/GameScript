@@ -18,6 +18,7 @@ function answer_quizCOPY_bash(){
 		echo -e "\\e[0;100m 4) \\e[0m $4"
 		echo -e "\\e[0;100m 5) \\e[0m $5"
 		echo -e "\\e[0;100m 6) \\e[0m $6"
+		echo -e "\\e[0;100m 7) \\e[0m $7"
 		echo -en "\\e[1;31;42m # \\e[0m"
 		read -n1 key < /dev/tty
 	done
@@ -90,13 +91,14 @@ function enter_bash(){
 case $1 in
 	1) echo -e "\e[0;33m...\e[0m" ;&
 	2) echo -en " - Bash Bourne Again SHell :" ;&
-	3) answer_quizCOPY_bash "Bash : chapitre 1" "Bash : chapitre 2" "Bash : chapitre 3" "Bash : chapitre 4" "Bash : chapitre 5" "Quitter" ;;
+	3) answer_quizCOPY_bash "Bash : chapitre 1" "Bash : chapitre 2" "Bash : chapitre 3" "Bash : chapitre 4" "Bash : chapitre 5" "Bash : chapitre 6" "Quitter" ;;
 	4) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_1.sh | bash; exit ;;
 	5) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_2.sh | bash; exit ;;
 	6) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_3.sh | bash; exit ;;
 	7) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_4.sh | bash; exit ;;
 	8) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_5.sh | bash; exit ;;
-	9) exit ;;
+	9) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_6.sh | bash; exit ;;
+	10) exit ;;
 esac
 }
 function launch_gamescript(){

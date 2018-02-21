@@ -2,7 +2,7 @@
 #mkdir $HOME/.GameScript_bash5
 #cd $HOME/.GameScript_bash5
 #mkdir Dossier;touch Dossier/X;touch Dossier/Y;chmod 644 Dossier
-#echo "a">f1;chmod 000 f1;echo "ab">f2;chmod 444 f2;echo "abc">f3;chmod 600 f3;echo "abcd">f4;chmod 777 f4
+#echo "a">f1;chmod 000 f1;echo "ab">f2;chmod 444 f2;echo "abc">f3;chmod 400 f3;echo "abcd">f4;chmod 477 f4
 Dans ce chapitre nous revenons sur la commande ${code}ls${reset}, l'une des commandes les plus importantes.
 Et ici nous allons parler de son option la plus importante : ${code}-l${reset}
 +Vous pouvez taper : ${learn}ls -l${reset}
@@ -31,17 +31,17 @@ Le troisième caractère pourra être soit un ${code}-${reset} soit un ${code}x$
 Ce ${code}x${reset} vient de l'anglais e${code}X${reset}ecute et donne le droit d'exécution.
 Et ce schéma de trois caractères ${code}rwx${reset} se répète trois fois.
 Les trois premiers caractères sont les permissions du ${voc}propriétaire${reset} du fichier.
-Exemple : -${codeFile}rw-${reset}r----- 2 ${codeFile}albert${reset} Einstein 4096 Feb 19 00:51 Exemple
+Exemple : -${codeFile}rw-${reset}r----- 2 ${codeFile}albert${reset} familleEinstein 4096 Feb 19 00:51 Exemple
 Le nom du propriétaire du fichier 'Exemple' est ici 'albert'.
 Les trois caractères en vert sont les permissions d'albert.
-Exemple : -rw-${codeFile}r--${reset}--- 2 albert ${codeFile}Einstein${reset} 4096 Feb 19 00:51 Exemple
-Ici les trois caractères en vert sont les permissions des membres du ${voc}groupe${reset} 'Einstein'.
-Ici on peut imaginer l'existence d'un groupe pour la famille 'Einstein'.
-Exemple : -rw-r--${codeFile}---${reset} 2 albert Einstein 4096 Feb 19 00:51 Exemple
+Exemple : -rw-${codeFile}r--${reset}--- 2 albert ${codeFile}familleEinstein${reset} 4096 Feb 19 00:51 Exemple
+Ici les trois caractères en vert sont les permissions des membres du ${voc}groupe${reset} 'familleEinstein'.
+Ici on peut imaginer l'existence d'un groupe 'familleEinstein' pour la famille Einstein.
+Exemple : -rw-r--${codeFile}---${reset} 2 albert familleEinstein 4096 Feb 19 00:51 Exemple
 Et enfin, les trois derniers caractères sont les permissions des autres utilisateurs.
-Ceux qui ne sont ni albert, ni dans le groupe "Einstein".
+Ceux qui ne sont ni albert, ni dans le groupe "familleEinstein".
 Dans cet exemple, albert, le propriétaire du fichier a le droit de lecture avec ce ${code}r${reset} et le droit d'écriture avec ce ${code}w${reset}, mais pas le droit d'exécution car le troisième caractère n'est pas un ${codeError}x${reset} mais un ${code}-${reset}.
-Les membres du groupe 'Einstein' ont uniquement le droit de lecture sur ce fichier avec ce ${code}r${reset}.
+Les membres du groupe 'familleEinstein' ont uniquement le droit de lecture sur ce fichier avec ce ${code}r${reset}.
 Ils n'ont pas le droit de le modifier ou de le supprimer, car il n'y a pas de ${code}w${reset} !
 Le reste des utilisateurs n'ont aucune permission, car il n'y a pour eux aucune lettre : ${codeFile}---${reset}.
 +Maintenant revenons à nos fichiers et relançons : ${learn}ls -l${reset}
@@ -95,7 +95,7 @@ Mais en tant que simple utilisateur, vous ne pouvez contrôler que les élément
 +Essayez donc d'afficher les permissions d'un autre dossier, le répertoire racine par exemple : ${learn}ls -l /${reset}
 !ls -l /£Non
 Ici nous voyons bien que le propriétaire de ces éléments est ${voc}root${reset}.
-Les trois premiers caractères de permissions ne vous concernent donc pas... : d${codeError}rwx${reset}r-xr-x
+Vous n'êtes pas ${voc}root${reset}, les trois premiers caractères de permissions ne vous concernent donc pas. : d${codeError}rwx${reset}r-xr-x
 Vous ne faites également pas partie du groupe en question : drwx${codeError}r-x${reset}r-x
 Les permissions qui vous concernent sont les trois dernières : drwxr-x${codeFile}r-x${reset} 
 Vous avez donc les droits de lecture ${codeFile}r${reset} et d'exécution ${codeFile}x${reset}.

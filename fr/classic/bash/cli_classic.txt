@@ -53,16 +53,24 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 [4] "&&"
 [4] "||"
 
-"-rw-r--r--" and so on ...
-how to identify if an element is a directory or a file ?
-"chmod" + numbers
-"chown"
-"touch"
+[5] "ls -l" permissions "-rw-r--r--" and so on ...
+[5] how to identify if an element is a directory or a file ?
+[5] "chmod" + letters
+
+[6] "*"
+[6] "?" != vide
+[6] ls -l : metadata
+[6] "touch"
+[6] "chmod" + numbers
+[6] "chown"
 
 
-revenir sur ls -l : metadata
-touch change last time modified
+mtime, ctime, atime : "ls -l --time=atime"
+
 more info on permissions. exec binary, folders x, parent permissions...
+
+"file"
+taille des fichier en octets, ASCII
 
 "nano"
 "&"
@@ -70,10 +78,15 @@ $VAR
 $()
 `` - backtick
 
-"*"
+"head *" clean output better than cat, or even : grep "" *
+"less *" -n ofc
+
 regex
+(( var0 = var1<98?9:21 ))
 
 "." (useful to execute)
+":" do nothing
+"!" inversion (! true )
 
 recursive
 "du"
@@ -93,6 +106,8 @@ stdin
 
 "/dev/null"
 {1..100}
+
+"ls -v" numerical order
 
 "-" argument file ??????????
 
