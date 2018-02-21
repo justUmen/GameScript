@@ -1,16 +1,21 @@
 #!/bin/bash
+if [ "$(id -u)" == "0" ]; then
+   echo "Launching something as root is very dangerous, don't do it !" 1>&2
+   exit 1
+fi
+
 #Dependancies
 if ((BASH_VERSINFO[0] < 4)); then
 	bash --version
 	echo "Bash is too old, please update it."
 	exit 1
 fi
-command -v base64 >/dev/null 2>&1 || { echo "The command base64 is needed to continue." >&2; exit 2; }
+command -v base64 >/dev/null 2>&1 || { echo "You need the command : base64." >&2; exit 2; }
 
 
 function answer_quizCOPY_bash(){
 	key="9"
-	while [ "$key" -ge 7 ]; do
+	while [ "$key" -ge 8 ]; do
 		echo ""
 		echo -e "\\e[0;100m 1) \\e[0m $1"
 		echo -e "\\e[0;100m 2) \\e[0m $2"
