@@ -98,7 +98,7 @@ case $1 in
 	7) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_4.sh | bash; exit ;;
 	8) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_5.sh | bash; exit ;;
 	9) wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_6.sh | bash; exit ;;
-	10) exit ;;
+	*) echo "exit"; exit ;;
 esac
 }
 function launch_gamescript(){
