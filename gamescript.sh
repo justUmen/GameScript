@@ -215,6 +215,7 @@ if [ ! -d "$HOME/.GameScript" ]; then
   if [ "$LANGUAGE" == "fr" ]; then
     echo "Vous pourrez changer ce nom manuellement plus tard dans : $HOME/.GameScript/username"
   fi
+  gamescript_available_arguments $LANGUAGE
 else
   #Random welcome back
   if [ "$LANGUAGE" == "fr" ]; then
