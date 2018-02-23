@@ -7,7 +7,7 @@ function quiz(){
   talk_not_press_key justumen "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
   talk_not_press_key justumen "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
   answer_text_fr "" ""
-  unlock
+  unlock "bash" "7" "1109" "ff12"
 }
 
 

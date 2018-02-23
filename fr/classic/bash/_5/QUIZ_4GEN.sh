@@ -13,7 +13,7 @@ function quiz(){
   answer_text_fr "Quelle lettre représente le propriétaire pour la commande chmod ?" "u"
   answer_text_fr "Comment supprimer la permission de lecture au propriétaire du fichier 'test' ?" "chmod u-r test"
   answer_text_fr "Comment ajouter la permission d'exécution sur le fichier 'test' à tous les utilisateurs sauf pour le propriétaire ?" "chmod go+x test"
-  unlock
+  unlock "bash" "5" "28ab" "3d4e"
 }
 
 

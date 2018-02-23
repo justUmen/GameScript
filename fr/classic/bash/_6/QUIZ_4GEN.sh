@@ -11,7 +11,7 @@ function quiz(){
   answer_text_fr "Comment déplacer tous les éléments du répertoire courant qui finissent par '.html' dans le répertoire parent de votre répertoire parent ?" "mv *.html ../.."
   answer_text_fr "Comment donner au fichier 'test' les permissions : --x-----x ?" "chmod 101 test"
   answer_text_fr "Comment donner au fichier 'test' les permissions : rwxr-x-wx ?" "chmod 753 test"
-  unlock
+  unlock "bash" "6" "8239" "df22"
 }
 
 
