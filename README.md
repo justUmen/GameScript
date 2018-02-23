@@ -9,52 +9,38 @@ Add `gamescript` alias to your .bashrc file with copy/paste this command :
 ## Simple usage :
 
     gamescript
-    gamescript -l fr
-    gamescript --language fr
-    gamescript -l fr bash
-    gamecriptt -l fr --help
 
 ## What is it ?
 
-It is a bash script to learn about :
+It is an ONLINE bash script to learn about :
 
 * bash
-
-## ToDo :
-
-* archlinux (+ install)
-* i3wm
-* + more
+* -
 
 ## Types :
 
-* "classic" = normal teaching, audio version + text
+* "classic" = default mode, technical content only
 * "story" = learning with stories (several versions possible)
 
-## Ideas
+## Can :
 
-* the same command must be repeated at least 3 times in the script (+ clever time interval)
+* remember your pseudo
+* 
+
+## ToDo :
+
+* have default language ?
+* better colors if the terminal can print them ! Keep basic colors for basic terminals.
+* change numbers order system that is obsolete
+* move intro at the start all the time ? smaller intro.
+* store quiz in text file and genereate like LIST_4GEN.txt
+* allow arrows and tab in "read"
+* autoextend code based on one change when add new lecture (change 1 local file  + change 1 bot file)
+* add offline option --offline, then it will download all standalone into a folder .GameScript ?? + update
+* better help with online/offline, update
 
 ## Details :
 
-* gen all in one file, dirty but simple
-
-## Advanced Usage
-
-Add arguments after `bash -s -- ` in curl/wget, here adding `-l fr bash` will launch gamescript for bash in french :
-
-    wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
-
-Example : print Help in french :
-
-    wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr --help
-
-Or you can download `gamescript.sh` and execute it, or even create an alias in `.bashrc` for example :
-
-    alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr"
-
-This alias will launch gamescript always in french because of the `-l fr`.
-
+* standalone files are generated and can be downloaded as standalone in offline mode. : https://github.com/justUmen/GameScript_standalone
 
 Support me and my projects on https://www.patreon.com/justumen :-)
-

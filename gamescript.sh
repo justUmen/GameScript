@@ -17,7 +17,7 @@ function show_menu(){
     for ARG in "$@"; do #For each arguments
   		# echo -e "\\e[0;100m $argCMP) \\e[0m $ARG"
       if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then
-    	   echo -e "\e[0;100m $argCMP) \e[15;5;42m $ARG \e[0m"
+    	   echo -e "\e[0;100m $argCMP) \e[15;5;42m $ARG (SUCCESS) \e[0m"
       else
          echo -e "\e[0;100m $argCMP) \e[15;5;44m $ARG \e[0m"
       fi
