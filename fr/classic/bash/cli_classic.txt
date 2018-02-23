@@ -7,15 +7,13 @@ HELP IF STUCK ? POSSIBLE ???
 
 COLOR : commands, syntaxe linux (chemins...), words + english word
 
-Bot Script pour niveau 1 avec mot de passe ;)
-Version rapide pour ceux qui connaissent.
 
+Bash 0 => Concepts : OS , terminal , CLI vs GUI , 
 
-PASSWORD 692fa7ce29942852c30081f943e39413
 
 [1] ARG some dont have : "pwd ." (Too many arguments, one is too many)
 		some can have several "ls / /home"
-[1] pas de texte = pas d'erreur de commande
+[1] no output = no mistake
 [1] [parent / child relationship (more about path)
 [1] absolute path
 [1] relative path
@@ -26,6 +24,9 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 [1] "mkdir"
 [1] "rm"
 [1] "rmdir"
+Bash 1 => Concepts : commande , argument , chemin relatif , chemin absolu , dossier parent/enfant , répertoire courant
+Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
+
 
 [2] "~"
 [2] ".hidden"
@@ -39,6 +40,9 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 [2] "man" RTFM (you shouldnt ask someone about something that is in the manual)
 	if you want to do something, check the manual first,
 		if you cant find your answer then you can ask for help
+Bash 2 => Concepts : fichier caché, option, RTFM
+Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
+
 
 [3] "echo"
 [3] "\"
@@ -46,16 +50,25 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 [3] ">>"
 [3] "cat"
 [3] "" and ''
+Bash 3 => Concepts : caractère d'échappement , délimiteur d'argument
+Bash 3 => Code : echo , \ , > , >> , cat , "", ''
+
 
 [4] "mv"
 [4] "cp"
 [4] ";"
 [4] "&&"
 [4] "||"
+Bash 4 => Concepts : condition de succès , condition d'échec
+Bash 4 => Code : mv , cp , ; , && , ||
+
 
 [5] "ls -l" permissions "-rw-r--r--" and so on ...
 [5] how to identify if an element is a directory or a file ?
 [5] "chmod" + letters
+Bash 5 => Concepts : permissions et limitations
+Bash 5 => Code : ls -l , chmod
+
 
 [6] "*"
 [6] "?" != vide
@@ -63,6 +76,29 @@ PASSWORD 692fa7ce29942852c30081f943e39413
 [6] "touch"
 [6] "chmod" + numbers
 [6] "chown"
+Bash 6 => Concepts : donnée , métadonnée
+Bash 6 => Code : * , ? , touch , chown , chmod
+
+
+stdout
+stdin
+"|", like ">" but for other commands
+"<" + filename
+"<<" (EOF ?)
+"1>"
+"2>"
+"&>" 1+2
+"2>&1"
+"1>&2"
+"|&" pipe error
+"/dev/null"
+command < input-file > output-file
+	ls -y >> c.log 2>&1 VS ls -y 2>&1 >> c.log
+
+global : exec 2> /dev/null
+
+variables : $OLDPWD
++ env
 
 
 mtime, ctime, atime : "ls -l --time=atime"
@@ -72,6 +108,7 @@ more info on permissions. exec binary, folders x, parent permissions...
 "file"
 taille des fichier en octets, ASCII
 
+[a-z]
 "nano"
 "&"
 $VAR
@@ -94,17 +131,7 @@ MAKE SCRIPTS INSTEAD OF ONE LINE :p
 "!!"
 history + "!2892"
 
-stdout
-stdin
-"|"
-"<"
-"<<" (EOF ?)
-"1>"
-"2>"
-"2>&1"
-"1>&2"
 
-"/dev/null"
 {1..100}
 
 "ls -v" numerical order

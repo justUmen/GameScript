@@ -1,0 +1,25 @@
+#[ -d "$HOME/.GameScript_bash7" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash7 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash7 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash7
+#cd $HOME/.GameScript_bash7
+
+Par convention
+
+#rmdir $HOME/.GameScript_bash7/
+
+
+
+
+stdout
+stdin
+"|", like ">" but for other commands
+"<" + filename
+"<<" (EOF ?)
+"1>"
+"2>"
+"&>" 1+2
+"2>&1"
+"1>&2"
+"|&" pipe error
+"/dev/null"
+command < input-file > output-file
+	ls -y >> c.log 2>&1 VS ls -y 2>&1 >> c.log
