@@ -16,4 +16,4 @@ function quiz(){
 }
 
 justumen_intro_fr
-enter_chapter bash 2 1
+enter_chapter bash 1 1
