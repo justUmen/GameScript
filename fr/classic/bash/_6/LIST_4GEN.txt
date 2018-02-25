@@ -144,13 +144,4 @@ ${voc}root${reset} est capable de supprimer tous vos fichiers, mais il a aussi l
 Une commande maladroite en ${voc}root${reset}, ou un script malicieux en ${voc}root${reset} peuvent avoir des effets dévastateurs.
 Vous maitrisez maintenant tout ce qu'il vous faut pour analyser et maitriser vos permissions.
 Bonne chance pour le questionnaire !
-#chmod 644 $HOME/.GameScript_bash6/f*
-#rm $HOME/.GameScript_bash6/f
-#rm $HOME/.GameScript_bash6/f1
-#rm $HOME/.GameScript_bash6/f2
-#rm $HOME/.GameScript_bash6/f3
-#rm $HOME/.GameScript_bash6/f4
-#rm $HOME/.GameScript_bash6/f10
-#rm $HOME/.GameScript_bash6/f50
-#rm $HOME/.GameScript_bash6/intrus
-#rmdir $HOME/.GameScript_bash6/
+#clean

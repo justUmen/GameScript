@@ -128,9 +128,4 @@ Si vous savez programmer, cette commande peut être vu comme une condition de pr
 !cd DOS2&&ls||pwd£Non
 Comme le dossier 'DOS2' existe, la commande ${learn}pwd${reset}, ne sera pas exécuté.
 Vous êtes prêt pour le questionnaire !
-#rm $HOME/.GameScript_bash4/DIR/.new
-#rm $HOME/.GameScript_bash4/DIR/test3
-#rm $HOME/.GameScript_bash4/DIR/DOS2/test3
-#rmdir $HOME/.GameScript_bash4/DIR/DOS2
-#rmdir $HOME/.GameScript_bash4/DIR
-#rmdir $HOME/.GameScript_bash4
+#clean

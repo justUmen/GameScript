@@ -8,21 +8,29 @@ for L in "fr"; do #ADD languages
 		for S in "bash"; do #ADD subjects, like php
 			cd $S || exit
 			for D in `find . -type d -name "_*"`; do
+NUMB=`echo "${D:2}"|sed 's/_//'`
 				echo "Folder ===>$D"
 				[ -d "../../../../GameScript_standalone/$L/$T/$S/" ] || exit
 				FILENAME="../../../../GameScript_standalone/$L/$T/$S/standalone${D:2}.sh"
 				echo "$FILENAME"
 				echo "#!/bin/bash" > "$FILENAME"
 				cat ../../../functions.sh >> "$FILENAME"
-				echo "function code(){" >> "$FILENAME"
+				echo "function start_lecture(){" >> "$FILENAME"
+echo "restore=\$1" >> "$FILENAME"
+echo "case \$1 in" >> "$FILENAME"
+CMP=0 #START AT 1
 				while read line; do
+CMP=`expr $CMP + 1`
+echo -n "$CMP) " >> "$FILENAME"
+echo -n "echo -n $CMP > \$HOME/.GameScript/restore_$S$NUMB; " >> "$FILENAME"
+echo -n "echo -n \$(pwd) > \$HOME/.GameScript/restore_pwd_$S$NUMB; " >> "$FILENAME"
 				  if [[ ${line:0:1} == '#' ]]; then
 					#CODE : just run it
-					echo "${line:1}" >> "$FILENAME"
+					echo -n "${line:1}" >> "$FILENAME"
 				  else
 					if [[ ${line:0:1} == '+' ]]; then
 					  #QUESTION BEFORE TERMINAL : talk_not_press_key justumen XXX
-					  echo "talk_not_press_key justumen \"${line:1}\"" >> "$FILENAME"
+					  echo -n "talk_not_press_key justumen \"${line:1}\"" >> "$FILENAME"
 					else
 					  if [[ ${line:0:1} == '!' ]]; then
 						#TERMINAL : answer_text XXX justumen XXX
@@ -31,15 +39,17 @@ for L in "fr"; do #ADD languages
 						arrLINE=($line)
 						# for ((i=0; i<${#arrLINE[@]}; ++i)); do echo "animal $i: ${arrLINE[$i]}"; done
 						# arrLINE=(${line//£/ })
-						echo "answer_run \"${arrLINE[0]:1}\" justumen \"${arrLINE[1]}\"" >> "$FILENAME"
+						echo -n "answer_run \"${arrLINE[0]:1}\" justumen \"${arrLINE[1]}\"" >> "$FILENAME"
 						IFS=$OIFS
 					  else
 						#NORMAL : talk justumen XXX
-						echo "talk justumen \"$line\"" >> "$FILENAME"
+						echo -n "talk justumen \"$line\"" >> "$FILENAME"
 					  fi
 					fi
 				  fi
+echo "; restore=\$(expr \$restore + 1) ;&" >> "$FILENAME"
 				done < "$D/LIST_4GEN.txt"
+echo "esac" >> "$FILENAME"
 				echo "}" >> "$FILENAME"
 				cat "$D/SPECIFIC_4GEN.sh"  >> "$FILENAME"
 				cat "$D/QUIZ_4GEN.sh"  >> "$FILENAME"

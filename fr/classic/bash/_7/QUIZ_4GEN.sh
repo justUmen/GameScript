@@ -1,4 +1,10 @@
-function quiz(){
+function clean(){ #in enter_chapter
+rm $HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
+rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
+	rmdir $HOME/.GameScript_bash 2> /dev/null
+}
+
+function start_quiz(){
   echo ""
   echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 7 \e[0m"
   echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
@@ -11,4 +17,7 @@ function quiz(){
 }
 
 
-enter_chapter bash 7 1
+CHAPTER_NAME="bash"
+CHAPTER_NUMBER="7"
+
+enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER

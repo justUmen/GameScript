@@ -153,13 +153,4 @@ Ou encore pour donner tous les droits à tout le monde : ${learn}ugo+rwx${reset}
 Ou enlever tous les droits de tout le monde : ${learn}ugo-rwx${reset}.
 Avant de passer au questionnaire je vous rappelle que le droit d'écriture donne le droit de ${voc}suppression${reset}.
 Bonne chance !
-#chmod 700 $HOME/.GameScript_bash5/f1 $HOME/.GameScript_bash5/f2 $HOME/.GameScript_bash5/f3 $HOME/.GameScript_bash5/f4 $HOME/.GameScript_bash5/Dossier
-#rm $HOME/.GameScript_bash5/f1
-#rm $HOME/.GameScript_bash5/f2
-#rm $HOME/.GameScript_bash5/f3
-#rm $HOME/.GameScript_bash5/f4
-#rm $HOME/.GameScript_bash5/file
-#rm $HOME/.GameScript_bash5/Dossier/X
-#rm $HOME/.GameScript_bash5/Dossier/Y
-#rmdir $HOME/.GameScript_bash5/Dossier
-#rmdir $HOME/.GameScript_bash5
+#clean

@@ -1,5 +1,6 @@
 #[ -d "$HOME/House" ] && echo "Erreur innatendu, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancer ce script." && exit
-#cd ~/
+#mkdir $HOME/.GameScript_bash1
+#cd $HOME/
 Hey salut tout le monde et bienvenu sur la ligne de commande linux.
 Avant de pouvoir apprendre notre première commande, il va falloir d'abord comprendre la logique derrière l'organisation des répertoires et des fichiers sur Linux.
 Commençons par nous intéresser aux 'répertoires', qui portent aussi le nom de 'dossiers'.
@@ -79,7 +80,7 @@ et ${learn}ls${reset}, pour afficher le contenu de votre ${voc}répertoire coura
 !pwd£Non
 +Super, et maintenant affichez les éléments du ${voc}répertoire courant${reset}.
 !ls£Non
-Impressionnant ! Vous maitrisez les deux commandes linux les plus importantes : ${learn}pwd${reset} et ${learn}ls${reset}.
+Ici le dossier est vide, mais vous maitrisez maintenant les deux commandes linux les plus importantes : ${learn}pwd${reset} et ${learn}ls${reset}.
 Les commandes ${learn}cd${reset} et ${learn}mkdir${reset} que nous avons vu ensemble sont plus complexes.
 Il faut leur donner une cible, ou un nom comme par exemple : ${learn}mkdir Room${reset}.
 Cette 'cible' est appelée un ${voc}argument${reset}!
@@ -183,5 +184,4 @@ J'espère que le résultat de ${learn}pwd${reset} est logique pour vous.
 +Bien. Maintenant supprimons le fichier virus4 en utilisant le ${voc}chemin absolu${reset}.
 !rm $(echo $HOME)/House/Room/virus4£Non
 Parfait ! Felicitations, vous avez tout compris.
-#rmdir ~/House/Room
-#rmdir ~/House
+#clean

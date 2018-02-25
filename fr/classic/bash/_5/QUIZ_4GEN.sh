@@ -1,4 +1,19 @@
-function quiz(){
+function clean(){ #in enter_chapter
+rm $HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
+rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
+	chmod -R 644 $HOME/.GameScript_bash5
+	rm $HOME/.GameScript_bash5/f1
+	rm $HOME/.GameScript_bash5/f2
+	rm $HOME/.GameScript_bash5/f3
+	rm $HOME/.GameScript_bash5/f4
+	rm $HOME/.GameScript_bash5/file
+	rm $HOME/.GameScript_bash5/Dossier/X
+	rm $HOME/.GameScript_bash5/Dossier/Y
+	rmdir $HOME/.GameScript_bash5/Dossier 2> /dev/null
+	rmdir $HOME/.GameScript_bash5 2> /dev/null
+}
+
+function start_quiz(){
   echo ""
   echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 5 \e[0m"
   echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
@@ -17,4 +32,7 @@ function quiz(){
 }
 
 
-enter_chapter bash 5 1
+CHAPTER_NAME="bash"
+CHAPTER_NUMBER="5"
+
+enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
