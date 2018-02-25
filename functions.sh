@@ -64,7 +64,8 @@ function answer_quiz(){
 						echo -en "\\e[1;31;45m # \\e[0m"
 						read choice < /dev/tty
 						case $choice in
-							1)  start_lecture `cat "$HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER"` ;;
+							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
+								start_lecture `cat "$HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER"` ;;
 							2) 	clean
 								start_lecture 1
 								;;
