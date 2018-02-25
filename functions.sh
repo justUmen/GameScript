@@ -25,14 +25,12 @@ function talk(){
 	#~ echo -n "$restore" > ~/PERSONAL_PROGRESS
 	press_key
 	#~ restore=$(expr $restore + 1)
-	echo -n "cd `pwd`" > "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"
-	echo -n "$restore" > "$HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER"
-	echo "==> $restore $CHAPTER_NAME $CHAPTER_NUMBER"
+	#~ echo "==> $restore $CHAPTER_NAME $CHAPTER_NUMBER"
 }
 function talk_not_press_key(){
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 	#~ restore=$(expr $restore + 1)
-	echo "==> $restore"
+	#~ echo "==> $restore"
 }
 function talk_not_press_key_ANSWER(){
 	echo -en "($restore)\e[0;32m $1\e[0m - "
@@ -109,7 +107,7 @@ function answer_run(){
 		echo -e "\\e[0m"
 	fi
 	#~ restore=$(expr $restore + 1)
-	echo "==> $restore"
+	#~ echo "==> $restore"
 }
 function start_dots(){
 	echo -en "\e[0;33m...\e[0m"
