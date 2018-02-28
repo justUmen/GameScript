@@ -131,7 +131,7 @@ function enter(){
   #use curl if exist ? better ? can avoid cache ?
   case $1 in
     bash) 	TITLE="Bourne Again SHell";
-			AUDIOCMP=22
+			AUDIOCMP=21
 			talk_GAMESCRIPT_not_press justumen "Cette série porte le nom 'bash', elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
 			;;
     *) TITLE="" ;;
