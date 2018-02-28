@@ -120,7 +120,7 @@ function gamescript_available_arguments(){
   #LATER MENU HERE FOR SUBJECT SELECTION
   case $1 in
     fr) echo -e "===> Sujets disponibles pour le moment : \n\t\e[15;5;44m bash \e[0m"
-		echo -e "Cette série porte le nom \n\t\e[15;5;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
+		echo -e "Cette série porte le nom \e[15;5;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
         launch_gamescript $LANGUAGE classic bash
 		;;
     en) echo -e "===> Nothing in english yet :(" ;;
