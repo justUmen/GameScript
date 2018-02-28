@@ -3,20 +3,27 @@
 function press_key_GAMESCRIPT(){
 	echo -en "\e[0;33m...\e[0m"
 	read -s -n1 key < /dev/tty
-	pkill mplayer  > /dev/null 2>&1
+	pkill mplayer > /dev/null 2>&1
 }
 
 
 function talk_GAMESCRIPT(){
-	mplayer "$AUDIO/$AUDIOCMP.mp3" > /dev/null 2>&1 &
+	# -af volume=10 ADD 10 decibels
+	if [[ $MUTE == 0 ]]; then 
+		mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" > /dev/null 2>&1 &
+		AUDIOCMP=`expr $AUDIOCMP + 1`
+		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $HOME/.GameScript/Audio/intro_fr/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+	fi
 	echo -e "\e[0;32m $1\e[0m - $2"
-	AUDIOCMP=`expr $AUDIOCMP + 1`
 	press_key_GAMESCRIPT
 }
 function talk_GAMESCRIPT_not_press(){
-	mplayer "$AUDIO/$AUDIOCMP.mp3" > /dev/null 2>&1 &
+	if [[ $MUTE == 0 ]]; then 
+		mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" > /dev/null 2>&1 &
+		AUDIOCMP=`expr $AUDIOCMP + 1`
+		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $HOME/.GameScript/Audio/intro_fr/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+	fi
 	echo -e "\e[0;32m $1\e[0m - $2"
-	AUDIOCMP=`expr $AUDIOCMP + 1`
 }
 
 function goodbye(){
@@ -123,7 +130,10 @@ function enter(){
   #USage : enter bash 1
   #use curl if exist ? better ? can avoid cache ?
   case $1 in
-    bash) TITLE="Bourne Again SHell" ;;
+    bash) 	TITLE="Bourne Again SHell";
+			AUDIOCMP=22
+			talk_GAMESCRIPT_not_press justumen "Cette série porte le nom 'bash', elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
+			;;
     *) TITLE="" ;;
   esac
   case $2 in
@@ -192,6 +202,7 @@ if ((BASH_VERSINFO[0] < 4)); then
 fi
 command -v base64 >/dev/null 2>&1 || { echo "You need the command : base64." >&2; exit 3; }
 
+
 POSITIONAL=()
 HELP=0
 MUTE=0
@@ -223,6 +234,9 @@ while [[ $# -gt 0 ]]; do
 done
 if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; fi
+if [[ $MUTE == 0 ]]; then 
+	command -v base64 >/dev/null 2>&1 || { echo "You need to install mplayer, or launch with -m." >&2; exit 3; }
+fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
 
@@ -230,15 +244,22 @@ reset='\e[0m'
 voc='\e[1m'
 
 AUDIOCMP=1;
-AUDIO="/home/umen/SyNc/Projects/GameScript/fr/classic/bash/Audio/m1/intro"
+AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/bash/Audio/m1/intro"
+AUDIO_LOCAL="$HOME/.GameScript/Audio/intro_fr"
 function justumen_intro_fr(){
-
+  mkdir ~/.GameScript/Audio 2> /dev/null
+  mkdir ~/.GameScript/Audio/intro_fr 2> /dev/null
+  
+	if [[ $MUTE == 0 ]]; then 
+		wget -nc $AUDIO_DL/1.mp3 -O ~/.GameScript/Audio/intro_fr/1.mp3 > /dev/null 2>&1 #Wait for download of first one
+	fi
+	
 talk_GAMESCRIPT justumen "Bonjour et bienvenu sur GameScript.
 GameScript est un script écrit en ${voc}bash${reset} qui peut vous aider à apprendre le ${voc}bash${reset}.
 GameScript est interactif :
- - Lorsque vous voyez ces \e[0;33m...\e[0m le script attend que vous pressiez une touche pour continuer.";
-
-talk_GAMESCRIPT justumen " - Lorsque vous voyez ce \\e[1;31;45m # \\e[0m le script attend que vous tapiez quelque chose."
+ * Lorsque vous voyez ces \e[0;33m...\e[0m le script attend que vous pressiez une touche pour continuer.";
+ 
+talk_GAMESCRIPT justumen " * Lorsque vous voyez ce \\e[1;31;45m # \\e[0m le script attend que vous tapiez quelque chose."
 
 talk_GAMESCRIPT justumen "Les commandes que vous lancerez ici s'exécuteront ${voc}réellement${reset} sur votre machine."
 talk_GAMESCRIPT justumen "Vous pouvez donc, si vous le désirez, voir leurs effets simultanément dans un gestionnaire de fichiers."
@@ -278,14 +299,14 @@ talk_GAMESCRIPT justumen "Bonne journée à vous et bonne chance !
 "
 }
 
-if [ ! -d "$HOME/.GameScript" ]; then
+if [ ! -f "$HOME/.GameScript/username" ]; then
   #STORE LOCAL PERSONAL PROGRESSION : hidden file like ~/.GameScript/bash_1 ...
   #STORE USER : ~/.GameScript/username
   # mkdir ~/.GameScript/Audio/ 2> /dev/null ???
+  mkdir ~/.GameScript/ 2> /dev/null
   if [ "$LANGUAGE" == "fr" ]; then
 	justumen_intro_fr
   fi
-  mkdir ~/.GameScript/ 2> /dev/null
   echo -n "$PSEUDO" > ~/.GameScript/username
   gamescript_available_arguments $LANGUAGE
 else
