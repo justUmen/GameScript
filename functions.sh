@@ -23,13 +23,13 @@ function press_key(){
 
 function talk(){
 mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
-wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 > /dev/null 2>&1 & #download next one, or next one, or next one
+( wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 3`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 3`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 4`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 4`.mp3 ) > /dev/null 2>&1 & #download next one, or next one, or next one
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 	press_key
 }
 function talk_not_press_key(){
 mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
-wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 > /dev/null 2>&1 & #download next one, or next one, or next one
+( wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 3`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 3`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 4`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 4`.mp3 ) > /dev/null 2>&1 & #download next one, or next one, or next one
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 }
 function talk_not_press_key_ANSWER(){
