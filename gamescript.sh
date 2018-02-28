@@ -121,6 +121,7 @@ function gamescript_available_arguments(){
   case $1 in
     fr) echo -e "===> Sujets disponibles pour le moment : \n\t\e[15;5;44m bash \e[0m"
         launch_gamescript $LANGUAGE classic bash ;;
+		echo "Cette série porte le nom \n\t\e[15;5;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
     en) echo -e "===> Nothing in english yet :(" ;;
   esac
   exit
@@ -133,7 +134,6 @@ function enter(){
     bash) 	TITLE="Bourne Again SHell";
 			#~ AUDIOCMP=21
 			#~ talk_GAMESCRIPT_not_press justumen "Cette série porte le nom 'bash', elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
-			echo "Cette série porte le nom 'bash', elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
 			;;
     *) TITLE="" ;;
   esac
