@@ -18,7 +18,7 @@ function press_key(){
 		#~ normal_line $restore
 	#~ fi
 	#~ pkill mpg123
-	pkill mplayer > /dev/null 2>&1
+	#~ pkill mplayer > /dev/null 2>&1
 }
 
 function talk(){
