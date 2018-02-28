@@ -168,7 +168,7 @@ function play_mp3(){
 function event(){
 	echo -e "\\e[0;100m $1\\e[0m"
 	press_key
-	restore=$(expr $restore + 1)
+	#~ restore=$(expr $restore + 1)
 }
 
 
