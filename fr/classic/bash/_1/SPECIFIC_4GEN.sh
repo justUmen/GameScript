@@ -29,7 +29,7 @@ echo -e "$basic
                                ;%@@@@%@@;.${CLREOL}
                               ;%@@@$code / $reset$basic@@@;.${CLREOL}
                          ...;%@@@@@@@@@@@@%..${CLREOL}$reset"
-restore=$(expr $restore + 1)
+#~ restore=$(expr $restore + 1)
 }
 
 
@@ -62,7 +62,7 @@ echo -e "$basic
                                ;%@@@@%@@;.${CLREOL}
                               ;%@@@$code / $reset$basic@@@;.${CLREOL}
                          ...;%@@@@@@@@@@@@%..${CLREOL}$reset"
-restore=$(expr $restore + 1)
+#~ restore=$(expr $restore + 1)
 }
 
 
@@ -95,7 +95,7 @@ echo -e "$basic
                                ;%@@@@%@@;.${CLREOL}
                               ;%@@@$code / $reset$basic@@@;.${CLREOL}
                          ...;%@@@@@@@@@@@@%..${CLREOL}$reset"
-restore=$(expr $restore + 1)
+#~ restore=$(expr $restore + 1)
 }
 function real_tree_4(){
 echo -e "$basic
@@ -126,7 +126,7 @@ echo -e "$basic
                                ;%@@@@%@@;.${CLREOL}
                               ;%@@@$code / $reset$basic@@@;.${CLREOL}
                          ...;%@@@@@@@@@@@@%..${CLREOL}$reset"
-restore=$(expr $restore + 1)
+#~ restore=$(expr $restore + 1)
 }
 
 function tree_1(){
@@ -137,7 +137,7 @@ $code / $reset$basic
 |   |   |-- $code /home/user/Pictures/ $reset$basic
 |-- $code /bin/ $reset$basic
 |-- $code /var/ $reset$basic"
-restore=$(expr $restore + 1)
+#~ restore=$(expr $restore + 1)
 }
 
 function tree_2(){
@@ -154,7 +154,7 @@ $code / $reset$basic
 |-- $codeFile /fichier1 $reset$basic
 |-- $codeFile /fichier2 $reset$basic
 |-- $codeFile /Home $reset$basic"
-restore=$(expr $restore + 1)
+#~ restore=$(expr $restore + 1)
 }
 
 function tree_3(){
@@ -171,5 +171,5 @@ $code /var/ $reset$basic
 $codeFile /fichier1 $reset$basic
 $codeFile /fichier2 $reset$basic
 $codeFile /Home $reset$basic"
-restore=$(expr $restore + 1)
+#~ restore=$(expr $restore + 1)
 }

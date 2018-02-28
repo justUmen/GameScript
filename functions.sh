@@ -22,12 +22,14 @@ function press_key(){
 }
 
 function talk(){
+	pkill mplayer > /dev/null 2>&1
 mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
 ( wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 3`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 3`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 4`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 4`.mp3 ) > /dev/null 2>&1 & #download next one, or next one, or next one
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 	press_key
 }
 function talk_not_press_key(){
+	pkill mplayer > /dev/null 2>&1
 mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
 ( wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 3`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 3`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 4`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 4`.mp3 ) > /dev/null 2>&1 & #download next one, or next one, or next one
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
@@ -62,15 +64,19 @@ function answer_quiz(){
 						read choice < /dev/tty
 						case $choice in
 							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
-								start_lecture `cat "$HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER"` ;;
+								start_lecture `cat "$HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER"`
+								start_quiz
+								;;
 							2) 	clean
 								start_lecture 1
+								start_quiz
 								;;
 							3) exit ;;
 						esac
 					done
 				fi
 				start_lecture 1
+				start_quiz
 				;;
 			2) start_quiz ;;
 			3) exit ;;

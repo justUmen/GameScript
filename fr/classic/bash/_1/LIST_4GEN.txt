@@ -58,7 +58,7 @@ Maintenant rentrons dans ce dossier avec la commande ${learn}cd${reset} (cd vien
 !cd House£Non
 +Maintenant réaffichons les fichiers et dossiers avec un simple ${learn}ls${reset}.
 !ls£Non
-Ici le répertoire House est vide, c'est normal puisque vous venez de le créer.
+Ici le répertoire House est vide, c'est normal puisque nous venons de le créer.
 Mais qu'en est-il ici du ${voc}chemin absolu${reset} dont je vous ai parlé avant ?
 En fait, un terminal tourne toujours dans un dossier, et peut se 'déplacer' dans l'arborescense du système.
 C'est ce que vous avez fait avec la commande ${learn}cd House${reset}, vous avez déplacé votre terminal dans le dossier House.
