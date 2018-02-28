@@ -1,6 +1,5 @@
 #!/bin/bash
-#This generator create a standalone ./standalone_learn_cli.sh based on ../../functions.sh, functions_specific.sh and LIST_4GEN.txt
-
+#This generator create standalone files
 for L in "fr"; do #ADD languages
 	cd $L || exit
 	for T in "classic"; do #ADD types, like story
@@ -62,11 +61,6 @@ echo "esac" >> "$FILENAME"
 	cd ..
 done
 
-#TODO IN ROCKET CHAT
-
-# pwd affiche le répertoire courant
-# ls affiche le contenu du répertoire courant
-
 #CODE EXPLAINED :
 #${line:0:1} is used to detect the first character of each lines from LIST_4GEN.txt (if line start with !, + or # the line isn't just simply printed.)
 # If line start with # : execute code
@@ -74,13 +68,3 @@ done
 #Else normal, use "talk justumen" xxx
 
 #:1 remove the symbol first synbol (Used for !, + and #)
-
-
-
-
-
-
-
-
-#Du point de vue mathématiques, une fonction peut avoir des paramètres (variables).
-#Quand on appelle une fonction on lui passe des arguments

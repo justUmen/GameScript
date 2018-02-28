@@ -16,8 +16,10 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 
 function start_quiz(){
   echo ""
-  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 1 \e[0m"
-  echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
+  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Quiz chapter 1\e[0m"
+  echo -e "-The answer need to be as short as possible, a valid command with additional characters won't work."
+  
+  echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
   echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
   answer_text_fr "Quel symbole représente le répertoire racine sur Linux ?" "/"
   answer_text_fr "Quelle commande affiche le chemin absolu du répertoire courant ?" "pwd"
@@ -32,6 +34,10 @@ function start_quiz(){
 }
 
 
+
+justumen_intro_fr
+
+CHAPTER_LANGUAGE="en"
 CHAPTER_NAME="bash"
 CHAPTER_NUMBER="1"
 

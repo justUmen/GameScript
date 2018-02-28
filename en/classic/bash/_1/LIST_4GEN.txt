@@ -1,51 +1,53 @@
-#[ -d "$HOME/House" ] && echo "Erreur innatendu, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancer ce script." && exit
+#[ -d "$HOME/House" ] && echo "Unknown error, ${HOME}/House already exist ! Delete this folder $HOME/House and launch the script again." && exit
 #mkdir $HOME/.GameScript_bash1
 #cd $HOME/
-Hey salut tout le monde et bienvenu dans le premier chapitre sur bash.
-Avant de pouvoir apprendre notre première commande, il va falloir d'abord comprendre la logique derrière l'organisation des répertoires et des fichiers sur les systèmes d'exploitation de ${voc}type Unix${reset}, comme ${voc}Linux${reset}.
-Commençons par nous intéresser aux 'répertoires', qui portent aussi le nom de 'dossiers'.
+Hello everyone and welcome in the linux command line.
+Before seeing our first command, we need to understand the logic behind the organisation of the files and folders in Linux.
+Let's start to talk about 'directories', which are also called 'folders'.
 #real_tree_1
-Vous pouvez imaginer le système d'organisation des dossiers comme un arbre.
-Dans cette arbre les lignes qui représentent les dossiers sont en bleu ciel.
-A la base de l'arbre vous avez le symbole ${code}/${reset} qui représente le ${voc}répertoire racine${reset}.
-C'est un répertoire spécial qui contiendra TOUS les autres dossiers du système.
+On linux, you can imagine the organization of files and folders like a tree.
+In this tree, the folders are shown in sky blue.
+At the base of the tree you have the symbol ${code}/${reset} which represent the ${voc}root directory${reset}.
+It a special folder that will contain ALL the other folders of the system.
 #real_tree_2
-Dans cet arbre, à chaque fois qu'une branche se sépare de l'arbre, c'est un nouveau dossier.
-Ce passage à une autre branche se remarque aussi dans les titres en bleu ciel avec l'apparition d'un nouveau symbole '/' supplémentaire.
-Par exemple, ${code}/home/${reset} représente le dossier 'home' dans le ${voc}répertoire racine${reset}.
-${code}/home/user/${reset} représente le dossier 'user', qui est dans le dossier 'home', qui est lui même dans le ${voc}répertoire racine${reset}.
-Et ainsi de suite, comme par exemple : ${code}/home/user/Images/${reset}
-Dans ce cas, 'Images' est dans 'user', 'user' est dans 'home' et 'home' est dans '/'.
-Mais attention, pour représenter un répertoire, il n'est pas obligatoire de rajouter un '/' à la fin.
-C'est à dire que ${learn}/home/user/${reset} est équivalent à ${learn}/home/user${reset}.
-De même, ${learn}/home/${reset} et ${learn}/home${reset} sont équivalents.
+In this tree, everytime you see a new branch, it represent a new folder.
+This passage to another branch can also be seen in the sky blue names avec the appearance of an additional symbol '/'.
+For example, ${code}/home/${reset} represent the folder 'home' in the ${voc}root directory${reset}.
+${code}/home/user/${reset} represent the directory 'user', which is the directory 'home', which is himself in the ${voc}root directory${reset}.
+And so on, like for example : ${code}/home/user/Images/${reset}
+In this case, 'Images' is in 'user', 'user' is in 'home' and 'home' is in '/'.
+But be careful, to represent a directory, having a '/' at the end isn't mandatory.
+It means that ${learn}/home/user/${reset} is equivalent to ${learn}/home/user${reset}.
+Also, ${learn}/home/${reset} and ${learn}/home${reset} are equivalent.
 #real_tree_3
-Parlons maintenant des fichiers, dans mon arbre ils sont ici en vert. Ce sont dans mon exemple des feuilles et sont directement acrochés à une branche, ou parfois directement au tronc.
-Ces fichiers appartiennent donc directement à un dossier. Mais nous avons ici quelques problèmes en rouge, des fichiers qui ne peuvent pas exister...
-${codeError}fichier1${reset} ne peut pas exister car il y a déjà un fichier du même nom ${codeFile}fichier1${reset} dans le même répertoire. Ici le répertoire racine. (/fichier1)
-En revanche, en haut, ${codeFile}fichier1${reset} peut exister car même si le nom du fichier est le même, ils ne sont pas dans le même dossier.
-Les éléments d'un système linux doivent avoir une référence unique : ici ${learn}/fichier1${reset} et ${learn}/home/fichier1${reset} ne sont pas en conflit.
-Le fichier ${codeError}/home${reset} ne peut pas exister non plus car il y a déjà un dossier ${code}/home/${reset} qui utilise le même nom au même endroit.
-Pour que ces fichiers puissent exister, il faut leur donner d'autres noms.
+Now let's talk about files, here in my tree they are in green. In my example, they are 'leaves' and are connected to a branch, or even sometimes the trunk itsef.
+These files belong directly to a folder. But we have here some problems in red, files that can't exist...
+${codeError}fichier1${reset} can't exist because there is already a file with the same name ${codeFile}fichier1${reset} in the same directory. Here the root directory (/fichier1)
+But above, ${codeFile}fichier1${reset} can exist because even if the name of the file is the same, they are not in the same folder.
+The elements in a linux system should have a unique reference : here ${learn}/fichier1${reset} and ${learn}/home/fichier1${reset} are not in conflit.
+The file ${codeError}/home${reset} can't exist either because the is already a folder ${code}/home/${reset} using the same name in the same place.
+For these files to exist, we must give them different names.
 #real_tree_4
-Ici, il suffit d'appeler le deuxième fichier 'fichier2' et le tour est joué.
-Pour ${codeError}home${reset}, il suffit également de lui donner un autre nom qui ne pose pas de problème comme 'Home'.
-Oui ! Sur linux, les majuscules sont importantes. 'Home' et 'home' sont deux noms différents.
-Quand les majuscules ne sont pas identiques au minuscules, on dit que les noms sont ${voc}sensibles à la casse${reset}.
-Effectivement, linux est ${voc}sensible à la casse${reset}. C'est à dire que 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... sont tous des noms valides et différents !
+Here we just have to call the second file 'fichier2'.
+For ${codeError}home${reset}, we need to give another name that won't be a problem like 'Home'.
+Yes ! On linux, uppercase letters are important. 'Home' and 'home' are two differents names.
+When the uppercase letters are different from the lowercase letters, we say that they are ${voc}case sensitive${reset}.
+Indeed, linux is ${voc}case sensitive${reset}. It means that 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... are all different and valid names !
 #tree_1
-Il est aussi possible de représenter l'arborescence linux de cette manière.
+It is also possible to represent the linux folders this way.
 #tree_2
-Et ici le même exemple avec les fichiers. Identique à l'arbre du dessus.
+And here is the same example with files. Identical to the tree above.
 #tree_3
+But the structure can also be understood without the ***.
+
 Mais l'arborescence peut aussi être très claire sans les décalages.
 Si ça n'est pas encore très intuitif pour vous, ne vous inquiétez pas.
 Maintenant que vous connaissez la logique, avec le temps et la répétition ce sera pour vous très bientôt évident.
 Ce genre de ligne, qui commence par le ${voc}répertoire racine${reset} '/' s'appelle le ${voc}chemin absolu${reset} d'un fichier ou d'un dossier.
 Elle représente avec précision uniquement le fichier ou dossier en question.
 Ici il est impossible d'avoir deux lignes identiques.
-Ce ${voc}chemin absolu${reset} est le concept le plus fondamental de la ligne de commande.
-Maintenant nous pouvons voir notre première commande.
+Ce ${voc}chemin absolu${reset} est le concept le plus fondamental de la ligne de commande linux.
+Maintenant nous pouvons voir notre première commande linux.
 Commençons par créer un nouveau dossier avec la commande ${learn}mkdir${reset} (${learn}M${reset}a${learn}K${reset}e ${learn}DIR${reset}ectory).
 Il suffit de taper mkdir, suivi d'un espace et enfin du nom du dossier.
 +Créeons maintenant le dossier House en faisant : ${learn}mkdir House${reset} puis validez la commande en appuyant sur la touche entrée.
@@ -60,7 +62,7 @@ Maintenant rentrons dans ce dossier avec la commande ${learn}cd${reset} (${learn
 !ls£Non
 Ici le répertoire House est vide, c'est normal puisque vous venez de le créer.
 Mais qu'en est-il ici du ${voc}chemin absolu${reset} dont je vous ai parlé avant ?
-En fait, un terminal tourne toujours dans un dossier, et peut se 'déplacer' dans l'arborescense du système.
+En fait, un terminal linux tourne toujours dans un dossier, et peut se 'déplacer' dans l'arborescense du système.
 C'est ce que vous avez fait avec la commande ${learn}cd House${reset}, vous avez déplacé votre terminal dans le dossier House.
 +Pour savoir dans quel répertoire votre terminal est en ce moment, il suffit de taper ${learn}pwd${reset} (${learn}P${reset}rint ${learn}W${reset}orking ${learn}D${reset}irectory).
 !pwd£Non
@@ -80,7 +82,7 @@ et ${learn}ls${reset}, pour afficher le contenu de votre ${voc}répertoire coura
 !pwd£Non
 +Super, et maintenant affichez les éléments du ${voc}répertoire courant${reset}.
 !ls£Non
-Ici le dossier est vide, mais vous maitrisez maintenant les deux commandes les plus importantes : ${learn}pwd${reset} et ${learn}ls${reset}.
+Ici le dossier est vide, mais vous maitrisez maintenant les deux commandes linux les plus importantes : ${learn}pwd${reset} et ${learn}ls${reset}.
 Les commandes ${learn}cd${reset} et ${learn}mkdir${reset} que nous avons vu ensemble sont plus complexes.
 Il faut leur donner une cible, ou un nom comme par exemple : ${learn}mkdir Room${reset}.
 Cette 'cible' est appelée un ${voc}argument${reset}!
@@ -124,7 +126,7 @@ Vous pouvez utiliser son ${voc}chemin absolu${reset} comme ${voc}argument${reset
 +Supprimez le avec ${learn}rm $(echo $HOME)/House/Room/virus1${reset}.
 !rm $(echo $HOME)/House/Room/virus1£Non
 Maintenant, comment pouvoir vérifier que le fichier a bien ete supprimé ?
-Lorsqu'une commande ne se passe pas comme prévue, elle vous renvoit très souvent une erreur.
+Lorsqu'une commande linux ne se passe pas comme prévue, elle vous renvoit très souvent une erreur.
 +Essayez de supprimer le fichier 'virus1' à nouveau en utilisant son ${voc}chemin absolu${reset}.
 !rm $(echo $HOME)/House/Room/virus1£Non
 Ici la commande ${learn}rm${reset} vous renvoi une erreur, le fichier n'existe donc déjà plus.
@@ -164,7 +166,7 @@ Donc comment reconnaitre un ${voc}chemin absolu${reset} d'un ${voc}chemin relati
 Le ${voc}chemin absolu${reset} est en fait très facile à reconnaitre !
 Il commence toujours à la racine, c'est à dire que le premier caractère d'un ${voc}chemin absolu${reset} est toujours '/'.
 Il y a aussi une syntaxe spéciale très utile pour le ${voc}chemin relatif${reset} les ${learn}..${reset}
-${learn}..${reset} représente dans l'arborescence le parent du ${voc}répertoire courant${reset}.
+${learn}..${reset} représente dans l'arborescence linux le parent du ${voc}répertoire courant${reset}.
 C'est le vocabulaire que nous employons pour parler de cette arborescence, ce sont des relations parents / enfants.
 Par exemple pour ${learn}/home/user/test/${reset}, le dossier parent de test est user. Le dossier parent de user est home.
 Et bien evidemment test est un enfant de user, et user est un enfant de home.

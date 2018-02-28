@@ -1,0 +1,53 @@
+Quelle est la commande pour déplacer des fichiers ou dossiers ?:mv
+Quelle est la commande pour renommer des fichiers ou dossiers ?:mv
+Comment renommer un fichier nommé 'oui' dans votre répertoire courant en 'non' et le déplacer dans son répertoire parent ?:mv oui ../non
+Comment copier dans votre répertoire courant un fichier dont le chemin absolu est '/root/file' ?:cp /root/file .
+Comment copier un fichier caché '.file' situé dans votre répertoire parent et le renommer en un fichier non caché 'file' dans le dossier '/root' ?:cp ../.file /root/file
+Quel symbole doit être utilisé pour séparer simplement deux commandes sur une même ligne ?:;
+Comment exécuter la commande 'rm file' uniquement si la commande précédente 'cd /root' est un succès ?:cd /root&&rm file
+Comment afficher 'good' si la commande 'cd /root' est un succès, et 'bad' sinon ?:cd /root&&echo good||echo bad
+Quel est la version abrégée de 'ls -a -l' ?:ls -al
+Comment ajouter le mot 'non' à la fin du fichier texte 'oui' ?:echo non>>oui
+Comment remplacer le contenu du fichier 'test' par 'exemple' ?:echo exemple>test
+Comment afficher le contenu du fichier 'test' ?:cat test
+Sur bash, quel est le caractère d'échappement ?:\\
+Comment afficher dans le terminal : a>b:echo a\>b
+Quel est la lettre à utiliser après le caractère d'échappement pour représenter une mise à la ligne ?:n
+Affichez, sans utiliser le caractère d'échappement, la phrase : j'ai bon:echo \"j'ai bon\"
+Affichez trois guillemets (\"), sans utiliser le caractère d'échappement.:echo '\"\"\"'
+Quel est le symbole qui représente le répertoire de travail de l'utilisateur ?:~
+Par quel symbole commence un fichier caché ?:.
+Par quel symbole commence un dossier caché ?:.
+Comment se déplacer dans le répertoire grand parent ?:cd ../..
+Quel est le symbole qui représente le répertoire courant ?:.
+Comment afficher le manuel de la commande rm:man rm
+Par quel symbole commence les options courtes de commande données en argument ?:-
+Par quel symboles commencent les options longues de commande donnée en argument ?:--
+Comment afficher les permissions des éléments du répertoire de travail de l'utilisateur ?:ls -l ~
+Quelle lettre représente un dossier dans le résultat de 'ls -l' ?:d
+Quel symbole représente un fichier dans le résultat de 'ls -l' ?:-
+Quelle lettre représente le droit d'écriture dans le résultat de 'ls -l' ?:w
+Quelle lettre représente le droit de lecture dans le résultat de 'ls -l' ?:r
+Quelle lettre représente le droit d'exécution dans le résultat de 'ls -l' ?:x
+Quelle est la commande capable de modifier les permissions d'un fichier ?:chmod
+Quelle lettre représente le propriétaire pour la commande chmod ?:u
+Comment supprimer la permission de lecture au propriétaire du fichier 'test' ?:chmod u-r test
+Comment ajouter la permission d'exécution sur le fichier 'test' à tous les utilisateurs sauf pour le propriétaire ?:chmod go+x test
+Dans terminal root, comment définir 'albert' comme propriétaire et 'familleEinstein' comme groupe au fichier 'test' du répertoire courant ?:chown albert:familleEinstein test
+Quelle commande affiche les éléments du répertoire courant par ordre alphabétique ?:ls
+Quelle commande affiche les métadonnées des éléments du répertoire courant ?:ls -l
+Comment afficher tous les éléments du répertoire courant dont le nom commence par 'x' ?:ls x*
+Comment supprimer tous les éléments du répertoire courant ayant un nom de 2 lettres ?:rm ??
+Comment déplacer tous les éléments du répertoire courant qui finissent par '.html' dans le répertoire parent de votre répertoire parent ?:mv *.html ../..
+Comment donner au fichier 'test' les permissions : --x-----x ?:chmod 101 test
+Comment donner au fichier 'test' les permissions : rwxr-x-wx ?:chmod 753 test
+Quel symbole représente le répertoire racine sur Linux ?:/
+Quelle commande affiche le chemin absolu du répertoire courant ?:pwd
+Quelle commande affiche le contenu du répertoire racine ?:ls /
+Quelle commande change le répertoire courant du terminal par son répertoire parent ?:cd ..
+Quelle commande affiche le contenu du répertoire courant ?:ls
+Quelle commande supprime le dossier vide 'test' du répertoire courant ?:rmdir test
+Par quel symbole commence le chemin absolu d'un fichier ?:/
+Le nom du chemin relatif d'un fichier est souvent plus court que son équivalent en chemin absolu. (vrai/faux):vrai
+Quelle commande peut supprimer le fichier /home/test quel que soit votre répertoire courant ?:rm /home/test
+:
