@@ -7,23 +7,29 @@ function encode_b64(){
 function press_key(){
 	echo -en "\e[0;33m...\e[0m"
 	read -s -n1 key < /dev/tty
-	if [ "$key" == 'q' ] || [ "$key" == 'e' ]; then
-		pkill mpg123  > /dev/null 2>&1
-		echo -e "\e[0m "
-		exit 1
-	fi
-	if [ "$key" == 'r' ]; then
-		pkill mpg123  > /dev/null 2>&1
-		normal_line $restore
-	fi
-	pkill mpg123
+	#OBSOLETE ?
+	#~ if [ "$key" == 'q' ] || [ "$key" == 'e' ]; then
+		#~ pkill mpg123  > /dev/null 2>&1
+		#~ echo -e "\e[0m "
+		#~ exit 1
+	#~ fi
+	#~ if [ "$key" == 'r' ]; then
+		#~ pkill mpg123  > /dev/null 2>&1
+		#~ normal_line $restore
+	#~ fi
+	#~ pkill mpg123
+	pkill mplayer > /dev/null 2>&1
 }
 
 function talk(){
+mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
+wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 > /dev/null 2>&1 & #download next one, or next one, or next one
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 	press_key
 }
 function talk_not_press_key(){
+mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
+wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 > /dev/null 2>&1 & #download next one, or next one, or next one
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 }
 function talk_not_press_key_ANSWER(){
@@ -184,6 +190,7 @@ function unlock(){
 
 function enter_chapter(){
 	#Usage : enter_chapter bash 1 1 (first 1 is chapter, next one is for case)
+	wget -nc $AUDIO_DL/1.mp3 -O ~/.GameScript/Audio/c$2/1.mp3 > /dev/null 2>&1 #Wait for download of first one
 	echo ""
 	echo -e "\e[15;5;44m - $1, Chapitre $2 \e[0m"
 	answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2"

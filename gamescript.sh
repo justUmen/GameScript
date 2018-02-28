@@ -12,7 +12,7 @@ function talk_GAMESCRIPT(){
 	if [[ $MUTE == 0 ]]; then 
 		mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" > /dev/null 2>&1 &
 		AUDIOCMP=`expr $AUDIOCMP + 1`
-		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $HOME/.GameScript/Audio/intro_fr/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 	fi
 	echo -e "\e[0;32m $1\e[0m - $2"
 	press_key_GAMESCRIPT
@@ -21,7 +21,7 @@ function talk_GAMESCRIPT_not_press(){
 	if [[ $MUTE == 0 ]]; then 
 		mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" > /dev/null 2>&1 &
 		AUDIOCMP=`expr $AUDIOCMP + 1`
-		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $HOME/.GameScript/Audio/intro_fr/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 	fi
 	echo -e "\e[0;32m $1\e[0m - $2"
 }
@@ -131,8 +131,9 @@ function enter(){
   #use curl if exist ? better ? can avoid cache ?
   case $1 in
     bash) 	TITLE="Bourne Again SHell";
-			AUDIOCMP=21
-			talk_GAMESCRIPT_not_press justumen "Cette série porte le nom 'bash', elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
+			#~ AUDIOCMP=21
+			#~ talk_GAMESCRIPT_not_press justumen "Cette série porte le nom 'bash', elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
+			echo "Cette série porte le nom 'bash', elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
 			;;
     *) TITLE="" ;;
   esac
@@ -176,8 +177,8 @@ if [ $# -eq 0 ]; then
 	echo "GameScript in english  : gamescript -l en"
 	echo "GameScript en français : gamescript -l fr"
 	echo ""
-	echo "GameScript without audio : gamescript -m"
-	echo ""
+	#~ echo "GameScript without audio : gamescript -m"
+	#~ echo ""
 	echo "Passwords : gamescript -p"
 	exit
 fi
@@ -235,7 +236,7 @@ done
 if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; fi
 if [[ $MUTE == 0 ]]; then 
-	command -v base64 >/dev/null 2>&1 || { echo "You need to install mplayer, or launch with -m." >&2; exit 3; }
+	command -v base64 >/dev/null 2>&1 || { echo "You need to install mplayer." >&2; exit 3; }
 fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
@@ -245,13 +246,12 @@ voc='\e[1m'
 
 AUDIOCMP=1;
 AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/bash/Audio/m1/intro"
-AUDIO_LOCAL="$HOME/.GameScript/Audio/intro_fr"
+AUDIO_LOCAL="$HOME/.GameScript/Audio/fr/bash/intro"
 function justumen_intro_fr(){
-  mkdir ~/.GameScript/Audio 2> /dev/null
-  mkdir ~/.GameScript/Audio/intro_fr 2> /dev/null
+  mkdir -p ~/.GameScript/Audio/fr/bash/intro 2> /dev/null
   
 	if [[ $MUTE == 0 ]]; then 
-		wget -nc $AUDIO_DL/1.mp3 -O ~/.GameScript/Audio/intro_fr/1.mp3 > /dev/null 2>&1 #Wait for download of first one
+		wget -nc $AUDIO_DL/1.mp3 -O $AUDIO_LOCAL/1.mp3 > /dev/null 2>&1 #Wait for download of first one
 	fi
 	
 talk_GAMESCRIPT justumen "Bonjour et bienvenu sur GameScript.
