@@ -21,7 +21,7 @@ function press_key(){
 	#~ pkill mplayer > /dev/null 2>&1
 }
 
-function new_mplayer(){
+function new_sound(){
 	pkill mplayer &> /dev/null
 	pkill mpg123 &> /dev/null
 	( mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" || mpg123 --scale 100000 "$AUDIO_LOCAL/$AUDIOCMP.mp3" ) &> /dev/null &
@@ -29,15 +29,19 @@ function new_mplayer(){
 		wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3
 		||
 		wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3
-	) &> /dev/null & #download next one, or next one if 
+	) &> /dev/null & #download next one, or the one after if it doesn't exist
 }
 function talk(){
-	new_mplayer
+	if [[ $MUTE == 0 ]]; then 
+		new_sound
+	fi
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 	press_key
 }
 function talk_not_press_key(){
-	new_mplayer
+	if [[ $MUTE == 0 ]]; then 
+		new_sound
+	fi
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 }
 function talk_not_press_key_ANSWER(){
@@ -146,7 +150,10 @@ voc='\e[1m'
 #BLUE
 learn='\e[40;38;5;10m'
 
-
+MUTE=0
+if [ "$1" == "MUTE" ]; then
+	MUTE=1
+fi
 
 #OBSOLETE ?
 #~ restore=2 #first line of LIST_4GEN should be environment test (test ~/House)

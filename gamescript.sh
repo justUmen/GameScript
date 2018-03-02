@@ -141,7 +141,13 @@ function enter(){
   	2) echo -e "\e[15;5;44m - $1, $TITLE \e[0m" ;&
   	3) show_menu "$1" "$1 : chapitre 1" "$1 : chapitre 2" "$1 : chapitre 3" "$1 : chapitre 4" "$1 : chapitre 5" "$1 : chapitre 6" ;; #"$1 : chapitre 7"
     # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
-    *) wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash ;;
+    *)
+		if [[ $MUTE == 1 ]]; then 
+			wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s MUTE
+		else
+			wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash
+		fi
+		;;
   esac
   enter bash 1 #go back in the menu
 }
@@ -233,8 +239,8 @@ while [[ $# -gt 0 ]]; do
 done
 if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; fi
-if [[ $MUTE == 0 ]]; then 
-	command -v base64 >/dev/null 2>&1 || { echo "You need to install mplayer." >&2; exit 3; }
+if [[ $MUTE == 0 ]]; then
+	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo "You need to install mplayer or mpg123." >&2; exit 3; }
 fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
