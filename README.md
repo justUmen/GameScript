@@ -10,11 +10,18 @@ Add `gamescript` alias to your .bashrc file with copy/paste this command :
 
     gamescript
 
+## Dependencies :
+
+* bash > version 4
+* wget
+* mplayer / mpg123
+* base64
+
 ## What is it ?
 
 It is an ONLINE bash script to learn about :
 
-* bash
+* bash (included : Unix-like operating system commands + file organization + permissions)
 * -
 
 ## Types :
