@@ -6,7 +6,6 @@ function press_key_GAMESCRIPT(){
 	pkill mplayer > /dev/null 2>&1
 }
 
-
 function talk_GAMESCRIPT(){
 	# -af volume=10 ADD 10 decibels
 	if [[ $MUTE == 0 ]]; then 
@@ -120,7 +119,7 @@ function gamescript_available_arguments(){
   #LATER MENU HERE FOR SUBJECT SELECTION
   case $1 in
     fr) echo -e "===> Sujets disponibles pour le moment : \n\t\e[15;5;44m bash \e[0m"
-		echo -e "Cette série porte le nom \e[15;5;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
+		echo -e "Cette série porte le nom \e[15;5;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système d'exploitation de type Unix."
         launch_gamescript $LANGUAGE classic bash
 		;;
     en) echo -e "===> Nothing in english yet :(" ;;
@@ -132,10 +131,7 @@ function enter(){
   #USage : enter bash 1
   #use curl if exist ? better ? can avoid cache ?
   case $1 in
-    bash) 	TITLE="Bourne Again SHell";
-			#~ AUDIOCMP=21
-			#~ talk_GAMESCRIPT_not_press justumen "Cette série porte le nom 'bash', elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système de type Unix."
-			;;
+    bash) TITLE="Bourne Again SHell" ;;
     *) TITLE="" ;;
   esac
   case $2 in

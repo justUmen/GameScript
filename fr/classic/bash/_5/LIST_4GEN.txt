@@ -1,5 +1,5 @@
 #[ -d "$HOME/.GameScript_bash5" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash5 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash5 et relancer ce script." && exit
-#mkdir $HOME/.GameScript_bash5
+#mkdir $HOME/.GameScript_bash5 && mkdir -p $HOME/.GameScript/Audio/fr/bash/c5/ && wget -q -nc $AUDIO_DL/6.mp3 -O $HOME/.GameScript/Audio/fr/bash/c5/6.mp3 > /dev/null 2>&1
 #cd $HOME/.GameScript_bash5
 #mkdir Dossier;touch Dossier/X;touch Dossier/Y;chmod 644 Dossier
 #echo "a">f1;chmod 000 f1;echo "ab">f2;chmod 444 f2;echo "abc">f3;chmod 400 f3;echo "abcd">f4;chmod 477 f4
@@ -10,12 +10,12 @@ Et ici nous allons parler de son option la plus importante : ${code}-l${reset}
 Avec cette option, ${code}ls${reset} nous donne plus d'informations sur les éléments du répertoire courant.
 Vous avez au début une chaine de caractères étrange composé de ${code}-${reset} et de lettres à gauche du premier espace de chaque ligne.
 Le premier caractère représente le type de l'élément.
-Si c'est un ${code}-${reset}, c'est un fichier, si c'est un ${code}d${reset}, c'est un dossier.
+Si c'est un ${code}-${reset}, cet élément est un fichier, si c'est un ${code}d${reset}, il s'agit d'un dossier.
 Avec ce premier caractère, on voit clairement que 'Dossier' est un dossier et que les autres sont des fichiers.
-Les neufs autres caractères représentent les ${voc}permissions${reset} de l'élément en question.
+Les neufs autres caractères qui suivent représentent les ${voc}permissions${reset} de l'élément en question.
 Il est possible d'avoir plusieurs utilisateurs sur un même ordinateur.
 Mais certains de vos fichiers méritent peut-être d'être protégés.
-Par exemple, il semblerai raissonnable que votre petite soeur ne puisse pas supprimer vos fichier personnels.
+Par exemple, il semblerai raisonnable que votre petite soeur ne puisse pas supprimer vos fichier personnels.
 En revanche, même si vous ne voulez pas qu'elle puisse supprimer vos fichiers, vous avez peut-être besoin de lui donner la permission de les lire.
 Ces neufs caractères sont utilisés pour définir avec précision les permissions que vous désirez.
 La permission 'minimale' est ${code}---------${reset} et la permission 'maximale' est ${code}rwxrwxrwx${reset}.
@@ -26,7 +26,7 @@ C'est à dire qu'ils n'auront pour simplifier que deux états possibles.
 Le premier caractère pourra être soit un ${code}-${reset} soit un ${code}r${reset}.
 Ce ${code}r${reset} vient de l'anglais ${code}r${reset}ead et donne le droit de lecture.
 Le second caractère pourra être soit un ${code}-${reset} soit un ${code}w${reset}.
-Ce ${code}w${reset} vient de l'anglais ${code}W${reset}rite et donne le droit d'écriture : modification et suppression.
+Ce ${code}w${reset} vient de l'anglais ${code}W${reset}rite et donne le droit d'écriture : la modification ou la suppression.
 Le troisième caractère pourra être soit un ${code}-${reset} soit un ${code}x${reset}.
 Ce ${code}x${reset} vient de l'anglais e${code}X${reset}ecute et donne le droit d'exécution.
 Et ce schéma de trois caractères ${code}rwx${reset} se répète trois fois.
@@ -44,7 +44,7 @@ Dans cet exemple, albert, le propriétaire du fichier a le droit de lecture avec
 Les membres du groupe 'familleEinstein' ont uniquement le droit de lecture sur ce fichier avec ce ${code}r${reset}.
 Ils n'ont pas le droit de le modifier ou de le supprimer, car il n'y a pas de ${code}w${reset} !
 Le reste des utilisateurs n'ont aucune permission, car il n'y a pour eux aucune lettre : ${codeFile}---${reset}.
-+Maintenant revenons à nos fichiers et relançons : ${learn}ls -l${reset}
++Maintenant revenons à nos fichiers et relançons la commande ${learn}ls -l${reset}
 !ls -l£Non
 Sur un système simple, il est probable que vous ayez un nom de groupe similaire à votre nom d'utilisateur, mais ça n'est pas un problème.
 Il y a donc de nombreuses combinaisons de permission possibles, ici nous avons 'f1' avec les permissions minimales : ${code}---------${reset}.
@@ -62,7 +62,7 @@ Ici pas de problème à l'affichage.
 Sur 'f2' nous avons encore un problème de permission.
 Cette fois c'est un ${code}w${reset} qui nous manque à la place de ce tiret rouge : -r${codeError}-${reset}-r--r--.
 Mais 'f3' semble avoir à la fois le ${code}r${reset} et le ${code}w${reset}.
-+Affichez les permissions de 'f3' avec le nom du fichier en argument de ls :  ${learn}ls -l f3${reset}.
++Affichez les permissions de 'f3' avec le nom du fichier en argument : ${learn}ls -l f3${reset}.
 !ls -l f3£Non
 +Affichez le contenu de 'f3'.
 !cat f3£Non
@@ -71,18 +71,18 @@ Mais 'f3' semble avoir à la fois le ${code}r${reset} et le ${code}w${reset}.
 +Affichez le contenu de 'f3' a nouveau.
 !cat f3£Non
 Parfait ! Nous pouvons enfin utiliser les commandes que nous avons apprises.
-Mais nous n'avons jamais vu ce problème de permission dans les chapitres précédents...
-Car je viens de les simuler pour vous...
+Mais nous n'avons jamais eu ce problème de permission dans les chapitres précédents...
+Je viens ici en fait de les simuler pour vous...
 Vous savez déjà créer un fichier texte avec ${code}echo${reset}.
 +Mais vous pouvez aussi utiliser la commande ${code}touch${reset}, faites donc : ${learn}touch file${reset}
 !touch file£Non
-Maintenant nous pouvons voir les permissions qui sont par défaut lors de la création d'un nouveau fichier.
-+Pour avoir les permissions de 'file' : ${learn}ls -l file${reset}
+Maintenant nous pouvons voir les permissions par défaut lors de la création d'un nouveau fichier.
++Pour avoir les permissions de 'file', faites ${learn}ls -l file${reset}
 !ls -l file£Non
 Si le fichier a été créé par vous, vous aurez par défaut le droit de lecture et d'écriture.
 Attention par contre si ce fichier ne vient pas de vous, il peut avoir des permissions limités ou inattendues.
 Nous pouvons voir ici le nom du propriétaire du fichier, mais est-ce bien vous ?
-+Pour connaitre votre nom d'utilisateur dans ce terminal, vous pouvez taper : ${learn}whoami${reset}
++Pour connaitre votre nom d'utilisateur, vous pouvez taper : ${learn}whoami${reset}
 !whoami£Non
 'Who am I ?' est l'anglais pour 'Qui suis-je ?'.
 Ici votre nom correspond effectivement au nom du propriétaire de ce fichier.
@@ -109,7 +109,7 @@ Ici, malgré avoir le droit de lecture sur ce dossier, nous ne pouvons pas nous 
 Pour un fichier texte, les permissions ${codeFile}x${reset} n'ont aucun effet...
 Mais ici avec un ${voc}dossier${reset}, le ${codeFile}x${reset} joue un rôle important !
 Etrangement, nous avons le droit de lecture avec ce d${codeFile}r${reset}w-r--r--
-+Donc nous pouvons afficher les éléments de ce dossier.
++Donc nous pouvons afficher les éléments de ce dossier, faites le donc.
 !ls Dossier£Non
 Le contenu de 'Dossier' s'affiche. Il contient un fichier 'X' et un fichier 'Y'.
 +Affichons maintenant les permissions des fichiers dans ce dossier.
@@ -120,24 +120,24 @@ Si quelque chose ne se passe pas comme prévu, il se peut que vous ayez simpleme
 C'est ce que nous allons voir maintenant : Comment changer ces permissions ?
 Donc en premier lieu il faut que vous soyiez capable d'identifier la permission qu'il vous manque !
 La commande ${code}cat${reset} par exemple a besoin d'une permission de lecture : ${codeFile}r${reset}.
-Le fichier 'f1' ne nous donne pas cette permission qu'il nous faut pour l'afficher.
+Le fichier 'f1' ne nous donne pas cette permission pour l'afficher.
 Pour changer ces permissions il faudra utiliser la commande : ${code}chmod${reset}.
 Il faudra d'abord mémoriser 3 nouvelles lettres :
-${code}u${reset} pour l'${code}u${reset}tilisateur / le propriétaire : -${codeFile}rwx${reset}rwxrwx
+${code}u${reset} pour l'${code}u${reset}tilisateur ou le propriétaire : -${codeFile}rwx${reset}rwxrwx
 ${code}g${reset} pour le ${code}g${reset}roupe : -rwx${codeFile}rwx${reset}rwx
 et ${code}o${reset} pour '${code}o${reset}thers', l'anglais de 'autres' : -rwxrwx${codeFile}rwx${reset}
 Vous pouvez ensuite utilisez ces lettres en conjonction avec les lettres 'r', 'w' et 'x' que vous connaissez déjà.
 Vous devez également utiliser les symboles ${code}+${reset} et ${code}-${reset}, pour ajouter ou supprimer une permission.
 +Relancez : ${learn}ls -l${reset}
 !ls -l£Non
-Et prenons un exemple : Comment pour pouvoir nous autoriser l'affichage de 'f1' ?
+Et prenons un exemple : Comment pouvoir nous autoriser l'affichage de 'f1' ?
 Autrement dit : transformer ---------- en -r--------.
 D'abord nous voulons changer les permissions du propriétaire, il faudra donc utiliser la lettre ${code}u${reset}.
 Nous voulons ajouter une permission, il faudra donc utiliser le symbole ${code}+${reset}.
 Nous voulons le droit de lecture, il faudra donc bien sûr utiliser la lettre ${code}r${reset}.
 Et la cible de chmod sera le fichier 'f1'.
 La syntaxe sera donc la suivante : ${learn}chmod u+r f1${reset}
-+Avant de lancer cette commande, essayez donc d'afficher 'f1'.
++Avant de lancer cette commande, essayez donc d'afficher le contenu de 'f1'.
 !cat f1£Non
 +Ajoutons donc le droit de lecture à 'f1' pour le propriétaire avec : ${learn}chmod u+r f1${reset}
 !chmod u+r f1£Non
@@ -147,10 +147,10 @@ Ici nous avons bien : -r-------- pour le fichier 'f1'.
 +Et enfin, affichez le fichier 'f1'.
 !cat f1£Non
 Vous pouvez donc utiliser toutes les combinaisons que vous voulez : ${learn}u+r${reset}, ${learn}g-w${reset}, ${learn}u+x${reset}, etc...
-Mais vous pouvez aussi les cumuler avec d'autres, comme par exemple pour donner au propriétaire le droit de lecture ET d'écriture : ${learn}u+rw${reset}.
-Pour enlever aux membres du groupe et aux autres le droit d'écriture : ${learn}go-w${reset}
-Ou encore pour donner tous les droits à tout le monde : ${learn}ugo+rwx${reset}.
-Ou enlever tous les droits de tout le monde : ${learn}ugo-rwx${reset}.
+Mais vous pouvez aussi les cumuler avec d'autres, comme par exemple pour donner au propriétaire le droit de lecture ET d'écriture, vous pouvez faire : ${learn}u+rw${reset}.
+Pour enlever aux membres du groupe et aux autres le droit d'écriture, vous pouvez faire : ${learn}go-w${reset}
+Ou encore pour donner tous les droits à tout le monde, vous pouvez faire : ${learn}ugo+rwx${reset}.
+Ou enlever tous les droits de tout le monde avec ${learn}ugo-rwx${reset}.
 Avant de passer au questionnaire je vous rappelle que le droit d'écriture donne le droit de ${voc}suppression${reset}.
 Bonne chance !
 #clean

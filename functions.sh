@@ -21,17 +21,22 @@ function press_key(){
 	#~ pkill mplayer > /dev/null 2>&1
 }
 
-function talk(){
+function new_mplayer(){
 	pkill mplayer > /dev/null 2>&1
-mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
-( wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 3`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 3`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 4`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 4`.mp3 ) > /dev/null 2>&1 & #download next one, or next one, or next one
+	mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
+	(
+		wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3
+		||
+		wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3
+	) &> /dev/null & #download next one, or next one if 
+}
+function talk(){
+	new_mplayer
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 	press_key
 }
 function talk_not_press_key(){
-	pkill mplayer > /dev/null 2>&1
-mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
-( wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 3`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 3`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 4`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 4`.mp3 ) > /dev/null 2>&1 & #download next one, or next one, or next one
+	new_mplayer
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 }
 function talk_not_press_key_ANSWER(){
@@ -196,7 +201,6 @@ function unlock(){
 
 function enter_chapter(){
 	#Usage : enter_chapter bash 1 1 (first 1 is chapter, next one is for case)
-	wget -nc $AUDIO_DL/1.mp3 -O ~/.GameScript/Audio/c$2/1.mp3 > /dev/null 2>&1 #Wait for download of first one
 	echo ""
 	echo -e "\e[15;5;44m - $1, Chapitre $2 \e[0m"
 	answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2"

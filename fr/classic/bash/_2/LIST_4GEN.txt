@@ -1,25 +1,25 @@
 #[ -d "$HOME/.GameScript_bash2" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash2 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash2 et relancer ce script." && exit
-#mkdir $HOME/.GameScript_bash2
+#mkdir $HOME/.GameScript_bash2 && mkdir -p $HOME/.GameScript/Audio/fr/bash/c2/ && wget -q -nc $AUDIO_DL/5.mp3 -O $HOME/.GameScript/Audio/fr/bash/c2/5.mp3 > /dev/null 2>&1
 #cd $HOME/.GameScript_bash2
 #touch $HOME/.GameScript_bash2/bOb
 Dans le dernier cours, nous avons vu l'utilisation des commandes et de leurs arguments.
-La commande ${learn}cd${reset} permet de se déplacer dans le répertoire de notre choix.
-Ce choix doit se donner en argument de la commande, par exemple ${learn}cd test${reset} pour se déplacer dans le dossier 'test'.
-Ou encore ${learn}mkdir test${reset} pour créer un répertoire qui porte le nom 'test'.
-Cet argument peut avoir un nom spécial, comme ${code}..${reset} qui représente le répertoire parent.
+La commande ${learn}cd${reset} permet de nous déplacer dans le répertoire de notre choix.
+Nous devons donner notre choix en argument de la commande, par exemple ${learn}cd test${reset} pour se déplacer dans le dossier 'test'.
+Ou encore ${learn}mkdir test${reset} pour créer un répertoire qui portera le nom 'test'.
+Cet argument peut avoir un nom spécial, comme ${code}..${reset}, qui représente le répertoire parent.
 ${code}..${reset} étant l'abréviation d'un répertoire, il peut également s'écrire ${code}../${reset}
 ${code}..${reset} étant lui même un répertoire, il peut avoir un parent, qui peut être ciblé en argument par ${code}../..${reset} ou encore ${code}../../${reset}.
-${code}../..${reset} cible donc le grand parent du répertoire courant, ${code}../../..${reset} l'arrière grand parent et ainsi de suite.
-Mais il existe un autre nom spécial, qui représente le répertoire courant : ${code}.${reset}.
+${code}../..${reset} cible donc le grand parent du répertoire courant, alors que ${code}../../..${reset} cible son arrière grand parent, et ainsi de suite.
+Mais il existe un autre nom spécial, qui représente le répertoire courant : c'est le ${code}.${reset}.
 Comme il s'agit d'un dossier, ${code}./${reset} est également correct.
-+Affichez maintenant le contenu de ce répertoire courant.
++Affichez maintenant le contenu de de votre répertoire courant.
 !ls£Non
-Vous pouvez utilisez directement ces chemins spéciaux avec cette commande.
+Vous pouvez utilisez ces raccourcis avec n'importe quelle commande.
 +Testez donc la commande : ${learn}ls .${reset}
 !ls .£Non
 +Et maintenant : ${learn}ls ./${reset}
 !ls ./£Non
-Oui toutes ces ${learn}ls${reset} donnent le même résultat. Sans argument, la commande cible par défaut le répertoire ${code}.${reset}.
+Oui, toutes ces commandes donnent le même résultat. Sans argument, la commande ${learn}ls${reset} cible par défaut le répertoire ${code}.${reset}.
 Vous l'avez compris, ${code}.${reset} est l'abréviation du répertoire courant !
 +Pour supprimer le fichier ${code}bOb${reset}, vous pouvez donc taper ${learn}rm ./bOb${reset}, allez-y.
 !rm ./bOb£Non
@@ -28,52 +28,52 @@ Vous l'avez compris, ${code}.${reset} est l'abréviation du répertoire courant 
 Attention à ce symbole ${code}.${reset}, dans une autre situation il peut avoir une autre signification.
 Ici ce ${code}.${reset} dans ${code}$HOME/.GameScript_bash2${reset} fait simplement partie du nom du dossier.
 Le nom du dossier est ${code}.GameScript_bash2${reset}.
-Mais sur Linux si un nom de fichier ou dossier commence par un ${code}.${reset}, il sera ${voc}caché${reset}.
-En faisant ${learn}pwd${reset}, vous avez bien vu que le terminal est dans le dossier ${code}${HOME}/.GameScript_bash2${reset}.
-Ce dossier est donc bien évidemment dans ${code}${HOME}${reset} !
-Mais si vous tentez d'afficher les éléments de ${code}${HOME}${reset}, vous ne le ve verrez pas.
-+Essayez donc de faire ${learn}ls ${HOME}${reset}.
+Mais sur un système d'exploitation de type Unix, comme Linux, si un nom de fichier ou un nom de dossier commence par un ${code}.${reset}, cet élément sera ${voc}caché${reset}.
+En faisant ${learn}pwd${reset}, vous avez bien vu que nous sommes actuellement dans le dossier ${code}.GameScript_bash2${reset}.
+Et que ce dossier est dans ce dossier : ${code}${HOME}${reset}
+Mais si vous tentez d'afficher ses éléments (${code}${HOME}${reset}), vous ne le ve verrez pas.
++Essayez donc de le faire : ${learn}ls ${HOME}${reset}.
 !ls ${HOME}£Non
-Ici il n'est pas dans la liste, pourtant il existe bel et bien, mais il est ${voc}caché${reset}.
+Ici il n'est pas dans la liste, pourtant il existe bel et bien, mais c'est un dossier ${voc}caché${reset}.
 +Maintenant créez un nouveau dossier 'enfant'.
 !mkdir enfant£Non
-+Déplacez vous dans ce dossier 'enfant' que vous venez de créer.
++Déplacez vous donc dans ce dossier 'enfant' que vous venez de créer.
 !cd enfant£Non
-+Affichez donc le chemin du répertoire courant.
++Affichez le chemin du répertoire courant.
 !pwd£Non
 +Maintenant déplacez vous dans votre répertoire grand parent en utilisant son chemin relatif.
 !cd ../..£Non
-Vous êtes maintenant dans ${code}${HOME}${reset}.
+Vous êtes maintenant dans ce dossier : ${code}${HOME}${reset}.
 Mais comment pouvez vous afficher ce dossier caché ?
 +Essayez donc de faire ${learn}ls${reset} : le dossier ne sera toujours pas affiché.
 !ls£Non
-La plupart des commandes peuvent avoir des arguments spéciaux, qui donnent plus de détails à la commande.
+La plupart des commandes peuvent avoir des arguments spéciaux, qui donnent plus de détails à cette commande.
 Ces arguments spéciaux commence par un ${code}-${reset} et se nomment ${code}options${reset}.
-+Pour que ${learn}ls${reset} affiche les fichiers ${voc}cachés${reset}, tapez donc ${learn}ls -a${reset}
++Pour que ${learn}ls${reset} affiche les éléments ${voc}cachés${reset}, il vous faudra faire ${learn}ls -a${reset}
 !ls -a£Non
-Ici vous devriez voir le dossier ${code}.GameScript_bash2${reset}, mais aussi beaucoup d'autres éléments ${voc}cachés${reset}.
-Maintenant comment revenir dans ce dossier ${code}.GameScript_bash2${reset} ?
-Vous l'avez compris ${code}./${reset} représente le répertoire courant.
-Il est possible de se dépalcer dans ce dossier avec ${learn}cd .GameScript_bash2${reset}.
+Ici vous devriez pourvoir voir le dossier ${code}.GameScript_bash2${reset}, mais aussi beaucoup d'autres éléments ${voc}cachés${reset}.
+Maintenant comment revenir dans le dossier ${code}.GameScript_bash2${reset} ?
+Vous savez déjà que ${code}./${reset} représente le répertoire courant.
+Il est possible de se déplacer dans ce dossier avec ${learn}cd .GameScript_bash2${reset}.
 +Mais il est aussi possible de se déplacer dans ce répertoire avec : ${learn}cd ./.GameScript_bash2${reset}, essayez donc cette commande.
 !cd ./.GameScript_bash2£Non
 J'espère que la différence entre ces deux ${code}.${reset} dans cette commande est pour vous évidente.
-+Maintenant affichez les fichiers ${voc}cachés${reset} de ce répertoire.
++Maintenant affichez les éléments ${voc}cachés${reset} de ce répertoire.
 !ls -a£Non
 Il n'y en a aucun, mais vous pouvez en revanche voir ${code}.${reset} et ${code}..${reset}
-Maintenant que l'on parle de répertoire avec symbole spéciaux, nous pouvons parler de ${code}~${reset}.
-${code}~${reset} représente le répertoire de base de l'utilisateur.
+Puisque l'on parle de répertoire avec symbole spéciaux, nous pouvons aussi parler du ${code}~${reset}.
+Le ${code}~${reset} représente le répertoire de base de l'utilisateur.
 Le plus souvent ce répertoire porte le nom de l'utilisateur dans ${code}/home/${reset}.
-Dans votre cas, ${code}~${reset} s'agit de ${code}$HOME${reset}.
-Ce ${code}~${reset} étant un répertoire, vous pouvez utilisez ce symbole comme un répertoire.
+Dans votre cas, ${code}~${reset} remplace ce chemin : ${code}$HOME${reset}.
+Vous pouvez bien évidemment utiliser ce ${code}~${reset} en argument.
 +Déplacez vous donc dans ce répertoire avec ${learn}cd ~${reset}
 !cd ~£Non
 +Vérifiez maintenant votre répertoire courant.
 !pwd£Non
-${code}~${reset} remplace dans votre cas ${code}$HOME${reset}
+${code}~${reset} remplace dans votre cas ce chemin absolu : ${code}$HOME${reset}
 Pour cibler ce dossier, vous pouvez donc utiliser comme chemin relatif ${code}.GameScript_bash2${reset} ou ${code}./.GameScript_bash2${reset}
 Mais vous avez également, grace à ${code}~${reset}, utiliser un nouveau chemin absolu : ${code}~/.GameScript_bash2${reset}
-+Supprimez le fichier enfant avec ${learn}rmdir .GameScript_bash2/enfant${reset}
++Supprimez le dossier 'enfant' avec ${learn}rmdir .GameScript_bash2/enfant${reset}
 !rmdir .GameScript_bash2/enfant£Non
 +Déplacez vous donc dans le répertoire racine.
 !cd /£Non
@@ -81,31 +81,31 @@ Mais vous avez également, grace à ${code}~${reset}, utiliser un nouveau chemin
 !rmdir ~/.GameScript_bash2£Non
 Parfait !
 Maintenant revenons sur les commandes et leurs ${code}options${reset}.
-+Listez les fichiers ${voc}cachés${reset} du répertoire courant avec ${learn}ls -a${reset}.
++Listez les éléments ${voc}cachés${reset} du répertoire courant avec ${learn}ls -a${reset}.
 !ls -a£Non
-La plupart des arguments ont aussi une version longue, parfois plus facile à mémoriser, qui commence elle par ${code}--${reset}.
+La plupart des options ont aussi une version longue, parfois plus facile à mémoriser, qui commence elle par ${code}--${reset}.
 Par exemple vous pouvez remplacer ${code}-a${reset} par ${code}--all${reset}.
 Les commandes ${code}ls -a${reset} et ${code}ls --all${reset} sont identiques !
-+Listez les fichiers ${voc}cachés${reset} de ${code}$HOME${reset}  ${learn}ls --all $HOME${reset}.
++Listez les éléments ${voc}cachés${reset} de ${code}$HOME${reset} avec ${learn}ls --all $HOME${reset}.
 !ls --all $HOME£Non
 Mais comment pouvoir retenir autant d'options ?
 En fait vous n'avez pas besoin de les mémoriser car vous pouvez toujours accéder au ${code}manuel${reset} d'une commande avec la commande ${learn}man${reset}.
 Pour quitter le manuel, utiliser la touche q, comme quitter.
-+Ouvrez le manuel de la commande ls et regardez rapidement son contenu avec ${learn}man ls${reset}, puis quitter avec la touche q.
++Ouvrez le manuel de la commande ls et regardez rapidement son contenu avec ${learn}man ls${reset}, et enfin quitter avec la touche q.
 !man ls£Non
-Si vous ne vous souvenez plus des options d'une commande vous pouvez toujours ouvrir son manuel.
-Si vous posez une question sur une commande dont la réponse est dans le manuel, il est possible que vous ayez la réponse : RTFM.
+Si vous avez oublié certaines options d'une commande, vous pouvez toujours ouvrir son manuel.
+Si vous posez une question sur internet à propos d'une commande, mais que la réponse est dans le manuel, il est possible que vous ayez la réponse : RTFM.
 C'est un acronyme anglais pour 'Read The Fucking Manual' ou 'Lit le Putain de Manuel'.
-Apprendre à utiliser les manuels est indispensable pour pouvoir se débrouiller seul.
-Vous ne pouvez pas mémoriser toutes les options et leurs effets pour toutes les commandes, mais ayez toujours le réflexe de visiter le manuel avant de demander de l'aide.
-Avec la répétition vous devriez vous souvenir des options les plus importantes mais le manuel sera roujours là pour vous.
-Si vous ne vous souvenez plus de ce que fais une commande, il vous suffit de visiter son manuel.
-+Faites le pour rmdir, regardez rapidement les options disponibles puis quittez avec q : ${learn}man rmdir${reset}
+Apprendre à lire les manuels est indispensable pour pouvoir vous débrouiller seul face à des problèmes simples.
+Qui plus est, vous ne pouvez pas mémoriser toutes les options et leurs effets pour toutes les commandes, donc ayez toujours le réflexe de visiter le manuel avant de demander de l'aide.
+Avec la répétition vous devriez vous souvenir des options les plus importantes, mais le manuel sera toujours là pour vous.
+Si vous ne vous souvenez plus de ce que fais une commande ou l'option d'une commande, il vous suffit de visiter son manuel.
++Faites le donc pour ${code}rmdir${reset}, regardez rapidement les options disponibles et quittez avec q : ${learn}man rmdir${reset}
 !man rmdir£Non
 La plupart des commandes ont une option ${code}--help${reset}, qui affiche l'aide de la commande, parfois simplement le contenu du manuel.
 +Affichez l'aide de rmdir avec ${learn}rmdir --help${reset}
 !rmdir --help£Non
-+Déplacez vous dans $HOME avec la commande ${learn}cd ~${reset}
++Déplacez vous dans votre répertoire utilisateur avec la commande ${learn}cd ~${reset}
 !cd ~£Non
 +Affichez simplement les éléments du répertoire courant avec ${learn}ls${reset}.
 !ls£Non
@@ -114,14 +114,14 @@ Mais il est possible de limiter sa longueur avec l'option ${code}-w${reset}.
 +Ouvrez le manuel de ${code}ls${reset}, lisez les détails de l'option ${code}-w${reset} et quittez le manuel.
 !man ls£Non
 Certaines options, comme ici ${code}-w${reset}, peuvent aussi avoir des valeurs.
-Ici il faudra donner une valeur numérique à ${code}-w${reset}.
-Si vous limitez cette longueur à 1, il y aura un nom de fichier par ligne.
+Pour utiliser l'option ${code}-w${reset}, il faudra lui donner une valeur numérique qui correspondra au nombre de caractère par ligne.
+Si vous limitez cette valeur par exemple à 1, vous pouvez être sûr qu'il y aura qu'un seul nom de fichier par ligne.
 +Essayez donc cette commande : ${learn}ls -w 1${reset}
 !ls -w 1£Non
-+Essayez maintenant avec 100 comme limite : ${learn}ls -w 100${reset}
-!ls -w 100£Non
++Essayez maintenant 150 comme limite avec : ${learn}ls -w 150${reset}
+!ls -w 150£Non
 La version longue des options avec valeur est parfois différente avec l'utilisation du signe ${code}=${reset} au lieu d'un espace.
-+Essayez d'utiliser la version longue avec ${learn}ls --width=100${reset}
-!ls --width=100£Non
-Vous êtes maintenant prêt pour le questionnaire ! Allez vérifier vos connaissances !
++Essayez d'utiliser la version longue avec ${learn}ls --width=150${reset}
+!ls --width=150£Non
+Vous êtes prêt pour le questionnaire ! Allez vérifier vos connaissances !
 #clean
