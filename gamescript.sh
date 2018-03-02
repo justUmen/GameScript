@@ -43,16 +43,16 @@ function show_menu(){
     for ARG in "$@"; do #For each arguments
   		# echo -e "\\e[0;100m $argCMP) \\e[0m $ARG"
       if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then
-    	   echo -e "\e[0;100m $argCMP) \e[15;5;42m $ARG (SUCCESS) \e[0m"
+    	   echo -e "\e[0;100m $argCMP) \e[97;42m $ARG (SUCCESS) \e[0m"
       else
-         echo -e "\e[0;100m $argCMP) \e[15;5;44m $ARG \e[0m"
+         echo -e "\e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
       fi
       argCMP=`expr $argCMP + 1`
     done
     # echo ""
   	echo -e "\e[0;100m e) \e[0m Exit"
     # echo ""
-		echo -en "\e[1;31;45m # \e[0m"
+		echo -en "\e[97;45m # \e[0m"
 		read selected < /dev/tty
 	done
 	# echo -en "\n\e[0;33m...\e[0m"
@@ -61,10 +61,6 @@ function show_menu(){
   else
     goodbye
   fi
-}
-
-function download_audio(){
-  echo "DL"
 }
 
 function gamescript_help(){
@@ -119,8 +115,8 @@ function my_passwords(){
 function gamescript_available_arguments(){
   #LATER MENU HERE FOR SUBJECT SELECTION
   case $1 in
-    fr) echo -e "===> Sujets disponibles pour le moment : \n\t\e[15;5;44m bash \e[0m"
-		echo -e "Cette série porte le nom \e[15;5;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système d'exploitation de type Unix."
+    fr) echo -e "===> Sujets disponibles pour le moment : \n\t\e[97;44m bash \e[0m"
+		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système d'exploitation de type Unix."
         launch_gamescript $LANGUAGE classic bash
 		;;
     en) echo -e "===> Nothing in english yet :(" ;;
@@ -138,7 +134,7 @@ function enter(){
   case $2 in
     # 1) echo -e "\e[0;33m...\e[0m" ;&
     1) echo "" ;&
-  	2) echo -e "\e[15;5;44m - $1, $TITLE \e[0m" ;&
+  	2) echo -e "\e[97;44m - $1, $TITLE \e[0m" ;&
   	3) show_menu "$1" "$1 : chapitre 1" "$1 : chapitre 2" "$1 : chapitre 3" "$1 : chapitre 4" "$1 : chapitre 5" "$1 : chapitre 6" ;; #"$1 : chapitre 7"
     # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
     *)
@@ -181,8 +177,8 @@ if [ $# -eq 0 ]; then
 	echo "GameScript in english  : gamescript -l en"
 	echo "GameScript en français : gamescript -l fr"
 	echo ""
-	#~ echo "GameScript without audio : gamescript -m"
-	#~ echo ""
+	echo "GameScript without audio : gamescript -m"
+	echo ""
 	echo "Passwords : gamescript -p"
 	exit
 fi
@@ -240,7 +236,7 @@ done
 if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; fi
 if [[ $MUTE == 0 ]]; then
-	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo "You need to install mplayer or mpg123." >&2; exit 3; }
+	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo "Without the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
 	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
 	# -af volume=10 ADD 10 decibels
 fi

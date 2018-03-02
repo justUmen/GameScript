@@ -56,7 +56,7 @@ function answer_quiz(){
 		echo -e "\\e[0;100m 1) \\e[0m $1"
 		echo -e "\\e[0;100m 2) \\e[0m $2"
 		echo -e "\\e[0;100m 3) \\e[0m $3"
-		echo -en "\\e[1;15;45m # \\e[0m"
+		echo -en "\\e[97;45m # \\e[0m"
 		read key < /dev/tty
 		case $key in
 			1) 	if [ -f "$HOME/.GameScript/restore_$7$8" ];then
@@ -65,7 +65,7 @@ function answer_quiz(){
 						echo -e "\\e[0;100m 1) \\e[0m Continuer"
 						echo -e "\\e[0;100m 2) \\e[0m Recommencer"
 						echo -e "\\e[0;100m 3) \\e[0m Retour"
-						echo -en "\\e[1;15;45m # \\e[0m"
+						echo -en "\\e[97;45m # \\e[0m"
 						read choice < /dev/tty
 						case $choice in
 							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
@@ -90,7 +90,7 @@ function answer_quiz(){
 }
 function answer_text_fr(){
 	echo "> $1"
-	echo -en "\\e[1;15;45m # \\e[0m"
+	echo -en "\\e[97;45m # \\e[0m"
 	read -r USER_CODE < /dev/tty
 	if [ ! "$USER_CODE" == "$2" ]; then
 		talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre le cours.\\e[0m"
@@ -100,13 +100,13 @@ function answer_text_fr(){
 	fi
 }
 function answer_run(){
-	echo -en "\\e[1;15;45m # \\e[0m"
+	echo -en "\\e[97;45m # \\e[0m"
 	read -r USER_CODE < /dev/tty
 	while [ ! "$USER_CODE" == "$1" ]; do
 		if [ ! "$USER_CODE" == "" ]; then
 			talk_not_press_key_ANSWER "$2" "$1"
 		fi
-		echo -en "\\e[1;15;45m # \\e[0m"
+		echo -en "\\e[97;45m # \\e[0m"
 		read -r USER_CODE < /dev/tty
 	done
 	if [ ! "$1" == "" ];then
@@ -132,7 +132,7 @@ function title(){
 black_on_green='\e[30;48;5;82m'
 black_on_lightblue='\e[30;48;5;81m'
 black_on_red='\e[41m'
-On_Black='\e[40m'
+On_Black='\e[97;40m'
 reset='\e[0m'
 
 basic=$On_Black
@@ -206,6 +206,6 @@ function unlock(){
 function enter_chapter(){
 	#Usage : enter_chapter bash 1 1 (first 1 is chapter, next one is for case)
 	echo ""
-	echo -e "\e[15;5;44m - $1, Chapitre $2 \e[0m"
+	echo -e "\e[97;44m - $1, Chapitre $2 \e[0m"
 	answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2"
 }

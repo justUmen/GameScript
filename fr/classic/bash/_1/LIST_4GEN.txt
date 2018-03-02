@@ -31,7 +31,7 @@ Pour que ces fichiers puissent exister, il faut leur donner d'autres noms.
 Ici, il suffit d'appeler le deuxième fichier 'fichier2' et le tour est joué.
 Pour ${codeError}home${reset}, il suffit également de lui donner un autre nom qui ne pose pas de problème comme 'Home', avec un h majuscule.
 Oui ! Dans un système d'exploitation de type Unix, les majuscules sont importantes. 'Home', avec un grand H et 'home' sont deux noms différents.
-En informatique, quand les majuscules ne sont pas équivalentes au minuscules, on dit que les noms sont ${voc}sensibles à la casse${reset}.
+En informatique, quand les majuscules ne sont pas équivalentes aux minuscules, on dit que les noms sont ${voc}sensibles à la casse${reset}.
 Effectivement, les systèmes de type Unix sont ${voc}sensibles à la casse${reset}. C'est à dire que 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... sont valides et différents !
 #tree_1
 Il est aussi possible de représenter l'arborescence linux de cette manière.
