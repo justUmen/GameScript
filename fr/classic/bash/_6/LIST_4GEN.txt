@@ -12,25 +12,25 @@ Il est possible de mettre tous les noms les uns à la suite des autres avec ${co
 Taper tous les noms de fichiers est finalement particulièrement rébarbatif, surtout si vous avez un grand nombre de fichiers à changer.
 Dans ce chapitre nous allons ajouter de nouveaux caractères spéciaux à notre arsenal !
 Le premier que nous allons voir est : ${code}*${reset}
-${code}*${reset} est un symbole très puissant en bash, on l'appelle un ${voc}joker${reset}.
-Il peut être utilisé pour remplacer tous les éléments d'un répertoire.
-C'est à dire qu'au lieu d'avoir à taper tous les noms les uns à la suite des autres, vous avez juste à mettre ${code}*${reset} à la place.
+${code}*${reset} est un symbole très puissant, on l'appelle un ${voc}joker${reset}.
+${code}*${reset} peut être utilisée pour remplacer tous les éléments d'un répertoire.
+C'est à dire qu'au lieu d'avoir à taper tous les noms les uns à la suite des autres, vous avez juste à mettre une ${code}*${reset} à la place.
 +Ajoutez donc le droit de lecture et d'écriture pour le propriétaire sur tous les éléments du répertoire courant, puis réaffichez les nouvelles permissions si la commande est un succès.
 !chmod u+rw *&&ls -l£Non
-Si ${code}*${reset} est utilisé seul, le répertoire en question est bien évidemment le répertoire courant : ${code}*${reset} = ${code}./*${reset}
-Mais ${code}*${reset} peut être utilisé avec n'importe quel chemin, par exemple : ${code}/*${reset} représente tous les éléments du répertoire racine.
+Si ${code}*${reset} est utilisée seule, le répertoire en question est bien évidemment le répertoire courant : ${code}*${reset} = ${code}./*${reset}
+Mais ${code}*${reset} peut être utilisée avec n'importe quel chemin, par exemple : ${code}/*${reset} représente tous les éléments du répertoire racine.
 Ici nous avons finalement résolu tous nos problèmes de permissions en une seule commande !
-Mais ${code}*${reset} peut aussi être utilisé avec les autres commandes.
-+Affichez tous les éléments du répertoire courant les uns à la suite des autres.
+Mais ${code}*${reset} peut aussi être utilisée avec les autres commandes.
++Affichez donc le contenu de tous les fichiers du répertoire courant les uns à la suite des autres.
 !cat *£Non
 L'ordre d'affichage est ${voc}alphabétique${reset}, exactement comme le résultat de ${code}ls${reset}.
 Notez que 'f10' est placé avant 'f2', car l'affichage par défaut est ${voc}alphabétique${reset} et non pas ${voc}numérique${reset}.
 Si l'affichage numérique vous intéresse, vous auriez pu trouver facilement l'option ${code}-v${reset} dans le manuel de ${code}ls${reset}.
 ${code}*${reset} peut donc représenter tous les éléments d'un répertoire.
-Mais que fait-il exactement pour avoir cet effet ? 
+Mais que fait-elle exactement pour avoir cet effet ? 
 ${code}*${reset} peut en fait remplacer une chaine de caractère quelconque.
-S'il est utilisé seul, il représente donc tous les fichiers qui ont un nom quelconque...
-Mais il est aussi possible de limiter ce qu'il représente en y ajoutant des caractères.
+Si elle est utilisée seule, elle représente donc tous les fichiers qui ont un nom quelconque...
+Mais il est aussi possible de limiter ce qu'elle représente en y ajoutant des caractères.
 +Par exemple, vous pouvez afficher tous les éléments du répertoire courant qui commence par un 'f' avec : ${learn}ls f*${reset}
 !ls f*£Non
 Ici le fichier 'intrus' n'est pas présent car son nom ne commence pas par un 'f'.
@@ -39,7 +39,7 @@ Ici le fichier 'intrus' n'est pas présent car son nom ne commence pas par un 'f
 La commande ${code}ls${reset} accepte aussi plusieurs arguments, vous pouvez donc cumuler les syntaxes.
 +Essayez par exemple de lister les permissions de tous les éléments du répertoire courant qui finissent soit par un 0, soit par un s.
 !ls -l *0 *s£Non
-+Lister maintenant tous les permissions des éléments du répertoire courant qui commencent par un 'i' et finissent par un 's'.
++Lister maintenant toutes les permissions des éléments du répertoire courant qui commencent par un 'i' et finissent par un 's'.
 !ls -l i*s£Non
 Avec ${code}i*s${reset}, seul le fichier 'intrus' rentre dans les critères de sélection.
 Dans le cas de ce fichier 'intrus', ${code}*${reset} remplacera la chaine de caractère 'ntru'.
@@ -56,14 +56,14 @@ Le fichier 'f' existe bel et bien, mais ne s'est pas affiché lors de nos derni�
 ${code}?${reset} remplace exactement ${code}un${reset} caractère, ni plus, ni moins.
 +Essayez donc avec : ls ${learn}f*${reset}
 !ls f*£Non
-Ici même s'il n'y a aucun caractère après le f, le fichier 'f' s'affiche,
+Ici même s'il n'y a aucun caractère après le f, le fichier 'f' s'affiche.
 C'est tout simplement parce que ${code}*${reset} peut aussi représenter une chaine de caractère vide !
 +Pour afficher les permissions de tous les fichiers avec un nom d'une lettre, vous pouvez utiliser : ${learn}ls -l ?${reset}
 !ls -l ?£Non
 Ici 'f' est notre seul fichier avec un nom d'une lettre.
 Attention donc lorsque vous utilisez ces ${voc}jokers${reset}, surtout avec des commandes ${voc}destructrices${reset} !
 Une commande comme ${learn}rm *${reset} peut avoir de graves conséquences.
-+Maintenant que ces deux symboles sont acquis, affichez le contenu du fichier 'f'.
++Maintenant que ces deux nouveaux symboles sont acquis, affichez le contenu du fichier 'f'.
 !cat f£Non
 Lorque vous utilisez la commande ${code}cat${reset} vous affichez en fait les ${voc}données${reset} du fichier 'f'. (data en anglais)
 +Affichez maintenant les résultats de ${learn}ls -l f${reset}.
@@ -71,19 +71,19 @@ Lorque vous utilisez la commande ${code}cat${reset} vous affichez en fait les ${
 Les informations qui s'affichent ici sont les ${voc}métadonnées${reset} du fichier 'f'. (metadata en anglais)
 Les ${voc}métadonnées${reset} sont des informations sur des données !
 ${learn}ls -l${reset} vous affiche donc des ${voc}métadonnées${reset}.
-Prenons un exemple : -rw------- 1 umen team 10 Feb 20 16:16 f
+Prenons cet exemple : -rw------- 1 umen team 10 Feb 20 16:16 f
 Dans cet affichage, il y a en fait 7 colonnes. 
-${codeFile}-rw-------${reset} 1 umen team 10 Feb 20 16:16 f : Vous connaissez déjà la première colonne, il s'agit du type et des permissions.
+${codeFile}-rw-------${reset} 1 umen team 10 Feb 20 16:16 f : Vous connaissez déjà la première colonne, il s'agit du type de l'élément et de ses permissions.
 -rw------- ${codeFile}1${reset} umen team 10 Feb 20 16:16 f : La deuxième colonne est un nombre qui compte le nombre de liens ou de répertoires dans un élément.
 Mais nous reviendrons sur ce nombre dans un autre chapitre, ignorez le pour le moment.
 -rw------- 1 ${codeFile}umen${reset} team 10 Feb 20 16:16 f : La troisième colonne est je le rappelle le nom du propriétaire.
 -rw------- 1 umen ${codeFile}team${reset} 10 Feb 20 16:16 f : La quatrième colonne est je le rappelle le nom du groupe.
--rw------- 1 umen team ${codeFile}10${reset} Feb 20 16:16 f : La cinquième colonne est la ${voc}taille${reset} en ${voc}octet${reset} du fichier. (byte en anglais)
+-rw------- 1 umen team ${codeFile}10${reset} Feb 20 16:16 f : La cinquième colonne est la ${voc}taille${reset} en ${voc}octet${reset} du fichier. (octect = byte en anglais)
 Pour rappel : un octet est égal à 8 bits. Et un bit ne peut avoir que deux valeurs, 0 ou 1.
 Ce fichier de 10 octets fait donc 80 bits !
-Pour information, le contenu de notre fichier 'f' est égal en binaire à 01100011 01101111 01101110 01110100 01100101 01101110 01110101 00100000 01100110 00001010
+Pour information, le contenu de notre fichier 'f' est égal en binaire à ça : 01100011 01101111 01101110 01110100 01100101 01101110 01110101 00100000 01100110 00001010
 -rw------- 1 umen team 10 ${codeFile}Feb 20 16:16${reset} f : La sixième colonne est la date de la dernière modification du fichier.
--rw------- 1 umen team 10 Feb 20 16:16 ${codeFile}f${reset} : La dernière colonne est simplement le nom du fichier.
+-rw------- 1 umen team 10 Feb 20 16:16 ${codeFile}f${reset} : Et la dernière colonne est simplement le nom du fichier.
 Dans le chapitre précédent, vous aviez déjà utilisé la commande ${code}touch${reset} pour créer un fichier.
 Effectivement, avec ${code}touch${reset}, si le fichier donné en argument n'existe pas il sera créé.
 Mais le but premier de cette commande est de changer cette métadonnée de dernière modification. -rw------- 1 umen team 10 ${codeFile}Feb 20 16:16${reset} f
@@ -106,10 +106,10 @@ Et maintenant nous allons revenir rapidement sur les permissions, en particulier
 Nous avons déjà vu comment utiliser ${code}chmod${reset} avec des lettres : r, w, x, u, g, o.
 Mais il est aussi possible d'utiliser ${code}chmod${reset} avec 3 chiffres !
 A chaque lettre correspond une valeur numérique, la lettre 'r' sera 4, 'w' sera 2 et 'x' sera 1.
-Il faudra ensuite faire l'addition des permissions, 'rw-' sera donc 4+2=${voc}6${reset}, 'r-x' sera 4+1=${voc}5${reset}, 'r--' sera ${voc}4${reset}, 'rwx' sera 4+2+1=${voc}7${reset}, '---' sera ${voc}0${reset}, etc...
+Il faudra ensuite faire l'addition des permissions, 'rw-' sera donc 4+2=${voc}6${reset}, 'r-x' sera 4+1=${voc}5${reset}, 'r--' sera ${voc}4${reset}, 'rwx' sera 4+2+1=${voc}7${reset}, '---' sera bien évidemment ${voc}0${reset}, etc...
 Vous devez utiliser trois de ces sommes pour respectivement : le propriétaire, le groupe et les autres.
-Par exemple pour donner tous les droits au propriétaire mais aucun au reste sur le fichier 'test' : ${learn}chmod 700 test${reset}
-${codeFile}7${reset}00 donne toutes les permissionss au propriétaire : ${codeFile}rwx${reset}
+Par exemple, sur le fichier 'test', pour donner tous les droits au propriétaire mais aucun au reste, il faudra faire ${learn}chmod 700 test${reset}
+${codeFile}7${reset}00 donne toutes les permissions au propriétaire : ${codeFile}rwx${reset}
 7${codeFile}0${reset}0 ne donne aucune permission au groupe : ${codeFile}---${reset}
 70${codeFile}0${reset} ne donne aucune permission aux autres : ${codeFile}---${reset}
 ${codeFile}700${reset} est donc équivalent à ${codeFile}rwx------${reset}.
@@ -119,28 +119,28 @@ ${codeFile}700${reset} est donc équivalent à ${codeFile}rwx------${reset}.
 !ls -l£Non
 Vous avez peut être remarqué que la commande ${learn}chmod 644 ??${reset} n'a pas d'équivalent avec des lettres.
 Ou plutôt qu'il faut plusieures commandes pour avoir le même effet.
-Il faudra par exemple ${learn}chmod ugo+r ??${reset} pour faire l'équivalent de ${learn}chmod 444 ??${reset}.
+Il faudra d'abord réinitialiser toutes les permissions à 0 avec ${learn}chmod ugo-rwx ??${reset}.
+Ensuite ${learn}chmod ugo+r ??${reset} pour faire l'équivalent de ${learn}chmod 444 ??${reset}.
 Et il faudra ensuite transformer ${code}444${reset} en ${code}644${reset} avec ${learn}chmod u+w ??${reset}.
 Cependant l'inverse n'est pas du tout possible, ${code}u+w${reset} n'a pas d'équivalent en chiffre, parce que le résultat dépendra des permissions précédentes.
 Les deux méthodes ne sont pas pas équivalentes !
 Ca sera donc à vous de choisir quelle méthode vous souhaitez utiliser, en fonction de votre situation.
 Et pour en terminer avec les bases sur les permissions, nous allons voir comment changer de propriétaire et de groupe.
-La commande a utiliser sera : ${code}chown${reset}, abréviation anglaise de : ${code}ch${reset}ange ${code}own${reset}er.
+La commande à utiliser sera : ${code}chown${reset}, abréviation anglaise de : ${code}ch${reset}ange ${code}own${reset}er.
 +Pour mettre ${voc}root${reset} comme propriétaire du fichier 'f' vous pouvez simplement taper : ${learn}chown root f${reset}
 !chown root f£Non
-Ici cette commande ne fonctionne pas !
-C'est encore une fois un problème de permission, mais qui n'est pas du même type.
+Ici cette commande ne fonctionne pas ! C'est encore une fois un problème de permission, mais qui n'est pas du même type.
 Par mesure de sécurité, certaines commandes peuvent uniquement être utilisées par l'utilisateur administrateur : ${voc}root${reset}.
 ${code}chown${reset} est l'une d'entre elles, c'est une commande que seul ${voc}root${reset} peut utiliser !
-Mais je ne vous demanderai pas votre mot de passe ${voc}root${reset} dans ce script.
-Je vous invite donc à tester cette commande ${code}chown${reset} en root par vous même dans un autre terminal plus tard !
-Pour vous connectez en ${code}rot${reset} vous pouvez faire : ${learn}su root${reset}, votre mot de passe vous sera alors demandé et vous aurez votre terminal en ${code}root${reset}.
+Mais je ne vous demanderai pas votre mot de passe ${voc}root${reset} dans GameScript.
+Je vous invite donc à tester cette commande ${code}chown${reset} plus tard, en root par vous même dans un autre terminal !
+Pour vous connectez en ${code}root${reset} vous pouvez faire : ${learn}su root${reset}. Votre mot de passe vous sera alors demandé et vous aurez votre terminal en ${code}root${reset}.
 Pour tester si vous êtes bien ${voc}root${reset} vous pouvez utiliser la commande : ${learn}whoami${reset}.
 Si vous voulez changer le ${voc}groupe${reset} il faudra utiliser le symbole ${code}:${reset}, comme par exemple ${learn}chown :familleEinstein f${reset}.
 Et bien évidemment vous pouvez changer les deux en même temps, comme par exemple ${learn}chown albert:familleEinstein f${reset}.
 Attention cependant à toutes les commandes que vous lancez en ${voc}root${reset} !
-${voc}root${reset} possède TOUTES les permissions pour TOUT les éléments !
-${voc}root${reset} est capable de supprimer tous vos fichiers, mais il a aussi le pouvoir de rendre votre système inutilisable !
+${voc}root${reset} possède TOUTES les permissions pour TOUS les éléments !
+${voc}root${reset} est non seulement capable de supprimer tous vos fichiers, mais il a aussi le pouvoir de rendre votre système inutilisable !
 Une commande maladroite en ${voc}root${reset}, ou un script malicieux en ${voc}root${reset} peuvent avoir des effets dévastateurs.
 Vous maitrisez maintenant tout ce qu'il vous faut pour analyser et maitriser vos permissions.
 Bonne chance pour le questionnaire !
