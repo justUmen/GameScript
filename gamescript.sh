@@ -3,13 +3,14 @@
 function press_key_GAMESCRIPT(){
 	echo -en "\e[0;33m...\e[0m"
 	read -s -n1 key < /dev/tty
-	pkill mplayer > /dev/null 2>&1
+	pkill mplayer &> /dev/null
+	pkill mpg123 &> /dev/null
 }
 
 function talk_GAMESCRIPT(){
 	# -af volume=10 ADD 10 decibels
 	if [[ $MUTE == 0 ]]; then 
-		mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" > /dev/null 2>&1 &
+		( mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" || mpg123 --scale 100000 "$AUDIO_LOCAL/$AUDIOCMP.mp3" ) &> /dev/null &
 		AUDIOCMP=`expr $AUDIOCMP + 1`
 		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 	fi
@@ -18,7 +19,7 @@ function talk_GAMESCRIPT(){
 }
 function talk_GAMESCRIPT_not_press(){
 	if [[ $MUTE == 0 ]]; then 
-		mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" > /dev/null 2>&1 &
+		( mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" || mpg123 --scale 100000 "$AUDIO_LOCAL/$AUDIOCMP.mp3" ) &> /dev/null &
 		AUDIOCMP=`expr $AUDIOCMP + 1`
 		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 	fi

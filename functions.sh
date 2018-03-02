@@ -22,8 +22,9 @@ function press_key(){
 }
 
 function new_mplayer(){
-	pkill mplayer > /dev/null 2>&1
-	mplayer -af volume=10 "$AUDIO_LOCAL/$restore.mp3" > /dev/null 2>&1 &
+	pkill mplayer &> /dev/null
+	pkill mpg123 &> /dev/null
+	( mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" || mpg123 --scale 100000 "$AUDIO_LOCAL/$AUDIOCMP.mp3" ) &> /dev/null &
 	(
 		wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3
 		||
