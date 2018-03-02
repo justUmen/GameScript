@@ -1,4 +1,4 @@
-# Gamescript.sh
+# Gamescript.sh [french only for now...]
 
 ## Simple installation :
 
