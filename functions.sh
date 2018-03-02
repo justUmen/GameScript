@@ -24,12 +24,8 @@ function press_key(){
 function new_sound(){
 	pkill mplayer &> /dev/null
 	pkill mpg123 &> /dev/null
-	( mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" || mpg123 --scale 100000 "$AUDIO_LOCAL/$AUDIOCMP.mp3" ) &> /dev/null &
-	(
-		wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 \
-		|| \
-		wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3
-	) &> /dev/null & #download next one, or the one after if it doesn't exist
+	$SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
+	( wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 1`.mp3 || wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $HOME/.GameScript/Audio/fr/$CHAPTER_NAME/c$CHAPTER_NUMBER/`expr $restore + 2`.mp3 ) &> /dev/null & #download next one, or the one after if it doesn't exist
 }
 function talk(){
 	if [[ $MUTE == 0 ]]; then 
@@ -60,7 +56,7 @@ function answer_quiz(){
 		echo -e "\\e[0;100m 1) \\e[0m $1"
 		echo -e "\\e[0;100m 2) \\e[0m $2"
 		echo -e "\\e[0;100m 3) \\e[0m $3"
-		echo -en "\\e[1;31;45m # \\e[0m"
+		echo -en "\\e[1;15;45m # \\e[0m"
 		read key < /dev/tty
 		case $key in
 			1) 	CHAPTER_FOLDER=".GameScript_$7$8"
@@ -70,7 +66,7 @@ function answer_quiz(){
 						echo -e "\\e[0;100m 1) \\e[0m Continuer"
 						echo -e "\\e[0;100m 2) \\e[0m Recommencer"
 						echo -e "\\e[0;100m 3) \\e[0m Retour"
-						echo -en "\\e[1;31;45m # \\e[0m"
+						echo -en "\\e[1;15;45m # \\e[0m"
 						read choice < /dev/tty
 						case $choice in
 							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
@@ -95,7 +91,7 @@ function answer_quiz(){
 }
 function answer_text_fr(){
 	echo "> $1"
-	echo -en "\\e[1;31;45m # \\e[0m"
+	echo -en "\\e[1;15;45m # \\e[0m"
 	read -r USER_CODE < /dev/tty
 	if [ ! "$USER_CODE" == "$2" ]; then
 		talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre le cours.\\e[0m"
@@ -105,13 +101,13 @@ function answer_text_fr(){
 	fi
 }
 function answer_run(){
-	echo -en "\\e[1;31;45m # \\e[0m"
+	echo -en "\\e[1;15;45m # \\e[0m"
 	read -r USER_CODE < /dev/tty
 	while [ ! "$USER_CODE" == "$1" ]; do
 		if [ ! "$USER_CODE" == "" ]; then
 			talk_not_press_key_ANSWER "$2" "$1"
 		fi
-		echo -en "\\e[1;31;45m # \\e[0m"
+		echo -en "\\e[1;15;45m # \\e[0m"
 		read -r USER_CODE < /dev/tty
 	done
 	if [ ! "$1" == "" ];then
@@ -154,6 +150,7 @@ MUTE=0
 if [ "$1" == "MUTE" ]; then
 	MUTE=1
 fi
+command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000";
 
 #OBSOLETE ?
 #~ restore=2 #first line of LIST_4GEN should be environment test (test ~/House)

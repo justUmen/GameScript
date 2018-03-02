@@ -7,21 +7,21 @@ function press_key_GAMESCRIPT(){
 	pkill mpg123 &> /dev/null
 }
 
+function new_sound(){
+	$SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" &> /dev/null &
+	AUDIOCMP=`expr $AUDIOCMP + 1`
+	wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+}
 function talk_GAMESCRIPT(){
-	# -af volume=10 ADD 10 decibels
-	if [[ $MUTE == 0 ]]; then 
-		( mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" || mpg123 --scale 100000 "$AUDIO_LOCAL/$AUDIOCMP.mp3" ) &> /dev/null &
-		AUDIOCMP=`expr $AUDIOCMP + 1`
-		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+	if [[ $MUTE == 0 ]]; then
+		new_sound
 	fi
 	echo -e "\e[0;32m $1\e[0m - $2"
 	press_key_GAMESCRIPT
 }
 function talk_GAMESCRIPT_not_press(){
 	if [[ $MUTE == 0 ]]; then 
-		( mplayer -af volume=10 "$AUDIO_LOCAL/$AUDIOCMP.mp3" || mpg123 --scale 100000 "$AUDIO_LOCAL/$AUDIOCMP.mp3" ) &> /dev/null &
-		AUDIOCMP=`expr $AUDIOCMP + 1`
-		wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+		new_sound
 	fi
 	echo -e "\e[0;32m $1\e[0m - $2"
 }
@@ -145,7 +145,7 @@ function enter(){
 		if [[ $MUTE == 1 ]]; then 
 			wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s MUTE
 		else
-			wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash
+			wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s
 		fi
 		;;
   esac
@@ -241,6 +241,8 @@ if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; fi
 if [[ $MUTE == 0 ]]; then
 	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo "You need to install mplayer or mpg123." >&2; exit 3; }
+	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
+	# -af volume=10 ADD 10 decibels
 fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
@@ -263,13 +265,13 @@ GameScript est un script écrit en ${voc}bash${reset} qui peut vous aider à app
 GameScript est interactif :
  * Lorsque vous voyez ces \e[0;33m...\e[0m le script attend que vous pressiez une touche pour continuer.";
  
-talk_GAMESCRIPT justumen " * Lorsque vous voyez ce \\e[1;31;45m # \\e[0m le script attend que vous tapiez quelque chose."
+talk_GAMESCRIPT justumen " * Lorsque vous voyez ce \\e[1;15;45m # \\e[0m le script attend que vous tapiez quelque chose."
 
 talk_GAMESCRIPT justumen "Les commandes que vous lancerez ici s'exécuteront ${voc}réellement${reset} sur votre machine."
 talk_GAMESCRIPT justumen "Vous pouvez donc, si vous le désirez, voir leurs effets simultanément dans un gestionnaire de fichiers."
 
 talk_GAMESCRIPT justumen "De ce fait, toutes les commandes que vous taperez dans GameScript doivent être strictement controlés."
-talk_GAMESCRIPT justumen "Ce \\e[1;31;45m # \\e[0m ne laissera passer qu'${voc}une${reset} seule commande, ce n'est donc ${voc}pas${reset} un véritable simulateur."
+talk_GAMESCRIPT justumen "Ce \\e[1;15;45m # \\e[0m ne laissera passer qu'${voc}une${reset} seule commande, ce n'est donc ${voc}pas${reset} un véritable simulateur."
 
 talk_GAMESCRIPT justumen "Tous les chapitres fonctionneront de la même manière :"
 talk_GAMESCRIPT justumen "  Au lancement vous devez choisir entre 'accéder au cours' ou 'accéder au questionnaire'."
@@ -295,7 +297,7 @@ talk_GAMESCRIPT justumen "Vous êtes un nouvel utilisateur de GameScript, je vou
 talk_GAMESCRIPT_not_press justumen "Si vous y êtes déjà inscrit, veuillez taper votre pseudonyme, afin que GameScript puisse le mémoriser pour vous."
 PSEUDO=""
 while [[ $PSEUDO = "" ]]; do
-	echo -en "\e[1;31;45m # \e[0m"
+	echo -en "\e[1;15;45m # \e[0m"
 	read -r PSEUDO < /dev/tty
 done
 talk_GAMESCRIPT justumen "Bonne journée à vous et bonne chance !
