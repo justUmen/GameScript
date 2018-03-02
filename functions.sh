@@ -59,9 +59,8 @@ function answer_quiz(){
 		echo -en "\\e[1;15;45m # \\e[0m"
 		read key < /dev/tty
 		case $key in
-			1) 	CHAPTER_FOLDER=".GameScript_$7$8"
-				if [ -d "$HOME/$CHAPTER_FOLDER" ];then
-					echo "$CHAPTER_FOLDER existe déjà, continuer ou recommencer le cours du début ?"
+			1) 	if [ -f "$HOME/.GameScript/restore_$7$8" ];then
+					echo "$HOME/.GameScript/restore_$7$8 existe, continuer ou recommencer le cours du début ?"
 					while [ "$choice" != "1" ] || [ "$choice" != "2" ] || [ "$choice" != "3" ]; do
 						echo -e "\\e[0;100m 1) \\e[0m Continuer"
 						echo -e "\\e[0;100m 2) \\e[0m Recommencer"
