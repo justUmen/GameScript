@@ -1,5 +1,5 @@
 #[ -d "$HOME/House" ] && echo "Erreur innatendu, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancer ce script." && exit
-#mkdir $HOME/.GameScript_bash1 > /dev/null 2>&1
+#mkdir $HOME/.GameScript_bash1 &> /dev/null
 #cd $HOME/
 Hey salut tout le monde et bienvenu dans le premier chapitre sur bash.
 Avant de pouvoir apprendre notre première commande, il va falloir d'abord comprendre la logique derrière l'organisation des répertoires et des fichiers sur les systèmes d'exploitation de ${voc}type Unix${reset}, comme ${voc}Linux${reset}.

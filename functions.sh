@@ -2,11 +2,16 @@
 
 function download_all_sounds(){
 	#~ echo "Downloading..."
+	cd $AUDIO_LOCAL || exit
 	i=4
-	while [ $i -lt $LINES ]; do
-		( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
+	rm to_dl.wget 2> /dev/null
+	echo "Downloading Audio..."
+	while [ $i -le $LINES ]; do
+		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
+		echo "$AUDIO_DL/$i.mp3" >> to_dl.wget
 		i=`expr $i + 1`
 	done
+	cat to_dl.wget | xargs -n 1 -P 8 wget -q &
 }
 
 function prepare_audio(){
@@ -14,8 +19,13 @@ function prepare_audio(){
 	mkdir -p $AUDIO_LOCAL 2> /dev/null
 	AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/$LANGUAGE/classic/$CHAPTER_NAME/Audio/$SPEAKER/c$CHAPTER_NUMBER"
 	AUDIOCMP=1
-	if [ -f $AUDIO_DL/4.mp3 ]; then
-		download_all_sounds
+	if [ ! -f "$AUDIO_LOCAL/4.mp3" ]; then
+		wget -q --spider http://google.com
+		if [ $? -eq 0 ]; then
+			download_all_sounds
+		else
+			echo "Cannot download audio, no internet ?"
+		fi
 	fi
 }
 
