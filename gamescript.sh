@@ -10,8 +10,20 @@ function press_key_GAMESCRIPT(){
 function new_sound(){
 	$SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" &> /dev/null &
 	AUDIOCMP=`expr $AUDIOCMP + 1`
-	wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+	#wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 }
+function download_all_sounds_INTRO(){
+	cd $AUDIO_LOCAL || exit
+	i=1
+	rm to_dl.wget 2> /dev/null
+	while [ $i -le 22 ]; do
+		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
+		echo "$AUDIO_DL/$i.mp3" >> to_dl.wget
+		i=`expr $i + 1`
+	done
+	cat to_dl.wget | xargs -n 1 -P 3 wget -q &
+}
+
 function talk_GAMESCRIPT(){
 	if [[ $MUTE == 0 ]]; then
 		new_sound
@@ -125,6 +137,9 @@ function gamescript_available_arguments(){
 }
 
 function enter(){
+  if [[ $MUTE == 0 ]]; then
+	download_all_sounds_INTRO
+  fi
   #USage : enter bash 1
   #use curl if exist ? better ? can avoid cache ?
   case $1 in
