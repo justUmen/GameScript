@@ -48,7 +48,7 @@ Mais comment pouvez vous afficher ce dossier caché ?
 +Essayez donc de faire ${learn}ls${reset} : le dossier ne sera toujours pas affiché.
 !ls£Non
 La plupart des commandes peuvent avoir des arguments spéciaux, qui donnent plus de détails à cette commande.
-Ces arguments spéciaux commence par un ${code}-${reset} et se nomment ${code}options${reset}.
+Ces arguments spéciaux commence par un ${code}-${reset} et se nomment ${voc}options${reset}.
 +Pour que ${learn}ls${reset} affiche les éléments ${voc}cachés${reset}, il vous faudra faire ${learn}ls -a${reset}
 !ls -a£Non
 Ici vous devriez pourvoir voir le dossier ${code}.GameScript_bash2${reset}, mais aussi beaucoup d'autres éléments ${voc}cachés${reset}.
@@ -72,7 +72,7 @@ Vous pouvez bien évidemment utiliser ce ${code}~${reset} en argument.
 !pwd£Non
 ${code}~${reset} remplace dans votre cas ce chemin absolu : ${code}$HOME${reset}
 Pour cibler ce dossier, vous pouvez donc utiliser comme chemin relatif ${code}.GameScript_bash2${reset} ou ${code}./.GameScript_bash2${reset}
-Mais vous avez également, grace à ${code}~${reset}, utiliser un nouveau chemin absolu : ${code}~/.GameScript_bash2${reset}
+Mais vous pouvez également, grâce à ${code}~${reset}, utiliser un nouveau chemin absolu : ${code}~/.GameScript_bash2${reset}
 +Supprimez le dossier 'enfant' avec ${learn}rmdir .GameScript_bash2/enfant${reset}
 !rmdir .GameScript_bash2/enfant£Non
 +Déplacez vous donc dans le répertoire racine.
@@ -80,7 +80,7 @@ Mais vous avez également, grace à ${code}~${reset}, utiliser un nouveau chemin
 +Maintenant supprimez le dossier ${code}.GameScript_bash2${reset} en utilisant le symbole ${code}~${reset} dans votre commande !
 !rmdir ~/.GameScript_bash2£Non
 Parfait !
-Maintenant revenons sur les commandes et leurs ${code}options${reset}.
+Maintenant revenons sur les commandes et leurs ${voc}options${reset}.
 +Listez les éléments ${voc}cachés${reset} du répertoire courant avec ${learn}ls -a${reset}.
 !ls -a£Non
 La plupart des options ont aussi une version longue, parfois plus facile à mémoriser, qui commence elle par ${code}--${reset}.
@@ -89,8 +89,8 @@ Les commandes ${code}ls -a${reset} et ${code}ls --all${reset} sont identiques !
 +Listez les éléments ${voc}cachés${reset} de ${code}$HOME${reset} avec ${learn}ls --all $HOME${reset}.
 !ls --all $HOME£Non
 Mais comment pouvoir retenir autant d'options ?
-En fait vous n'avez pas besoin de les mémoriser car vous pouvez toujours accéder au ${code}manuel${reset} d'une commande avec la commande ${learn}man${reset}.
-Pour quitter le manuel, utiliser la touche q, comme quitter.
+En fait vous n'avez pas besoin de les mémoriser, car vous pouvez toujours accéder au ${code}manuel${reset} d'une commande avec la commande ${learn}man${reset}.
+Pour quitter le manuel, appuyez sur la touche q, comme quitter.
 +Ouvrez le manuel de la commande ls et regardez rapidement son contenu avec ${learn}man ls${reset}, et enfin quitter avec la touche q.
 !man ls£Non
 Si vous avez oublié certaines options d'une commande, vous pouvez toujours ouvrir son manuel.

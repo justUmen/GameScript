@@ -235,7 +235,7 @@ function unlock(){
 	#Usage : unlock "bash" "1" "24d8" "f016"
 	PSEUDO=`cat "$HOME/.GameScript/username"`
 	PASS=`encode_b64 $PSEUDO "$3" "$4"`
-	talk_not_press_key justumen "Pour débloquer '$1 $2' sur le chat, allez sur \e[4;37mhttps://rocket.bjornulf.org/direct/boti\e[0m et copiez/collez : \e[97;42mpassword$PASS\e[0m"
+	talk_not_press_key justumen "Pour débloquer '$1 $2' sur le chat, allez sur \e[4;37mhttps://rocket.bjornulf.org/direct/boti\e[0m et copiez/collez :\n\t\e[97;42mpassword$PASS\e[0m"
 	touch "$HOME/.GameScript/good_$1$2" 2> /dev/null
 	mkdir $HOME/.GameScript/passwords/ 2> /dev/null
 	echo -n "$PASS" > "$HOME/.GameScript/passwords/$1$2"

@@ -1,5 +1,5 @@
 #[ -d "$HOME/.GameScript_bash7" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash7 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash7 et relancer ce script." && exit
-#( mkdir $HOME/.GameScript_bash7 ; wget -q -nc $AUDIO_DL/4.mp3 -O $AUDIO_LOCAL/4.mp3 || rm $AUDIO_LOCAL/4.mp3 ) > /dev/null 2>&1
+#mkdir $HOME/.GameScript_bash7 2> /dev/null
 #cd $HOME/.GameScript_bash7
 
 Par convention

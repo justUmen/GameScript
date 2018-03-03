@@ -1,5 +1,5 @@
 #[ -d "$HOME/.GameScript_bash6" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash6 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash6 et relancer ce script." && exit
-#( mkdir $HOME/.GameScript_bash6 ; wget -q -nc $AUDIO_DL/5.mp3 -O $AUDIO_LOCAL/5.mp3 || rm $AUDIO_LOCAL/5.mp3 ) > /dev/null 2>&1
+#mkdir $HOME/.GameScript_bash6 2> /dev/null
 #cd $HOME/.GameScript_bash6
 #echo "xxxxxx">intrus;echo "contenu f">f;chmod 222 f;echo "contenu f1">f1;chmod 000 f1;echo "contenu f10">f10;chmod 010 f10;echo "contenu f2">f2;chmod 444 f2;echo "contenu f3">f3;chmod 400 f3;echo "contenu f4">f4;chmod 455 f4;echo "contenu f50">f50;chmod 111 f50
 +Commençons par évaluer notre situation avec un : ${learn}ls -l${reset}
