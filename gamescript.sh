@@ -137,9 +137,6 @@ function gamescript_available_arguments(){
 }
 
 function enter(){
-  if [[ $MUTE == 0 ]]; then
-	download_all_sounds_INTRO
-  fi
   #USage : enter bash 1
   #use curl if exist ? better ? can avoid cache ?
   case $1 in
@@ -258,18 +255,36 @@ fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
 
+
+mkdir -p ~/.GameScript/Audio/fr/classic/bash/m1/intro 2> /dev/null
+if [[ $MUTE == 0 ]]; then
+	download_all_sounds_INTRO
+fi
+
 reset='\e[0m'
 voc='\e[1m'
 
 AUDIOCMP=1;
 AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/bash/Audio/m1/intro"
-AUDIO_LOCAL="$HOME/.GameScript/Audio/fr/bash/intro"
+AUDIO_LOCAL="$HOME/.GameScript/Audio/fr/classic/bash/m1/intro"
 function justumen_intro_fr(){
-  mkdir -p ~/.GameScript/Audio/fr/bash/intro 2> /dev/null
+  #~ mkdir -p ~/.GameScript/Audio/fr/bash/intro 2> /dev/null
   
-	if [[ $MUTE == 0 ]]; then 
-		wget -nc $AUDIO_DL/1.mp3 -O $AUDIO_LOCAL/1.mp3 > /dev/null 2>&1 #Wait for download of first one
+  
+  if [[ $MUTE == 0 ]]; then
+	if [ ! -f "$AUDIO_LOCAL/1.mp3" ]; then
+		wget -q --spider http://google.com
+		if [ $? -eq 0 ]; then
+			download_all_sounds_INTRO
+		else
+			echo "Cannot download audio, no internet ?"
+		fi
 	fi
+  fi
+  
+	#~ if [[ $MUTE == 0 ]]; then 
+		#~ wget -nc $AUDIO_DL/1.mp3 -O $AUDIO_LOCAL/1.mp3 > /dev/null 2>&1 #Wait for download of first one
+	#~ fi
 	
 talk_GAMESCRIPT justumen "Bonjour et bienvenu sur GameScript.
 GameScript est un script écrit en ${voc}bash${reset} qui peut vous aider à apprendre le ${voc}bash${reset}.
