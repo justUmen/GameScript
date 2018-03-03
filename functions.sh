@@ -11,7 +11,7 @@ function download_all_sounds(){
 		echo "$AUDIO_DL/$i.mp3" >> to_dl.wget
 		i=`expr $i + 1`
 	done
-	cat to_dl.wget | xargs -n 1 -P 8 wget -q &
+	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
 }
 
 function prepare_audio(){

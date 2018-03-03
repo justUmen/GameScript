@@ -12,16 +12,19 @@ function new_sound(){
 	AUDIOCMP=`expr $AUDIOCMP + 1`
 	#wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 }
+function download_first_sound_INTRO(){
+	wget -q $AUDIO_DL/1.mp3 -O $AUDIO_LOCAL/1.mp3
+}
 function download_all_sounds_INTRO(){
 	cd $AUDIO_LOCAL || exit
-	i=1
+	i=2
 	rm to_dl.wget 2> /dev/null
 	while [ $i -le 22 ]; do
 		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
 		echo "$AUDIO_DL/$i.mp3" >> to_dl.wget
 		i=`expr $i + 1`
 	done
-	cat to_dl.wget | xargs -n 1 -P 3 wget -q &
+	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
 }
 
 function talk_GAMESCRIPT(){
@@ -255,37 +258,27 @@ fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
 
-
-mkdir -p ~/.GameScript/Audio/fr/classic/bash/m1/intro 2> /dev/null
-if [[ $MUTE == 0 ]]; then
-	download_all_sounds_INTRO
-fi
-
 reset='\e[0m'
-voc='\e[1m'
+#~ voc='\e[1m'
+voc='\e[4;37m'
 
 AUDIOCMP=1;
 AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/bash/Audio/m1/intro"
 AUDIO_LOCAL="$HOME/.GameScript/Audio/fr/classic/bash/m1/intro"
-function justumen_intro_fr(){
-  #~ mkdir -p ~/.GameScript/Audio/fr/bash/intro 2> /dev/null
-  
-  
-  if [[ $MUTE == 0 ]]; then
+
+if [[ $MUTE == 0 ]]; then
 	if [ ! -f "$AUDIO_LOCAL/1.mp3" ]; then
 		wget -q --spider http://google.com
 		if [ $? -eq 0 ]; then
+			download_first_sound_INTRO
 			download_all_sounds_INTRO
 		else
 			echo "Cannot download audio, no internet ?"
 		fi
 	fi
-  fi
-  
-	#~ if [[ $MUTE == 0 ]]; then 
-		#~ wget -nc $AUDIO_DL/1.mp3 -O $AUDIO_LOCAL/1.mp3 > /dev/null 2>&1 #Wait for download of first one
-	#~ fi
-	
+fi
+
+function justumen_intro_fr(){
 talk_GAMESCRIPT justumen "Bonjour et bienvenu sur GameScript.
 GameScript est un script écrit en ${voc}bash${reset} qui peut vous aider à apprendre le ${voc}bash${reset}.
 GameScript est interactif :
@@ -326,9 +319,7 @@ while [[ $PSEUDO = "" ]]; do
 	echo -en "\e[97;45m # \e[0m"
 	read -r PSEUDO < /dev/tty
 done
-talk_GAMESCRIPT justumen "Bonne journée à vous et bonne chance !
- - Justumen
-"
+talk_GAMESCRIPT justumen "Bonne journée à vous et bonne chance !"
 }
 
 if [ ! -f "$HOME/.GameScript/username" ]; then
