@@ -116,7 +116,7 @@ function gamescript_available_arguments(){
   #LATER MENU HERE FOR SUBJECT SELECTION
   case $1 in
     fr) echo -e "===> Sujets disponibles pour le moment : \n\t\e[97;44m bash \e[0m"
-		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système d'exploitation de type Unix."
+		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système d'exploitation de type Unix, ainsi que leurs permissions."
         launch_gamescript $LANGUAGE classic bash
 		;;
     en) echo -e "===> Nothing in english yet :(" ;;
@@ -260,14 +260,14 @@ talk_GAMESCRIPT justumen "Bonjour et bienvenu sur GameScript.
 GameScript est un script écrit en ${voc}bash${reset} qui peut vous aider à apprendre le ${voc}bash${reset}.
 GameScript est interactif :
  * Lorsque vous voyez ces \e[0;33m...\e[0m le script attend que vous pressiez une touche pour continuer.";
- 
+
 talk_GAMESCRIPT justumen " * Lorsque vous voyez ce \\e[1;15;45m # \\e[0m le script attend que vous tapiez quelque chose."
 
 talk_GAMESCRIPT justumen "Les commandes que vous lancerez ici s'exécuteront ${voc}réellement${reset} sur votre machine."
 talk_GAMESCRIPT justumen "Vous pouvez donc, si vous le désirez, voir leurs effets simultanément dans un gestionnaire de fichiers."
 
 talk_GAMESCRIPT justumen "De ce fait, toutes les commandes que vous taperez dans GameScript doivent être strictement controlés."
-talk_GAMESCRIPT justumen "Ce \\e[1;15;45m # \\e[0m ne laissera passer qu'${voc}une${reset} seule commande, ce n'est donc ${voc}pas${reset} un véritable simulateur."
+talk_GAMESCRIPT justumen "Ce \\e[97;45m # \\e[0m ne laissera passer qu'${voc}une${reset} seule commande, ce n'est donc ${voc}pas${reset} un véritable simulateur."
 
 talk_GAMESCRIPT justumen "Tous les chapitres fonctionneront de la même manière :"
 talk_GAMESCRIPT justumen "  Au lancement vous devez choisir entre 'accéder au cours' ou 'accéder au questionnaire'."
@@ -293,7 +293,7 @@ talk_GAMESCRIPT justumen "Vous êtes un nouvel utilisateur de GameScript, je vou
 talk_GAMESCRIPT_not_press justumen "Si vous y êtes déjà inscrit, veuillez taper votre pseudonyme, afin que GameScript puisse le mémoriser pour vous."
 PSEUDO=""
 while [[ $PSEUDO = "" ]]; do
-	echo -en "\e[1;15;45m # \e[0m"
+	echo -en "\e[97;45m # \e[0m"
 	read -r PSEUDO < /dev/tty
 done
 talk_GAMESCRIPT justumen "Bonne journée à vous et bonne chance !

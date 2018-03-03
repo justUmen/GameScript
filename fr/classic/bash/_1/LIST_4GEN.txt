@@ -1,5 +1,5 @@
 #[ -d "$HOME/House" ] && echo "Erreur innatendu, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancer ce script." && exit
-#mkdir $HOME/.GameScript_bash1 && mkdir -p $HOME/.GameScript/Audio/fr/bash/c1/ && wget -q -nc $AUDIO_DL/4.mp3 -O $HOME/.GameScript/Audio/fr/bash/c1/4.mp3 > /dev/null 2>&1
+#mkdir $HOME/.GameScript_bash1 > /dev/null 2>&1
 #cd $HOME/
 Hey salut tout le monde et bienvenu dans le premier chapitre sur bash.
 Avant de pouvoir apprendre notre première commande, il va falloir d'abord comprendre la logique derrière l'organisation des répertoires et des fichiers sur les systèmes d'exploitation de ${voc}type Unix${reset}, comme ${voc}Linux${reset}.
@@ -7,7 +7,7 @@ Commençons par nous intéresser aux 'répertoires', qui portent aussi le nom de
 #real_tree_1
 Vous pouvez imaginer le système d'organisation des dossiers comme un arbre.
 Dans cet arbre les lignes qui représentent les dossiers sont en bleu ciel.
-A la base de l'arbre vous avez le symbole ${code}/${reset} qui représente le ${voc}répertoire racine${reset}.
+A la base de cet arbre vous avez le symbole ${code}/${reset} qui représente le ${voc}répertoire racine${reset}.
 C'est un répertoire spécial qui contiendra TOUS les autres dossiers du système.
 #real_tree_2
 Dans cet arbre, à chaque fois qu'une branche se sépare de l'arbre, c'est un nouveau dossier.
@@ -32,7 +32,7 @@ Ici, il suffit d'appeler le deuxième fichier 'fichier2' et le tour est joué.
 Pour ${codeError}home${reset}, il suffit également de lui donner un autre nom qui ne pose pas de problème comme 'Home', avec un h majuscule.
 Oui ! Dans un système d'exploitation de type Unix, les majuscules sont importantes. 'Home', avec un grand H et 'home' sont deux noms différents.
 En informatique, quand les majuscules ne sont pas équivalentes aux minuscules, on dit que les noms sont ${voc}sensibles à la casse${reset}.
-Effectivement, les systèmes de type Unix sont ${voc}sensibles à la casse${reset}. C'est à dire que 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... sont valides et différents !
+Effectivement, les systèmes de type Unix sont ${voc}sensibles à la casse${reset}. C'est à dire que 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... sont valides et différentes !
 #tree_1
 Il est aussi possible de représenter l'arborescence linux de cette manière.
 #tree_2
@@ -58,15 +58,15 @@ Maintenant rentrons dans ce dossier avec la commande ${learn}cd${reset} (cd vien
 !cd House£Non
 +Maintenant réaffichons les fichiers et dossiers avec un simple ${learn}ls${reset}.
 !ls£Non
-Ici le répertoire House est vide, c'est normal puisque nous venons de le créer.
+Ici le répertoire 'House' est vide, c'est normal puisque nous venons de le créer.
 Mais qu'en est-il ici du ${voc}chemin absolu${reset} dont je vous ai parlé avant ?
 En fait, un terminal tourne toujours dans un dossier, et peut se 'déplacer' dans l'arborescense du système.
-C'est ce que vous avez fait avec la commande ${learn}cd House${reset}, vous avez déplacé votre terminal dans le dossier House.
+C'est ce que vous avez fait avec la commande ${learn}cd House${reset}, vous avez déplacé votre terminal dans le dossier 'House'.
 +Pour savoir dans quel répertoire votre terminal est en ce moment, il suffit de taper ${learn}pwd${reset} (pwd vient de l'anglais ${learn}P${reset}rint ${learn}W${reset}orking ${learn}D${reset}irectory).
 !pwd£Non
 Le résultat que vous voyiez ici est le ${voc}chemin absolu${reset} du répertoire ou vous êtes en ce moment.
 Ce répertoire où vous êtes porte un nom spécial : c'est votre ${voc}${voc}répertoire courant${reset}.
-Comme je vous l'ai déjà dit, il n'est pas obligatoire de mettre un '/' pour le dernier dossier c'est pourquoi vous voyez ici ${learn}$(pwd)${reset} sans un '/' à la fin.
+Comme je vous l'ai déjà dit, il n'est pas obligatoire de mettre un '/' pour le dernier dossier, c'est pourquoi vous voyez ici ${learn}$(pwd)${reset} sans un '/' à la fin.
 Voilà donc 4 commandes Unix fondamentales : ${learn}pwd${reset}, ${learn}ls${reset}, ${learn}cd${reset} et ${learn}mkdir${reset}.
 ${learn}pwd${reset} et ${learn}ls${reset} sont des commandes particulièrement innoffensives, elle ne font que vous donnez des renseignements.
 N'hésitez donc pas à les taper systématiquement, dès que vous êtes dans un terminal.
@@ -92,7 +92,7 @@ Il suffit de continuer à les séparer par des espaces.
 !ls£Non
 +Maintenant pour supprimer ces dossiers, vous pouvez taper : ${learn}rmdir bed closet desk${reset}. (rmdir vient de l'anglais ${learn}R${reset}e${learn}M${reset}ove ${learn}DIR${reset}ectory)
 !rmdir bed closet desk£Non
-${learn}rmdir${reset} est une commande plutôt innofensive, parce qu'elle refusera de supprimer un dossier si celui ci n'est pas vide.
+${learn}rmdir${reset} est une commande plutôt innofensive, parce qu'elle refusera de supprimer un dossier si celui-ci n'est pas vide.
 Ce qui peut empêcher de graves accidents. Si par exemple, vous faites par erreur ${learn}rmdir /home${reset}.
 La commande ${learn}rm${reset} est la commande pour supprimer des fichiers. (rm vient de l'anglais ${learn}R${reset}e${learn}M${reset}ove)
 #touch virus0 virus1 virus2 virus3 virus4
@@ -127,7 +127,7 @@ Maintenant, comment pouvoir vérifier si le fichier a bien été supprimé ?
 Lorsqu'une commande ne se passe pas comme prévue, elle vous renvoit très souvent une erreur.
 +Essayez de supprimer le fichier 'virus1' à nouveau en utilisant son ${voc}chemin absolu${reset}.
 !rm $HOME/House/Room/virus1£Non
-Ici la commande ${learn}rm${reset} vous renvoi une erreur, le fichier n'existe donc déjà plus.
+Ici la commande ${learn}rm${reset} vous renvoit une erreur, le fichier n'existe donc déjà plus.
 Maintenant, on peut aussi utiliser le ${voc}chemin absolu${reset} du dossier 'Room' pour afficher son contenu.
 Vous connaissez déjà la commande ${learn}ls${reset}, pour lister le contenu du ${voc}répertoire courant${reset}.
 Sans ${voc}argument${reset}, avec un simple ${learn}ls${reset}, le répertoire utilisé sera automatiquement le ${voc}répertoire courant${reset}.
@@ -167,11 +167,12 @@ Il y a aussi une syntaxe spéciale très utile pour le ${voc}chemin relatif${res
 ${learn}..${reset} représente dans l'arborescence le parent du ${voc}répertoire courant${reset}.
 C'est le vocabulaire que nous employons pour parler de cette arborescence, ce sont des relations parents / enfants.
 Par exemple pour ${learn}/home/user/test/${reset}, le dossier parent de test est user. Le dossier parent de user est home.
-Et bien evidemment test est un enfant de user, et user est un enfant de home.
+Et bien évidemment test est un enfant de user, et user est un enfant de home.
 Cibler les enfants en ${voc}argument${reset} avec un ${voc}chemin relatif${reset} est très simple, il suffit d'écrire le nom de leurs parents successifs.
 Comme par exemple avec la commande de tout a l'heure : ${learn}cd House/Room/${reet}
 Pour cibler les parents, c'est un peu plus compliqué. Il faut utiliser ${learn}..${reset}.
-Affichez donc le chemin absolu de votre ${voc}répertoire courant${reset}.
++Affichez donc le chemin absolu de votre ${voc}répertoire courant${reset}.
+!pwd£Non
 Vous connaissez aussi la commande pour changer de répertoire courant : ${learn}cd${reset}.
 Ici nous allons nous déplacer dans le répertoire parent. Nous sommes dans ${learn}$HOME/House/Room/${reset} mais nous voulons aller dans ${learn}$HOME/House/${reset}
 +Il est possible de remonter d'un cran dans l'arborescence, ou comme je viens de le dire de se déplacer dans le répertoire parent avec un ${learn}cd ..${reset}
@@ -181,7 +182,7 @@ Ici nous allons nous déplacer dans le répertoire parent. Nous sommes dans ${le
 J'espère que le résultat de ${learn}pwd${reset} est logique pour vous.
 +Mais il nous reste deux virus à supprimer, commençons par supprimer le fichier virus3 avec son ${voc}chemin relatif${reset}.
 !rm Room/virus3£Non
-+Bien. Maintenant supprimons le fichier virus4 en utilisant son ${voc}chemin absolu${reset}.
++Bien ! Maintenant supprimons le fichier virus4 en utilisant son ${voc}chemin absolu${reset}.
 !rm $HOME/House/Room/virus4£Non
 Parfait, vous avez tout compris ! Et je vous donne rendez-vous au questionnaire !
 #clean

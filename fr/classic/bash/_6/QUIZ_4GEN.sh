@@ -32,5 +32,10 @@ function start_quiz(){
 
 CHAPTER_NAME="bash"
 CHAPTER_NUMBER="6"
+LANGUAGE="fr"
+SPEAKER="m1"
+
+LINES=146
+prepare_audio
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER

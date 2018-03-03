@@ -1,5 +1,5 @@
 #[ -d "$HOME/.GameScript_bash3" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash3 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash3 et relancer ce script." && exit
-#mkdir $HOME/.GameScript_bash3 && mkdir -p $HOME/.GameScript/Audio/fr/bash/c3/ && wget -q -nc $AUDIO_DL/4.mp3 -O $HOME/.GameScript/Audio/fr/bash/c3/4.mp3 > /dev/null 2>&1
+#( mkdir $HOME/.GameScript_bash3 ; wget -q -nc $AUDIO_DL/4.mp3 -O $AUDIO_LOCAL/4.mp3 || rm $AUDIO_LOCAL/4.mp3 ) > /dev/null 2>&1
 #cd $HOME/.GameScript_bash3
 Dans le chapitre 2, nous avons vu que les options peuvent avoir deux formes, l'une courte comme dans ${learn}ls -l${reset}, et l'autre longue comme dans ${learn}ls --all${reset}.
 Si vous avez plusieures options à passer à la même commande, vous pouvez les mettre les unes après les autres : ${learn}ls -a -w 1${reset}.

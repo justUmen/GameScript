@@ -1,5 +1,5 @@
 #[ -d "$HOME/.GameScript_bash2" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash2 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash2 et relancer ce script." && exit
-#mkdir $HOME/.GameScript_bash2 && mkdir -p $HOME/.GameScript/Audio/fr/bash/c2/ && wget -q -nc $AUDIO_DL/5.mp3 -O $HOME/.GameScript/Audio/fr/bash/c2/5.mp3 > /dev/null 2>&1
+#mkdir $HOME/.GameScript_bash2 2> /dev/null
 #cd $HOME/.GameScript_bash2
 #touch $HOME/.GameScript_bash2/bOb
 Dans le dernier cours, nous avons vu l'utilisation des commandes et de leurs arguments.

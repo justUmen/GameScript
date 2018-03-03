@@ -34,10 +34,10 @@ function start_quiz(){
 
 CHAPTER_NAME="bash"
 CHAPTER_NUMBER="1"
+LANGUAGE="fr"
+SPEAKER="m1"
 
-AUDIO_LOCAL="$HOME/.GameScript/Audio/fr/bash/c1"
-mkdir -p $HOME/.GameScript/Audio/fr/bash/c1 2> /dev/null
-AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/bash/Audio/m1/c1"
-AUDIOCMP=1
+LINES=187
+prepare_audio
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER

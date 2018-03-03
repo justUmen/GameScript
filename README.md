@@ -14,7 +14,7 @@ Add `gamescript` alias to your .bashrc file with copy/paste this command :
 
 * bash > version 4
 * wget
-* mplayer / mpg123
+* mplayer or mpg123 (mplayer recommanded)
 * base64
 
 ## What is it ?

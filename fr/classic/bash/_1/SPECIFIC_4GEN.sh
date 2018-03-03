@@ -136,7 +136,7 @@ $code / $reset$basic
 |   |-- $code /home/user/ $reset$basic
 |   |   |-- $code /home/user/Pictures/ $reset$basic
 |-- $code /bin/ $reset$basic
-|-- $code /var/ $reset$basic"
+|-- $code /var/ $reset"
 #~ restore=$(expr $restore + 1)
 }
 
@@ -153,7 +153,7 @@ $code / $reset$basic
 |-- $code /var/ $reset$basic
 |-- $codeFile /fichier1 $reset$basic
 |-- $codeFile /fichier2 $reset$basic
-|-- $codeFile /Home $reset$basic"
+|-- $codeFile /Home $reset"
 #~ restore=$(expr $restore + 1)
 }
 
@@ -170,6 +170,6 @@ $code /bin/ $reset$basic
 $code /var/ $reset$basic
 $codeFile /fichier1 $reset$basic
 $codeFile /fichier2 $reset$basic
-$codeFile /Home $reset$basic"
+$codeFile /Home $reset"
 #~ restore=$(expr $restore + 1)
 }

@@ -1,5 +1,5 @@
 #[ -d "$HOME/.GameScript_bash4" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash4 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash4 et relancer ce script." && exit
-#mkdir $HOME/.GameScript_bash4 && mkdir -p $HOME/.GameScript/Audio/fr/bash/c4/ && wget -q -nc $AUDIO_DL/4.mp3 -O $HOME/.GameScript/Audio/fr/bash/c4/4.mp3 > /dev/null 2>&1
+#( mkdir $HOME/.GameScript_bash4 ; wget -q -nc $AUDIO_DL/4.mp3 -O $AUDIO_LOCAL/4.mp3 || rm $AUDIO_LOCAL/4.mp3 ) > /dev/null 2>&1
 #cd $HOME/.GameScript_bash4
 Dans le chapitre précédent, nous avons vu comment créer et modifier les fichiers textes.
 Ici nous allons continuer avec d'autres types de contrôles.
