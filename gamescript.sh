@@ -13,6 +13,7 @@ function new_sound(){
 	#wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 }
 function download_first_sound_INTRO(){
+	mkdir -p $AUDIO_LOCAL 2> /dev/null
 	wget -q $AUDIO_DL/1.mp3 -O $AUDIO_LOCAL/1.mp3
 }
 function download_all_sounds_INTRO(){
