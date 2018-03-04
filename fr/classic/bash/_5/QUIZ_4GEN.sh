@@ -1,7 +1,7 @@
 function clean(){ #in enter_chapter
 rm $HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
-	chmod -R 644 $HOME/.GameScript_bash5 2> /dev/null
+	chmod -R 744 $HOME/.GameScript_bash5 2> /dev/null
 	rm $HOME/.GameScript_bash5/f1 2> /dev/null
 	rm $HOME/.GameScript_bash5/f2 2> /dev/null
 	rm $HOME/.GameScript_bash5/f3 2> /dev/null

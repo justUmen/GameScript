@@ -4,6 +4,7 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 	rm $HOME/.GameScript_bash4/test 2> /dev/null
 	rm $HOME/.GameScript_bash4/DIR/.new 2> /dev/null
 	rm $HOME/.GameScript_bash4/DIR/test 2> /dev/null
+	rm $HOME/.GameScript_bash4/DIR/test3 2> /dev/null
 	rm $HOME/.GameScript_bash4/DIR/test2 2> /dev/null
 	rm $HOME/.GameScript_bash4/DIR/DOS2/test3 2> /dev/null
 	rmdir $HOME/.GameScript_bash4/DIR/NEW 2> /dev/null
