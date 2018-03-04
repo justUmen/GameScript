@@ -2,7 +2,7 @@
 #mkdir $HOME/.GameScript_bash5 2> /dev/null
 #cd $HOME/.GameScript_bash5
 #mkdir Dossier;touch Dossier/X;touch Dossier/Y;chmod 644 Dossier
-#echo "a">f1;chmod 000 f1;echo "ab">f2;chmod 444 f2;echo "abc">f3;chmod 400 f3;echo "abcd">f4;chmod 477 f4
+#echo "a">f1;chmod 000 f1;echo "ab">f2;chmod 444 f2;echo "abc">f3;chmod 600 f3;echo "abcd">f4;chmod 777 f4
 Dans ce chapitre nous revenons sur la commande ${code}ls${reset}, l'une des commandes les plus importantes.
 Et ici nous allons parler de son option la plus importante : ${code}-l${reset}
 +Vous pouvez taper : ${learn}ls -l${reset}
