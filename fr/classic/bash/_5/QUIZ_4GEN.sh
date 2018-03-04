@@ -18,7 +18,7 @@ function start_quiz(){
   echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 5 \e[0m"
   echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
   echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
-  answer_text_fr "Comment afficher les permissions des éléments du répertoire de travail de l'utilisateur ?" "ls -l ~"
+  answer_text_fr "Comment afficher les permissions des éléments du répertoire personnel de l'utilisateur ?" "ls -l ~"
   answer_text_fr "Quelle lettre représente un dossier dans le résultat de 'ls -l' ?" "d"
   answer_text_fr "Quel symbole représente un fichier dans le résultat de 'ls -l' ?" "-"
   answer_text_fr "Quelle lettre représente le droit d'écriture dans le résultat de 'ls -l' ?" "w"

@@ -4,7 +4,7 @@
 #echo "xxxxxx">intrus;echo "contenu f">f;chmod 222 f;echo "contenu f1">f1;chmod 000 f1;echo "contenu f10">f10;chmod 010 f10;echo "contenu f2">f2;chmod 444 f2;echo "contenu f3">f3;chmod 400 f3;echo "contenu f4">f4;chmod 455 f4;echo "contenu f50">f50;chmod 111 f50
 +Commençons par évaluer notre situation avec un : ${learn}ls -l${reset}
 !ls -l£Non
-Nous avons ici certains problèmes de permission à régler...
+Nous avons ici quelques problèmes de permission à régler...
 Nous voulons rajouter le droit de lecture et d'écriture pour le propriétaire sur tous les éléments du répertoire courant.
 Il est possible de mettre tous les noms les uns à la suite des autres avec ${code}chmod${reset}.
 +Faites le donc pour 'f1' et 'f2', puis réaffichez les nouvelles permissions si la commande est un succès.
@@ -133,7 +133,7 @@ Ici cette commande ne fonctionne pas ! C'est encore une fois un problème de per
 Par mesure de sécurité, certaines commandes peuvent uniquement être utilisées par l'utilisateur administrateur : ${voc}root${reset}.
 ${code}chown${reset} est l'une d'entre elles, c'est une commande que seul ${voc}root${reset} peut utiliser !
 Mais je ne vous demanderai pas votre mot de passe ${voc}root${reset} dans GameScript.
-Je vous invite donc à tester cette commande ${code}chown${reset} plus tard, en root par vous même dans un autre terminal !
+Je vous invite donc à tester cette commande ${code}chown${reset} plus tard, en root, par vous même dans un autre terminal !
 Pour vous connectez en ${code}root${reset} vous pouvez faire : ${learn}su root${reset}. Votre mot de passe vous sera alors demandé et vous aurez votre terminal en ${code}root${reset}.
 Pour tester si vous êtes bien ${voc}root${reset} vous pouvez utiliser la commande : ${learn}whoami${reset}.
 Si vous voulez changer le ${voc}groupe${reset} il faudra utiliser le symbole ${code}:${reset}, comme par exemple ${learn}chown :familleEinstein f${reset}.
