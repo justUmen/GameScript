@@ -8,7 +8,7 @@ Mais nous devons donner notre choix en ${voc}argument${reset} de cette commande,
 Ou encore ${learn}mkdir test${reset} pour créer un répertoire qui portera le nom 'test'.
 La syntaxe est donc : ${voc}<COMMANDE> <ARGUMENT>${reset}.
 Cet ${voc}<ARGUMENT>${reset} peut être un ${voc}chemin relatif${reset}, comme un dossier dans le ${voc}répertoire courant${reset} avec par exemple : ${learn}mkdir NouveauDossier${reset}
-Cet ${voc}<ARGUMENT>${reset} peut aussi être un ${voc}chemin absolu${reset}, comme un fichier dans le ${voc}répertoire racine${reset} avec par exemple ${learn}rm /fichier${reset}
+Cet ${voc}<ARGUMENT>${reset} peut aussi être un ${voc}chemin absolu${reset}, comme un fichier dans le ${voc}répertoire racine${reset} avec par exemple : ${learn}rm /fichier${reset}
 Mais vous souvenez-vous des commandes que nous avons déjà vu ?
 +Essayez d'afficher les éléments de de votre répertoire courant.
 !ls£Non
@@ -55,7 +55,7 @@ Mais si vous tentez d'afficher les éléments de votre répertoire courant, vous
 +Essayez donc de l'afficher avec : ${learn}ls${reset}.
 !ls£Non
 Sur un système d'exploitation de type Unix, comme Linux, si un nom de fichier ou un nom de dossier commence par un ${code}.${reset}, cet élément sera ${voc}caché${reset}.
-Ici il n'est pas dans l'affichage de la commande ${learn}ls${reset}, pourtant il existe bel et bien !.
+Ici il n'est pas dans l'affichage de la commande ${learn}ls${reset}, pourtant il existe bel et bien.
 Mais comment pouvez vous afficher le dossier caché '.GameScript_bash2' ?
 La plupart des commandes peuvent avoir des arguments spéciaux, qui donnent plus de détails à cette commande.
 Ces arguments spéciaux commence par un ${code}-${reset} et se nomment ${voc}options${reset}.
@@ -104,7 +104,7 @@ Par exemple vous pouvez remplacer ${code}-a${reset} par ${code}--all${reset}.
 Les commandes ${code}ls -a${reset} et ${code}ls --all${reset} sont identiques !
 Mais comment pouvoir retenir toutes les options de toutes les commandes ?
 En fait vous n'avez pas besoin de les mémoriser !
-Vous pouvez toujours accéder au ${code}manuel${reset} d'une commande avec la commande ${learn}man${reset}.
+Vous pouvez toujours accéder au ${voc}manuel${reset} d'une commande avec la commande ${learn}man${reset}.
 Pour quitter le manuel, appuyez sur la touche 'q' de votre clavier, comme ${voc}q${reset}uitter.
 +Ouvrez le manuel de la commande ls avec ${learn}man ls${reset}, survoler rapidement son contenu, et enfin quitter avec la touche 'q'.
 !man ls£Non
@@ -134,7 +134,7 @@ Si vous limitez cette valeur par exemple à 1, vous pouvez être sûr qu'il y au
 !ls -w 1£Non
 +Essayez maintenant 100 comme limite avec : ${learn}ls -w 100${reset}
 !ls -w 100£Non
-La version longue des options avec valeur est parfois différente avec l'utilisation du signe ${code}=${reset} au lieu d'un espace.
+La version longue des options avec valeur est parfois différente, avec l'utilisation du signe ${code}=${reset} au lieu d'un espace.
 +Essayez d'utiliser la version longue avec ${learn}ls --width=100${reset}
 !ls --width=100£Non
 Encore une fois, il n'est pas nécessaire d'apprendre par coeur toutes les options disponibles.
