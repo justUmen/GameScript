@@ -29,7 +29,7 @@ Add `gamescript` alias to your .bashrc file with copy/paste this command :
 
 It is an ONLINE bash script to learn about :
 
-* bash (included : Unix-like operating system commands + file organization + permissions)
+* bash (included : Unix-like operating system GNU commands + file organization + permissions)
 * -
 
 ## Types :

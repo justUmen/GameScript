@@ -132,7 +132,7 @@ function gamescript_available_arguments(){
   #LATER MENU HERE FOR SUBJECT SELECTION
   case $1 in
     fr) echo -e "===> Sujets disponibles pour le moment : \n\t\e[97;44m bash \e[0m"
-		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes Unix et l'organisation des fichiers dans un système d'exploitation de type Unix, ainsi que leurs permissions."
+		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
         launch_gamescript $LANGUAGE classic bash
 		;;
     en) echo -e "===> Nothing in english yet :(" ;;
@@ -193,7 +193,7 @@ if [ $# -eq 0 ]; then
 	echo "GameScript in english  : gamescript -l en"
 	echo "GameScript en français : gamescript -l fr"
 	echo ""
-	echo "GameScript without audio : gamescript -m"
+	echo "GameScript without audio : gamescript -l en -m"
 	echo ""
 	echo "Passwords : gamescript -p"
 	exit
