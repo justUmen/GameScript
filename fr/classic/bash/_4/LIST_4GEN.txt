@@ -26,8 +26,8 @@ Dans cet exemple, notre premier argument est un fichier et le second est un doss
 Comme le deuxième argument est un dossier, la commande aurait pu être : ${learn}mv test DIR/${reset}
 Cette version est nettement plus lisible que la première.
 Parce que ${code}mv${reset} peut avoir indifféremment en arguments des fichiers ou des dossiers.
-Mais si le premier argument est un fichier et que le deuxième n'est pas un dossier, la commande agira différemment : le fichier sera déplacé dans un autre fichier avec un nom différent, celui de deuxième argument.
-Ou pour plus de clarté on peut dire qu'il sera simplement ${voc}renommé${reset}.
+Mais si le premier argument est un fichier et que le deuxième n'est pas un dossier, la commande agira différemment : cette fois le premier argument sera ${voc}renommé${reset}.
+Attention donc à bien comprendre votre environnement.
 Dans votre répertoire courant vous avez toujours ce fichier 'test'.
 +Utilisez cette commande pour renommer 'test' en 'test2' : ${learn}mv test test2${reset}
 !mv test test2£Non
@@ -111,7 +111,7 @@ Si vous voulez que la deuxième commande s'exécute uniquement si la première a
 +Listez les éléments de votre répertoire courant.
 !ls£Non
 La commande ${learn}cd DOS${reset} renvoyant une erreur, ${code}&&${reset} a bloqué le lancement de la prochaine commande.
-Cette technique est particulièrement importante si vous utilisez des commandes ${voc}destructrice${reset}, comme ${code}rm${reset}, ou ${code}echo${reset} avec le ${code}>${reset}.
+Cette technique est particulièrement importante si vous utilisez des commandes ${voc}destructrices${reset}, comme ${code}rm${reset}, ou ${code}echo${reset} avec le ${code}>${reset}.
 Si vous ne prenez pas de précaution, vous risquez de supprimer accidentellement un fichier important.
 Il est possible d'utiliser ${code};${reset} et ${code}&&${reset} avec toutes les commandes que vous connaissez déjà.
 Mais il existe une autre syntaxe : ${code}||${reset}, qui fait l'inverse de ${code}&&${reset}.
