@@ -11,7 +11,7 @@ function start_quiz(){
   echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 2 \e[0m"
   echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
   echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
-  answer_text_fr "Quel est le symbole qui représente le répertoire de travail de l'utilisateur ?" "~"
+  answer_text_fr "Quel est le symbole qui représente le répertoire personnel de l'utilisateur ?" "~"
   answer_text_fr "Par quel symbole commence un fichier caché ?" "."
   answer_text_fr "Par quel symbole commence un dossier caché ?" "."
   answer_text_fr "Comment se déplacer dans le répertoire grand parent ?" "cd ../.."
@@ -27,7 +27,7 @@ CHAPTER_NUMBER="2"
 LANGUAGE="fr"
 SPEAKER="m1"
 
-LINES=126
+LINES=142
 prepare_audio
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER

@@ -2,12 +2,12 @@
 #mkdir $HOME/.GameScript_bash3 2> /dev/null
 #cd $HOME/.GameScript_bash3
 Dans le chapitre 2, nous avons vu que les options peuvent avoir deux formes, l'une courte comme dans ${learn}ls -l${reset}, et l'autre longue comme dans ${learn}ls --all${reset}.
-Si vous avez plusieures options à passer à la même commande, vous pouvez les mettre les unes après les autres : ${learn}ls -a -w 1${reset}.
+Si vous avez plusieures options à passer à la même commande, vous pouvez les mettre les unes à la suite des autres : ${learn}ls -a -w 1${reset}.
 +Essayez donc avec cet exemple : ${learn}ls -a -w 1${reset}
 !ls -a -w 1£Non
 Vous pouvez bien évidemment utiliser les versions longues de la même manière, ou même les mélanger avec des options courtes.
 +Essayez donc de faire la même chose avec : ${learn}ls -a --width=1${reset}
-!ls --all --width=1£Non
+!ls -a --width=1£Non
 Mais n'oubliez pas les options courtes commencent par ${code}-${reset} et les options longues commencent par ${code}--${reset}.
 Si vous utilisez les options courtes, vous pouvez également les regrouper avec le même ${code}-${reset}.
 Par exemple pour passez l'option ${code}-a${reset} et l'option ${code}-w 10${reset} à ${code}ls${reset}, vous pouvez tapez ${code}ls -aw 10${reset}
@@ -31,7 +31,7 @@ Cette commande vous renverra simplement un écho de ce que vous lui avez donné 
 +La commande ${code}echo${reset} accepte plusieurs arguments, vous pouvez tester : ${learn}echo bonjour tout le monde${reset}
 !echo bonjour tout le monde£Non
 Simple comme bonjour !
-On a déjà vu ensemble que ${code}mkdir${reset} est utilisé pour créer de nouveaux dossiers.
+On a déjà vu ensemble que ${code}mkdir${reset} était utilisé pour créer de nouveaux dossiers.
 Mais comment créer de nouveaux fichiers ?
 Figurez-vous que vous pouvez utiliser la commande ${code}echo${reset} !
 Lorsque vous utilisez la commande ${code}echo${reset}, le résultat s'affichera dans votre terminal.
@@ -71,13 +71,13 @@ Mais si le fichier existe déjà, le nouveau contenu s'ajoutera à la fin du fic
 !cat test£Non
 Ici le mot 'bonjour' a été rajouté à la fin du fichier texte.
 Vous pouvez continuer à utiliser ${code}>>${reset} pour ajouter votre nouveau contenu les uns à la suite des autres.
-Mais ces redirections (${code}>${reset} et ${code}>>${reset}) ne se limitent pas à ${code}echo${reset}.
+Mais ces redirections (${code}>${reset} et ${code}>>${reset}) ne se limitent pas à la commande ${code}echo${reset}.
 Toutes les commandes peuvent les utiliser.
 +Mettez par exemple le résultat de la commande ${learn}ls${reset} à la suite du fichier 'test'  !
 !ls>>test£Non
 +Et affichez le fichier 'test'.
 !cat test£Non
-C'est le ${voc}résultat${reset} de la commande qui sera redirigé. Ici ${learn}ls>>test${reset} donne comme résultat : 'test'.
+C'est le ${voc}résultat${reset} de la commande qui sera redirigé. Ici ${learn}ls${reset} donne comme résultat : 'test', car 'test' est le seul élément du répertoire courant.
 Si vous voulez y ajouter du texte, il faudra utiliser ${code}>>${reset} en combinaison avec la commande ${code}echo${reset}.
 Si vous voulez ajouter le mot 'pwd' à la fin du fichier il faudra utiliser : ${learn}echo pwd>>test${reset}
 +Ajoutez ces trois lettres 'pwd' à la fin du fichier 'test'.
@@ -96,7 +96,7 @@ Le résultat n'est pas celui qui était prévu... Il n'y a qu'un seul espace ent
 Ici, ${code}echo${reset} considère qu'il y a deux arguments, le premier argument 'a' et le deuxième argument 'b'.
 Il affiche donc les deux arguments séparé par un espace.
 Il est donc parfois utile de limiter le nombre d'argument à un !
-Mais comment afficher cet espace pour que la suite ne soit pas considéré comme un nouvel argument ?
+Mais comment afficher cet espace pour que la suite ne soit pas considérée comme un nouvel argument ?
 Il faudra utiliser ce que l'on appele en informatique un ${voc}caractère d'échappement${reset}.
 Ici, il s'agit du caractère ${code} \\ ${reset}.
 Ce caractère d'échappement affectera ${voc}uniquement${reset} le prochain caractère.
@@ -117,7 +117,7 @@ Ici, vous comprenez bien ${voc}l'énorme${reset} différence qu'il y a entre ${l
 ${learn}echo x>y${reset} va créer le nouveau fichier 'y' avec comme contenu 'x' !
 ${learn}echo x\\\\>y${reset} affiche simplement du texte dans le terminal.
 Pour affichez le symbole ${code} \\ ${reset} avec echo, il suffit de rajouter juste avant votre caractère d'échappement.
-+Essayez par exemple d'afficher dans votr terminal : ${code}\\\\quitter${reset}.
++Essayez par exemple d'afficher dans votre terminal : ${code}\\\\quitter${reset}.
 !echo \\\\\\\\quitter£Non
 Dans ${code} \\\\\\\\\\\\quitter ${reset}, le premier ${code} \\ ${reset} est le caractère d'échappement, mais le deuxième est simplement le caractère qui doit être interprété littéralement par votre terminal.
 Pour ne pas avoir à utiliser cet ${code} \\ ${reset} à chaque espace, vous pouvez également utiliser les ${code}\\"${reset}.
@@ -130,7 +130,7 @@ Faisant partie de l'argument, les espaces seront donc traités et affichés en t
 Ici, les espaces s'affichent correctement.
 +Vous pouvez aussi remplacer les ${code}\\"${reset} par des ${code}'${reset}. Faites le donc avec ${learn}echo 'X   X'${reset}
 !echo 'X   X'£Non
-Si vous avez de nombreux ${code}'${reset} à afficher, je vous conseille d'utiliser les ${code}\\"${reset} comme délimiteur, et si vous avez de nombreux ${code}\\"${reset} à afficher, je vous conseille d'utiliser les ${code}\\'${reset} comme délimiteur.
+Si vous avez de nombreux ${code}'${reset} à afficher, je vous conseille d'utiliser les ${code}\\"${reset} comme délimiteur, et si vous avez beaucoup de ${code}\\"${reset} à afficher, je vous conseille d'utiliser les ${code}\\'${reset} comme délimiteur.
 Par exemple, même si l'affichage est équivalent, ${learn}echo '\\"Pierre\\" et \\"Marie\\"'${reset} est plus lisible que ${learn}echo \\"\\\\\\\"Pierre\\\\\\\" et \\\\\\\"Marie\\\\\\\"\\"${reset}.
 Le ${voc}caractère d'échappement${reset} ${code} \\ ${reset} peut aussi être utilisé pour afficher d'autres caractères spéciaux, comme des mises à la ligne ou des tabulations.
 +Regardez rapidement cette liste dans le manuel de la commmande ${code}echo${reset}.
