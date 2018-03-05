@@ -2,9 +2,17 @@
 
 ## Simple installation :
 
-Add `gamescript` alias to your .bashrc file with copy/paste this command :
+### BASH
+
+Add `gamescript` alias to your .bashrc file by copy/pasting this command :
 
     echo 'alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --"'>>~/.bashrc; source ~/.bashrc
+
+### ZSH
+
+Add `gamescript` alias to your .xshrc file by copy/pasting this command :
+
+    echo 'alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --"'>>~/.zshrc; source ~/.zshrc
 
 ## Simple usage :
 
@@ -46,11 +54,7 @@ It is an ONLINE bash script to learn about :
 
 * have default language ?
 * better colors if the terminal can print them ! Keep basic colors for basic terminals.
-* change numbers order system that is obsolete
-* move intro at the start all the time ? smaller intro.
-* store quiz in text file and genereate like LIST_4GEN.txt
 * allow arrows and tab in "read"
-* autoextend code based on one change when add new lecture (change 1 local file  + change 1 bot file)
 * add offline option --offline, then it will download all standalone into a folder .GameScript ?? + update
 * better help with online/offline, update
 

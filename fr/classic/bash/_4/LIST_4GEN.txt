@@ -59,7 +59,7 @@ Parce que lorsque vous utilisez ${code}echo${reset}, il ajoutera par défaut une
 Si vous ne voulez pas de cette mise à la ligne, il faudra utiliser l'option ${learn}-n${reset} de la commande ${code}echo${reset}.
 +Remplacez donc le contenu du fichier 'test3' par 'bonjour', mais sans ce retour à la ligne automatique à la fin.
 !echo -n bonjour>DOS2/test3£Non
-+Maintenant ajoutez le texte ' tout le monde' à ce fichier 'test3', en utisant ${learn}\\"${reset}.
++Maintenant ajoutez le texte ' tout le monde' à ce fichier 'test3', en utilisant ${learn}\\"${reset}.
 !echo \\" tout le monde\\">>DOS2/test3£Non
 +Et enfin, affichez le contenu de 'test3'.
 !cat DOS2/test3£Non
