@@ -151,11 +151,11 @@ function enter(){
     # 1) echo -e "\e[0;33m...\e[0m" ;&
     1) echo "" ;&
   	2) echo -e "\e[97;44m - $1, $TITLE \e[0m" ;&
-  	3) show_menu "$1" "$1 : chapitre 1" "$1 : chapitre 2" "$1 : chapitre 3" "$1 : chapitre 4" "$1 : chapitre 5" "$1 : chapitre 6" "$1 : chapitre 7" ;; #"$1 : chapitre 7"
+  	3) show_menu "$1" "$1 : chapitre 1" "$1 : chapitre 2" "$1 : chapitre 3" "$1 : chapitre 4" "$1 : chapitre 5" "$1 : chapitre 6" "$1 : chapitre 7" ;; #"$1 : chapitre 8"
     # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
     *)
 		if [[ $MUTE == 1 ]]; then 
-			wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s MUTE
+			wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s -- MUTE
 		else
 			wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s
 		fi
