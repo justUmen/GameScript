@@ -1,0 +1,124 @@
+#[ -d "$HOME/.GameScript_bash8" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash8 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash8 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash8 2> /dev/null
+#cd $HOME/.GameScript_bash8
+#echo -e "Joseph\nemail:joseph@bjornulf.org\nCarla\nemail:carla@bjornulf.org\nCharlie\nemail:charlie@bjornulf.org\nAkemail\nemail:akemail@bjornulf.org\nBob\nemail:bob@bjornulf.org\nAlbert\nemail:albert@bjornulf.org\nJessica\nemail:jessica@bjornulf.org\nCarla\nemail:carla@bjornulf.org" > $HOME/.GameScript_bash8/LIST
+Commençons par créer notre environnement pour ce chapitre.
++Créez le fichier 'test' avec : ${learn}echo au revoir>test${reset}
+!echo au revoir>test£Non
+Nous allons maintenant utiliser la commande ${code}wc${reset} pour avoir des informations supplémentaires sur le contenu de ce fichier.
++Faites donc ${learn}wc test${reset}
+!wc test£Non
+Ici nous avons trois nombres, le premier représente le nombre de ${voc}lignes${reset} du fichier : ${code}1${reset}  2 10 test
+Le deuxième représente le nombre de ${voc}mots${reset} du fichier : 1  ${code}2${reset} 10 test
+Le troisième représente le nombre de ${voc}caractères${reset} du fichier : 1  2 ${code}10${reset} test
++Affichez donc le contenu de 'test'
+!cat test£Non
+Nous avons bien dans ce fichier ${code}1${reset} ligne et ${code}2${reset} mots : 'au' et 'revoir'.
+${code}wc${reset} nous informe également que ce fichier est composé de 10 caractères.
+Le premier mot 'au' est composé de deux caractères, 'a' et 'u'.
+Le deuxième mot 'revoir' est lui composé de six caractères, ce qui en ajoutant les deux précédents, fait huit.
+L'espace séparant les deux mots est aussi un caractère, ce qui nous amène à neuf.
+Le dixième caractère est en fait la mise à la ligne que nous avons vu dans le chapitre 3 : que l'on peut représenter avec '\n'.
+Je vous rappelle que la commande ${code}echo${reset} ajoute automatiquement un '\n' à la fin, à moins que l'option -n soit présente.
+Voyons ce que nous avons fait jusqu'à présent : ${code}echo au revoir>test${reset} pour créer le fichier 'test' et ${code}wc test${reset} pour analyser ce fichier.
+La commande ${voc}wc${reset} prend ici en argument le fichier qui contient le contenu de ce que vous voulez analyser.
+Dans le chapitre précédent, nous avons vu que l'on pouvait rediriger la ${voc}sortie standard${reset} vers un fichier avec ${code}>${reset} ou ${code}1>${reset}.
+Mais vous n'êtes pas obligé de créer le fichier 'test' si vous n'en avez pas besoin.
+Il est en fait aussi possible de rediriger la sortie standard non pas vers un fichier mais vers ${voc}une autre commande${reset} avec le symbole ${code}|${reset}, aussi appelé 'pipe' ou tuyau.
+${voc}wc${reset} est, comme de très nombreuses commandes, aussi capable de lire la ${voc}sortie standard${reset}.
++Faites donc : ${learn}echo au revoir|wc${reset}
+!echo au revoir|wc£Non
+Ici avec la barre verticale, le résultat est identique, sauf que le nom du fichier ne s'affiche pas car il n'y a pas de fichier.
+Le 'pipe' est un des concepts les plus puissant de la ligne de commande.
+Une commande peut envoyer sa sortie standard à une deuxième commande, celle-ci peut ensuite envoyer sa propre sortie standard à une troisième commande, et ainsi de suite.
++Affichez donc le contenu du fichier 'LIST'.
+!cat LIST£Non
+Ici vous avez une liste de noms et d'emails. Imaginons que seul les emails vous intéresse.
+Pour détecter la présence d'un mot clef dans une ligne, il vous faudra utiliser la commande ${code}grep${reset}.
+Bien évidemment, ${code}grep${reset} est capable de lire la ${voc}sortie standard${reset}, vous pouvez donc l'utiliser en combinaison avec  la ${voc}|${reset}.
++Affichez uniquement les lignes du fichier qui contiennent le mot 'email' avec : ${learn}cat LIST|grep email${reset}
+!cat LIST|grep email£Non
+Ici le choix du mot clef "email" est personnel, et vous devez faire attention à ce que ce choix soit judicieux.
+${code}grep email${reset} posera problème si un des noms est 'email', ou contient le mot 'email', comme 'Akemail'.
++Pour détecter les emails d'une manière plus fiable, vous pouvez utiliser la présence de '@', faites donc : ${learn}cat LIST|grep @${reset}
+!cat LIST|grep @£Non
+Vous avez donc ici dans votre sortie standard uniquement les adresses emails.
++Utilisez maintenant votre nouvelle sortie standard pour créer le fichier 'EMAILS' qui contiendra tous les emails du fichier LIST en faisant : ${learn}cat LIST|grep @>EMAILS${reset}
+!cat LIST|grep @>EMAILS£Non
+${code}grep @${reset} affichera donc toutes les lignes qui contiennent au moins une '@'.
+Pour faire l'inverse, vous devez ajouter à ${code}grep @${reset} l'option -v.
++Affichez donc toutes les lignes qui ne contiennent pas '@' avec : ${learn}cat LIST|grep -v @${reset}
+!cat LIST|grep -v @£Non
+Avant d'enregistrer cette liste dans un fichier, nous voulons classer alphabétiquement ces noms avec la commande ${learn}sort${reset}.
++Pour cela il suffit de continuer à utiliser la sortie standard, faites donc : ${learn}cat LIST|grep -v @|sort${reset}
+!cat LIST|grep -v @|sort£Non
+Ici nous avons un problème. Le nom de Carla apparait clairement deux fois.
+Pour éliminer les noms identiques qui se suivent, vous devez utiliser la commande ${learn}uniq${reset}.
++Continuons à enchainer les pipes, faites donc : ${learn}cat LIST|grep -v @|sort|uniq${reset}
+!cat LIST|grep -v @|sort|uniq£Non
+Ici notre résultat est parfait, vous pourriez donc rediriger la dernière sortie standard pour créer un fichier 'NAMES'.
+En programmation comme dans un terminal, il a toujours plus d'une seule fac???on pour faire la même chose.
+Nous avons utilisé le code suivant : ${code}cat LIST|grep -v @|sort|uniq${reset}
+Ici ${code}grep${reset} utilisera la sortie standard, mais comme ${code}wc${reset}, ${code}grep${reset} accepte aussi en argument un fichier.
+Vous auriez pu donc tout aussi bien ne pas utiliser la commande ${code}cat${reset}, en faisant directement : ${code}grep -v @ LIST|sort|uniq${reset}
+${code}uniq${reset} peut également être supprimé, car ${code}sort${reset} possède aussi une option qui est capable de supprimer les doublons : -u.
++Essayez donc cette nouvelle commande : ${learn}grep -v @ LIST|sort -u${reset}
+!grep -v @ LIST|sort -u£Non
+${learn}grep -v @ LIST|sort -u${reset} donne donc un résultat identique à ${learn}cat LIST|grep -v @|sort|uniq${reset}.
+Mais l'important n'est pas tant votre style d'écriture, mais une excellente compréhension de toutes les fonctionnalités qui vous sont offertes.
+Pour l'instant je vous impose un style d'écriture minimal, mais avec le temps vous développerez probablement un style différent, qui ne sera pas moins valide que celui que je partage ici avec vous.
+Que cela soit l'utilisation des espaces pour la présentation, ou la logique derrière votre code.
+Maintenant je vais vous donner quelques clarifications sur les commandes précédentes.
+Pour afficher uniquement le nombre de lignes, vous auriez pu utiliser ${code}wc${reset} avec l'option -l.
++Essayez donc : ${learn}echo au revoir|wc -l${reset}
+!echo au revoir|wc -l£Non
+Pour être précis, ${code}wc${reset} ne compte pas réellement le nombre de lignes, mais pluto???t le nombre de retour à la ligne.
++Essayez donc de faire : ${learn}echo -n au revoir|wc -l${reset}
+!echo -n au revoir|wc -l£Non
+Ici le résultat n'est bien évidemment pas 0 ligne, mais 0 '\n', puisque nous n'avons pas le dernier caractère '\n' avec l'option -n.
+C'est une convention d'avoir une mise a la ligne a la fin d'un fichier texte.
+Mais cela n'est pas strictement obligatoire, attention donc à certains fichiers qui ne se terminent pas par un '\n'.
+Nous avons vu que ${code}|${reset} était utilisé pour rediriger la sortie standard vers une autre commande.
+Mais il est aussi possible de rediriger la sortie erreur standard de la même manière, en utilisant cette fois ${code}|&${reset}.
++Faites donc par exemple : ${learn}cat x|&grep cat${reset}
+!cat X|&grep cat£Non
++Et l'inverse : ${learn}cat x|&grep -v cat${reset}
+!cat X|&grep cat£Non
+La logique est identique à celle de la sortie standard, libre à vous de faire ce que vous désirez.
+Bien évidemment, attention à ne pas mélanger ${code}|${reset} ou ${code}|&${reset} avec ${code}||${reset} !
+
+
+
+??? Convention d'avoir une mise a la ligne a la fin d'un fichier texte
+
+
+
+wc
+sort
+grep
+uniq
+stdin - ?
+"|", like ">" but for other commands
+"<" + filename
+"<<" (EOF ?)
+"|&" pipe error
+command < input-file > output-file
+	ls -y >> c.log 2>&1 VS ls -y 2>&1 >> c.log
+
+#clean
+
+
+être
+déjà
+è
+
+
+
+wc -l : donne le nombre de nouvelle ligne du fichier (ex : echo -n test|wc -l) = 0
+
+
++Affichez la taille en octets du fichier 'test'.
+!ls -l test£Non
+
+
+echo FORCE ASCII ?

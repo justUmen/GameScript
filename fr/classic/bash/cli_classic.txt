@@ -80,21 +80,29 @@ Bash 6 => Concepts : donnée , métadonnée
 Bash 6 => Code : * , ? , touch , chown , chmod
 
 
-stdout
+[7] stdout
+[7] stderr
+[7] "()"
+[7] "1>"
+[7] "2>"
+[7] "&>"
+[7] "1>>"
+[7] "2>>"
+[7] "&>>"
+[7] "/dev/null"
+[7] "2>&1"
+[7] "1>&2"
+Bash 7 => Concepts : sortie standard, erreur standard , regroupement de flux
+Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
+
+
+"|", like ">" but for other commands (use same time as wc)
+"|&" pipe error
 stdin
-"|", like ">" but for other commands
 "<" + filename
 "<<" (EOF ?)
-"1>"
-"2>"
-"&>" 1+2
-"2>&1"
-"1>&2"
-"|&" pipe error
-"/dev/null"
 command < input-file > output-file
 	ls -y >> c.log 2>&1 VS ls -y 2>&1 >> c.log
-
 global : exec 2> /dev/null
 
 variables : $OLDPWD
@@ -110,7 +118,7 @@ taille des fichier en octets, ASCII
 
 [a-z]
 "nano"
-"&"
+"&" use same time as "ps" ?
 $VAR
 $()
 `` - backtick
@@ -217,3 +225,9 @@ mkfifo	Make FIFOs (named pipes)	???????????????/
 mknod	Make block or character special files	 ????????????????
 symlink	Make a new name for a file	??????????????
 tsort	Topological sort	 ?????
+
+
+
+
+
+POSIX
