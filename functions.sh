@@ -131,7 +131,7 @@ function answer_text_fr(){
 	echo -en "\\e[97;45m # \\e[0m"
 	read -r USER_CODE < /dev/tty
 	if [ ! "$USER_CODE" == "$2" ]; then
-		talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\\e[0m"
+		talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\nSi vous vous sentez vraiment bloqué, demandez de l'aide sur notre chat.\\e[0m"
 		#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
 		exit
 	else
