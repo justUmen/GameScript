@@ -92,22 +92,68 @@ Bash 6 => Code : * , ? , touch , chown , chmod
 [7] "/dev/null"
 [7] "2>&1"
 [7] "1>&2"
-Bash 7 => Concepts : sortie standard, erreur standard , regroupement de flux
+Bash 7 => Concepts : sortie standard , erreur standard , regroupement de flux
 Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
 
 
-"|", like ">" but for other commands (use same time as wc)
-"|&" pipe error
-stdin
-"<" + filename
-"<<" (EOF ?)
-command < input-file > output-file
-	ls -y >> c.log 2>&1 VS ls -y 2>&1 >> c.log
+[8] wc
+[8] sort
+[8] grep
+[8] uniq
+[8] stdin
+[8] -
+[8] "|", like ">" but for other commands
+[8] "|&" pipe error
+[8] "<" + filename
+[8] command < input-file > output-file
+Bash 8 => Concepts : entrée standard , pipe
+Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
+
+
+[9] $
+[9] =
+[9] which
+[9] printenv
+[9] PATH
+[9] alias
+[9] less
+[9] $?
+Bash 9 => Concepts : variable , alias , PATH , PAGER
+Bash 9 => Code : which , $ , = , printenv , $PATH , alias , less , $PAGER , $?
+
+
+
+
+
+
+
+$!, $1...$x, $@ : script only
+
+
+set
+env
+
+.bashrc
+
+
+export ?
+
+$$ = process number + kill -9
+
++Affichez la taille en octets du fichier 'test'. (ls -l) + wc + ASCII + UTF-8
+
 global : exec 2> /dev/null
 
 variables : $OLDPWD
+	variable as argument !
+		ls `pwd`/*.log > ~/TMP/LOG
+		ls -l $(cat LOG)
 + env
 
+
+find
+
+strace, syscalls counter
 
 mtime, ctime, atime : "ls -l --time=atime"
 
@@ -151,9 +197,6 @@ history + "!2892"
 #ADD THE OTHERS HERE (top), SO FULL LIST TO AD TO THE WIKI :p
 #files
 "ln"
-#variables
-VAR="sss";echo $VAR
-$$, $?, $!, $1...$x, $@
 "printf" :P
 #text show
 "cat","tac","nl","head","tail","more","less"

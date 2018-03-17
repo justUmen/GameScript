@@ -2,7 +2,7 @@
 #mkdir $HOME/.GameScript_bash7 2> /dev/null
 #cd $HOME/.GameScript_bash7
 Nous avons déjà vu dans les chapitres précédents comment utiliser le symbole ${code}>${reset}.
-Ce symbole nous permet de rediriger le résultat d'une commande ver un fichier, comme par exemple ${learn}ls>file${reset}.
+Ce symbole nous permet de rediriger le résultat d'une commande vers un fichier, comme par exemple ${learn}ls>file${reset}.
 Le fichier 'file' sera créé s'il n'existe pas et contiendra le résultat de la commande ${learn}ls${reset}.
 Avec le symbole ${code}>${reset} le résultat de la commande à sa gauche ne s'affiche plus dans le terminal.
 +Commencez par cette commande avec une faute de frappe : ${learn}lss>file${reset}
@@ -13,9 +13,9 @@ Ici, la commande ${learn}lss>file${reset} nous affiche une erreur dans le termin
 On aurait pu penser qu'avec la commande ${learn}lss>file${reset}, que le message d'erreur serait dans le fichier 'file'.
 #stdout
 Et bien non ! Lorsqu'une commande s'exécute, il y en en fait ${voc}deux${reset} flux de sortie indépendant.
-Le premier flux est celui que nous avons déjà redirigé avec le ${code}>${reset}, il s'agit de la ${voc}sortie standard${reset}. (en anglais stdout : standard output)
+Le premier flux est celui que nous avons déjà redirigé avec le ${code}>${reset}, il s'agit de la ${voc}sortie standard${reset}. (en anglais stdout ou standard output)
 #stderr
-Les erreurs utilisent un autre flux de sortie, qui s'appelle la ${voc}sortie erreur standard${reset}. (en anglais stderr : standard error)
+Les erreurs utilisent un autre flux de sortie, qui s'appelle la ${voc}sortie erreur standard${reset}. (en anglais stderr ou standard error)
 Ayant deux flux différents, il est par exemple possible de rediriger les résultats d'un coté, et les erreurs de l'autre.
 Par défaut, sans l'utilisation des redirections, un terminal affiche les deux flux au même endroit.
 Pour rediriger la ${voc}sortie standard${reset}, il faudra utiliser ${code}1>${reset}.
@@ -34,7 +34,7 @@ L'option '-a' a besoin ${voc}d'au moins un espace${reset} pour qu'elle puisse ê
 Ici ${learn}ls-a${reset} provoque tout simplement le lancement d'une commande inconnue sans option.
 Parfois cet espace n'est pas nécessaire, comme avec les symboles spéciaux : ${code}>${reset}, ${code}&${reset}, ${code}|${reset}, etc...
 Un symbole spécial ne sera pas considéré comme appartenant au nom de la commande ou du fichier, sauf s'il est précédé du caractère d'échappement.
-Mais la commande ${learn}pwd>file${reset} peut tout aussi bien s'écrire ${learn}pwd > file${reset} ou ${learn}pwd  >  file${reset} ou ${learn}pwd>   file${reset}, etc..
+Mais la commande ${learn}pwd>file${reset} peut tout aussi bien s'écrire ${learn}pwd > file${reset} ou encore ${learn}pwd  >  file${reset} ou encore ${learn}pwd>   file${reset}, etc..
 Ceci étant dit, revenons sur notre problème avec ${learn}pwd1>file${reset}.
 Le chiffre '1' n'étant pas un caractère spécial, votre terminal considère que la commande complète est ${learn}pwd1${reset}.
 Il faudra donc ici séparer ${code}1>${reset} de ${code}pwd${reset} par un espace.
@@ -59,16 +59,16 @@ Ici rien ne s'affiche dans le terminal.
 Normal encore une fois, puisque rien n'a été envoyé sur la ${voc}sortie standard${reset}.
 +Affichez par contre le contenu du fichier 'error'.
 !cat error£Non
-Ici l'erreur a bien été enregistrée dans le fichier 'error'.
-+Essayez de rediriger séparement les résultats et les erreurs d'une commande dans deux fichiers avec : ${learn}pwd 1>stdout 2>stderr${reset}
+Ici l'erreur a bien été enregistrée dans le fichier.
++Essayez de rediriger séparement les résultats et les erreurs d'une commande dans deux fichiers différents avec : ${learn}pwd 1>stdout 2>stderr${reset}
 !pwd 1>stdout 2>stderr£Non
 +Affichez le contenu du fichier 'stderr'.
 !cat stderr£Non
-Ne provoquant pas d'erreur, 'stderr' est vide.
+La commande ne provoquant pas d'erreur, 'stderr' est vide.
 Pour vérifier si ${code}1>${reset} et ${code}2>${reset} peuvent fonctionner en même temps, il va falloir utiliser un code qui utilise les deux flux.
 Prenons par exemple : ${learn}pwdd||pwd${reset}.
 ${code}pwdd${reset} renverra un message d'erreur. Il utilisera donc la sortie erreur standard.
-${code}pwdd${reset} renvoyant une erreur, la commande ${code}pwd${reset} s'executera et enverra son résultat vers la sortie standard.
+${code}pwdd${reset} renvoyant une erreur, la commande ${code}pwd${reset} se lancera et enverra son résultat vers la sortie standard.
 ${code}1>${reset} est équivalent à ${code}>${reset}, et l'équivalent de ${code}>>${reset} est tout simplement ${code}1>>${reset}.
 +Essayez donc de faire : ${learn}pwdd||pwd 1>>f 2>>e${reset}
 !pwdd||pwd 1>>f 2>>e£Non
@@ -84,7 +84,7 @@ Il est donc normal que l'erreur de ${code}pwdd${reset} s'affiche dans le termina
 !pwdd 1>>f 2>>e||pwd 1>>f 2>>e£Non
 Vous pouvez aussi plus simplement regrouper les deux commandes pour qu'elles ne fassent ${voc}qu'une${reset}, en utilisant les ${code}()${reset}.
 #stdout_stderr_2
-Par exemple, pour ${code}(ls&&lss)2>e${reset}, la redirection ${code}2>e${reset} sera faite sur ${code}ls&&lss${reset}, et non pas uniquement ${code}lss${reset}.
+Par exemple, pour ${code}(ls&&lss)2>e${reset}, la redirection ${code}2>e${reset} sera faite sur ${code}ls&&lss${reset}, et non pas uniquement sur ${code}lss${reset}.
 L'espace ici entre ${code})${reset} et ${code}2>e${reset} n'est pas nécessaire car ${code})${reset} est un caractère spécial, elle sépare donc sans ambiguïté la redirection.
 +Faites donc : ${learn}(pwdd||pwd)1>>f 2>>e${reset}, l'équivalent de la commande précédente : ${learn}pwdd 1>>f 2>>e||pwd 1>>f 2>>e${reset}.
 !(pwdd||pwd)1>>f 2>>e£Non
@@ -105,12 +105,12 @@ Vous pouvez donc changer aussi le sens de lecture de vos conditions avec les ${c
 Par exemple, prenons le code suivant : ${learn}cd DOSSIER&&(cat FICHIER||echo \\"FICHIER n'existe pas dans DOSSIER\\")||echo \\"DOSSIER n'existe pas\\"${reset}
 Les ${code}()${reset} permettent de lier la commande ${code}echo \\"FICHIER n'existe pas dans DOSSIER\\"${reset} avec la commande ${code}cat FICHIER${reset}.
 Sans les ${code}()${reset}, ${code}echo \\"FICHIER n'existe pas dans DOSSIER\\"${reset} se lancera si la commande ${code}cd DOSSIER${reset} renvoit une erreur, ce qui n'est pas ce que l'on veut.
-Vous pouvez donc utiliser ces ${code}()${reset} pour regrouper du code.
-Que votre but soit de changer la logique d'exécution de vos commandes, ou comme avant pour regrouper les flux de sortie et d'erreur.
+Vous pouvez donc utiliser ces ${code}()${reset} pour regrouper votre code.
+Que votre but soit de changer la logique d'exécution de vos commandes, ou comme avant pour regrouper les flux de sortie.
 Pour rediriger la sortie standard, vous devez utiliser ${code}>${reset} ou ${code}1>${reset}.
-Pour regiriger la sortie d'erreur, vous devez utiliser ${code}2>${reset}.
+Pour rediriger la sortie d'erreur, vous devez utiliser ${code}2>${reset}.
 Si vous voulez rediriger les deux à la fois, vous pouvez utiliser : ${code}&>${reset}.
-Ou évidemment ${code}&>>${reset} si vous voulez ajouter le contenu à la suite d'un fichier.
+Ou évidemment ${code}&>>${reset} si vous voulez ajouter le contenu à la fin d'un fichier.
 +Faites donc : ${learn}pwd&>>f${reset}
 !pwd&>>f£Non
 ${code}&>>${reset} commence par un caractère spécial, l'espace à sa gauche n'est donc pas nécessaire, contrairement à ${code}1>${reset} ou ${code}2>${reset} que l'on vu précédemment.
@@ -118,7 +118,7 @@ ${code}&>>${reset} commence par un caractère spécial, l'espace à sa gauche n'
 !pwdd&>>f£Non
 Avec cette commande, rien ne s'affiche dans le terminal, les deux redirections se passent donc correctement.
 ${code}&>>${reset} est donc bien équivalent à la combinaison de ${code}1>>${reset} et de ${code}2>>${reset}.
-Parfois il est possible qu'un flux ne vous intéresse pas du tout.
+Mais parfois il est possible qu'un flux ne vous intéresse pas du tout.
 Pour ce genre de cas il existe un fichier spécial, ${code}/dev/null${reset}, que vous pouvez utiliser avec vos redirections.
 ${code}/dev/null${reset} est un fichier vide qui restera toujours vide.
 +Affichez donc le contenu du fichier inexistant 'X', en vous débarassant des messages d'erreur.
@@ -137,7 +137,7 @@ ${code}2>&1${reset} redirigera la sortie erreur standard vers la sortie standard
 !pwdd>>/tmp/pwd.log 2>&1£Non
 +Puis réaffichez le contenu de '/tmp/pwd.log'.
 !cat /tmp/pwd.log£Non
-L'erreur a été ajoutée à la suite, ${code}2>&1${reset} est donc ici clairement dépendant du ${code}>>${reset} de la sortie standard.
+L'erreur a été ici ajoutée à la suite, ${code}2>&1${reset} est donc clairement dépendant du ${code}>>${reset} de la sortie standard.
 Attention donc à cette syntaxe, ${code}2>&1${reset} veut dire : \\"Le flux de sortie d'erreur standard est le même que le flux de sortie standard\\".
 ${code}2>&1${reset} s'adaptera donc si la redirection de la sortie standard est ${code}>${reset} ou ${code}>>${reset}.
 Pour ajouter à la fin d'un fichier, ${codeError}2>>&1${reset} pourrait venir à l'esprit mais ce n'est pas une syntaxe valide.
@@ -147,7 +147,7 @@ Résumons donc : pour combiner les flux de même type de plusieurs commandes, no
 Ici les deux sorties standards se regroupent en une seule sortie standard.
 #stdout_stderr_3
 Les deux sorties erreurs standards se regroupent également en une seule sortie d'erreur standard.
-Mais il reste encore deux flux distincts : la sortie standard et l'erreur standard.
+Mais il reste encore deux flux distincts : la sortie standard et la sortie erreur standard.
 Pour se débarasser de ces deux flux il faudra y ajouter ${code}&>/dev/null${reset}.
 #stdout_stderr_4
 +Faites donc : ${learn}(pwdd;pwd)&>/dev/null${reset}

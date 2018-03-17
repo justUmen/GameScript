@@ -22,7 +22,7 @@ Add `gamescript` alias to your .xshrc file by copy/pasting this command :
 
 * bash > version 4
 * wget
-* mplayer or mpg123 (mplayer recommanded)
+* mplayer or mpg123 (mplayer recommended)
 * base64
 
 ### Arch family (manjaro, antergos, ...)

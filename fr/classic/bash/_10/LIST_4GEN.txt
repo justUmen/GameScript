@@ -1,0 +1,15 @@
+#[ -d "$HOME/.GameScript_bash10" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash10 2> /dev/null
+#cd $HOME/.GameScript_bash10
+
+
+
+
+
+
+
+
+ê
+é
+à
+è
