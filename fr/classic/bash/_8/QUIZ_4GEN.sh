@@ -17,8 +17,8 @@ function start_quiz(){
   answer_text_fr "Comment afficher les lignes du fichier 'message' qui contiennent au moins une lettre 'a' ?" "grep a message"
   answer_text_fr "En utilisant l'entrée standard, comment afficher toutes les lignes du fichier 'grep' qui contiennent le mot 'cat' ?" "cat grep|grep cat"
   answer_text_fr "En utilisant 'cat', comment envoyer à la sortie standard le contenu classé par ordre aphabétique du fichier 'noms' ?" "cat noms|sort"
-  answer_text_fr "Sans utiliser 'cat' et des options de commande, comment supprimer les doublons du fichier 'list' ?" "sort list|uniq"
-  answer_text_fr "Sans utiliser d'argument de commande, comment envoyer le contenu du fichier 'wc1' à la commande 'wc', puis écrire son résultat dans 'wc2' ?" "wc<wc1>wc2"
+  answer_text_fr "Sans utiliser 'cat' et des options de commande, comment afficher le contenu du fichier 'list' sans ses lignes en double ?" "sort list|uniq"
+  answer_text_fr "Sans utiliser d'argument de commande, comment envoyer le contenu du fichier 'wc1' à la commande 'wc', puis écrire le résultat dans 'wc2' ?" "wc<wc1>wc2"
   answer_text_fr "Comment rediriger la sortie standard et la sortie erreur standard de la commande 'cat x' vers la commande 'grep cat' ?" "cat x|&grep cat"
   answer_text_fr "Quel est le symbole qui peut préciser l'utilisation de l'entrée standard dans une commande ?" "-"
   unlock "bash" "8" "88ab" "44d5"
@@ -30,6 +30,7 @@ CHAPTER_NUMBER="8"
 LANGUAGE="fr"
 SPEAKER="m1"
 
+LINES=136
 if [ ! "$1" == "MUTE" ]; then prepare_audio; fi
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
