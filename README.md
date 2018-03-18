@@ -4,15 +4,15 @@
 
 ### BASH
 
-Add `gamescript` alias to your .bashrc file by copy/pasting this command :
+Add `gamescript` alias to your .bashrc file by copy/pasting this command in a bash terminal :
 
-    echo 'alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --"'>>~/.bashrc; source ~/.bashrc
+    echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
 
 ### ZSH
 
-Add `gamescript` alias to your .xshrc file by copy/pasting this command :
+Add `gamescript` alias to your .xshrc file by copy/pasting this command in a zsh terminal :
 
-    echo 'alias gamescript="wget --no-cache -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --"'>>~/.zshrc; source ~/.zshrc
+    echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.zshrc; source ~/.zshrc
 
 ## Simple usage :
 
