@@ -9,7 +9,6 @@ Un exemple remplacant un long discours, je viens de créer une variable qui port
 !echo $name£Non
 Ce ${code}$${reset} précise que le texte qui suit est le nom d'une variable et qu'il ne faut pas l'afficher tel quel.
 ${code}echo name${reset} affichera donc le mot 'name' mais ${code}echo $name${reset} affichera la valeur de la variable name.
-
 Pour créer une nouvelle variable, il faudra simplement utiliser le nom voulu, le symbole ${code}=${reset} suivi de son contenu.
 +Créons donc une nouvelle variable 'chemin' qui contiendra le texte '/var/log' avec : ${learn}chemin=/var/log${reset}.
 !chemin=/var/log£Non

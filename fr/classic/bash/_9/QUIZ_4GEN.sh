@@ -16,7 +16,7 @@ function start_quiz(){
   answer_text_fr "Sans utiliser les '\"', comment ajouter un espace à la fin de la variable 'phrase' ?" "phrase=$phrase' '"
   answer_text_fr "Quel est le nom (sans le $) de la variable d'environnment utilisée par la commande man ?" "PAGER"
   answer_text_fr "Comment afficher vos variables d'environnement avec 'less' ?" "printenv|less"
-  answer_text_fr "Comment affecter le code retour (exit status) de la dernière commande à la variable RET ?" "RET=$?"
+  answer_text_fr "Comment affecter à la variable RET le code retour (exit status) de la dernière commande ?" "RET=$?"
   answer_text_fr "Comment afficher le chemin absolu du fichier binaire utilisé par la commande 'bash' ?" "which bash"
   unlock "bash" "9" "6521" "ddd2"
 }
@@ -30,19 +30,3 @@ SPEAKER="m1"
 if [ ! "$1" == "MUTE" ]; then prepare_audio; fi
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
-
-[9] $
-[9] =
-[9] which
-[9] env
-[9] PATH
-[9] alias
-[9] less
-[9] $?
-Bash 9 => Concepts : variable , alias , PATH , PAGER
-Bash 9 => Code : $ , = , env , $PATH , alias , less , $PAGER , $?
-
-ê
-é
-à
-è

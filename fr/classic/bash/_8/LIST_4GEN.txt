@@ -16,24 +16,24 @@ Le troisième représente le nombre de ${voc}caractères${reset} du fichier : 1 
 Nous avons bien dans ce fichier ${code}1${reset} ligne et ${code}2${reset} mots : 'au' et 'revoir'.
 ${code}wc${reset} nous informe également que ce fichier est composé de 10 caractères.
 Le premier mot 'au' est composé de deux caractères, 'a' et 'u'.
-Le deuxième mot 'revoir' est lui composé de six caractères, ce qui en ajoutant les deux précédents, fait huit.
+Le deuxième mot 'revoir' est lui composé de six caractères, ce qui en ajoutant aux deux précédents, fait huit.
 L'espace séparant les deux mots est aussi un caractère, ce qui nous amène à neuf.
-Le dixième caractère est en fait la mise à la ligne que nous avons vu dans le chapitre 3 : que l'on peut représenter avec '\\\\n'.
-Je vous rappelle que la commande ${code}echo${reset} ajoute automatiquement un '\\\\\n' à la fin, à moins que l'option -n soit présente.
+Le dixième caractère est en fait la mise à la ligne que nous avons vu dans le chapitre 3 : que l'on peut représenter avec '\\' + 'n'.
+Je vous rappelle que la commande ${code}echo${reset} ajoute automatiquement une nouvelle ligne à la fin, à moins que l'option -n soit présente.
 Voyons ce que nous avons fait jusqu'à présent : ${code}echo au revoir>test${reset} pour créer le fichier 'test' et ${code}wc test${reset} pour analyser ce fichier.
 La commande ${voc}wc${reset} prend ici en argument le fichier qui contient le contenu de ce que vous souhaitez analyser.
 Mais vous n'êtes pas obligé de créer ce fichier 'test' si vous n'en avez pas besoin.
-Dans le chapitre précédent, nous avons vu que l'on pouvait rediriger la ${voc}sortie standard${reset} vers un fichier avec ${code}>${reset} ou ${code}1>${reset}.
+Dans les chapitres précédents, nous avons vu que l'on pouvait rediriger la ${voc}sortie standard${reset} vers un fichier avec ${code}>${reset} ou ${code}1>${reset}.
 Mais il est en fait aussi possible de rediriger la sortie standard non pas vers un fichier mais vers ${voc}une autre commande${reset} avec le symbole ${code}|${reset}, aussi appelé 'pipe' ou tuyau.
 ${voc}wc${reset} est, comme de très nombreuses commandes, aussi capable de lire la ${voc}sortie standard${reset}.
 +Faites donc : ${learn}echo au revoir|wc${reset}
 !echo au revoir|wc£Non
-Ici avec la barre verticale, le résultat est identique, sauf que le nom du fichier ne s'affiche pas car il n'y a pas de fichier.
+Ici avec ${code}|${reset}, le résultat est identique, sauf que le nom du fichier ne s'affiche pas car il n'y a pas de fichier.
 Le 'pipe' est un des concepts les plus puissant de la ligne de commande.
 Avec ${code}|${reset}, une commande peut envoyer sa sortie standard à une deuxième commande, celle-ci peut ensuite envoyer sa propre sortie standard à une troisième commande, et ainsi de suite.
-+Maintenant, affichez donc le contenu du fichier 'LIST'.
++je viens de préparer un fichier 'LIST' pour vous, affichez donc le contenu de ce fichier.
 !cat LIST£Non
-Ici vous avez une liste de noms et d'emails. Imaginons que seul les emails vous intéresse.
+Ici vous avez une liste de noms et d'emails, mais imaginons que seuls les emails vous intéresse.
 Pour détecter la présence d'un mot clef dans une ligne, il vous faudra utiliser la commande ${code}grep${reset}.
 Bien évidemment, ${code}grep${reset} est capable de lire la ${voc}sortie standard${reset}, vous pouvez donc l'utiliser en combinaison avec ${code}|${reset}.
 +Affichez uniquement les lignes du fichier qui contiennent le mot 'email' avec : ${learn}cat LIST|grep email${reset}
@@ -57,16 +57,16 @@ Pour éliminer les noms identiques qui se suivent, vous devez utiliser la comman
 +Continuons à enchainer les pipes, faites donc : ${learn}cat LIST|grep -v @|sort|uniq${reset}
 !cat LIST|grep -v @|sort|uniq£Non
 Ici notre résultat est parfait, vous pourriez donc rediriger la dernière sortie standard pour créer un fichier 'NAMES'.
-En programmation comme dans un terminal, il a toujours plus d'une seule façon pour faire la même chose.
+Sur bash, il a toujours plus d'une seule façon pour faire la même chose.
 Nous avons utilisé le code suivant : ${code}cat LIST|grep -v @|sort|uniq${reset}
 Ici ${code}grep${reset} utilisera la sortie standard de la commande précédente, mais comme ${code}wc${reset}, ${code}grep${reset} accepte aussi en argument un fichier.
 Vous auriez pu donc tout aussi bien ne pas utiliser la commande ${code}cat${reset}, en faisant directement : ${code}grep -v @ LIST|sort|uniq${reset}
-${code}uniq${reset} peut également être supprimé, car ${code}sort${reset} possède aussi une option qui est capable de supprimer les doublons : -u.
+La commande ${code}uniq${reset} peut également être supprimée, car ${code}sort${reset} possède aussi une option qui est capable de supprimer les doublons : -u.
 +Essayez donc cette nouvelle commande : ${learn}grep -v @ LIST|sort -u${reset}
 !grep -v @ LIST|sort -u£Non
 ${learn}grep -v @ LIST|sort -u${reset} donne donc un résultat identique à ${learn}cat LIST|grep -v @|sort|uniq${reset}.
 Mais l'important n'est pas tant votre style d'écriture, mais une bonne compréhension de toutes les fonctionnalités qui vous sont offertes.
-Pour l'instant je vous impose un style d'écriture minimal, mais avec le temps vous développerez probablement un style différent, qui ne sera pas moins valide que celui que je partage ici avec vous.
+Pour l'instant avec GameScript, je vous impose un style d'écriture minimal, mais avec le temps vous développerez probablement un style différent, qui ne sera pas moins valide que celui que je partage ici avec vous.
 Que cela soit l'utilisation des espaces pour la présentation, ou la logique derrière votre code.
 Maintenant je vais vous donner quelques clarifications sur les commandes précédentes.
 Pour afficher uniquement le nombre de lignes, vous auriez pu utiliser ${code}wc${reset} avec l'option -l.
@@ -75,26 +75,27 @@ Pour afficher uniquement le nombre de lignes, vous auriez pu utiliser ${code}wc$
 Pour être précis, ${code}wc${reset} ne compte pas réellement le nombre de lignes, mais plutôt le nombre de retour à la ligne.
 +Essayez donc de faire : ${learn}echo -n au revoir|wc -l${reset}
 !echo -n au revoir|wc -l£Non
-Ici le résultat n'est bien évidemment pas 0 ligne, mais 0 '\\\\n', puisque nous n'avons pas le dernier caractère '\\\\\n' avec l'option -n.
-C'est une ${voc}convention${reset} d'avoir une mise a la ligne a la fin d'un fichier texte.
-Mais cela n'est pas strictement obligatoire, attention donc à certains fichiers qui ne se terminent pas par un '\\\\n'.
+Ici le résultat n'est bien évidemment pas 0 ligne, mais 0 nouvelle ligne ('\\' + 'n'), puisque nous n'avons pas la nouvelle ligne avec l'option -n.
+Dans un système de type Unix, c'est une ${voc}convention${reset} d'avoir une mise a la ligne a la fin d'un fichier texte.
+Cependant, pour être considéré parcomme un fichier ${voc}texte${reset} valide, cette nouvelle ligne est indispensable.
 Nous avons vu que ${code}|${reset} était utilisé pour rediriger la sortie standard vers une autre commande.
-Mais il est aussi possible de rediriger la sortie erreur standard de la même manière, en utilisant cette fois ${code}|&${reset}.
+Mais il est aussi possible de rediriger en même temps la sortie erreur standard, en utilisant ${code}|&${reset}.
 +Faites donc par exemple : ${learn}cat X|&grep cat${reset}
 !cat X|&grep cat£Non
 +Et l'inverse : ${learn}cat X|&grep -v cat${reset}
 !cat X|&grep -v cat£Non
-La logique de ${code}|&${reset} est identique à celle de ${code}|${reset}, sauf qu'elle s'applique à la sortie erreur standard.
-Bien évidemment, attention à ne pas confondre ${code}|${reset} ou ${code}|&${reset} avec ${code}||${reset} !
+${code}|&${reset} est en fait équivalent à ${code}2>&1 |${reset}.
+Ce qui rend ${code}(pwdd;pwd)2>&1|wc -l${reset} équivalent à ${code}(pwdd;pwd)|&wc -l${reset}.
+Bien évidemment, attention à ne pas confondre ${code}|${reset} et ${code}|&${reset} avec ${code}||${reset} !
 Dans le chapitre 7 nous avons vu comment utiliser la sortie standard (stdout) et la sortie erreur standard (stderr).
 #std_1
 Mais certaines commandes peuvent aussi recevoir des informations sur leur ${voc}entrée standard${reset} (stdin : standard input).
 Très souvent, les commandes qui le peuvent utiliserons leur ${voc}entrée standard${reset} si aucun autre moyen n'est précisé.
 Si vous visitez le manuel de ${code}grep${reset} ou de ${code}cat${reset} vous verrez que c'est leur cas.
-Cettee ${voc}entrée standard${reset} sera par défaut votre clavier !
+Cette ${voc}entrée standard${reset} sera par défaut votre clavier !
 Pour mettre fin à cette transmission, il faudra envoyer le signal EOT en faisant simultanément sur votre clavier ${voc}ctrl + d${reset}.
 Vous pouvez donc par exemple utiliser ${code}cat${reset} comme un editeur de texte.
-+Faites donc ${learn}cat>new${reset}, tapez quelques lignes, puis lorsque vous êtes sur une nouvelle ligne vide, faites ${voc}ctrl + d${reset}.
++Faites donc ${learn}cat>new${reset}, tapez quelques lignes, puis lorsque vous êtes sur une nouvelle ligne ${voc}vide${reset}, faites ${voc}ctrl + d${reset}.
 !cat>new£Non
 +Affichez maintenant le fichier new.
 !cat new£Non
@@ -110,10 +111,13 @@ La seule différence entre ces deux commandes est l'absence du nom de fichier av
 Le contenu est lu directement à partir de l'entrée standard de ${code}wc${reset}.
 Certaines commandes ont besoin que vous précisiez que vous voulez utiliser l'entrée standard.
 Pour cela il faudra utiliser un ${code}-${reset} en argument.
+Mais toutes les autres commandes acceptent aussi ce ${code}-${reset} en argument, même s'il n'est pas indispensable.
+La commande précédente ${code}cat>new${reset} est équivalente à ${code}cat ->new${reset}.
 +Faites donc : ${learn}wc -<new${reset}
 !wc -<new£Non
 Ici le nom de fichier devient -, mais le résultat de ${code}wc${reset} reste identique.
-L'affichage ici est simplement la sortie standard de cette commande, vous pouvez donc bien évidemment la rediriger normalement.
+${code}wc -<new${reset}, ${code}wc<new${reset} et ${code}wc new${reset} donnent le même résultat mais la logique pour arriver à ce résultat est différente.
+Pour ce qui est l'affichage de ces commandes, il s'agit simplement d'une sortie standard, vous pouvez donc bien évidemment la rediriger normalement.
 +Faites donc : ${learn}wc -<new>wcnew${reset}
 !wc -<new>wcnew£Non
 +Affichez le contenu de 'wcnew'.
@@ -126,7 +130,7 @@ L'entrée standard est en fait exactement ce qu'utilise ${code}|${reset}.
 Ici vous avez une représentation visuelle de la commande : ${learn}cat LIST|grep @${reset}
 ${code}|${reset} permet en fait de rediriger la sortie standard d'une commande, ou groupe de commande vers l'entrée standard d'une autre commande.
 #std_4
-${code}|&${reset} permet d'utiliser la sortie erreur standard à la place, comme ici dans ${learn}cat X|&grep cat${reset}.
+${code}|&${reset} permet d'utiliser stdout ${voc}et${reset} stderr, comme ici dans ${learn}cat X|&grep cat${reset}.
 Encore une fois, pour certaines commandes il faudra explicitement demander l'utilisation de l'entrée standard avec le symbole ${code}-${reset}.
 ${learn}cat LIST|grep @${reset} est en fait équivalent à ${learn}cat LIST|grep @ -${reset}.
 Vous savez donc maintenant manipuler l'entrée standard (stdin) et les deux sorties de vos commandes (stdout et stderr).

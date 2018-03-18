@@ -46,12 +46,13 @@ Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
 
 [3] "echo"
 [3] "\"
+[3] "\n"
 [3] ">"
 [3] ">>"
 [3] "cat"
 [3] "" and ''
 Bash 3 => Concepts : caractère d'échappement , délimiteur d'argument
-Bash 3 => Code : echo , \ , > , >> , cat , "", ''
+Bash 3 => Code : echo , \ , \n , > , >> , cat , "", ''
 
 
 [4] "mv"
@@ -102,8 +103,8 @@ Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
 [8] uniq
 [8] stdin
 [8] -
-[8] "|", like ">" but for other commands
-[8] "|&" pipe error
+[8] "|", like ">" but for other commands (pipe standard)
+[8] "|&" (pipe standard + error)
 [8] "<" + filename
 [8] command < input-file > output-file
 Bash 8 => Concepts : entrée standard , pipe
@@ -124,17 +125,19 @@ Bash 9 => Code : which , $ , = , printenv , $PATH , alias , less , $PAGER , $?
 
 
 
-
-
+stdout buffered 4096 bytes or \n
+stderr unbuffered
+# line buffered
+grep pat file.log
+# fully buffered
+grep pat file.log > output
 
 $!, $1...$x, $@ : script only
 
+POSIX
 
 set
 env
-
-.bashrc
-
 
 export ?
 
@@ -143,12 +146,6 @@ $$ = process number + kill -9
 +Affichez la taille en octets du fichier 'test'. (ls -l) + wc + ASCII + UTF-8
 
 global : exec 2> /dev/null
-
-variables : $OLDPWD
-	variable as argument !
-		ls `pwd`/*.log > ~/TMP/LOG
-		ls -l $(cat LOG)
-+ env
 
 
 find
@@ -165,9 +162,6 @@ taille des fichier en octets, ASCII
 [a-z]
 "nano"
 "&" use same time as "ps" ?
-$VAR
-$()
-`` - backtick
 
 "head *" clean output better than cat, or even : grep "" *
 "less *" -n ofc

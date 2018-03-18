@@ -1,12 +1,17 @@
 #[ -d "$HOME/.GameScript_bash10" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancer ce script." && exit
 #mkdir $HOME/.GameScript_bash10 2> /dev/null
 #cd $HOME/.GameScript_bash10
+Dans le dernier chapitre nous avons vu comment créer et manipuler les variables.
 
 
 
 
 
-
+.bashrc
+variables : $OLDPWD
+	variable as argument !
+		ls `pwd`/*.log > ~/TMP/LOG
+		ls -l $(cat LOG)
 
 
 ê
