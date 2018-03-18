@@ -63,7 +63,7 @@ Ici l'erreur a bien été enregistrée dans le fichier.
 +Essayez de rediriger séparement les résultats et les erreurs d'une commande dans deux fichiers différents avec : ${learn}pwd 1>out 2>err${reset}
 !pwd 1>out 2>err£Non
 +Affichez le contenu du fichier 'err'.
-!cat err out£Non
+!cat err£Non
 La commande ne provoquant pas d'erreur, 'err' est vide.
 Pour vérifier si ${code}1>${reset} et ${code}2>${reset} peuvent fonctionner en même temps, il va falloir utiliser un code qui utilise les deux flux.
 Prenons par exemple : ${learn}pwdd||pwd${reset}.

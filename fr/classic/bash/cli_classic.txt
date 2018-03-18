@@ -139,6 +139,8 @@ POSIX
 set
 env
 
+/dev/stdout,stdin,stderr (lrwxrwxrwx)
+
 export ?
 
 $$ = process number + kill -9
