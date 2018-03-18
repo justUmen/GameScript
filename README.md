@@ -42,29 +42,29 @@ It is an ONLINE bash script to learn about :
 
 # Bash : Code and concepts by chapter (French)
 
-Bash 1 => Concepts : commande , argument , chemin relatif , chemin absolu , dossier parent/enfant , répertoire courant
-Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
+    Bash 1 => Concepts : commande , argument , chemin relatif , chemin absolu , dossier parent/enfant , répertoire courant
+    Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
 
-Bash 2 => Concepts : fichier caché, option, RTFM
-Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
+    Bash 2 => Concepts : fichier caché, option, RTFM
+    Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
 
-Bash 3 => Concepts : caractère d'échappement , délimiteur d'argument
-Bash 3 => Code : echo , \ , \n , > , >> , cat , "", ''
+    Bash 3 => Concepts : caractère d'échappement , délimiteur d'argument
+    Bash 3 => Code : echo , \ , \n , > , >> , cat , "", ''
 
-Bash 4 => Concepts : condition de succès , condition d'échec
-Bash 4 => Code : mv , cp , ; , && , ||
+    Bash 4 => Concepts : condition de succès , condition d'échec
+    Bash 4 => Code : mv , cp , ; , && , ||
 
-Bash 5 => Concepts : permissions et limitations
-Bash 5 => Code : ls -l , chmod
+    Bash 5 => Concepts : permissions et limitations
+    Bash 5 => Code : ls -l , chmod
 
-Bash 6 => Concepts : donnée , métadonnée
-Bash 6 => Code : * , ? , touch , chown , chmod
+    Bash 6 => Concepts : donnée , métadonnée
+    Bash 6 => Code : * , ? , touch , chown , chmod
 
-Bash 7 => Concepts : sortie standard , erreur standard , regroupement de flux
-Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
+    Bash 7 => Concepts : sortie standard , erreur standard , regroupement de flux
+    Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
 
-Bash 8 => Concepts : entrée standard , pipe
-Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
+    Bash 8 => Concepts : entrée standard , pipe
+    Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
 
 ## Types :
 
