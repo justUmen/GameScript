@@ -89,7 +89,7 @@ Bien évidemment, attention à ne pas confondre ${code}|${reset} et ${code}|&${r
 Dans le chapitre 7 nous avons vu comment utiliser la sortie standard (stdout) et la sortie erreur standard (stderr).
 #std_1
 Mais certaines commandes peuvent aussi recevoir des informations sur leur ${voc}entrée standard${reset} (stdin pour standard input).
-Très souvent, les commandes qui le peuvent utiliserons leur ${voc}entrée standard${reset} si aucun autre moyen n'est précisé.
+Très souvent, les commandes qui le peuvent utiliseront leur ${voc}entrée standard${reset} si aucun autre moyen n'est précisé.
 Si vous visitez le manuel de ${code}grep${reset} ou de ${code}cat${reset} vous verrez que c'est leur cas.
 Cette ${voc}entrée standard${reset} sera par défaut votre clavier !
 Pour mettre fin à cette transmission, il faudra envoyer le signal EOT en faisant simultanément sur votre clavier ${voc}ctrl + d${reset}.
