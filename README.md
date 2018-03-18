@@ -69,12 +69,7 @@ It is an ONLINE bash script to learn about :
 ## Types :
 
 * "classic" = default mode, technical content only
-* "story" = learning with stories (several versions possible)
-
-## Can :
-
-* remember your pseudo
-* 
+* "story" = learning with stories [ not yet implemented ]
 
 ## ToDo :
 
