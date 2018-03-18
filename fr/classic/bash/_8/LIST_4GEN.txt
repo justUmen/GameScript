@@ -122,7 +122,7 @@ Pour ce qui est l'affichage de ces commandes, il s'agit simplement d'une sortie 
 +Affichez le contenu de 'wcnew'.
 !cat wcnew£Non
 La commande ${code}grep${reset} prend deux arguments avec cette syntaxe : grep <MOTCLEF> <FICHIER>.
-${code}grep${reset}, utilisé sans deuxième argument, va utiliser, comme ${code}wc${reset}, l'entrée standard.
+${code}grep${reset}, utilisé sans deuxième argument, va utiliser, comme ${code}wc${reset}, son entrée standard.
 Mais nous avons en fait déjà utilisé ${code}grep${reset} sans deuxième argument avec ${code}grep @${reset} dans notre commande précédente : ${learn}cat LIST|grep @${reset}.
 L'entrée standard est en fait exactement ce qu'utilise ${code}|${reset}.
 #std_3
