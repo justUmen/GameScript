@@ -129,7 +129,7 @@ Auquel on y ajoute à la suite la chaine de caractère ':~/.GameScript_bash9'.
 Ici vous pouvez voir que '~/.GameScript_bash9' a bien été rajouté à la suite de l'ancienne version de 'PATH'.
 Mais les modifications que vous faites sur les variables sont valables ${voc}uniquement${reset} pour la session de bash que vous utilisez actuellement.
 Ouvrir un autre terminal ${voc}réinitialisera${reset} les variables importantes, comme par exemple 'PATH', et ${voc}supprimera${reset} les autres, comme ici les variables 'name' et 'chemin'.
-Mais pour l'instant, puisque le dossier '~/.GameScript_bash9' est dans votre d'environnement 'PATH', vous pouvez simplement lancer le script 'code_bash' en tapant 'code_bash'.
+Mais pour l'instant, puisque le dossier '~/.GameScript_bash9' est dans votre variable d'environnement 'PATH', vous pouvez simplement lancer le script 'code_bash' en tapant 'code_bash'.
 +Lancez donc 'code_bash'.
 !code_bash£Non
 +Déplacez vous dans le dossier 'FOLDER'.
