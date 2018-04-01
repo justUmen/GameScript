@@ -124,7 +124,7 @@ Vous pouvez alors simplement lancer \"gamescript\", ou avec des argument comme \
 
 function my_passwords(){
   for filename in $HOME/.GameScript/passwords/*; do
-    echo "$filename : `cat $filename`"
+    echo "$filename : password`cat $filename`"
   done
 }
 

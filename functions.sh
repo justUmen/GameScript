@@ -126,21 +126,25 @@ function answer_quiz(){
 		esac
 	done
 }
+
+QUIZ_NUMBER=1
 function answer_text_fr(){
-	echo "> $1"
-	echo -en "\\e[97;45m # \\e[0m"
-	read -r USER_CODE < /dev/tty
+	echo ""
+	echo "($QUIZ_NUMBER) > $1"
+	#~ echo -en "\\e[97;45m # \\e[0m"
+	read -e -r -p $'\e[97;45m # \e[0m' USER_CODE < /dev/tty
 	if [ ! "$USER_CODE" == "$2" ]; then
-		talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\nSi vous vous sentez vraiment bloqué, demandez de l'aide sur notre chat.\\e[0m"
+		talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\nSi vous vous sentez vraiment bloqué, demandez de l'aide sur notre chat : https://rocket.bjornulf.org\\e[0m"
 		#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
 		exit
 	else
 		talk_not_press_key justumen "Correct !"
+		QUIZ_NUMBER=`expr $QUIZ_NUMBER + 1`
 	fi
 }
 function answer_run(){
-	echo -en "\\e[97;45m # \\e[0m"
-	read -r USER_CODE < /dev/tty
+	#~ echo -en "\\e[97;45m # \\e[0m"
+	read -e -r -p $'\e[97;45m # \e[0m' USER_CODE < /dev/tty
 	while [ ! "$USER_CODE" == "$1" ]; do
 		if [ ! "$USER_CODE" == "" ]; then
 			talk_not_press_key_ANSWER "$2" "$1"
@@ -236,7 +240,7 @@ function unlock(){
 	#Usage : unlock "bash" "1" "24d8" "f016"
 	PSEUDO=`cat "$HOME/.GameScript/username"`
 	PASS=`encode_b64 $PSEUDO "$3" "$4"`
-	talk_not_press_key justumen "Pour débloquer '$1 $2' sur le chat, ouvrez une conversation privée avec 'boti' et copiez/collez :\n\t\e[97;42mpassword$PASS\e[0m"
+	talk_not_press_key justumen "Pour débloquer '$1 $2' sur le chat, ouvrez une conversation privée avec '@boti' et copiez/collez :\n\t\e[97;42mpassword$PASS\e[0m"
 	touch "$HOME/.GameScript/good_$1$2" 2> /dev/null
 	mkdir $HOME/.GameScript/passwords/ 2> /dev/null
 	echo -n "$PASS" > "$HOME/.GameScript/passwords/$1$2"

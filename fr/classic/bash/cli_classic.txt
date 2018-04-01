@@ -116,14 +116,30 @@ Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
 [9] which
 [9] printenv
 [9] PATH
-[9] alias
-[9] less
-[9] $?
-Bash 9 => Concepts : variable , alias , PATH , PAGER
-Bash 9 => Code : which , $ , = , printenv , $PATH , alias , less , $PAGER , $?
+Bash 9 => Concepts : variable , PATH
+Bash 9 => Code : which , $ , = , printenv , $PATH
+
+[10] alias
+[10] less
+[10] $?
+Bash 10 => Concepts : script , alias , default pager
+Bash 10 => Code : alias , less , $PAGER , $?
+
+
+Bash 11 => Concepts : 
+Bash 11 => Code : 
 
 
 
+return/exit script and $?
+
+test -ge -le
+
+shell / subshell (same as export)
+	{ list; } diff with ( list )
+	bash command
+	...
+	built-in shell commands
 
 stdout buffered 4096 bytes or \n
 stderr unbuffered
@@ -171,7 +187,7 @@ taille des fichier en octets, ASCII
 regex
 (( var0 = var1<98?9:21 ))
 
-"." (useful to execute)
+"." / source
 ":" do nothing
 "!" inversion (! true )
 
@@ -180,6 +196,11 @@ recursive
 MAKE SCRIPTS INSTEAD OF ONE LINE :p
 "!!"
 history + "!2892"
+
+bind
+declare
+
+functions = alias with arguments
 
 
 {1..100}
@@ -246,7 +267,7 @@ CTRL + E / A, TAB, Arrow top / down
 "while","for"
 ``, '', "", $(xxx)
 
-CTRL+R, CTRL+S ??? more ???
+CTRL+R, CTRL+S .. ???
 
 
 
@@ -257,7 +278,7 @@ CTRL+R, CTRL+S ??? more ???
 #
 
 
-
+: do nothing command
 
 fsck	Filesystem consistency check and repair	???????????????
 mkfifo	Make FIFOs (named pipes)	???????????????/

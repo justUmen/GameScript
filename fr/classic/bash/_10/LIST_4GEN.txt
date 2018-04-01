@@ -1,20 +1,145 @@
 #[ -d "$HOME/.GameScript_bash10" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancer ce script." && exit
 #mkdir $HOME/.GameScript_bash10 2> /dev/null
-#cd $HOME/.GameScript_bash10
+#cd $HOME/.GameScript_bash10;ls /var/log/*.log|head -n 5 > ~/.GameScript_bash10/LOG
 Dans le dernier chapitre nous avons vu comment créer et manipuler les variables.
-
-
-
-
-
-.bashrc
-variables : $OLDPWD
-	variable as argument !
-		ls `pwd`/*.log > ~/TMP/LOG
-		ls -l $(cat LOG)
-
-
-ê
-é
-à
-è
+Mais les variables sont aussi capables de stocker des commandes bash.
++Créez donc une variable 'cmd' qui contiendra ${code}ls -a /var${reset} en utilisant les ${code}'${reset}.
+!cmd='ls -a /var'£Non
++Faites donc maintenant : ${learn}cmd${reset}.
+!cmd£Non
+Ici nous avons une erreur. Bien évidemment puisque 'cmd' est une ${voc}variable${reset} et n'a jamais été une commande.
+Vous pouvez néanmoins vous servir de cette variable comme une commande.
++Mais pour cela, il faudra utiliser le \\$, faites donc : ${learn}\\$cmd${reset}.
+!\\$cmd£Non
+Mais pour lancer GameScript il vous suffit de taper 'gamescript' dans votre terminal.
+Si le code de GameScript était dans une variable, il vous faudrait taper '$gamescript'.
+On peut donc imaginer que 'gamescript' est peut être un script qui est dans un des dossiers de la variable d'environnement 'PATH'.
+Et bien pas du tout... mais cela aurait pu être le cas.
+GameScript utilise en fait un ${voc}alias${reset}, un type de variable spécialisé pour les commandes.
+Un ${voc}alias${reset} n'est donc pas un programme mais simplement une commande ou groupe de commande.
+La syntaxe est similaire aux variable classiques, il suffira d'ajouter le mot clef 'alias' avant la création de l'alias.
++Créons notre premier alias avec : ${learn}alias a1='ls -a /var'${reset}.
+!alias a1='ls -a /var'£Non
++Puis lancez simplement votre alias avec : ${learn}a1${reset}.
+!a1£Non
+Ici ${code}a1${reset} remplace simplement la commande ${code}ls -a /var${reset}, mais vous pouvez créez des alias beaucoup plus complexes.
++Affichez une liste de tous vos alias en faisant simplement : ${learn}alias${reset}.
+!alias£Non
+Je le répète, 'gamescript' est dans votre environnement un alias.
++Affichez uniquement l'alias de gamescript avec : ${learn}alias gamescript${reset}.
+!alias gamescript£Non
+Lorsque vous lancez 'gamescript', voilà donc le code qui est réellement executé.
+${code}wget${reset} télécharge la dernière version de GameScript et l'execute ensuite sur votre machine.
+La commande 'bash' est exactement comme la commande 'date' du chapitre précédent, il s'agit en fait d'un fichier.
++Pour connaitre le chemin absolu de ce fichier 'bash', faites donc : ${learn}type bash${reset}.
+!type bash£Non
+Vous l'avez peut être compris, mais 'gamescript' ne fonctionnera que si le dossier '/bin' est dans votre variable 'PATH'.
+Le répertoire '/bin' possède certains des fichiers ${voc}bin${reset}aires les plus important de votre système.
+Utiliser 'bash' au lieu de '/bin/bash' semble raisonnable dans cet alias, parce que '/bin' devrait être présent dans la variable d'environnement 'PATH' de tous les systèmes correctement configurés.
++Affichez donc plus de details sur ce fichier '/bin/bash' avec : ${learn}wc /bin/bash${reset}.
+!wc /bin/bash£Non
+Ce fichier est particulièrement volumineux, je vous déconseille donc de l'afficher avec la commande ${code}cat${reset}.
+En revanche, nous pouvons utiliser sans risque notre 'PAGER'.
+'PAGER' est une autre variable d'environnement qui définit quel programme sera utilisé pour la lecture de fichiers.
++Pour connaitre la valeur de 'PAGER', faites donc : ${learn}echo \\$PAGER${reset}.
+!echo \\$PAGER£Non
+La plupart du temps ce 'PAGER' sera la commande ${code}less${reset}, mais c'est une variable personnalisable, donc il se peut que vous ayez quelque chose d'autre.
+Lorsque vous visitez le manuel d'une commande, vous pouvez naviguer de haut en bas avec votre clavier et même votre souris.
+La commande ${code}man${reset} utilise en fait votre 'PAGER'. C'est la commande ${code}less${reset} qui donne à vos manuels cette interface interactive.
+Lorsque vous quittez le manuel avec la touche 'q', vous quittez en fait l'interface fournie par ${code}less${reset}.
+Et vous pouvez très bien utiliser la commande ${code}less${reset} pour naviguer dans le fichier de votre choix.
++Regardez très rapidement le contenu du fichier '/bin/bash' avec ${learn}less /bin/bash${reset}, puis quittez avec la touche 'q'.
+!less /bin/bash£Non
+Ici le fichier est illisible car il s'agit en fait d'un fichier ${voc}binaire${reset}.
+${code}less${reset} considère tout fichier ouvert comme un fichier texte, ce qu'il affiche n'a donc ici simplement aucun sens.
+Si 'less' est la valeur de votre variable d'environnement 'PAGER', vous auriez bien sur également pu faire ${learn}$PAGER /bin/bash${reset}.
++Créons maintenant l'alias 'pager' avec : ${learn}alias pager=\\$PAGER${reset}.
+!alias pager=\\$PAGER£Non
++Utilisez maintenant ce nouvel alias avec '/bin/bash', puis quittez avec la touche 'q'.
+!pager /bin/bash£Non
+Nous avonc donc vu comment créer et manipuler les variables et les alias, mais n'oubliez pas que ces variables et ces alias ne seront disponibles que dans la session de bash que vous utilisez actuellement.
+Maintenant parlons d'une variable très particulière : ${code}\\$?${reset}
+${code}\\$?${reset} contient un nombre entre 0 et 255, qui est la valeur de retour de votre dernière commande. (anglais ${voc}exit status${reset})
++Faites donc : ${learn}pwd;echo \\$?${reset}
+!pwd;echo \\$?£Non
+Ici la valeur retour est 0. Cela veut dire que la commande n'a pas rencontré de problème.
++Maintenant faites : ${learn}pwdd;echo \\$?${reset}
+!pwdd;echo \\$?£Non
+Ici la valeur retour est 127. Cela veut dire que la commande ${codeError}pwdd${reset} n'existe pas.
++Puis : ${learn}lss;echo \\$?${reset}
+!lss;echo \\$?£Non
+Ici la valeur retour est encore 127. Cela veut dire que la commande ${codeError}lss${reset} n'existe pas.
++Maintenant faites donc : ${learn}cat x;echo \\$?${reset}
+!cat x;echo \\$?£Non
+Ici la valeur retour n'est pas 0, ce qui veut dire que la commande a rencontré une erreur.
+Cependant la valeur n'est pas la même que pour 'pwdd' et 'lss' car le type d'erreur est différent.
+La commande ${code}cat${reset} existe mais c'est le fichier donné en argument qui n'existe pas.
+Vous avez en fait déjà utilisé cette variable ${code}\\$?${reset} sans le savoir.
+${code}||${reset} et ${code}&&${reset} utilisent la variable ${code}\\$?${reset} pour définir l'execution des autres commandes.
+${code}&&${reset} lancera la prochaine commande si ${code}\\$?${reset} est égal à 0.
+Et ${code}||${reset} lancera la prochaine commande si ${code}\\$?${reset} n'est pas égal à 0.
+Cette variable changera de valeur à chaque nouvelle commande, mais elle peut être sauvegardé dans une autre variable.
++Essayez donc de sauvegarder la valeur retour de ${code}ls -O${reset} avec : ${learn}ls -O;VAL=\\$?${reset}
+!ls -O;VAL=\\$?£Non
++Affichez donc la valeur de la variable 'VAL'.
+!echo \\$VAL£Non
+Ce nombre est encore une fois différent, car ici l'erreur vient de l'utilisation d'une option inconnue.
+Pour ce qui est des ${code}alias${reset}, il se peut également que vous utilisiez des alias sans le savoir.
+Ces alias peuvent remplacer une commande en utilisant le même nom.
++Faites donc : ${learn}type ls${reset}.
+!type ls£Non
+Ici, vous avez probablement un alias vers la commande : ${code}ls --color=auto${reset}.
+Un alias sera prioritaire sur la variable 'PATH', c'est pourquoi vous ne devriez pas voir ici '/bin/ls'.
++Affichez toutes les interprétations possibles de la commande ${code}ls${reset} avec : ${learn}type -a ls${reset}.
+!type -a ls£Non
+Si vous avez bien en première ligne l'alias ${code}ls --color=auto${reset} et en deuxième ligne ${code}/bin/ls${reset}, un simple ${code}ls${reset} deviendra en fait ${code}/bin/ls --color=auto${reset}
+Pour revenir sur les variables, savez-vous qu'elle peuvent aussi stocker le ${voc}résultat${reset} d'une commande.
+Il faudra pour cela utiliser le ${code}\\$${reset} et les ${code}()${reset}
++Par exemple, pour stocker le résultat de la commande ${code}pwd${reset} dans la variable 'var', faites : ${learn}var=\\$(pwd)${reset}
+!var=\\$(pwd)£Non
++Maintenant pour vérifier, faites : ${learn}echo \\$var;pwd${reset}.
+!echo \\$var;pwd£Non
+Vous pouvez également faire la même chose en utilisant les ${code}\\`\\`${reset}.
++Essayez par exemple : ${learn}var=\\`ls /var/log/*\\`${reset}
+!var=\\`ls /var/log/*\\`£Non
++Puis affichez le contenu de la variable 'var'.
+!echo \\$var£Non
+Nous avons déjà vu ${learn}cat${reset} pour afficher le contenu d'un fichier, mais il existe deux autres commandes bien utiles pour l'affichage du contenu des fichiers.
+Il s'agit de ${code}head${reset} et de ${tail}tail${reset}, qui affichent respectivement les 10 premières et les 10 dernières lignes d'un fichier.
+La variable 'var' contient une liste de fichier, vous pouvez donc utiliser cette variable en argument de commande.
++Affichez donc par exemple les 10 dernières lignes de tous les fichiers dans la variable 'var'.
+!head \\$var£Non
+Il est aussi possible de récuperer le résultat d'une commande et d'en faire une variable temporaire qui ne sera pas sauvegardée.
++Vous pouvez par exemple faire la même chose sans la variable 'var', avec : ${learn}head \\`ls /var/log/*.log\\`${reset}
+!head \\`ls /var/log/*.log\\`£Non
+Mais bien évidemment, ces deux commandes sont équivalentes à : ${learn}head /var/log/*.log${reset}
+Mais imaginons par exemple que vous ayiez un fichier 'LOG' qui contient une liste des fichiers qui vous intéresse.
++Affichez le contenu du fichier 'LOG'.
+!cat LOG£Non
+Vous pouvez donc directement utiliser ${code}tail${reset} avec le contenu de ce fichier en argument avec : ${code}tail $(cat LOG)${reset}.
++Essayez donc avec la commande équivalente : ${learn}tail \\`cat LOG\\`${reset}
+!tail \\`cat LOG\\`£Non
+Mais si 'gamescript' est un alias, comment se fait-il que vous puissiez l'utiliser dans toutes vos instances de bash ?
+L'alias 'gamescript' est en fait créé dans le fichier de configuration principal de bash : ${code}~/.bashrc${reset}
+Bash analyse le contenu de votre fichier caché ${code}~/.bashrc${reset} à chaque lancement.
++Vous pouvez retrouver la ligne correspondant à 'gamescript' avec : ${learn}cat ~/.bashrc|grep gamescript${reset}
+!cat ~/.bashrc|grep gamescript£Non
+Donc si vous voulez avoir des alias ou des variables permanentes, vous pouvez tout simplement les ajouter dans ce fichier.
+En revanche, n'oubliez pas que 'bash' n'utilise ce fichier qu'à l'ouverture d'une nouvelle session.
+C'est à dire que si votre session bash était déjà ouverte avant la modification de ce fichier, les changements n'auront pas lieu.
+Pour valider vos modifications, il vous faudra donc ouvrir une nouvelle session bash ou forcer la relecture de ce fichier de configuration avec : ${code}source ~/.bashrc${reset}
+La commande ${code}source${reset} peut également être utilisée pour lire les variables dans un fichier et les ajouter dans la session bash actuelle.
+#echo -e 'var=test\nvar2=test2' > $HOME/.GameScript_bash10/variables
++Affichez le contenu du fichier 'variables' de votre répertoire courant.
+!cat variables£Non
++Affichez les valeur de 'var' et 'var2', séparé par un espace.
+!echo \\$var \\$var2£Non
++Maintenant faites : ${learn}source variables${reset}
+!source variables£Non
++Et réaffichez les valeurs de 'var' et 'var2', séparé par un espace.
+!echo \\$var \\$var2£Non
+Avec cet exemple, vous devriez mieux comprendre l'effet qu'aura la commande ${learn}source ~/.bashrc${reset}.
+${code}source ~/.bashrc${reset} peut aussi s'écrire ${code}. ~/.bashrc${reset}.
+C'est une syntaxe bien moins lisible que la première, mais vous devez la connaitre car vous risquez de la rencontrer un jour.
+En avant pour le questionnaire !
+#clean

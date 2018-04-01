@@ -78,6 +78,7 @@ It is an ONLINE bash script to learn about :
 * allow arrows and tab in "read"
 * add offline option --offline, then it will download all standalone into a folder .GameScript ?? + update
 * better help with online/offline, update
+* each chapter have basic knowledge identical to wallpaper generator
 
 ## Details :
 

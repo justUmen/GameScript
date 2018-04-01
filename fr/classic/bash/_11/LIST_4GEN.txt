@@ -1,0 +1,99 @@
+#[ -d "$HOME/.GameScript_bash11" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash11 2> /dev/null
+#cd $HOME/.GameScript_bash11
+#
+echo -e 'read X;if [ $X -eq 1 ];then echo COURS; else echo QUESTIONNAIRE; fi' > $HOME/.GameScript_bash11/if1;
+echo -e 'read X\\\\nif [ $X -eq 1 ]\\\\nthen\\\\necho COURS\\\\nelse\\\\necho QUESTIONNAIRE\\\\nfi' > $HOME/.GameScript_bash11/if2
+echo -e 'read X\\\\nif [ $X -eq 1 ]\\\\nthen\\\\n\\\\techo COURS\\\\nelse\\\\n\\\\techo QUESTIONNAIRE\\\\nfi' > $HOME/.GameScript_bash11/if3
+echo -e 'read X\\\\nif [ $X -eq 1 ]\\\\nthen\\\\n\\\\techo COURS\\\\nfi\\\\necho TEXTE' > $HOME/.GameScript_bash11/if4
+
+Nous avons déjà vu que pour créer un script bash, il suffit de cumuler dans un fichier texte les commandes que vous connaissez déjà.
+Mais bash est donc aussi un langage de programmation que vous pouvez utiliser pour créer des scripts complexes.
+
+Il est par exemple aussi possible de demander une valeur à l'utilisateur, pour donner à votre script une certaine interactivité.
+Pour cela il faut utiliser la commande ${code}read${reset}, qui prend en argument le nom de la variable où sera stocké la valeur donnée.
+Pour demander la valeur de la variable NAME à l'utilisateur, il suffira de faire ${learn}read NAME${reset}
+Votre script attendra qu'une valeur soit donnée et que la touche entrée soit pressée pour continuer.
++Essayez donc de demander la valeur de la variable 'NAME' avec ${learn}read NAME${reset}, tapez quelque chose, puis validez avec la touche entrée.
+!read NAME£Non
++Affichez maintenant la valeur de la variable 'NAME'.
+!echo $NAME£Non
+A chaque fois que GameScript vous demande quelque chose après ce \\e[97;45m # \\e[0m, c'est cette commande ${code}read${reset} qui est utilisée.
+
+Mais il est aussi possible de contrôler comment se comportera votre script en y ajoutant des ${code}conditions${reset}.
+C'est à dire qu'au lieu d'executer toutes vos commandes les unes après les autres, vous pouvez y intégrer de la logique plus complexe avec ${code}if${reset}.
+GameScript par exemple, utilise régulièrement des ${code}if${reset} pour décider des commandes qui doivent être lancées et celles qui ne doivent pas l'être.
++Affichez le contenu du fichier 'if1'.
+!cat if1£Non
+Ici nous avons un exemple de l'utilisation de la commande ${code}if${reset} (l'anglais du mot 'si') en combinaison avec ${code}else${reset} (l'anglais de 'sinon').
+Ce script demandera à l'utilisateur la valeur de la variable 'X', si cette valeur est 1, le script affichera 'COURS', sinon le script affichera 'QUESTIONNAIRE'.
+Tous les espaces que vous voyez dans ce fichier sont nécessaire pour le bon fonctionnement du ${code}if${reset}.
+Notez également dans ce script l'importance des ${code};${reset}.
+D'une manière générale, vous l'avez surement remarqué mais le ${code};${reset} n'est utile que lorsque le code est sur une même ligne.
+Vous pouvez avoir dans un script ${code}pwd${reset} sur la première ligne et ${code}ls${reset} sur la deuxième.
+Mais si vous voulez avoir les deux sur la même ligne, il faudra faire ${code}pwd;ls${reset}.
++Affichez donc le contenu du fichier 'if2'.
+!cat if2£Non
+Le code du script 'if2' est équivalent au code du script 'if1', seul la présentation du code est différente.
+Ici les ${code};${reset} ont été remplacés par une mise à la ligne.
+Comme pour les commandes, les espaces peuvent être utilisés pour présenter votre code différemment, par exemple pour le rendre plus lisible.
+Traditionnelement, des tabulations ou plusieurs espaces sont ajoutés au début d'une ligne quand le code est d'un autre niveau.
+On appelle cette présentation un style d'indentation, l'${voc}indentation${reset} étant ce décalage en début de ligne.
++Affichez donc le contenu du fichier 'if3'.
+!cat if3£Non
+Ici par exemple, il est très facile de voir le ${voc}bloc de code${reset} à l'intérieur du ${code}if${reset} et celui à l'intérieur du ${code}else${reset}.
+
+Si vous n'avez pas besoin, le ${code}else${reset} dans votre script n'est pas obligatoire.
++Affichez donc le contenu du fichier 'if4'.
+!cat if4£Non
+Le mot ${code}fi${reset} représente la fin du ${code}if${reset}, après ce ${code}fi${reset} le script continue à s'executer normalement ligne par ligne.
+C'est à dire qu'ici, quel que soit la valeur donnée à 'X' la commande 'echo TEXTE' se lancera.
+L'absence d'espaces en début de ligne nous permet de rapidement comprendre que cette ligne de code n'est pas dépendant d'un ${code}if${reset}.
+Mais attention, ces ${voc}indentations${reset} ne sont pas obligatoires : c'est un choix esthétique qui revient au créateur du script.
+Je vous recommande cependant d'utiliser ce ${voc}style d'indentation${reset} pour que votre script soit plus facilement compréhensible.
+
+Nous avons donc vu que ${code}[ \\$X -eq 5 ]${reset} est capable de vérifier si 'X' est égal à la valeur 5. (anglais ${code}eq${reset}ual)
+Mais vous pouvez aussi vérifier si 'X' n'est ${voc}pas${reset} égal à la valeur 5 avec : ${code}[ \\$X -ne 5 ]${reset} (anglais ${code}n${reset}ot ${code}e${reset}qual)
+Vérifier si 'X' est supérieur à 5 avec : ${code}[ \\$X -gt 5 ]${reset} (anglais ${code}g${reset}reater ${code}t${reset}han)
+Vérifier si 'X' est inférieur à 5 avec : ${code}[ \\$X -lt 5 ]${reset} (anglais ${code}l${reset}ess ${code}t${reset}han)
+
++Affichez donc le contenu du fichier 'if5'.
+!cat if5£Non
+
+
+-eq difference with =
+
+Plusieurs niveaux if if if
+
+Nombreuses versions de conditions possibles, toutes identiques.
+
+Syntaxe que nous avons déjà vu :
+[ $x == 111 ]; echo $?
+[ $x == 11 ] && echo YES || echo NO
+
+
+
+if [ "$(whoami)" != 'root' ]; then
+
+if [ $# -eq 0 ]; then ;; fi
+	IF NO ARGUMENTS
+if [ -z "$1" ]
+if [ -f /var/log/messages ]
+
+$0 $1 $2 $@ $# $_ $- “$@” $!
+
+variable in script + variable in shell that launched bash
+difference bash et ./ (nouvelle instance de bash)
+	bash ls
+shebang
+
+
+type source ---> built-in ----> man bash
+
+
+
+
+ê
+é
+à
+è

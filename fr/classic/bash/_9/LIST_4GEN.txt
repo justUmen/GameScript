@@ -1,146 +1,143 @@
 #[ -d "$HOME/.GameScript_bash9" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash9 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash9 et relancer ce script." && exit
 #mkdir $HOME/.GameScript_bash9 2> /dev/null
 #cd $HOME/.GameScript_bash9
-Votre terminal peut mémoriser certaines informations et les stocker dans ce que l'on appelle une ${voc}variable${reset}.
-Une variable est un nom symbolique qui peut être associé à une valeur.
-#name=Highlander
-Un exemple remplacant un long discours, je viens de créer une variable qui porte le nom : 'name'.
-+Afficher le contenu de cette variable avec : ${learn}echo $name${reset}
-!echo $name£Non
-Ce ${code}$${reset} précise que le texte qui suit est le nom d'une variable et qu'il ne faut pas l'afficher tel quel.
-${code}echo name${reset} affichera donc le mot 'name' mais ${code}echo $name${reset} affichera la valeur de la variable name.
-Pour créer une nouvelle variable, il faudra simplement utiliser le nom voulu, le symbole ${code}=${reset} suivi de son contenu.
+#echo -e "echo Je suis code_bash\\\\npwd;ls\\\\nmkdir FOLDER">$HOME/.GameScript_bash9/code_bash;echo -e "echo Je suis code_bash2 et je ne fais rien de spécial.">$HOME/.GameScript_bash9/code_bash2;chmod +x $HOME/.GameScript_bash9/code_bash2
+Bash peut être utilisé de manière interactive, comme nous le faisons depuis le chapitre 1, mais bash est aussi un langage de programmation.
+Vous pouvez donc stocker toutes les commandes que vous avez apprises dans un fichier texte et demander à 'bash' de les lancer ligne par ligne.
++Affichez votre répertoire courant et son contenu avec : ${learn}pwd;ls${reset}.
+!pwd;ls£Non
++Affichez le contenu du fichier 'code_bash'.
+!cat code_bash£Non
+Ce fichier 'code_bash' contient trois lignes de commande que vous devriez comprendre.
+Pour lancez les commandes de ce fichier 'code_bash', il suffit de donner ce fichier en argument à la commande ${voc}bash${reset}.
++Faites donc : ${learn}bash code_bash${reset}
+!bash code_bash£Non
++Listez les éléments du répertoire courant.
+!ls£Non
+Ici 'bash' a bien créé le dossier 'FOLDER' avec la commande ${learn}mkdir FOLDER${reset} contenu dans le fichier 'code_bash'.
+Vous pouvez aussi utiliser tous les autres concepts que vous avez déjà appris dans les chapitres précédents.
++Faites par exemple : ${learn}cat code_bash|bash>/dev/null${reset}
+!cat code_bash|bash>/dev/null£Non
+Ici seul l'erreur de ${code}mkdir${reset} est envoyée dans le terminal, puisque les commandes ${code}ls${reset} et ${code}pwd${reset} utilisent la sortie standard.
+Pour rappel, vous auriez pu également faire ${learn}cat code_bash|bash -${reset} ou utiliser le chemin absolu de ce fichier, avec par exemple ${learn}bash ~/.GameScript_bash9/code_bash${reset}.
+Pour executer un fichier, vous pouvez aussi utiliser ${code}./${reset} avant le nom du fichier que vous voulez lancer.
++Faites donc : ${learn}./code_bash2${reset}
+!./code_bash2£Non
++Faites la même chose pour 'code_bash'.
+!./code_bash£Non
+Ici en utilisant ${code}./${reset} nous avons un problème de permission.
+Etrange puisque nous n'avons pas eu de soucis avec la commande ${learn}bash code_bash${reset}.
++Affichez les permissions de tous les éléments du répertoire courant qui commencent par 'code'.
+!ls -l code*£Non
+Pour pouvoir executer un fichier avec ${code}./${reset}, ce fichier doit avoir le droit d'execution (x).
+Un fichier texte n'aura pas cette permission par défaut, vous devez donc l'ajouter manuellement.
++Donnez le droit d'execution sur 'code_bash' pour le propriétaire de ce fichier.
+!chmod u+x code_bash£Non
+On peut dire qu'au moment où un fichier texte devient executable, il se transforme en un ${voc}script${reset} ou ${voc}programme${reset}.
+Autrement dit : ${voc}Un script bash est un simple fichier texte contenant des commandes bash.${reset}
++Executez maintenant 'code_bash' en utilisant ${code}./${reset}.
+!./code_bash£Non
+Vous avez peut être remarqué que ${code}./${reset} ne fait que remplacer votre répertoire courant.
+C'est effectivement le cas, pour executer un fichier, il suffit de spécifier son chemin.
++Vous pouvez également utiliser son chemin absolu, faites donc : ${learn}~/.GameScript_bash9/code_bash${reset}
+!~/.GameScript_bash9/code_bash£Non
+Attention cependant lorsque vous utilisez le chemin absolu, les commandes du script utiliserons votre répertoire courant, ${voc}pas${reset} le dossier où se trouve votre script.
+Par exemple si vous êtes dans le dossier '/var' et que vous faites ${learn}~/.GameScript_bash9/code_bash${reset}, la commande ${learn}mkdir FOLDER${reset} voudra créer le dossier '/var/FOLDER'.
+Pour éviter toute surprise, je vous recommande d'utiliser le plus souvent possible, des chemins absolus dans vos scripts.
+Dans les chapitres précédents nous avons vu que si vous voulez garder une trace d'une information, vous pouvez la stocker dans un fichier, comme par exemple ${code}ls>fichier${reset}.
+Si cette information n'a pas besoin d'être sauvegardée sur votre disque, nous avons vu qu'elle pouvait aussi être directement envoyée à une autre commande, comme par exemple ${code}ls|wc${reset}.
+Mais bash peut aussi mémoriser certaines informations sans avoir besoin de créer un nouveau fichier.
+Bash est capable de les stocker dans ce que l'on appelle une ${voc}variable${reset}.
+Une variable est un nom symbolique qui est associé à une valeur.
+#name=bjornulf
+Je viens de créer pour vous une variable qui porte le nom : 'name'.
++Afficher la valeur de cette variable avec : ${learn}echo \\$name${reset}
+!echo \\$name£Non
+Ce ${code}\\$${reset} précise que le texte qui suit est le nom d'une variable et qu'il ne faut pas l'afficher tel quel.
+${code}echo name${reset} affichera bien évidemment le mot 'name' mais ${code}echo \\$name${reset} affichera la valeur de la variable 'name'.
+Pour créer une nouvelle variable, il faudra simplement utiliser le nom voulu, le symbole ${code}=${reset} suivit de sa valeur.
 +Créons donc une nouvelle variable 'chemin' qui contiendra le texte '/var/log' avec : ${learn}chemin=/var/log${reset}.
 !chemin=/var/log£Non
-Si votre commande contient des espaces par exemple, vous pouvez utiliser les délimiteurs ${learn}\\\"${reset} et ${learn}'${reset} que nous avons déjà vu.
-${learn}chemin=/var/log${reset} est équivalent à ${learn}chemin="/var/log"${reset} et ${learn}chemin='/var/log'${reset}.
-+Affichons maintenant le contenu de cette variable avec : ${learn}echo $chemin${reset}
-!echo $chemin£Non
+Si votre commande contient des espaces, vous pouvez par exemple utiliser les délimiteurs ${learn}\\\"${reset} et ${learn}'${reset} que nous avons déjà vu avec la commande ${code}echo${reset}.
+${learn}chemin=/var/log${reset} est équivalent à ${learn}chemin=\\"/var/log\\"${reset} et ${learn}chemin='/var/log'${reset}.
++Affichons maintenant le contenu de cette variable avec : ${learn}echo \\$chemin${reset}
+!echo \\$chemin£Non
 La commande ${code}echo${reset} affiche simplement le contenu de cette variable, mais les variables peuvent être utilisés par toutes les commandes.
-+Affichez donc le contenu du dossier ${code}/var/log${reset} avec : ${learn}ls $chemin${reset}
-!ls $chemin£Non
++Affichez donc le contenu du dossier ${code}/var/log${reset} avec : ${learn}ls \\$chemin${reset}
+!ls \\$chemin£Non
 Lorsque vous avez fait ${learn}chemin=/var/log${reset}, comme la variable n'existait pas, elle a été créée.
 Pour la modifier, la syntaxe est exactement la même.
-+Modifier le contenu de la variable 'name' avec : ${learn}name=moi${reset}
-!name=moi£Non
-Attention à ne pas faire ${codeError}$name=moi${reset}, ceci n'est pas une syntaxe correcte.
-+Affichez le nouveau contenu de la variable 'name' avec : ${learn}echo $name${reset}.
-!echo $name£Non
-Ici le nom 'Highlander' n'existe plus, votre commande vient de la remplacer.
-Attention donc à ne pas supprimer des variables importantes par erreur !
-Votre environnement possède déjà des variables importantes, appelés ${voc}variables d'environnement${reset}.
++Modifier le contenu de la variable 'name' avec : ${learn}name=bob${reset}
+!name=bob£Non
+Attention à ne pas faire ${codeError}\\$name=bob${reset}, le symbole ${code}\\$${reset} ne devra être utilisé ${voc}que${reset} lors de l'utilisation de la variable, pas lors de sa modification.
++Affichez maintenant le nouveau contenu de la variable 'name' avec : ${learn}echo \\$name${reset}.
+!echo \\$name£Non
+Ici la valeur 'bjornulf' n'existe plus, votre commande ${learn}name=bob${reset} vient de la remplacer.
++Vous pouvez également ajouter du texte à la commande ${code}echo${reset}, avec par exemple : ${learn}echo mon nom est \\$name.${reset}
+!echo mon nom est \\$name.£Non
+Comme d'habitude, le '.' étant un caractère spécial, un espace n'est pas nécessaire.
++Maintenant essayez par exemple de rajouter 'by' à la suite de cette variable, pour afficher 'bobby', avec : ${learn}echo \\$nameby${reset}
+!echo \\$nameby£Non
+Ici 'by' se mélange avec le nom de la variable, mais la variable 'nameby' n'existe pas, ${code}echo${reset} affiche donc une chaine de caractère vide.
+Pour remédier à ce problème, vous pouvez par exemple utiliser le caractère d'échappement après le nom de la variable, pour clairement séparer la prochaine lettre.
++Essayez donc d'utiliser la variable 'name' et le caractère d'échappement pour afficher : 'bobby'.
+!echo \\$name\\\\by£Non
+Attention, vous ne pouvez utiliser le caractère d'échappement qu'en dehors des délimiteurs ${code}'${reset} et ${code}\\"${reset}.
+Car je vous le rappelle, le caractère d'échappement est utilisé avec les délimiteurs pour afficher des mises à la ligne, des tabulations. etc...
+Une autre possibilité est de définir une limite à votre nom de variable, en utilisant les ${code}{}${reset}.
++Essayez donc de faire : ${learn}echo \\${name}by${reset}
+!echo \\${name}by£Non
++Parfait, maintenant essayez : ${learn}echo \\"\\${name}by\\"${reset}
+!echo \\"\\${name}by\\"£Non
+Pour afficher un ${code}\\$${reset}, il faudra simplement faire ${code} \\\\$ ${reset}.
++Faites donc : ${learn}echo \\"\\\\\\$name=\\$name\\"${reset}
+!echo \\"\\\\\\$name=\\$name\\"£Non
++Et enfin essayez : ${learn}echo '\\\\\\$name=\\$name'${reset}
+!echo '\\\\\\$name=\\$name'£Non
+Ici le résultat est très différent ! Tous les caractères entre les ${code}'${reset} sont affichés littéralement.
+Les ${code}'${reset} sont donc très utiles si vous avez besoin d'afficher des caractères qui pourraient avoir une autre signification.
++Vous pouvez aussi utiliser tout en même temps, essayez : ${learn}echo '\\${name}='\\"\\$name. \\"ou \\$name\\\\\\by.${reset}
+!echo '\\${name}='\\"\\$name. \\"ou \\$name\\\\by.£Non
+Si vous comprenez parfaitement cette commande, vous avez tout compris.
+Je le répète, la syntaxe de modification d'une variable est identique à celle de sa création.
+Attention donc à ne pas modifier des variables importantes par erreur en pensant les créer.
+N'hésitez pas à vérifier avec un ${code}echo${reset} si une variable portant ce nom existe déjà.
+Votre environnement possède des variables importantes, appelés ${voc}variables d'environnement${reset}.
 +Affichez donc vos ${voc}variables d'environnement${reset} avec : ${learn}printenv${reset}.
 !printenv£Non
-La variable  d'environnement la plus importante ici est probablement 'PATH'.
-+Faites donc : ${learn}printenv|grep PATH${reset}.
-!printenv|grep PATH£Non
+Une des variables d'environnement les plus importante est 'PATH'. (l'anglais de chemin)
++Pour afficher uniquement la variable PATH, faites donc : ${learn}printenv PATH${reset}
+!printenv PATH£Non
 'PATH' est une liste du chemin absolu de plusieurs dossiers que bash utilise pour simplifier les appels de commandes.
 Ces dossiers sont sur une seule ligne et leurs chemins absolus sont séparés par des ${code}:${reset}.
-Certaines commandes que nous avons vu sont en fait stockées dans un des dossiers de la variable 'PATH'.
-+Par exemple, pour savoir où se trouve la commande ${code}date${reset}, faites : ${learn}which date${reset}.
-!which date£Non
-${code}which${reset} nous permet de comprendre que l'appel de la commande 'date' correspond en fait à la commande '/bin/date'.
-+Faites donc directement : ${learn}/bin/date${reset}.
-!/bin/date£Non
-Il est possible d'utiliser directement la commande 'date' au lieu de '/bin/date' car le chemin absolu '/bin' est dans votre variable 'PATH'.
-Attention donc à ne pas modifier accidentellement le contenu de la variable 'PATH' !
-Pour ajouter du contenu à une variable, il suffit de rajouter son nom.
-+Pour ajouter ':/home/moi' à la variable 'PATH' faites donc : ${learn}PATH=$PATH:/home/moi${reset}.
-!PATH=$PATH:/home/moi£Non
-Ici ${code}$PATH${reset} est simplement traité comme une chaine de caractère, correspondant au contenu de la variable 'PATH'.
-+Affichez le contenu de la variable 'PATH'.
-!echo $PATH£Non
-Ici vous pouvez voir que '/home/moi' a bien été rajouté à la suite de l'ancienne version de 'PATH'.
-Mais les modifications que vous faites sur les variables ne sont valables que pour la session de bash que vous utilisez actuellement.
-Ouvrir un terminal réinitialisera les variables importantes et supprimera les autres.
-Ici '/home/moi' est dans la variable 'PATH', c'est à dire que si vous aviez un script avec comme chemin absolu '/home/moi/gamescript', vous pourriez le lancer directement avec la commande 'gamescript'.
-Est-ce-que c'est ce qu'il se passe lorsque vous lancez 'gamescript' ?
-Pas du tout, mais cela aurait pu être le cas.
-GameScript utilise un ${voc}alias${reset}, un type de variable spécialisé pour les commandes.
-Un ${voc}alias${reset} n'est pas un programme mais simplement une commande ou groupe de commande.
-Voyons d'abord une variable classique.
-+Créez donc une variable 'cmd' qui contiendra ${code}ls -a /var${reset} en utilisant les ${code}'${reset}.
-!cmd='ls -a /var'£Non
-+Faites donc maintenant : ${learn}cmd${reset}.
-!cmd£Non
-Ici nous avons une erreur. Bien évidemment puisque 'cmd' est une variable et n'a jamais été une commande.
-Vous pouvez néanmoins vous en servir comme une commande.
-+Mais pour cela il faudra faire : ${learn}$cmd${reset}.
-!$cmd£Non
-Mais quand vous lancez gamescript vous n'avez pas besoin de faire $gamescript.
-Un ${reset}alias${reset} vous permet de faire cela.
-La syntaxe est similaire, il suffira d'ajouter 'alias ' avant la déclaration.
-+Créons notre alias avec : ${learn}alias a1=ls${reset}.
-!alias a1=ls£Non
-+Puis lancez simplement votre alias avec : ${learn}a1${reset}.
-!a1£Non
-'gamescript' est donc dans votre environnement un alias.
-+Affichez une liste de vos alias avec : ${learn}alias${reset}.
-!alias£Non
-+Affichez uniquement l'alias de gamescript avec : ${learn}alias gamescript${reset}.
-!alias gamescript£Non
-Lorsque vous lancez 'gamescript', voilà donc ce qu'il se passe vraiment.
-${code}wget${reset} télécharge la dernière version de GameScript et donne le résultat à bash avec ce ${learn}|${reset} pour qu'il l'execute sur votre machine.
-Vous l'avez peut être compris, mais cette commande ne fonctionnera que si le chemin absolu de la commande bash est dans votre variable 'PATH'.
-+Pour connaitre le chemin absolu de bash, faites donc : ${learn}which bash${reset}.
-!which bash£Non
-'/bin' devrait être présent dans la variable d'environnement 'PATH' de tous les systèmes raisonnablement configurés.
-Le répertoire '/bin' possède certains des fichiers ${voc}bin${reset}aires les plus important de votre système.
-+Affichez donc plus de details sur ce fichier 'bash' avec : ${learn}wc /bin/bash${reset}.
-!wc /bin/bash£Non
-Ce fichier est particulièrement volumineux, je vous déconseille donc de l'afficher avec la commande ${code}cat${reset}.
-En revanche nous pouvons utiliser sans risque notre 'PAGER'.
-'PAGER' est une variable d'environnement qui définit quel programme sera utilisé pour la lecture de fichiers.
-+Pour connaitre la valeur de PAGER, faites donc : ${learn}echo \\\\$PAGER${reset}.
-!echo $PAGER£Non
-La plupart du temps ce 'PAGER' sera ${code}less${reset}, mais c'est une variable personnalisable.
-Lorsque vous visitez le manuel d'une commande, vous pouvez naviguer de haut en bas avec votre clavier et même votre souris.
-La commande ${code}man${reset} utilise en fait votre 'PAGER', c'est donc ${code}less${reset} qui donne à vos manuels cette interface interactive.
-Lorsque vous quittez le manuel avec la touche 'q', vous quittez en fait l'interface fournie par ${code}less${reset}.
-Mais vous pouvez très bien utiliser la commande ${code}less${reset} pour naviguer dans le fichier de votre choix.
-+Regardez très rapidement le contenu du fichier '/bin/bash' avec ${learn}less /bin/bash${reset}, puis quittez avec la touche 'q'.
-!less /bin/bash£Non
-Ici le fichier est illisible car il s'agit en fait d'un fichier ${voc}binaire${reset}, ${code}less${reset} considère ce fichier comme un fichier texte, ce qu'il affiche n'a donc simplement aucun sens.
-Si 'less' est la valeur de votre variable d'environnement 'PAGER', vous auriez pu également faire ${learn}$PAGER /bin/bash${reset} à la place de ${learn}less /bin/bash${reset}.
-+Créons maintenant l'alias 'pager' avec : ${learn}alias pager=\\\\$PAGER${reset}.
-!alias pager=\\\\$PAGER£Non
-+Et utilisez ce nouvel alias avec /bin/bash, puis quittez avec la touche 'q'.
-!pager /bin/bash£Non
-Nous avonc donc vu comment créer et manipuler les variables et les alias, mais n'oubliez pas que ces variables ne seront disponible que dans la session de bash que vous utilisez actuellement.
-Maintenant parlons d'une variable très particulière : ${code}$?${reset}
-${code}$?${reset} contient un nombre entre 0 et 255, qui est la valeur de retour de votre dernière commande. (exit status)
-+Faites donc : ${learn}pwd;echo $?${reset}
-!pwd;echo $?£Non
-Ici la valeur retour est 0. Cela veut dire que la commande n'a pas rencontré de problème.
-+Maintenant faites : ${learn}pwdd;echo $?${reset}
-!pwdd;echo $?£Non
-Ici la valeur retour est 127. Cela veut dire que la commande ${codeError}pwdd${reset} n'existe pas.
-+Puis : ${learn}lss;echo $?${reset}
-!lss;echo $?£Non
-Ici la valeur retour est encore 127. Cela veut dire que la commande ${codeError}lss${reset} n'existe pas.
-+Maintenant faites donc : ${learn}cat x;echo $?${reset}
-!cat x;echo $?£Non
-Ici la valeur retour n'est pas 0, ce qui veut dire que la commande a rencontré une erreur.
-Cependant la valeur n'est pas la même que pour 'pwdd' et 'lss' car le type d'erreur est différent.
-La commande ${code}cat${reset} existe mais c'est le fichier donné en argument qui n'existe pas.
-Vous avez en fait déjà utilisé cette variable ${code}$?${reset} sans le savoir.
-${code}||${reset} et ${code}&&${reset} utilisent la variable ${code}$?${reset} pour définir l'execution des autres commandes.
-${code}&&${reset} lancera la prochaine commande si ${code}$?${reset} est égal à 0.
-Et ${code}||${reset} lancera la prochaine commande si ${code}$?${reset} n'est pas égal à 0.
-Cette variable changera de valeur à chaque nouvelle commande, mais elle peut être sauvegardé dans une autre variable.
-+Essayez donc de sauvegarder la valeur retour de ${code}ls -O${reset} avec : ${learn}ls -O;VAL=echo $?${reset}
-!ls -O;VAL=echo $?£Non
-+Affichez donc la valeur de la variable 'VAL'.
-!echo $VAL£Non
-Ce nombre est encore une fois différent, car ici l'erreur vient de l'utilisation d'une option inconnue.
-Pour ce qui est des ${code}alias${reset}, il se peut également que vous utilisiez des alias sans le savoir.
-+Regardez donc le résultat d'un alias connu : ${learn}which gamescript${reset}.
-!which gamescript£Non
-Ici ${code}which${reset} nous informe que cette commande est un alias.
-Mais ces alias peuvent aussi remplacer une commande en utilisant le même nom.
-+Maintenant faites donc : ${learn}which ls${reset}.
-!which ls£Non
-Vous avez ici probablement un alias vers une commande plus complexe de ${code}ls${reset}.
-Dans le prochain chapitre nous verrons comment créer des alias et des variables permanents.
-Pour l'instant, je vous laisse avec le questionnaire.
+Si votre variable d'environnement 'PATH' est mal configurée, vous risquez de rencontrer des difficultés à lancer certaines commandes.
+Des commandes que nous avons déjà vu ensemble sont en fait stockées dans un des dossiers de la variable 'PATH'.
++Par exemple, pour savoir où se trouve la commande ${code}date${reset}, faites : ${learn}type date${reset}.
+!type date£Non
+${code}type${reset} nous permet de comprendre que l'appel de la commande ${code}date${reset} correspond en fait à ${code}/bin/date${reset}.
++Faites donc : ${learn}date;/bin/date${reset}.
+!date;/bin/date£Non
+Il est pour vous possible d'utiliser directement la commande ${code}date${reset} au lieu de taper ${code}/bin/date${reset}, car le chemin absolu '/bin' est dans votre variable 'PATH'.
+Attention donc à ne pas modifier accidentellement le contenu de la variable 'PATH', certaines commandes deviendraient inutilisables !
+Pour ajouter du contenu à une variable, il suffit de rajouter son nom au début de la modification.
++Par exemple, pour ajouter ':~/.GameScript_bash9' à la variable 'PATH' faites donc : ${learn}PATH=\\$PATH:~/.GameScript_bash9${reset}
+!PATH=\\$PATH:~/.GameScript_bash9£Non
+Ici ${code}\\$PATH${reset} est simplement traité comme une chaine de caractère, correspondant au contenu de la variable 'PATH'.
+Auquel on y ajoute à la suite la chaine de caractère ':~/.GameScript_bash9'.
++Affichez le nouveau contenu de la variable 'PATH'.
+!echo \\$PATH£Non
+Ici vous pouvez voir que '~/.GameScript_bash9' a bien été rajouté à la suite de l'ancienne version de 'PATH'.
+Mais les modifications que vous faites sur les variables sont valables ${voc}uniquement${reset} pour la session de bash que vous utilisez actuellement.
+Ouvrir un autre terminal ${voc}réinitialisera${reset} les variables importantes, comme par exemple 'PATH', et ${voc}supprimera${reset} les autres, comme ici les variables 'name' et 'chemin'.
+Mais pour l'instant, puisque le dossier '~/.GameScript_bash9' est dans votre d'environnement 'PATH', vous pouvez simplement lancer le script 'code_bash' en tapant 'code_bash'.
++Lancez donc 'code_bash'.
+!code_bash£Non
++Déplacez vous dans le dossier 'FOLDER'.
+!cd FOLDER£Non
++Lancez 'code_bash' à nouveau.
+!code_bash£Non
++Maintenant faites donc : ${learn}pwd;ls${reset}.
+!pwd;ls£Non
+Ici vous devriez comprendre clairement les effets des chemins relatifs dans vos scripts dont je vous ai parlé auparavant.
+Et on termine par le questionnaire !
 #clean
