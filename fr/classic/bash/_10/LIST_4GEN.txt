@@ -150,3 +150,4 @@ ${code}source ~/.bashrc${reset} peut aussi s'écrire ${code}. ~/.bashrc${reset}.
 C'est une syntaxe bien moins lisible que la première, mais vous devez la connaitre car vous risquez de la rencontrer un jour.
 En avant pour le questionnaire !
 #clean
+p
