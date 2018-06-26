@@ -1,4 +1,6 @@
 #SOME ADDED AND CHANGE IN CLI learn_cli.sh in CLASSIC
+shopt -s expand_aliases
+source ~/.bashrc
 
 function download_all_sounds(){
 	#~ echo "Downloading..."
@@ -68,6 +70,16 @@ function talk(){
 		new_sound
 	fi
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
+
+	#??? test delay avoid past read input
+	read -s -t 1 -n 10000 discard
+
+	#~ sleep 1
+	#~ while read -r -t 0; do read -r; done
+	
+	#~ sleep 0.5
+	#~ read -s -e -t 0.1 #flush stdin ?
+
 	press_key
 }
 function talk_not_press_key(){
@@ -150,11 +162,17 @@ function answer_run(){
 			talk_not_press_key_ANSWER "$2" "$1"
 		fi
 		echo -en "\\e[97;45m # \\e[0m"
-		read -r USER_CODE < /dev/tty
+		read -e -r -p $'\e[97;45m # \e[0m' USER_CODE < /dev/tty
 	done
 	if [ ! "$1" == "" ];then
 		echo -e "\e[1m"
 		printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+		#Quick solve for bash10 pb "alias a1='ls -a /var'" ???
+		#~ case $1 in
+			#~ a1) eval ls -a /var ;;
+			#~ alias) alias ;;
+			#~ *) eval "$1" ;;
+		#~ esac
 		eval "$1"
 		printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 		echo -e "\\e[0m"

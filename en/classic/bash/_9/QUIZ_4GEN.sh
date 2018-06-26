@@ -15,7 +15,7 @@ function start_quiz(){
   echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
   answer_text_fr "Comment afficher le contenu de la variable 'PATH' ?" 'echo $PATH'
   answer_text_fr "Comment ajouter ':/bin' à la fin de la variable 'PATH' ?" 'PATH=$PATH:/bin'
-  answer_text_fr "En utilisant les guillemets, comment ajouter la lettre 'x' à la fin de la variable 'phrase' ?" 'phrase=$phrase"x"'
+  answer_text_fr "Sans utiliser les apostrophes, comment ajouter un espace à la fin de la variable 'phrase' ?" 'phrase=$phrase" "'
   answer_text_fr "Comment afficher vos variables d'environnement avec 'less' ?" "printenv|less"
   answer_text_fr "Comment afficher le chemin absolu du fichier utilisé par la commande 'date' ?" "type date"
   answer_text_fr "Si vous executez le script bash '/scripts/sc' dans le dossier '/var/' et que ce script contient le code 'rm f', quel est le chemin absolu du fichier que 'bash' voudra supprimer ?" "/var/f"

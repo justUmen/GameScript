@@ -38,7 +38,47 @@ Add `gamescript` alias to your .xshrc file by copy/pasting this command in a zsh
 It is an ONLINE bash script to learn about :
 
 * bash (included : GNU commands + Unix-like operating system file organization / permissions)
-* -
+* system [ not yet implemented ]
+* network [ not yet implemented ]
+* i3wm [ not yet implemented ]
+* html (included : css) [ not yet implemented ]
+* javascript [ not yet implemented ]
+* - [ not yet implemented ]
+
+# Bash : Code and concepts by chapter (English)
+
+    Bash 1 => Concepts : command , argument , relative path , absolute path , folder parent/child , current directory , working directory
+    Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
+
+    Bash 2 => Concepts : hidden file, option, RTFM
+    Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
+
+    Bash 3 => Concepts : escape character , delimiters of argument
+    Bash 3 => Code : echo , \ , \n , > , >> , cat , "", ''
+
+    Bash 4 => Concepts : conditional success , conditional failure
+    Bash 4 => Code : mv , cp , ; , && , ||
+
+    Bash 5 => Concepts : permissions and limitations
+    Bash 5 => Code : ls -l , chmod
+
+    Bash 6 => Concepts : data , metadata
+    Bash 6 => Code : * , ? , touch , chown , chmod
+
+    Bash 7 => Concepts : standard output , standard error , flux management
+    Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
+
+    Bash 8 => Concepts : standard input , pipe
+    Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
+
+    Bash 9 => Concepts : variable , variable control , environment variables
+    Bash 9 => Code : $ , $PATH , type , printenv , less
+
+    Bash 10 => Concepts : alias , exit status , pager
+    Bash 10 => Code : alias , $PAGER , tail , head , $? , source
+
+    Bash 11 => Concepts : condition , logic test
+    Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt
 
 # Bash : Code and concepts by chapter (French)
 
@@ -65,6 +105,18 @@ It is an ONLINE bash script to learn about :
 
     Bash 8 => Concepts : entrée standard , pipe
     Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
+
+    Bash 9 => Concepts : variable , manipulation de variable , variable d'environnement
+    Bash 9 => Code : $ , $PATH , type , printenv , less
+
+    Bash 10 => Concepts : alias , code retour (exit status) , pager
+    Bash 10 => Code : alias , $PAGER , tail , head , $? , source
+
+    Bash 11 => Concepts : condition , test logique
+    Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt
+
+    Bash 12 => Concepts : 
+    Bash 12 => Code : 
 
 ## Types :
 

@@ -1,6 +1,6 @@
 #[ -d "$HOME/.GameScript_bash10" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancer ce script." && exit
 #mkdir $HOME/.GameScript_bash10 2> /dev/null
-#cd $HOME/.GameScript_bash10;ls /var/log/*.log|head -n 5 > ~/.GameScript_bash10/LOG
+#cd $HOME/.GameScript_bash10;ls /var/log/*.log|head -n 5 > ~/.GameScript_bash10/LOG;cat ~/.bashrc|grep '^[^#]*alias '>~/.GameScript_bash10/.MYALIAS;source ~/.GameScript_bash10/.MYALIAS 2> /dev/null
 Dans le dernier chapitre nous avons vu comment créer et manipuler les variables.
 Mais les variables sont aussi capables de stocker des commandes bash.
 +Créez donc une variable 'cmd' qui contiendra ${code}ls -a /var${reset} en utilisant les ${code}'${reset}.
@@ -12,7 +12,7 @@ Vous pouvez néanmoins vous servir de cette variable comme une commande.
 +Mais pour cela, il faudra utiliser le \\$, faites donc : ${learn}\\$cmd${reset}.
 !\\$cmd£Non
 Mais pour lancer GameScript il vous suffit de taper 'gamescript' dans votre terminal.
-Si le code de GameScript était dans une variable, il vous faudrait taper '$gamescript'.
+Si le code de GameScript était dans une variable, il vous faudrait taper '\\$gamescript'.
 On peut donc imaginer que 'gamescript' est peut être un script qui est dans un des dossiers de la variable d'environnement 'PATH'.
 Et bien pas du tout... mais cela aurait pu être le cas.
 GameScript utilise en fait un ${voc}alias${reset}, un type de variable spécialisé pour les commandes.
@@ -33,9 +33,9 @@ ${code}wget${reset} télécharge la dernière version de GameScript et l'execute
 La commande 'bash' est exactement comme la commande 'date' du chapitre précédent, il s'agit en fait d'un fichier.
 +Pour connaitre le chemin absolu de ce fichier 'bash', faites donc : ${learn}type bash${reset}.
 !type bash£Non
-Vous l'avez peut être compris, mais 'gamescript' ne fonctionnera que si le dossier '/bin' est dans votre variable 'PATH'.
+Vous l'avez peut être compris, mais 'gamescript', utilisant simplement 'bash' et non pas '/bin/bash', ne fonctionnera que si le dossier '/bin' est dans votre variable 'PATH'.
 Le répertoire '/bin' possède certains des fichiers ${voc}bin${reset}aires les plus important de votre système.
-Utiliser 'bash' au lieu de '/bin/bash' semble raisonnable dans cet alias, parce que '/bin' devrait être présent dans la variable d'environnement 'PATH' de tous les systèmes correctement configurés.
+Utiliser 'bash' au lieu de '/bin/bash' semble raisonnable dans cet alias, car '/bin' devrait être présent dans la variable d'environnement 'PATH' de tous les systèmes correctement configurés.
 +Affichez donc plus de details sur ce fichier '/bin/bash' avec : ${learn}wc /bin/bash${reset}.
 !wc /bin/bash£Non
 Ce fichier est particulièrement volumineux, je vous déconseille donc de l'afficher avec la commande ${code}cat${reset}.
@@ -52,7 +52,7 @@ Et vous pouvez très bien utiliser la commande ${code}less${reset} pour naviguer
 !less /bin/bash£Non
 Ici le fichier est illisible car il s'agit en fait d'un fichier ${voc}binaire${reset}.
 ${code}less${reset} considère tout fichier ouvert comme un fichier texte, ce qu'il affiche n'a donc ici simplement aucun sens.
-Si 'less' est la valeur de votre variable d'environnement 'PAGER', vous auriez bien sur également pu faire ${learn}$PAGER /bin/bash${reset}.
+Si 'less' est la valeur de votre variable d'environnement 'PAGER', vous auriez bien sur également pu faire ${learn}\\$PAGER /bin/bash${reset}.
 +Créons maintenant l'alias 'pager' avec : ${learn}alias pager=\\$PAGER${reset}.
 !alias pager=\\$PAGER£Non
 +Utilisez maintenant ce nouvel alias avec '/bin/bash', puis quittez avec la touche 'q'.
@@ -66,7 +66,7 @@ Ici la valeur retour est 0. Cela veut dire que la commande n'a pas rencontré de
 +Maintenant faites : ${learn}pwdd;echo \\$?${reset}
 !pwdd;echo \\$?£Non
 Ici la valeur retour est 127. Cela veut dire que la commande ${codeError}pwdd${reset} n'existe pas.
-+Puis : ${learn}lss;echo \\$?${reset}
++Faites donc : ${learn}lss;echo \\$?${reset}
 !lss;echo \\$?£Non
 Ici la valeur retour est encore 127. Cela veut dire que la commande ${codeError}lss${reset} n'existe pas.
 +Maintenant faites donc : ${learn}cat x;echo \\$?${reset}
@@ -100,12 +100,13 @@ Il faudra pour cela utiliser le ${code}\\$${reset} et les ${code}()${reset}
 +Maintenant pour vérifier, faites : ${learn}echo \\$var;pwd${reset}.
 !echo \\$var;pwd£Non
 Vous pouvez également faire la même chose en utilisant les ${code}\\`\\`${reset}.
-+Essayez par exemple : ${learn}var=\\`ls /var/log/*\\`${reset}
-!var=\\`ls /var/log/*\\`£Non
++Essayez par exemple : ${learn}var=\\`ls /var/log/*.log\\`${reset}
+!var=\\`ls /var/log/*.log\\`£Non
 +Puis affichez le contenu de la variable 'var'.
 !echo \\$var£Non
+Vous pouvez noter ici que l'utilisation de ${code}\\$()${reset} et ${code}``${reset} remplacent les mises a la ligne par des espaces.
 Nous avons déjà vu ${learn}cat${reset} pour afficher le contenu d'un fichier, mais il existe deux autres commandes bien utiles pour l'affichage du contenu des fichiers.
-Il s'agit de ${code}head${reset} et de ${tail}tail${reset}, qui affichent respectivement les 10 premières et les 10 dernières lignes d'un fichier.
+Il s'agit de ${code}head${reset} et de ${code}tail${reset}, qui affichent respectivement les 10 premières et les 10 dernières lignes d'un fichier.
 La variable 'var' contient une liste de fichier, vous pouvez donc utiliser cette variable en argument de commande.
 +Affichez donc par exemple les 10 dernières lignes de tous les fichiers dans la variable 'var'.
 !head \\$var£Non
@@ -116,9 +117,15 @@ Mais bien évidemment, ces deux commandes sont équivalentes à : ${learn}head /
 Mais imaginons par exemple que vous ayiez un fichier 'LOG' qui contient une liste des fichiers qui vous intéresse.
 +Affichez le contenu du fichier 'LOG'.
 !cat LOG£Non
-Vous pouvez donc directement utiliser ${code}tail${reset} avec le contenu de ce fichier en argument avec : ${code}tail $(cat LOG)${reset}.
+Vous pouvez donc directement utiliser ${code}tail${reset} avec le contenu de ce fichier en argument avec : ${code}tail \\$(cat LOG)${reset}.
 +Essayez donc avec la commande équivalente : ${learn}tail \\`cat LOG\\`${reset}
 !tail \\`cat LOG\\`£Non
+Dans cette situation, je vous le rappelle que les mises à la ligne sont remplacés par des espaces.
+En utilisant cette méthode, le contenu de ce fichier devient une simple chaine de caractères donnée en argument à la commande ${code}tail${reset}.
+${voc}Méfiez vous${reset} donc des noms de fichiers qui contiennent des espaces ou des caractères spéciaux.
+Si un fichier se nomme par exemple '/var/log/ce fichier.log', il sera donc considéré par ${code}tail${reset} comme deux fichiers différents : '/var/log/ce' et 'fichier.log'.
+D'une manière générale, je vous conseille de ne ${voc}jamais${reset} mettre d'espaces dans vos noms de fichiers, surtout si ces fichiers seront manipulés plus tard par un autre programme.
+'ce fichier.log' peut devenir par exemple 'ce_fichier.log'.
 Mais si 'gamescript' est un alias, comment se fait-il que vous puissiez l'utiliser dans toutes vos instances de bash ?
 L'alias 'gamescript' est en fait créé dans le fichier de configuration principal de bash : ${code}~/.bashrc${reset}
 Bash analyse le contenu de votre fichier caché ${code}~/.bashrc${reset} à chaque lancement.
@@ -129,7 +136,7 @@ En revanche, n'oubliez pas que 'bash' n'utilise ce fichier qu'à l'ouverture d'u
 C'est à dire que si votre session bash était déjà ouverte avant la modification de ce fichier, les changements n'auront pas lieu.
 Pour valider vos modifications, il vous faudra donc ouvrir une nouvelle session bash ou forcer la relecture de ce fichier de configuration avec : ${code}source ~/.bashrc${reset}
 La commande ${code}source${reset} peut également être utilisée pour lire les variables dans un fichier et les ajouter dans la session bash actuelle.
-#echo -e 'var=test\nvar2=test2' > $HOME/.GameScript_bash10/variables
+#echo -e 'var=test\\nvar2=test2' > $HOME/.GameScript_bash10/variables
 +Affichez le contenu du fichier 'variables' de votre répertoire courant.
 !cat variables£Non
 +Affichez les valeur de 'var' et 'var2', séparé par un espace.

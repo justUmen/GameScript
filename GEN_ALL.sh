@@ -1,10 +1,11 @@
 #!/bin/bash
 #This generator create standalone files
-for L in "fr"; do #ADD languages
+#??? create folder manually for now "i3wm" for example ???
+for L in "fr" "en"; do #ADD languages
 	cd $L || exit
 	for T in "classic"; do #ADD types, like story
 		cd $T || exit
-		for S in "bash"; do #ADD subjects, like php
+		for S in "bash" "i3wm"; do #ADD subjects, like php
 			cd $S || exit
 			for D in `find . -type d -name "_*"`; do
 NUMB=`echo "${D:2}"|sed 's/_//'`
@@ -22,6 +23,7 @@ CMP=0 #START AT 1
 CMP=`expr $CMP + 1`
 echo -n "$CMP) " >> "$FILENAME"
 echo -n "echo -n $CMP > \$HOME/.GameScript/restore_$S$NUMB; " >> "$FILENAME"
+#~ echo -n "echo -n $CMP > \$HOME/.GameScript/restore_$S$NUMB; sleep 0.3; read -e -t 0.1; " >> "$FILENAME"
 echo -n "echo -n \$(pwd) > \$HOME/.GameScript/restore_pwd_$S$NUMB; " >> "$FILENAME"
 				  if [[ ${line:0:1} == '#' ]]; then
 					#CODE : just run it

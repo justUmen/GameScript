@@ -1,0 +1,181 @@
+#[ -d "$HOME/.GameScript_bash7" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash7 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash7 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash7 2> /dev/null
+#cd $HOME/.GameScript_bash7
+We have already seen in previous chapters how to use the ${code}>${reset} symbol.
+This symbol allows us to redirect the result of a command to a file, such as ${learn}ls> file${reset}.
+The file 'file' will be created if it does not exist and will contain the result of the command ${learn}ls${reset}.
+With the symbol ${code}>${reset} the result of the command to its left no longer appears in the terminal.
++Start with this command with a typo: ${learn}lss> file${reset}
+!Lss> file£No
++Now display the contents of 'file'.
+!cat file£No
+Here, the command ${learn}lss> file${reset} shows us an error in the terminal and the file 'file' is empty.
+One would have thought that with the ${learn}command lss> file${reset}, that the error message would be in the file 'file'.
+#stdout
+Well no ! When a command executes, there are ${voc}two${reset} independent output streams.
+The first stream is the one we have already redirected with the ${code}>${reset}, this is the ${voc}standard output${reset}. (in English stdout or standard output)
+#stderr
+The errors use another output stream, which is called the ${voc}output standard error${reset}. (stderr or standard error)
+Having two different streams, it is for example possible to redirect the results of one side, and the errors of the other.
+By default, without the use of redirects, a terminal displays both streams in the same place.
+To redirect the ${voc}standard output${reset}, use ${code}1>${reset}.
+# stdout_2
+${code}>${reset} is actually an abbreviation for ${code}1>${reset}. Both are equivalent and redirect the ${voc}standard output${reset}.
++Make a ${learn}pwd1> file${reset}
+!PWD1> file£No
+Here we have a problem because the terminal considers that the complete command is not ${code}pwd${reset}, but ${code}pwd1${reset}.
+We have already seen in chapter 3 that the ${learn}echo command b${reset} was equivalent to ${learn}echo a b${reset}.
+${code}echo${reset} considers that the first argument is 'a' and the second argument is 'b'.
+But this logic applies to all orders. It is actually possible to add spaces at will.
+For example, ${learn}ls -a${reset} is equivalent ${learn}ls -a${reset}.
+The '-a' option needs ${voc}of at least one${reset} space so that it can be interpreted as an option.
++So make a ${learn}ls-a${reset}
+!Ls -a£No
+Here ${learn}ls-a${reset} simply causes the launch of an unknown command with no option.
+Sometimes this space is not necessary, as with the special symbols: ${code}>${reset}, ${code}&${reset}, ${code}|${reset}, etc ...
+A special symbol will not be considered as belonging to the name of the command or file unless preceded by the escape character.
+But the command ${learn}pwd> file${reset} can be written ${learn}pwd> file${reset} or ${learn}pwd> file${reset} or ${learn } pwd> file${reset}, etc.
+That being said, let's go back to our problem with ${learn}pwd1> file${reset}.
+Since the number '1' is not a special character, your terminal assumes that the complete command is ${learn}pwd1${reset}.
+It will be necessary here to separate ${code}1>${reset} from ${code}pwd${reset} by a space.
++Make a ${learn}pwd 1> file${reset}
+!pwd 1> file£No
++View the contents of the file.
+!cat file£No
+${learn}pwd 1> file${reset} is well equivalent to ${learn}pwd> file${reset}.
+# stderr_2
+To redirect the ${voc}output standard error${reset}, it will simply use ${code}2>${reset}.
++So make a ${learn}pwd 2> error${reset}
+!pwd 2> error£No
+Here the result of the command is displayed in the terminal.
+Normal since with this command we do not have a redirection of the standard output.
++Now display the contents of the 'error' file.
+!cat error£No
+The file is empty because no message has been sent on the ${voc}standard error${reset} stream.
+But you may notice that the file has been created.
++Now do the same command with a typo: ${learn}pwdd 2> error${reset}
+!pwdd 2> error£No
+Here nothing is displayed in the terminal.
+Normal again, since nothing has been sent on the ${voc}${reset} standard output.
++Display the contents of the 'error' file.
+!cat error£No
+Here the error has been saved in the file.
++Try to separate the results and errors of a command separately in two different files with: ${learn}pwd 1> out 2> err${reset}
+!pwd 1> out 2> err£No
++Display the contents of the 'err' file.
+!cat err No
+Since the command does not cause an error, 'err' is empty.
+To check if ${code}1>${reset} and ${code}2>${reset} can work at the same time, we will have to use a code that uses both streams.
+For example: ${learn}pwdd || pwd${reset}.
+${code}pwdd${reset} will return an error message. It will therefore use the standard error output. (Stderr)
+${code}pwdd${reset} returning an error, the command ${code}pwd${reset} will launch and send its result to the standard output. (Stdout)
+${code}1>${reset} is equivalent to ${code}>${reset}, and the equivalent of ${code}>>${reset} is simply ${code}1 >> ${ reset}.
++Try doing: ${learn}pwdd || pwd 1 >> f 2 >> e${reset}
+!pwdd || pwd 1 >> f 2 >> e£No
+Here an error appears in the terminal, ${code}2 >>${reset} seems not to work ...
+In fact, redirects are used with a command. Here ${code}pwdd || pwd${reset} is not a command!
+# stdout_stderr_1
+This is actually ${voc}two${reset} commands: ${code}pwdd${reset} and ${code}pwd${reset}.
+That is, ${learn}pwdd || pwd 1 >> f 2 >> e${reset} is also composed of ${voc}two${reset} commands.
+The first: ${code}pwdd${reset} and the second one: ${code}pwd 1 >> f 2 >> e${reset}.
+In this case, ${code}2 >> e${reset} will only redirect command errors ${code}pwd${reset}.
+It is therefore normal for the ${code}pwdd${reset} error to be displayed in the terminal.
++To redirect the results and the errors of the two commands, do: ${learn}pwdd 1 >> f 2 >> e || pwd 1 >> f 2 >> e${reset}
+!pwdd 1 >> f 2 >> e || pwd 1 >> f 2 >> e£No
+You can also simply group the two commands so that they make ${voc}only${reset}, using the ${code}()${reset}.
+# stdout_stderr_2
+For example, for ${code}(ls && lss) 2> e${reset}, the redirection ${code}2> e${reset} will be done on ${code}ls && lss${reset}, not just on ${code}${reset} loess.
+The space here between ${code})${reset} and ${code}2> e${reset} is not necessary because ${code})${reset} is a special character, so it separates without ambiguity redirection.
++Do: ${learn}(pwdd || pwd) 1 >> f 2 >> e${reset}, the equivalent of the previous command: ${learn}pwdd 1 >> f 2 >> e || pwd 1 >> f 2 >> e${reset}.
+!(pwdd || pwd) 1 >> f 2 >> e£No
++Display the contents of the 'e' file.
+!cat e£No
+Here the second error has been added as a result of the error of the previous command.
++To better understand these ${code}()${reset}, let's take an example that we have already seen, do so: ${learn}cat FILE && echo GOOD || echo ERROR${reset}
+!cat FILE && echo GOOD || echo ERROR£No
+Here, if FILE does not exist in FILE, ${code}cat FILE${reset} will return an error, which will cause the launch of ${code}echo ERROR${reset}.
++Now do a simple: ${learn}echo GOOD || echo ERROR${reset}
+!echo GOOD || echo ERROR£No
+Obviously here ERROR is not displayed. However the code is the same as in the previous command: ${learn}cat FILE && echo GOOD || echo ERROR${reset}.
+But in ${learn}cat FILE && echo GOOD || echo ERROR${reset}, ${code}echo ERROR${reset} will start because ${code}||${reset} does not combine with ${code}echo GOOD${reset} as in ${learn}echo GOOD || echo ERROR${reset}, but with ${code}cat FILE && echo GOOD${reset}.
+Without the ${code}()${reset}, conditions simply read from left to right.
+${learn}cat FILE && echo GOOD || echo ERROR${reset} actually has a logical order equivalent to ${learn}(cat FILE && echo GOOD) || echo ERROR${reset}
+As ${code}cat FILE && echo GOOD${reset} returns an error, ${code}echo ERROR${reset} will launch.
+So you can also change the reading direction of your conditions with ${code}()${reset}.
+For example, let's take the following code: ${learn}cd DOSSIER && (cat FILE || echo \\ "FILE does not exist in FILE \\") || echo \\ "FILE does not exist \\" ${ reset}
+The ${code}()${reset} bind the ${code}command echo \\ "FILE does not exist in FILE \\"${reset} with ${code}cat FILE ${reset }.
+Without ${code}()${reset}, ${code}echo \\ "FILE does not exist in DOSSIER \\"${reset} will launch if the command ${code}cd DOSSIER${reset} returns an error, which is not what we want.
+You can use these ${code}()${reset} to group your code.
+Whether your goal is to change the execution logic of your commands, or as before to group the output streams.
+To redirect standard output, you must use ${code}>${reset} or ${code}1>${reset}.
+To redirect the error output, you must use ${code}2>${reset}.
+If you want to redirect both at once, you can use: ${code}&>${reset}.
+Or of course ${code}& >>${reset} if you want to add the content at the end of a file.
++Do: ${learn}pwd & >> f${reset}
+!& Pwd >> f£No
+${code}& >>${reset} starts with a special character, so the space on the left is not needed, as opposed to ${code}1>${reset} or ${code}2>${reset} that we saw previously.
++Do the same command with a typo: ${learn}pwdd & >> f${reset}
+!>> PWDD & f£No
+With this command, nothing is displayed in the terminal, so both redirections happen correctly.
+${code}& >>${reset} is well equivalent to the combination of ${code}1 >>${reset} and ${code}2 >>${reset}.
+But sometimes it's possible that a feed does not interest you at all.
+For this kind of case there is a special file, ${code}/ dev / null${reset}, that you can use with your redirects.
+${code}/ dev / null${reset} is an empty file that will always be empty.
++Then display the contents of the non-existent file 'X', getting rid of error messages.
+!cat X 2> / dev / null£No
++Display the contents of the file ${code}/ dev / null${reset}
+!cat / dev / null£No
+Indeed, despite this redirection, ${code}/ dev / null${reset} is always empty.
+If you want to get rid of both streams, just use ${code}&> / dev / null${reset}.
+You can also, if you want, redirect a feed to another feed.....
+${code}2> & 1${reset} will redirect the standard error output to standard output, and ${code}1> & 2${reset} will redirect the standard output to the standard error output.
++Add at the end of the file '/tmp/pwd.log' the standard output of the command ${code}pwd${reset}, then group its standard error output with its standard output.
+!pwd >> / tmp / pwd.log 2> & 1£No
++Display the contents of the file '/tmp/pwd.log'.
+!cat /tmp/pwd.logissNo
++Now, do it with a typo: ${learn}pwdd >> / tmp / pwd.log 2> & 1${reset}
+!pwdd >> / tmp / pwd.log 2> & 1£No
++Then redisplay the contents of '/tmp/pwd.log'.
+!cat /tmp/pwd.logissNo
+Here the error has been added, so ${code}2> & 1${reset} is clearly dependent on the ${code}>>${reset} of the standard output.
+Be careful with this syntax, ${code}2> & 1${reset} means that: \\ "The standard error output will use the same redirection as the standard output \\".
+${code}2> & 1${reset} will therefore fit if the standard output redirection is ${code}>${reset} or ${code}>>${reset}.
+To add to the end of a file, ${codeError} 2 >> & 1${reset} might come to mind but it's not a valid syntax.
+To summarize: to combine the flows of the same type of several commands, we must use the ${code}()${reset}.
++So make ${learn}(pwdd; pwd)${reset}
+!(PWDD; pwd)£No
+# stdout_stderr_3
+Here the two standard outputs are grouped into a single standard output, that of the ${code}pwdd${reset} command was empty.
+The two standard error outputs are also grouped into one standard error output, that of the ${code}pwd${reset} command was empty.
+So now we have our code, which uses both stdout and stderr: ${learn}(pwdd; pwd)${reset}.
+But there are still two separate ${voc}${reset} streams for this command group: its standard output and its standard error output.
+# stdout_stderr_4
+This schema represents ${code}(pwdd; pwd)${reset}: stdout and stderr are independent, so you can redirect them normally.
+For example ${code}(pwdd; pwd) >> results 2 >>${reset} errors, stdout will be sent to the 'result' file, and stderr to the 'errors' file.
+# stdout_stderr_2in1
+This scheme represents ${code}(pwdd; pwd) 2> & 1${reset}, here the error output will be combined with the standard output.
+However, if you want to redirect the content to a file, you will have to do ${voc}before${reset} to redirect stderr with ${code}2> & 1${reset} because redirects are read from left to right.
+For example, ${code}(pwdd; pwd)> tmp 2> & 1${reset} do not have the same meaning as ${code}(pwdd; pwd) 2> & 1> tmp${reset}.
+The first will redirect stdout and stderr to the 'tmp' file, while the second will only redirect stdout to the 'tmp' file.
+For example, consider the silly but correct command with two standard output redirects ${code}(pwdd; pwd)> / dev / null 2> & 1 1> f${reset}.
+With redirections reading from left to right, stdout will end in the 'f' file while stderr will remain in '/ dev / null'.
+# stdout_stderr_1in2
+This scheme represents ${code}(pwdd; pwd) 1> & 2${reset}, here the standard output will be combined with the standard error output.
+# (pwdd; pwd) 2 >> test 1> & 2
+To get rid of these two streams, you could add ${code}&> / dev / null${reset}.
++Do it then: ${learn}(pwdd; pwd) &> / dev / null${reset}
+!(PWDD; pwd) &> / dev / null£No
+${code}&> / dev / null${reset} would be equivalent to: ${code}> / dev / null 2> & 1${reset}, or ${code}1> / dev / null 2> & 1${reset}, or ${code}2> / dev / null 1> & 2${reset}.
++Now redirect the two streams to the 'F' file with: ${learn}(pwdd; pwd) &> F${reset}
+!(PWDD; pwd) &> £ F No
++Then display the contents of file F.
+!cat F£No
+You can note here that the two streams were gathered before writing to the file, that is to say that despite the use of ${code}>${reset} instead of ${code}>> ${ reset}, the second line did not overwrite the first one.
++Do it again: ${learn}(pwdd; pwd) &> F${reset}
+!(PWDD; pwd) &> £ F No
++Then redisplay the contents of file F.
+!cat F£No
+Here you have these two lines again, if you had used ${code}& >>${reset} instead of ${code}&>${reset} you would have here obviously four lines.
+Finally, the ${code}command (pwdd; pwd) >> tmp 2> & 1${reset} is equivalent to the command: ${code}(pwdd; pwd) & >> tmp${reset}
+I hope these redirects are now clear for you and good luck for the quiz.
+#clean

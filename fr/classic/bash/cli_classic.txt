@@ -131,6 +131,12 @@ Bash 11 => Code :
 
 
 
+
+
+--
+
+x=9;((x>8))&&echo yes||echo no
+
 return/exit script and $?
 
 test -ge -le

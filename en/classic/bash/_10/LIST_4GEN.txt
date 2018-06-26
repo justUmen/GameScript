@@ -1,0 +1,152 @@
+#[ -d "$HOME/.GameScript_bash10" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash10 2> /dev/null
+#cd $HOME/.GameScript_bash10;ls /var/log/*.log|head -n 5 > ~/.GameScript_bash10/LOG;cat ~/.bashrc|grep '^[^#]*alias '>~/.GameScript_bash10/.MYALIAS;source ~/.GameScript_bash10/.MYALIAS 2> /dev/null
+In the last chapter we saw how to create and manipulate variables.
+But variables are also able to store bash commands.
++ So create a variable 'cmd' that will contain $ {code} ls -a / var $ {reset} using $ {code} '$ {reset}.
+! cmd = 'ls -a / var' £ No
++ Do now: $ {learn} cmd $ {reset}.
+! Cmd £ No
+Here we have an error. Of course since 'cmd' is a $ {voc} variable $ {reset} and has never been a command.
+However, you can use this variable as a command.
++ But for that, it will use the \\ $, so do: $ {learn} \\ $ cmd $ {reset}.
+! \\ $ cmd £ No
+But to launch GameScript just type 'gamescript' in your terminal.
+If the GameScript code was in a variable, you would have to type '\\ $ gamescript'.
+So we can imagine that 'gamescript' is maybe a script that is in one of the folders of the environment variable 'PATH'.
+Well not at all ... but that could have been the case.
+GameScript actually uses a $ {voc} alias $ {reset}, a specialized variable type for commands.
+A $ {voc} alias $ {reset} is not a program but simply a command or command group.
+The syntax is similar to the classical variables, it will be enough to add the key word 'alias' before the creation of the alias.
++ Let's create our first alias with: $ {learn} alias a1 = 'ls -a / var' $ {reset}.
+! alias a1 = 'ls -a / var' £ No
++ Then simply run your alias with: $ {learn} a1 $ {reset}.
+! A1 £ No
+Here $ {code} a1 $ {reset} just replaces $ {code} ls -a / var $ {reset}, but you can create much more complex aliases.
++ Display a list of all your aliases by simply doing $ {learn} alias $ {reset}.
+! Alias ​​£ No
+I repeat, 'gamescript' is in your environment an alias.
++ Show only the gamescript alias with: $ {learn} alias gamescript $ {reset}.
+! alias gamescript £ No
+When you launch 'gamescript', this is the code that is actually executed.
+$ {code} wget $ {reset} downloads the latest version of GameScript and then executes it on your machine.
+The 'bash' command is exactly like the 'date' command in the previous chapter, it's actually a file.
++ To know the absolute path of this file 'bash', do: $ {learn} type bash $ {reset}.
+! bash type £ No
+You may have understood it, but 'gamescript', using just 'bash' and not '/ bin / bash', will only work if the '/ bin' folder is in your 'PATH' variable.
+The '/ bin' directory has some of the most important $ {voc} bin $ {reset} areas in your system.
+Using 'bash' instead of '/ bin / bash' seems reasonable in this alias, because '/ bin' should be present in the 'PATH' environment variable of all correctly configured systems.
++ See more details on this file '/ bin / bash' with: $ {learn} wc / bin / bash $ {reset}.
+! wc / bin / bash £ No
+This file is particularly large, so I do not recommend displaying it with the command $ {code} cat $ {reset}.
+On the other hand, we can safely use our 'PAGER'.
+'PAGER' is another environment variable that defines which program will be used for file playback.
++ To know the value of 'PAGER', do: $ {learn} echo \\ $ PAGER $ {reset}.
+! echo \\ $ PAGER £ No
+Most of the time this 'PAGER' will be the $ {code} less $ {reset} command, but it's a customizable variable, so you may have something else.
+When you visit the manual of a command, you can navigate from top to bottom with your keyboard and even your mouse.
+The $ {code} man $ {reset} command actually uses your 'PAGER'. It's the $ {code} less $ {reset} command that gives your textbooks this interactive interface.
+When you exit the manual with the 'q' key, you actually exit the interface provided by $ {code} less $ {reset}.
+And you can use the $ {code} less $ {reset} command to navigate to the file of your choice.
++ Look very quickly the contents of the file '/ bin / bash' with $ {learn} less / bin / bash $ {reset}, then quit with the key 'q'.
+! less / bin / bash £ No
+Here the file is unreadable because it is actually a file $ {voc} binary $ {reset}.
+$ {code} less $ {reset} considers any open file as a text file, so what it displays here simply does not make sense.
+If 'less' is the value of your 'PAGER' environment variable, of course you could have done $ {learn} \\ $ PAGER / bin / bash $ {reset}.
++ Let's now create the alias 'pager' with: $ {learn} alias pager = \\ $ PAGER $ {reset}.
+! alias pager = \\ $ PAGER £ No
++ Now use this new alias with '/ bin / bash', then exit with the 'q' key.
+! pager / bin / bash £ No
+So we've seen how to create and manipulate variables and aliases, but remember that these variables and aliases will only be available in the bash session you are currently using.
+Now let's talk about a very particular variable: $ {code} \\ $? $ {Reset}
+$ {code} \\ $? $ {reset} contains a number between 0 and 255, which is the return value of your last order. (English $ {voc} exit status $ {reset})
++ Do: $ {learn} pwd; echo \\ $? $ {Reset}
+! pwd; echo \\ $? £ No
+Here the return value is 0. This means that the command has not encountered any problem.
++ Now do $ {learn} pwdd; echo \\ $? $ {Reset}
+! pwdd; echo \\ $? £ No
+Here the return value is 127. This means that the command $ {codeError} pwdd $ {reset} does not exist.
++ Do: $ {learn} lss; echo \\ $? $ {Reset}
+! lss; echo \\ $? £ No
+Here the return value is still 127. This means that the command $ {codeError} lss $ {reset} does not exist.
++ Now do: $ {learn} cat x; echo \\ $? $ {Reset}
+! cat x; echo \\ $? £ No
+Here the return value is not 0, which means that the command has encountered an error.
+However the value is not the same as for 'pwdd' and 'lss' because the type of error is different.
+The command $ {code} cat $ {reset} exists but it is the file given as an argument that does not exist.
+You have already used this variable $ {code} \\ $? $ {Reset} without knowing it.
+$ {code} || $ {reset} and $ {code} && $ {reset} use the variable $ {code} \\ $? $ {reset} to define the execution of other commands.
+$ {code} && $ {reset} will issue the next command if $ {code} \\ $? $ {reset} equals 0.
+And $ {code} || $ {reset} will issue the next command if $ {code} \\ $? $ {Reset} does not equal 0.
+This variable will change in value for each new command, but it can be saved in another variable.
++ Try saving the return value of $ {code} ls -O $ {reset} with: $ {learn} ls -O; VAL = \\ $? $ {Reset}
+! ls -O; VAL = \\ $? £ No
++ Display the value of the variable 'VAL'.
+! echo \\ $ VAL £ No
+This number is again different, because here the error comes from the use of an unknown option.
+For $ {code} alias $ {reset}, you may also be using aliases without knowing it.
+These aliases can replace a command by using the same name.
++ Do: $ {learn} type ls $ {reset}.
+! type ls £ No
+Here, you probably have an alias to the command: $ {code} ls --color = auto $ {reset}.
+An alias will override the 'PATH' variable, so you should not see '/ bin / ls' here.
++ Display all the possible interpretations of the command $ {code} ls $ {reset} with: $ {learn} type -a ls $ {reset}.
+! type -a ls £ No
+If you have the alias $ {code} ls --color = auto $ {reset} in the first line and $ {code} / bin / ls $ {reset} in the second line, a simple $ {code} ls $ { reset} will actually become $ {code} / bin / ls --color = auto $ {reset}
+To go back to the variables, do you know that they can also store the $ {voc} result $ {reset} of a command.
+It will be necessary to use the $ {code} \\ $$ {reset} and the $ {code} () $ {reset}
++ For example, to store the result of the command $ {code} pwd $ {reset} in the variable 'var', do: $ {learn} var = \\ $ (pwd) $ {reset}
+! \\ var = $ (pwd) £ No
++ Now to check, do: $ {learn} echo \\ $ var; pwd $ {reset}.
+! echo \\ $ var; pwd £ No
+You can also do the same thing using $ {code} \\ `\\` $ {reset}.
++ Try for example: $ {learn} var = \\ `ls /var/log/*.log\\`${reset}
+! var = \\ `ls /var/log/*.log\\`` No
++ Then display the contents of the variable 'var'.
+! echo \\ $ var £ No
+You can note here that using $ {code} \\ $ () $ {reset} and $ {code} `` $ {reset} replace placeholders with spaces.
+We have already seen $ {learn} cat $ {reset} to display the contents of a file, but there are two other useful commands for displaying the contents of files.
+These are $ {code} head $ {reset} and $ {code} tail $ {reset}, which display the first 10 and last 10 lines of a file, respectively.
+The variable 'var' contains a list of files, so you can use this variable as a command argument.
++ For example, display the last 10 lines of all files in the variable 'var'.
+! head \\ $ var £ No
+It is also possible to retrieve the result of a command and make it a temporary variable that will not be saved.
++ For example, you can do the same without the variable 'var', with: $ {learn} head \\ `ls /var/log/*.log\\`${reset}
+! head \\ `ls /var/log/*.log\\`` No
+But of course, these two commands are equivalent to: $ {learn} head /var/log/*.log${reset}
+But imagine, for example, that you have a 'LOG' file that contains a list of the files you are interested in.
++ Display the contents of the 'LOG' file.
+! cat LOG £ No
+So you can directly use $ {code} tail $ {reset} with the contents of this file as an argument with: $ {code} tail \\ $ (cat LOG) $ {reset}.
++ Try with the equivalent command: $ {learn} tail \\ `cat LOG \\` $ {reset}
+! tail \\ `cat LOG \\` £ No
+In this situation, I remind you that line breaks are replaced by spaces.
+Using this method, the contents of this file become a simple string given as an argument to the $ {code} tail $ {reset} command.
+$ {voc} Beware $ {reset} therefore filenames that contain spaces or special characters.
+If a file is named for example '/ var / log / this file.log', it will be considered by $ {code} tail $ {reset} as two different files: '/ var / log / ce' and 'file. log '.
+In general, I advise you never to $ {voc} $ {reset} put spaces in your file names, especially if these files will be handled later by another program.
+'this.log.log' can become for example 'ce_fichier.log'.
+But if 'gamescript' is an alias, how is it that you can use it in all your instances of bash?
+The alias 'gamescript' is actually created in the main bash configuration file: $ {code} ~ / .bashrc $ {reset}
+Bash analyzes the contents of your hidden file $ {code} ~ / .bashrc $ {reset} at each launch.
++ You can find the line corresponding to 'gamescript' with: $ {learn} cat ~ / .bashrc | grep gamescript $ {reset}
+! cat ~ / .bashrc | grep gamescript £ No
+So if you want to have aliases or permanent variables, you can simply add them to this file.
+On the other hand, do not forget that 'bash' only uses this file when opening a new session.
+That is, if your bash session was already open before editing this file, the changes will not take place.
+To validate your modifications, you will have to open a new bash session or force the replay of this configuration file with: $ {code} source ~ / .bashrc $ {reset}
+The $ {code} source command $ {reset} can also be used to read the variables in a file and add them to the current bash session.
+#echo -e 'var = test \\ nvar2 = test2'> $HOME / .GameScript_bash10 / variables
++ Display the contents of the 'variables' file of your current directory.
+! cat variables £ No
++ Display the values ​​of 'var' and 'var2', separated by a space.
+! echo \\ $ var \\ $ var2 £ No
++ Now do: $ {learn} source variables $ {reset}
+! source variables £ No
++ And redisplay the values ​​of 'var' and 'var2', separated by a space.
+! echo \\ $ var \\ $ var2 £ No
+With this example, you should better understand the effect that the $ {learn} source ~ / .bashrc $ {reset} command will have.
+$ {code} source ~ / .bashrc $ {reset} can also be written $ {code}. ~ / .bashrc $ {reset}.
+This is a syntax much less readable than the first, but you must know it because you may meet one day.
+Forward for the questionnaire!
+#clean

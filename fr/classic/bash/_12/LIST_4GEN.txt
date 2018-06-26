@@ -1,0 +1,71 @@
+#[ -d "$HOME/.GameScript_bash12" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash12 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash12 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash12 2> /dev/null
+#cd $HOME/.GameScript_bash12
+
+
+
+
+
+
+Combines if logics : 
+	 if test 1 -eq 1 || test 2 -eq 1
+	 if [ 1 -eq 1 ] || [ 2 -eq 1 ];
+
+elif
+
+
+
+
+-eq difference with =
+
+if, simple command with arguments ???
+	if [  ] then ... fi ???
+
+
+if [ "$(whoami)" != 'root' ]; then
+
+if [ $# -eq 0 ]; then ;; fi
+	IF NO ARGUMENTS
+if [ -z "$1" ]
+if [ -f /var/log/messages ]
+
+$0 $1 $2 $@ $# $_ $- “$@” $!
+
+variable in script + variable in shell that launched bash
+difference bash et ./ (nouvelle instance de bash)
+	bash ls
+shebang
+
+
+type source ---> built-in ----> man bash
+
+
+[ $x == 111 ];echo $?
+
+
+
+
+
+read OR use agument of script !!! $1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+argument of function
+
+POSIX ??? [] [[ ]]
+
+while < 
+
+
+$((expression)) arithmetic
+
+💣(){ 💣|💣& };💣
+
+SUBSHELLS
+	subshells and variables : x=2;echo $x;(echo $x;x=1;echo $x);echo $x
+
+CODE PLANNING BEFORE CODING
+
+
+ê
+é
+à
+è
+

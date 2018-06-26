@@ -1,0 +1,137 @@
+#[ -d "$HOME/.GameScript_bash8" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash8 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash8 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash8 2> /dev/null
+#cd $HOME/.GameScript_bash8
+#echo -e "Joseph\\\\nemail:joseph@bjornulf.org\\\\nCarla\\\\nemail:carla@bjornulf.org\\\\nCharlie\\\\nemail:charlie@bjornulf.org\\\\nAkemail\\\\nemail:akemail@bjornulf.org\\\\nBob\\\\nemail:bob@bjornulf.org\\\\nAlbert\\\\nemail:albert@bjornulf.org\\\\nJessica\\\\nemail:jessica@bjornulf.org\\\\nCarla\\\\nemail:carla@bjornulf.org" > $HOME/.GameScript_bash8/LIST
+Let's start by creating our environment for this chapter.
++Create the file 'test' with: ${learn}echo goodbye> test${reset}
+!echo goodbye> test£No
+We will now use the ${code}wc${reset} command to get additional information about the contents of this file.
++So make ${learn}wc test${reset}
+!wc test£No
+Here we have three numbers, the first represents the number of ${voc}lines${reset} of the file: ${code}1${reset} 2 10 test
+The second is the number of ${voc}words${reset} in the file: 1 ${code}2${reset} 10 test
+The third represents the number of ${voc}characters${reset} in the file: 1 2 ${code}10${reset} test
++Display the contents of this 'test' file.
+!cat test£No
+We have in this file ${code}1${reset} line and ${code}2${reset} words: 'au' and 'review'.
+${code}wc${reset} also informs us that this file is composed of 10 characters.
+The first word 'au' is composed of two characters, 'a' and 'u'.
+The second word 'review' is composed of six characters, which adds to the two previous ones, makes eight.
+The space separating the two words is also a character, which brings us to nine.
+The tenth character is actually the line that we saw in chapter 3: that we can represent with '\\' + 'n'.
+I remind you that the command ${code}echo${reset} automatically adds a new line at the end, unless the -n option is present.
+Let's see what we've done so far: ${code}echo goodbye> test${reset} to create the file 'test' and ${code}wc test${reset} to parse this file.
+The command ${voc}wc${reset} takes as argument the file you want to parse.
+But you do not have to create this 'test' file if you do not need it.
+In the previous chapters, we saw that we could redirect the ${voc}standard output${reset} to a file with ${code}>${reset} or ${code}1>${reset}.
+But it is also possible to redirect the standard output not to a file but to ${voc}another${reset} command with the symbol ${code}|${reset}, also called 'pipe' or pipe .
+${voc}wc${reset} is, like so many commands, also able to read ${voc}standard output${reset}.
++Do: ${learn}echo goodbye | wc${reset}
+!echo goodbye | wc£No
+Here with ${code}|${reset}, the result is the same, except that the filename is not displayed because there is no file.
+The 'pipe' is one of the most powerful concepts of the command line.
+With ${code}|${reset}, a command can send its standard output to a second command, which can then send its own standard output to a third command, and so on.
++I just prepared a file 'LIST' for you, so display the contents of this file.
+!cat LIST£No
+Here you have a list of names and emails, but imagine that only emails interest you.
+To detect the presence of a keyword in a line, you will have to use the command ${code}grep${reset}.
+Of course, ${code}grep${reset} is able to read on a ${voc}standard output${reset}, so you can use it in combination with ${code}|${reset}.
++Show only the lines of the file that contain the word 'email' with: ${learn}cat LIST | grep email${reset}
+!cat LIST | grep email£No
+Here the choice of the keyword 'email' is personal, and you must be careful that this choice is wise.
+${code}grep email${reset} will be problematic if one of the names is 'email', or contains the word 'email', like 'Ak ${voc}email${reset}'.
++To detect emails in a more reliable way, you can use the presence of '@', so do: ${learn}cat LIST | grep @${reset}
+!cat LIST | grep @£No
+So you have here in your standard output only email addresses.
++Now use your last standard output to create the 'EMAILS' file which will contain all the emails of the LIST file by doing: ${learn}cat LIST | grep @> EMAILS${reset}
+!cat LIST | grep @> EMAILS£No
+${code}grep @${reset} will show all lines that contain at least one '@'.
+To do the opposite, you must add ${code}grep @${reset} the -v option.
++Display all lines that do not contain ${voc}not${reset} '@' with: ${learn}cat LIST | grep -v @${reset}
+!cat LIST | grep -v @£No
+Before saving this list to a file, we want to alphabetically sort these names with the command ${learn}sort${reset}.
++For that, just continue using the standard output and the ${code}|${reset}, do: ${learn}cat LIST | grep -v @ | sort${reset}
+!cat LIST | grep -v @ | output£No
+Here the name 'Carla' appears clearly twice.
+To eliminate the following identical names, you must use the command ${learn}uniq${reset}.
++Let's continue to chain the pipes, do so: ${learn}cat LIST | grep -v @ | sort | uniq${reset}
+!cat LIST | grep -v @ | sort | only No
+Here our result is perfect, so you could redirect the last standard output to create a 'NAMES' file.
+On bash, he always has more than one way to do the same thing.
+We used the following code: ${code}cat LIST | grep -v @ | sort | uniq${reset}
+Here ${code}grep${reset} will use the standard output of the previous command, but like ${code}wc${reset}, ${code}grep${reset} also accepts a file.
+So you could just as well not use the command ${code}cat${reset}, doing directly: ${code}grep -v @ LIST | sort | only${reset}
+The command ${code}only${reset} can also be removed, because ${code}sort${reset} also has an option that can remove duplicates: -u.
++Try this new command: ${learn}grep -v @ STL | sort -u${reset}
+!grep -v @ LIST | sort -u£No
+${learn}grep -v @ LIST | sort -u${reset} gives the same result as ${learn}cat LIST | grep -v @ | sort | only${reset}.
+The important thing is not so much your writing style, but a good understanding of all the features offered to you by bash.
+For now with GameScript, I impose a minimal style of writing, but over time you will probably develop a different style, which will not be less valid than the one I share here with you.
+Whether it's about using spaces for presentation, or the logic behind your code.
+Now I will give you some clarifications on the previous orders.
+To display only the number of rows, you could have used ${code}wc${reset} with the -l option.
++Try: ${learn}echo goodbye | wc -l${reset}
+!echo goodbye | wc -l£No
+To be precise, ${code}wc${reset} does not actually count the number of lines, but rather the number of newlines.
++Try doing: ${learn}echo -n goodbye | wc -l${reset}
+!echo -n goodbye | wc -l£No
+Here the result is obviously not 0 line, but 0 new line ('\\' + 'n'), since we do not have the new line with the -n option.
+In a Unix-like system, it's a ${voc}convention${reset} to have a line break at the end of a text file.
+We saw that ${code}|${reset} was used to redirect the standard output to another command.
+But it is also possible to redirect the standard error output at the same time, using ${code}| &${reset}.
++For example: ${learn}cat X | & grep cat${reset}
+!cat X | & grep cat£No
++And the opposite: ${learn}cat X | & grep -v cat${reset}
+!cat X | & grep -v cat£No
+${code}| &${reset} is actually equivalent to ${code}2> & 1 |${reset}.
+This makes ${code}(pwdd; pwd) 2> & 1 | wc -l${reset} equivalent to ${code}(pwdd; pwd) | & wc -l${reset}.
+Of course, be careful not to confuse ${code}|${reset} and ${code}| &${reset} with ${code}||${reset}!
+In chapter 7 we saw how to use standard output (stdout) and standard error output (stderr).
+# std_1
+But some commands can also receive information about their ${voc}standard input${reset} (stdin for standard input).
+Very often, commands that can use their ${voc}standard input${reset} if no other means are specified.
+If you visit the ${code}grep${reset} or ${code}cat${reset} manual, you'll see that's their case.
+This ${voc}standard entry${reset} will be your keyboard by default!
+To end this transmission, it will send the signal EOT by doing simultaneously on your keyboard ${voc}ctrl + d${reset}.
+For example, you can use ${code}cat${reset} as a text editor if you do not give it an argument.
++Then make ${learn}cat> new${reset}, type a few lines, then when you are on a new empty ${voc}line${reset}, make ${voc}ctrl + d${reset} with your keyboard.
+!Cat> No new £
++Display the new file now.
+!cat new£No
+I repeat this ${voc}standard input${reset} will default your keyboard.
+# std_2
+But you can also change it easily with the ${code}<${reset} symbol.
++So, do ${learn}wc <new${reset}
+!Toilet <new£No
++Do also: ${learn}wc new${reset}
+!wc new£No
+${code}wc${reset} is both able to read standard input or a given file as argument.
+The only difference between these two commands is the absence of the file name with the use of ${code}<${reset}, normal since there is no 'file' for reading.
+The content is read directly from the ${code}wc${reset} standard entry.
+Some commands need you to specify that you want to use standard input.
+For that it will be necessary to use a ${code}-${reset} in argument.
+But all other commands that can use standard input, also accept this ${code}-${reset} as an argument, even if it is not necessary.
+The previous command ${code}cat> new${reset} is equivalent to ${code}cat -> new${reset}.
++So, do ${learn}wc - <new${reset}
+!wc - <new£No
+Here the file name becomes - but the result of ${code}wc${reset} remains the same.
+${code}wc - <new${reset}, ${code}wc <new${reset} and ${code}wc new${reset} give the same result but the logic to arrive at this result is different.
+As for the display of these commands, it is simply a standard output, so you can obviously redirect it normally.
++So, do ${learn}wc - <new> wcnew${reset}
+!wc - <new> wcnew£No
++View the content of 'wcnew'.
+!cat wcnew£No
+The command ${code}grep${reset} takes two arguments with this syntax: grep <MOTCLEF> <FILE>.
+${code}grep${reset}, used without a second argument, will use, like ${code}wc${reset}, its standard input.
+But we have already used ${code}grep${reset} without a second argument with ${code}grep @${reset} in our previous command: ${learn}cat LIST | grep @${reset}.
+The standard input is actually exactly what ${code}|${reset} uses.
+# std_3
+Here you have a visual representation of the command: ${learn}cat LIST | grep @${reset}
+${code}|${reset} allows you to redirect the standard output of one command, or command group, to the standard input of another command.
+# std_4
+${code}| &${reset} allows to use stdout ${voc}and${reset} stderr, like here in ${learn}cat X | & grep cat${reset}.
+Again, for some commands it will be necessary explicitly to request the use of the standard input with the symbol ${code}-${reset}.
+${learn}cat LIST grep @${reset} is actually equivalent to ${learn}cat LIST | grep @ -${reset}.
+So you now know how to manipulate the standard input (stdin) and the two outputs of your commands (stdout and stderr).
+You should be ready for the questionnaire!
+#clean

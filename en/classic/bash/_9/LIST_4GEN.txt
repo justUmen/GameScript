@@ -1,0 +1,143 @@
+#[ -d "$HOME/.GameScript_bash9" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash9 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash9 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash9 2> /dev/null
+#cd $HOME/.GameScript_bash9
+#echo -e "echo Je suis code_bash\\\\npwd;ls\\\\nmkdir FOLDER">$HOME/.GameScript_bash9/code_bash;echo -e "echo Je suis code_bash2 et je ne fais rien de spécial.">$HOME/.GameScript_bash9/code_bash2;chmod +x $HOME/.GameScript_bash9/code_bash2
+Bash can be used interactively, as we have done since chapter 1, but bash is also a programming language.
+So you can store all the commands you learned in a text file and ask 'bash' to launch them line by line.
++Display your current directory and its contents with: ${learn}pwd; ls${reset}.
+!Pwd, ls£No
++Display the contents of the 'code_bash' file.
+!cat code_bash£No
+This 'code_bash' file contains three command lines that you should understand.
+To launch the commands of this file 'code_bash', just give this file as an argument to the command ${voc}bash${reset}.
++Do: ${learn}bash code_bash${reset}
+!bash code_bash£No
++List the elements of the current directory.
+!Ls£No
+Here 'bash' has created the folder 'FOLDER' with the command ${learn}mkdir FOLDER${reset} contained in the file 'code_bash'.
+You can also use all the other concepts that you have already learned in previous chapters.
++For example: ${learn}cat_code_bash | bash> / dev / null${reset}
+!cat code_bash | bash> / dev / null£No
+Here only the ${code}mkdir${reset} error is sent to the terminal, since the ${code}ls${reset} and ${code}pwd${reset} commands use the standard output.
+As a reminder, you could also do ${learn}cat_code_bash | bash -${reset} or use the absolute path of this file, with for example ${learn}bash ~ / .GameScript_bash9 / code_bash${reset}.
+To execute a file, you can also use ${code}./${reset} before the name of the file you want to launch.
++Do: ${learn}./ code_bash2${reset}
+!./ code_bash2£No
++Do the same thing for 'code_bash'.
+!./ code_bash£No
+Here using ${code}./${reset} we have a permission problem.
+Strange because we had no problem with the command ${learn}bash code_bash${reset}.
++Display the permissions of all items in the current directory that start with 'code'.
+!ls -l code *£No
+To execute a file with ${code}./${reset}, this file must have execute (x).
+A text file will not have this permission by default, so you must add it manually.
++Give the execution right on 'code_bash' for the owner of this file.
+!chmod u + x code_bash£No
+It can be said that when a text file becomes executable, it is transformed into a ${voc}script${reset} or ${voc}program${reset}.
+In other words: ${voc}A bash script is a simple text file containing bash commands.${reset}
++Now run 'code_bash' using ${code}./${reset}.
+!./ code_bash£No
+You may have noticed that ${code}./${reset} just replaces your current directory.
+This is indeed the case, to execute a file, just specify its path.
++You can also use its absolute path, so do: ${learn}~ / .GameScript_bash9 / code_bash${reset}
+!~ / .GameScript_bash9 / code_bash£No
+Be careful however when using the absolute path, the commands of the script will use your current directory, ${voc}not${reset} the folder where your script is located.
+For example, if you are in the '/ var' folder and you are doing ${learn}~ / .GameScript_bash9 / $_block_code, the ${learn}mkdir FOLDER${reset} command will want to create the '/ var' folder. / FOLDER.
+To avoid any surprises, I recommend using as often as possible, absolute paths in your scripts.
+In previous chapters we have seen that if you want to keep track of information, you can store it in a file, like ${code}ls> file${reset}.
+If this information does not need to be saved on your disk, we saw that it could also be sent directly to another command, such as ${code}ls | wc${reset}.
+But bash can also store certain information without having to create a new file.
+Bash is able to store them in what is called a ${voc}variable${reset}.
+A variable is a symbolic name that is associated with a value.
+# Name = bjornulf
+I just created for you a variable named 'name'.
++Show the value of this variable with: ${learn}echo \\ $ name${reset}
+!echo \\ $ name£No
+This ${code}\\ $${reset} specifies that the following text is the name of a variable and should not be displayed as is.
+${code}echo name${reset} will of course display the word 'name' but ${code}echo \\ $ name${reset} will show the value of the variable 'name'.
+To create a new variable, it will simply use the name, the symbol ${code}=${reset} followed by its value.
++Let's create a new variable 'path' which will contain the text '/ var / log' with: ${learn}path = / var / log${reset}.
+!Path = / var / log£No
+For example, if your command contains spaces, you can use the ${learn}\\\ "${reset} and ${learn}'${reset} delimiters that we've already seen with the command ${code}echo${reset}.
+${learn}path = / var / log${reset} is equivalent to ${learn}path = \\ "/ var / log \\"${reset} and ${learn}path = '/ var / log'${reset}.
++Let's now display the contents of this variable with: ${learn}echo \\ $ path${reset}
+!echo \\ $ way£No
+The ${code}echo${reset} command simply displays the contents of this variable, but the variables can be used by all commands.
++Display the contents of the folder ${code}/ var / log${reset} with: ${learn}ls \\ $ path${reset}
+!ls \\ $ way£No
+When you made ${learn}path = / var / log${reset}, since the variable did not exist, it was created.
+To modify it, the syntax is exactly the same.
++Modify the contents of the variable 'name' with: ${learn}name = bob${reset}
+!Name = bob£No
+Be careful not to make ${codeError} \\ $ name = bob${reset}, the symbol ${code}\\ $${reset} should be used ${voc}only${reset} when use of the variable, not when it is modified.
++Now display the new contents of the variable 'name' with: ${learn}echo \\ $ name${reset}.
+!echo \\ $ name£No
+Here the 'bjornulf' value no longer exists, your ${learn}name = bob${reset} command has just replaced it.
++You can also add text to the command ${code}echo${reset}, for example: ${learn}echo my name is \\ $ name.${reset}
+echo my name is \\ $ name.
+As usual, the '.' being a special character, space is not needed.
++Now try for example to add 'by' after this variable, to display 'bobby', with: ${learn}echo \\ $ nameby${reset}
+!echo \\ $ nameby£No
+Here 'by' gets mixed with the name of the variable, but the 'nameby' variable does not exist, so ${code}echo${reset} displays an empty string.
+To remedy this problem, for example, you can use the escape character after the name of the variable to clearly separate the next letter.
++Try using the variable 'name' and the escape character to display: 'bobby'.
+!echo \\ $ name \\\\ by£No
+Be careful, you can only use the escape character outside the delimiters ${code}'${reset} and ${code}\\ "${reset}.
+As I remind you, the escape character is used with delimiters to display line breaks, tabs. etc ...
+Another possibility is to set a limit to your variable name, using the ${code}{}${reset}.
++Try doing: ${learn}echo \\ ${name} by${reset}
+!echo \\ ${name} by£No
++Perfect, now try ${learn}echo \\ "\\ ${name} by \\"${reset}
+!echo \\ "\\ ${name} by \\"£No
+To display a ${code}\\ $${reset}, simply make ${code}\\\\ $${reset}.
++Do: ${learn}echo \\ "\\\\\\ $ name = \\ $ name \\"${reset}
+!echo \\ "\\\\\\ $ name = \\ $ name \\"£No
++And finally try: ${learn}echo '\\\\\\ $ name = \\ $ name'${reset}
+!echo '\\\\\\ $ name = \\ $ name'£No
+Here the result is very different! All characters between ${code}'${reset} are displayed literally.
+The ${code}'${reset} are therefore very useful if you need to display characters that could have another meaning.
++You can also use all at the same time, try: ${learn}echo '\\ ${name} =' \\ "\\ $ name. \\" or \\ $ name \\\\\\ by.${reset}
+!echo '\\ ${name} =' \\ "\\ $ name. \\" or \\ $ name \\\\ by.£No
+If you understand this order perfectly, you have understood everything.
+I repeat, the modification syntax of a variable is identical to that of its creation.
+Be careful not to modify important variables by mistake thinking to create them.
+Feel free to check with a ${code}echo${reset} if a variable with that name already exists.
+Your environment has important variables called ${voc}environment variables${reset}.
++Display your ${voc}environment variables${reset} with: ${learn}printenv${reset}.
+!Printenv£No
+One of the most important environment variables is 'PATH'. (Path English)
++To display only the PATH variable, do: ${learn}printenv PATH${reset}
+!printenv PATH£No
+'PATH' is a list of the absolute path of several folders that bash uses to simplify command calls.
+These folders are on one line and their absolute paths are separated by ${code}:${reset}.
+If your 'PATH' environment variable is set incorrectly, you may have difficulty running some commands.
+Commands we have already seen together are actually stored in one of the 'PATH' variable folders.
++For example, to find where the ${code}date${reset} command is, make: ${learn}date type${reset}.
+!type date£No
+${code}type${reset} allows us to understand that calling the ${code}date${reset} command is actually ${code}/ bin / date${reset}.
++Do: ${learn}date; / bin / date${reset}.
+!Date; / bin / Date£No
+It is possible for you to use the ${code}date${reset} command directly instead of typing ${code}/ bin / date${reset}, because the absolute path '/ bin' is in your variable ' PATH.
+Be careful not to accidentally modify the contents of the variable 'PATH', some commands would become unusable!
+To add content to a variable, simply add its name at the beginning of the modification.
++For example, to add ': ~ / .GameScript_bash9' to the variable 'PATH' do: ${learn}PATH = \\ $ PATH: ~ / .GameScript_bash9${reset}
+!\\ PATH = $ PATH: ~ /£No .GameScript_bash9
+Here ${code}\\ $ PATH${reset} is simply treated as a string, corresponding to the contents of the variable 'PATH'.
+To which one adds thereafter the string ': ~ / .GameScript_bash9'.
++Display the new contents of the variable 'PATH'.
+!echo \\ $ PATH£No
+Here you can see that '~ / .GameScript_bash9' has been added after the old version of 'PATH'.
+But the changes you make on the variables are valid ${voc}only${reset} for the bash session you are currently using.
+Opening another terminal ${voc}will reset {{reset} important variables, such as 'PATH', and ${voc}will remove${reset} the others, as here the variables 'name' and 'path'.
+But for now, since the folder '~ / .GameScript_bash9' is in your environment variable 'PATH', you can just start the script 'code_bash' by typing 'code_bash'.
++Start therefore 'code_bash'.
+!Code_bash£No
++Move to the folder 'FOLDER'.
+!cd FOLDER£No
++Start 'code_bash' again.
+!Code_bash£No
++Now do: ${learn}pwd; ls${reset}.
+!Pwd, ls£No
+Here you should clearly understand the effects of relative paths in your scripts that I have spoken to before.
+And we end with the questionnaire!
+#clean

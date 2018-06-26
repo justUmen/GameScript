@@ -43,7 +43,10 @@ function talk_GAMESCRIPT_not_press(){
 }
 
 function goodbye(){
-  echo "Au revoir et bonne journée. :)"
+  case $1 in
+	fr) echo "Au revoir et bonne journée. :)" ;;
+	en) echo "Goodbye and have a nice day. :)" ;;
+  esac
   exit 0
 }
 function show_menu(){
@@ -75,7 +78,7 @@ function show_menu(){
 	if [ "$selected" != "e" ];then
     enter bash `expr $selected + 3`
   else
-    goodbye
+    goodbye $LANGUAGE
   fi
 }
 
@@ -135,7 +138,10 @@ function gamescript_available_arguments(){
 		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
         launch_gamescript $LANGUAGE classic bash
 		;;
-    en) echo -e "===> Nothing in english yet :(" ;;
+    en) echo -e "===> Available subjects for now : \n\t\e[97;44m bash \e[0m"
+		echo -e "This series have the name \e[97;44m bash \e[0m, but ??????."
+        launch_gamescript $LANGUAGE classic bash
+		;;
   esac
   exit
 }
@@ -151,11 +157,12 @@ function enter(){
     # 1) echo -e "\e[0;33m...\e[0m" ;&
     1) echo "" ;&
   	2) echo -e "\e[97;44m - $1, $TITLE \e[0m" ;&
-  	3) show_menu "$1" "$1 : chapitre 1" "$1 : chapitre 2" "$1 : chapitre 3" "$1 : chapitre 4" "$1 : chapitre 5" "$1 : chapitre 6" "$1 : chapitre 7" "$1 : chapitre 8" "$1 : chapitre 9";; #"$1 : chapitre 8"
+  	3) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" "$1 : $CHAPTER 10";; #"$1 : chapitre 8"
     # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
     *)
 		if [[ $MUTE == 1 ]]; then
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
+			mkdir -p $HOME/$LANGUAGE/classic/$1/
 			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
 			bash $HOME/.GameScript/standalone.sh MUTE
 			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s -- MUTE
@@ -211,7 +218,7 @@ if [ "$(id -u)" == "0" ]; then
 	exit 1
 fi
 
-#QUIT IF $HOME IS EMPY
+#QUIT IF $HOME IS EMPTY
 if [ "$HOME" == "" ]; then
 	echo "\$HOME doesn't exist !"
 	exit 8
@@ -224,7 +231,6 @@ if ((BASH_VERSINFO[0] < 4)); then
 	exit 2
 fi
 command -v base64 >/dev/null 2>&1 || { echo "You need the command : base64." >&2; exit 3; }
-
 
 POSITIONAL=()
 HELP=0
@@ -264,6 +270,17 @@ if [[ $MUTE == 0 ]]; then
 fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
+
+
+#PREPARE TEXT BASED ON LANGUAGE
+case $LANGUAGE in
+	en) CHAPTER="chapter"
+	;;
+	fr) CHAPTER="chapitre"
+	;;
+esac
+
+
 
 reset='\e[0m'
 #~ voc='\e[1m'

@@ -1,0 +1,110 @@
+#[ -d "$HOME/.GameScript_i3wm1" ] && echo "Erreur innatendu, ${HOME}/.GameScript_i3wm1 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_i3wm1 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_i3wm1 &> /dev/null
+#cd $HOME/.GameScript_i3wm1
+#gamescript_window=$(xdotool getwindowfocus)
+Il y a deux choses que vous devez apprendre a manipuler, les espaces de travail et les FENETRES.
+Commencons par les espaces de travail. Encore une fois je vais vous donnez mes configurations, libre a vous de les changer plus tard.
+Vous pouvez avoir plusieurs espaces de travail, chacun pourra avoir ses propres configurations et ses propres objectifs.
+Si vous regardez en bas a gauche de votre ecran vous devriez voir le chiffre 1 dans un carre.
+C'est en fait le nom de votre espace de travail ou vous etes en ce moment.
+Cet espace de travail pour l'instant ne contient que GameScript.
+
+Pour communiquer avec i3, il faudra utiliser des combinaisons de touches.
+Elles sont toutes personnalissables mais je vais vous en donner certaines que je vous conseille de garder.
+Vous pouvez passer d'un espace de travail a l'autre avec la touche super, parfois appele touche windows.
+
+Il faudra en meme temps appuyer sur la touche Super et le numero de l'espace de travail ou vous voulez aller.
+Vous etes en ce moment dans l'espace de travail 1, il faudra donc faire Super + 1 pour revenir sur cet espace de travail.
+Gamescript est en ce moment dans l'espace de travail 1, souvenez vous donc que pour continuer a interagir avec GameScript, il vous faudra faire Super + 1.
+
+Maintenant, deplacez vous dans l'espace de travail 2 avec Super + 2, regardez la liste de vos espaces de travail en bas a gauche votre ecran, puis faites Super + 1 pour revenir sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+
+De retour dans l'espace de travail 1 vous pouvez remarquer que l'espace de travail 2 n'est pas affiche en bas a gauche.
+Pourtant lorsque vous etiez dans l'espacce de travail 2, l'espace de travail 1 etait visible dans cette liste.
+
+En fait, i3 se debarassera automatiquement de tous les espaces de travail qui ne contiennent pas de fenetres.
+L'espace de travail 2 etant pour le moment vide, il ne restera pas affiche dans cette liste.
+Contrairement a l'espace de travail 1, qui contient la fenetre de GameScript.
+
+Je vous conseille d'utiliser des raccourcis clavier pour tous les programmes que vous utilisez regulierement.
+Par exemple, pour ouvrir un nouveau terminal, il faudra utiliser le raccourci clavier Super + Entree.
+
+On va commencer par creer une nouvelle fenetre dans cet espace de travail 2.
+Deplacez vous dans l'espace de travail 2 avec Super + 2, ouvrez un nouveau terminal avec Super + Entree, puis revenez sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+
+De retour dans l'espace de travail 1 vous pouvez remarquer que l'espace de travail 2 est cette fois dans la liste, car il contient une fenetre.
+
+Vous pouvez egalement utiliser votre souris et cliquer sur le nom de l'espace de travail ou vous voulez vous rendre.
+Utilisez la liste en bas en gauche pour vous rendre sur l'espace de travail 2 et revenez sur gamescrit en utilisant votre souris egalement.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+
+Maintenant regardez la barre en haut de votre ecran, elle contient le titre de la fenetre qu'utilise GameScript.
+Bien evidemment, il est possible d'avoir plusieurs fenetres dans un meme espace de travail.
+
+#i3-msg 'exec lxterminal' ???
+Je viens d'ouvrir un nouveau terminal dans votre espace de travail, vous devriez voir deux titres en haut de votre ecran.
+Chaque titre correspond a une fenetre, celui de gauche est le titre de la fenetre de gamescript.
+
+Les titres de fenetres s'affichent de gauche a droite, des plus anciennes aux plus recentes.
+Chaque nouvelle fenetre que vous ouvrez s'ajoutera donc a droite de cette liste.
+Le terminal qui contient GameScript ayant ete ouvert en premier, il restera a le plus a gauche.
+
+Cliquez sur le titre de la deuxieme fenetre pour l'afficher, et revenez sur gamescript en cliquant sur le titre de sa fenetre.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done;sleep 1;while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Bien evidemment, je vous conseille d'utiliser votre clavier pour faire cela bien plus rapidement, vous pouvez tout simplement utilisez Super + fleche de gauche/droite.
+
+Faites le donc maintenant, utilisez Super et les fleches gauche et droite.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done;sleep 1;while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+
+Quand vous passez sur une autre fenetre, on dit que cette fenetre a le focus.
+C'est a dire que tout autre raccourci clavier sera envoye a la fenetre qui a le focus en ce moment.
+
+Par exemple, pour fermer une fenetre, vous pouvez faire Super + Shift + E, mais attention a ne pas fermer le terminal qui contient Gamescript par erreur.
+Changez le focus avec Super + fleche de droite, et fermez le deuxieme terminal que j'ai ouvert tout a l'heure avec Super + Shift + E.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#to_close=$(xdotool getwindowfocus)
+#while [ `xdotool search --class ""|grep "^$to_close$"` ];do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+
+Maintenant, ouvrez un nouveau terminal avec Super + Entree, vous remarquerez alors que le focus changera automatiquement, il vous faudra donc manuellement revenir sur GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Il y a 3 modes d'affichages des fenetres sur i3.
+
+Par defaut, l'affichage est en onglet, mais vous pouvez aussi avoir une liste des fenetres de haut en bas, ou le titre des fenetres prendra toute la ligne.
+Mais pour passer d'une fenetre a l'autre dans ce mode, il faudra utiliser Super + fleche du haut et bas au lieu de gauche et droite.
+Essayez donc ce mode d'affichage maintenant en faisant Super + S.
+
+Pour revenir au mode d'affichage en onglet, vous pouvez faire Super + W.
+
+Et enfin vous avez un  troisieme mode d'affichage, qui affiche toutes vos fenetres de votre espace de travail dans un damier.
+Essayez ce mode d'affichage en faisant Super + E.
+En etant dans ce mode, vous pouvez continuer a utiliser Super + E pour alterner entre decoupage vertical et horizontal.
+Faites donc Super + E jusqu'a avoir le nouveau terminal en dessous de la fenetre de GameScript.
+
+Ici meme si les deux fenetres sont visibles a l'ecran, seulement l'une d'entre elles a le focus.
+Toujours de la meme maniere, vous pouvez changer le focus avec Super + les fleches de votre clavier.
+Essayez donc d'alterner votre focus entre ces deux fenetres avec votre clavier et donnez ensuite le focus a la fenetre de GameScript pour continuer.
+
+
+Vous pouvez aussi remarquer qu'avec ce mode d'affichage, il est aussi possible de changer la fenetre focus avec le curseur de votre souris.
+Notez que seul le mouvement de votre curseur est necessaire pour ce changement de focus, vous n'avez pas besoin de cliquer.
+
+Bien evidemment, comme tout ce que vous faites dans i3, je vous conseille d'utiliser votre souris au minimum et de privilegier vos raccourcis clavier.
+Si vous continuez, GameScript disparaitra... et il vous faudra le retrouver pour continuer.
+#i3-msg 'move window to workspace 5'
+
+GameScript est donc en ce moment dans l'espace de travail 5.
+Vous savez deja comment passer d'un espace de travail a l'autre, mais il est aussi possible de deplacer vos fenetres dans un autre espace de travail.
+Remettez donc la fenetre de GameScript dans l'espace de travail 1 avec Super + Shift + 1, puis revenez sur l'espace de travail 1.
+
+Avoir plusieurs espaces de travail differents vous permet d'organiser vos fenetres selon votre volonte.
+Personnelement, j'utilise l'espace de travail 1 pour tous mes terminaux.
+L'espace de travail 2 pour mes editeurs de texte.
+L'espace de travail 3 pour navigateur web et autres fenetres oriente web.
+L'espace de travail 4 pour gestionnaire de fichier et affichage de contenu, comme visionneuse d'image.
+L'espace de travail 5 pour tout ce qui est social, email, chat, IRC, etc...
+
+Organiser vos fenetres par theme vous permet de les retrouver tres rapidement, meme si elles sont tres nombreuses.
+

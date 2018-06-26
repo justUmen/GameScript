@@ -1,49 +1,113 @@
-#[ -d "$HOME/.GameScript_bash11" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash11" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash11 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash11 et relancer ce script." && exit
 #mkdir $HOME/.GameScript_bash11 2> /dev/null
 #cd $HOME/.GameScript_bash11
-#
-echo -e 'read X;if [ $X -eq 1 ];then echo COURS; else echo QUESTIONNAIRE; fi' > $HOME/.GameScript_bash11/if1;
-echo -e 'read X\\\\nif [ $X -eq 1 ]\\\\nthen\\\\necho COURS\\\\nelse\\\\necho QUESTIONNAIRE\\\\nfi' > $HOME/.GameScript_bash11/if2
-echo -e 'read X\\\\nif [ $X -eq 1 ]\\\\nthen\\\\n\\\\techo COURS\\\\nelse\\\\n\\\\techo QUESTIONNAIRE\\\\nfi' > $HOME/.GameScript_bash11/if3
-echo -e 'read X\\\\nif [ $X -eq 1 ]\\\\nthen\\\\n\\\\techo COURS\\\\nfi\\\\necho TEXTE' > $HOME/.GameScript_bash11/if4
+#echo -e 'echo -n void=\\nread void\\necho $void' > $HOME/.GameScript_bash11/CODE;echo -e 'read X;if [ $X -eq 1 ];then echo COURS;else echo QUESTIONNAIRE;fi' > $HOME/.GameScript_bash11/if1;echo -e 'read X\\nif\\n[ $X -eq 1 ]\\nthen\\necho COURS\\nelse\\necho QUESTIONNAIRE\\nfi' > $HOME/.GameScript_bash11/if2;echo -e 'read X\\nif [ $X -eq 1 ]\\nthen\\n\\techo COURS\\nelse\\n\\techo QUESTIONNAIRE\\nfi' > $HOME/.GameScript_bash11/if3;echo -e 'read X\\nif [ $X -eq 1 ]\\nthen\\n\\techo COURS\\nfi\\necho TEXTE' > $HOME/.GameScript_bash11/if4;echo -e 'read X\\n[ $X -eq 1 ]&&echo COURS||echo QUESTIONNAIRE' > $HOME/.GameScript_bash11/if5;echo -e 'X=11;if [ $X -gt 5 ];then echo h;if [ $X -lt 10 ];then echo o;if [ $X -eq 8 ];then echo i;else echo f;fi else echo e;if [ $X -lt 11 ];then echo o;else echo y;fi fi else if [ $X -lt 3 ];then echo o;if [ $X -eq 1 ];then echo l;else echo u;fi else echo x;fi fi' > $HOME/.GameScript_bash11/if6;echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi' > $HOME/.GameScript_bash11/if7
 
-Nous avons déjà vu que pour créer un script bash, il suffit de cumuler dans un fichier texte les commandes que vous connaissez déjà.
-Mais bash est donc aussi un langage de programmation que vous pouvez utiliser pour créer des scripts complexes.
-
-Il est par exemple aussi possible de demander une valeur à l'utilisateur, pour donner à votre script une certaine interactivité.
-Pour cela il faut utiliser la commande ${code}read${reset}, qui prend en argument le nom de la variable où sera stocké la valeur donnée.
-Pour demander la valeur de la variable NAME à l'utilisateur, il suffira de faire ${learn}read NAME${reset}
-Votre script attendra qu'une valeur soit donnée et que la touche entrée soit pressée pour continuer.
-+Essayez donc de demander la valeur de la variable 'NAME' avec ${learn}read NAME${reset}, tapez quelque chose, puis validez avec la touche entrée.
+Avec 'bash', il par exemple possible de demander une valeur à l'utilisateur, pour donner à votre script une certaine interactivité.
+Pour cela il faudra utiliser la commande ${code}read${reset}, qui prendra en argument le nom de la variable où sera stocké la valeur donnée.
+Pour demander la valeur de la variable NAME à l'utilisateur, il suffira de faire ${learn}read NAME${reset} (l'anglais de lire)
+${code}read${reset} attendra qu'une valeur soit donnée et que la touche Entrée soit pressée pour continuer.
++Essayez donc de demander la valeur de la variable 'NAME' avec ${learn}read NAME${reset}, donnez lui une valeur quelconque, puis validez avec la touche entrée.
 !read NAME£Non
 +Affichez maintenant la valeur de la variable 'NAME'.
-!echo $NAME£Non
-A chaque fois que GameScript vous demande quelque chose après ce \\e[97;45m # \\e[0m, c'est cette commande ${code}read${reset} qui est utilisée.
+!echo \\$NAME£Non
+Nous avons déjà vu que pour créer un script bash, il suffisait d'écrire les commandes que vous voulez exécuter dans un fichier texte.
+Les commandes seront alors lancés les unes après les autres lorsque vous donnez ce fichier en argument à la commande 'bash'.
+Si la commande ${code}read${reset} est utilisée dans un script, elle mettra ce script en pause tant qu'elle n'aura pas reçu une valeur pour sa variable.
++Affichez donc le contenu du fichier 'CODE'.
+!cat CODE£Non
++Faites maintenant : ${learn}bash CODE${reset}, il vous faudra donner une valeur à 'void' pour continuer.
+!bash CODE£Non
+Ici vous voyez bien que la première commande ${learn}echo -n void=${reset} se lance avant la commande read, mais que la deuxième commande ${learn}echo \\$void${reset} attendra la fin de la commande ${code}read${reset} avant de se lancer.
+A chaque fois que GameScript vous demande de taper quelque chose après ce \\e[97;45m # \\e[0m, c'est en fait cette commande ${code}read${reset} qui est utilisée !
 
-Mais il est aussi possible de contrôler comment se comportera votre script en y ajoutant des ${code}conditions${reset}.
-C'est à dire qu'au lieu d'executer toutes vos commandes les unes après les autres, vous pouvez y intégrer de la logique plus complexe avec ${code}if${reset}.
-GameScript par exemple, utilise régulièrement des ${code}if${reset} pour décider des commandes qui doivent être lancées et celles qui ne doivent pas l'être.
-+Affichez le contenu du fichier 'if1'.
+Mais Bash est aussi capable de créer des scripts plus complexes qu'une simple succession de commande.
+Par exemple, lorque Gamescript vous demande de taper quelque chose, il vérifie si le contenu que vous avez tapé correspond à la commande qui vous a été demandé.
+Si vous faites une erreur ou une faute de frappe, GameScript ne vous laissera pas continuer.
+
+Pour avoir cet effet, un script bash utilise des ${voc}conditions${reset}, avec une combinaison de plusieurs commandes : ${code}if${reset}, ${code}then${reset}, ${code}else${reset} et ${code}fi${reset}.
+
+Avec ces ${code}conditions${reset}, il est possible de contrôler avec précision le comportement de votre script.
+GameScript utilise régulièrement cette combinaison ${code}if/then/else/fi${reset} pour décider quelles commandes doivent être lancées et quelles commandes ne doivent pas l'être.
++Voyons notre premier exemple, affichez le contenu du fichier 'if1'.
 !cat if1£Non
 Ici nous avons un exemple de l'utilisation de la commande ${code}if${reset} (l'anglais du mot 'si') en combinaison avec ${code}else${reset} (l'anglais de 'sinon').
-Ce script demandera à l'utilisateur la valeur de la variable 'X', si cette valeur est 1, le script affichera 'COURS', sinon le script affichera 'QUESTIONNAIRE'.
-Tous les espaces que vous voyez dans ce fichier sont nécessaire pour le bon fonctionnement du ${code}if${reset}.
-Notez également dans ce script l'importance des ${code};${reset}.
-D'une manière générale, vous l'avez surement remarqué mais le ${code};${reset} n'est utile que lorsque le code est sur une même ligne.
-Vous pouvez avoir dans un script ${code}pwd${reset} sur la première ligne et ${code}ls${reset} sur la deuxième.
-Mais si vous voulez avoir les deux sur la même ligne, il faudra faire ${code}pwd;ls${reset}.
-+Affichez donc le contenu du fichier 'if2'.
+Ce script demandera à l'utilisateur la valeur de la variable 'X', si cette valeur est 1, le script affichera 'COURS', si cette valeur n'est pas 1, le script affichera 'QUESTIONNAIRE'.
+
+Ce mot clef 'if' annonce l'ouverture d'une condition, qui devra avoir le ${voc}test logique${reset} voulue en argument.
+Il faudra ensuite utiliser le mot clef 'then', pour définir l'emplacement du début du code à exécuter si cette condition est valide.
+Cette condition commence à 'if' mais doit également avoir une fin, en utilisant ce mot clef 'fi'.
+
+Vous pouvez lire cette combinaison 'if/then/else/fi' comme 'si/faire/sinon faire/fin'.
+Le code '[ \\$X -eq 1 ]' est un ${voc}test logique${reset} que vous pouvez lire comme 'X est égal à 1'.
+Finalement vous pouvez lire le code ${learn}if [ $X -eq 1 ];then echo COURS;else echo QUESTIONNAIRE;fi${reset} comme : 'si X est égal à 1, faire afficher COURS, sinon faire afficher QUESTIONNAIRE', fin du si.
+
+Comme d'habitude, les ';' peuvent être remplacées par des mises à la lignes, mais attention car tous les espaces que vous voyez dans cet exemple sont indispensables !
+
+Par exemple, il y a un espace entre 'if' et le code entre [].
+Vous pouvez tout simplement voir 'if' comme une commande qui prend ce code en argument.
+Bien évidemment un espace est indispensable pour séparer une commande de son argument.
+
+L'argument d'un 'if' peut être soit ${code}true${reset} (vrai) soit ${code}false${reset} (faux).
+C'est en fait ce que renvoit le code que vous voyez ici '[ \\$X -eq 1 ]', c'est un ${voc}test logique${reset} qui renverra 'true' si la variable X est égal à 1, et 'false' si ça n'est pas le cas.
+
+Vous pouvez également utiliser la variable ${code}\\$?${reset} que nous avons déjà vu.
++Testez donc si 1 est égal à 2 avec : ${learn}[ 1 -eq 2 ];echo \\$?${reset}
+![ 1 -eq 2 ];echo \\$?£Non
+Si donné en argument à if, 0 devient 'true' et tout autre nombre devient 'false'.
+
+Ce '-eq' permet de comparer si deux nombres sont équivalents. (de l'anglais EQual : égal)
+Vous pouvez en utilisez d'autres, comme -lt (Less Than / moins que), -gt (Greater Than / plus grand que), -ge (Greater or Equal / plus grand ou égal), -le (Less or Equal / moins ou égal) et -ne (Not Equal / pas égal).
+Par exemple, si X=1, le code [ \\$X -eq 1 ] renverra 'true', [ 1 -lt 2 ] renverra 'true' et [ 22 -gt 2 ] renverra 'false'.
+
+[ 1 -eq 1 ] renverra 'true' (\\$? = 0) si 1 est égal à 1, ce qui sera bien évidemment toujours le cas.
+
+C'est pourquoi vous pouvez utiliser cette syntaxe que vous connaissez déjà : [ 1 -eq 1 ] && echo GOOD
+
+C'est à dire que vous pouvez aussi utiliser n'importe quelle commande en argument de 'if' si vous le voulez.
+
++Testez donc cette commande, qui affiche 'GOOD' si la commande donnée en argument est un succès : ${learn}if ls;then echo GOOD;fi{reset}
+!if ls;then echo GOOD;fi£Non
+
+'ls' renvoit 'true' à if car la commande est un succès. Autrement dit \\$? est égal à 0.
+
++Essayez donc de faire : ${learn}if true;then echo vrai;else echo faux;fi${reset}
+!if true;then echo vrai;else echo faux;fi£Non
+
+Si vous n'en avez pas besoin, le ${code}else${reset} dans votre script n'est pas obligatoire.
++Essayez donc de faire : ${learn}if true;then echo vrai;fi${reset}
+!if true;then echo vrai;fi£Non
+
+Dans cet exemple, tous les espaces et ';' sont indispensables, faites donc bien attention à ne pas en oublier.
+if${codeFile} ${reset}true;then echo vrai;fi : L'espace entre 'if' et son argument est important, c'est pourquoi ${code}if [ $X -gt 5 ]${reset} est correct mais ${codeError}if[ $X -gt 5 ]${reset} ne l'est pas.
+if true${codeFile};${reset}then echo vrai;fi : La commande 'if' et son argument doivent aussi être séparé du reste, c'est pourquoi il faudra utiliser un ';' ou une mise à la ligne.
+if true;${codeFile}then echo vrai;${reset}fi : Pour être valide, un 'if' doit contenir le mot clef 'then', suivi d'un espace, suivi d'au moins une commande et d'un ';'.
+if true;then echo vrai;${codeFile}fi${reset} : Il doit aussi se terminer par un 'fi', après un ';' ou une mise à la ligne.
+
+#echo -e "\\nif\\ntrue\\nthen\\necho vrai\\nfi"
+La présentation est bien évidemment flexible, ces espaces et ; peuvent être remplacés par des mises à la lignes si vous le désirez.
+
+Mais revenons sur un exemple complet 'if/then/else/fi' : ${code}if true;then echo vrai;else echo faux;fi${reset}
+Ici, quel que soit la situation, il est important de comprendre que seul l'une de ces commandes ${code}echo${reset} se lancera, jamais les deux.
+
++Revenons sur notre premier exemple, réaffichez le contenu du fichier 'if1'.
+!cat if1£Non
++Puis lancez ce script avec : ${learn}bash if1${reset}, et donnez à X la valeur 1.
+!bash if1£Non
++Lancez à nouveau ce script avec : ${learn}bash if1${reset}, et donnez à X une valeur quelconque autre que 1.
+!bash if1£Non
+Maintenant vous devriez comprendre comment cette syntaxe fonctionne.
+
++Affichez maintenant le contenu du fichier 'if2'.
 !cat if2£Non
 Le code du script 'if2' est équivalent au code du script 'if1', seul la présentation du code est différente.
 Ici les ${code};${reset} ont été remplacés par une mise à la ligne.
-Comme pour les commandes, les espaces peuvent être utilisés pour présenter votre code différemment, par exemple pour le rendre plus lisible.
-Traditionnelement, des tabulations ou plusieurs espaces sont ajoutés au début d'une ligne quand le code est d'un autre niveau.
-On appelle cette présentation un style d'indentation, l'${voc}indentation${reset} étant ce décalage en début de ligne.
 +Affichez donc le contenu du fichier 'if3'.
 !cat if3£Non
+Comme pour les commandes, les espaces peuvent être utilisés pour présenter votre code différemment, par exemple pour le rendre plus lisible.
+Traditionnelement, des tabulations ou plusieurs espaces sont ajoutés au début d'une ligne quand le code est d'un autre niveau.
+On appelle cette présentation un style d'indentation, l'${voc}indentation${reset} étant ce décalage en début de ligne : ${codeFile}\\\\t${reset}echo COURS.
 Ici par exemple, il est très facile de voir le ${voc}bloc de code${reset} à l'intérieur du ${code}if${reset} et celui à l'intérieur du ${code}else${reset}.
-
-Si vous n'avez pas besoin, le ${code}else${reset} dans votre script n'est pas obligatoire.
 +Affichez donc le contenu du fichier 'if4'.
 !cat if4£Non
 Le mot ${code}fi${reset} représente la fin du ${code}if${reset}, après ce ${code}fi${reset} le script continue à s'executer normalement ligne par ligne.
@@ -51,49 +115,65 @@ C'est à dire qu'ici, quel que soit la valeur donnée à 'X' la commande 'echo T
 L'absence d'espaces en début de ligne nous permet de rapidement comprendre que cette ligne de code n'est pas dépendant d'un ${code}if${reset}.
 Mais attention, ces ${voc}indentations${reset} ne sont pas obligatoires : c'est un choix esthétique qui revient au créateur du script.
 Je vous recommande cependant d'utiliser ce ${voc}style d'indentation${reset} pour que votre script soit plus facilement compréhensible.
-
-Nous avons donc vu que ${code}[ \\$X -eq 5 ]${reset} est capable de vérifier si 'X' est égal à la valeur 5. (anglais ${code}eq${reset}ual)
+Nous avons donc vu que le code ${code}[ \\$X -eq 5 ]${reset} est capable de vérifier si 'X' est égal à la valeur 5. (anglais ${code}eq${reset}ual)
 Mais vous pouvez aussi vérifier si 'X' n'est ${voc}pas${reset} égal à la valeur 5 avec : ${code}[ \\$X -ne 5 ]${reset} (anglais ${code}n${reset}ot ${code}e${reset}qual)
 Vérifier si 'X' est supérieur à 5 avec : ${code}[ \\$X -gt 5 ]${reset} (anglais ${code}g${reset}reater ${code}t${reset}han)
-Vérifier si 'X' est inférieur à 5 avec : ${code}[ \\$X -lt 5 ]${reset} (anglais ${code}l${reset}ess ${code}t${reset}han)
-
+Vérifier si 'X' est inférieur à 5 avec : ${code}[ \\$X -lt 5 ]${reset} (anglais ${code}l${reset}esser ${code}t${reset}han)
+Ce code entre '[ ]' contiendra la logique qui sera donné à if.
+Mais ce code peut aussi être utilisé comme une commande avec une syntaxe que nous avons déjà vu.
 +Affichez donc le contenu du fichier 'if5'.
 !cat if5£Non
+Cette syntaxe est identique aux autres, mais sa lisibilité est assez réduite, je vous déconseille donc de l'utiliser dans un script lorsque les conditions deviennent complexes.
+Voyons donc maintenant un exemple contenant plusieurs niveaux de conditions : des if dans d'autres if.
++Affichez donc le contenu du fichier 'if6'.
+!cat if6£Non
+Ce code est en fait très simple, mais le manque d'indentation le rend impossible à lire.
++Voyons le même code avec une indentation propre, affichez donc le contenu du fichier 'if7'.
+!cat if7£Non
+Ici avec ce genre de présentation, il est très facile de voir quelles commandes appartiennent à quel 'if', quel 'else' correspond à quel 'if' et quel sont les 'if' à l'intérieur d'autres 'if'.
+A chaque passage dans un nouveau 'if' vous pouvez voir ici une tabulation de plus avant le début de la commande.
+Au contraire, à chaque fois qu'un 'if' se termine avec un 'fi', il y a une tabulation de moins.
+Maintenant que ce code est plus lisible, nous allons le lire et le comprendre ensemble.
+Pour cela nous allons nous comporter comme le ferait 'bash', en lisant et interprétant les commandes ligne par ligne.
+#echo '';echo -e '\\e[30;48;5;82mX=11\\e[0m\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Tout d'abord, une variable nommé X sera créé et contiendra la valeur 11.
+#echo '';echo -e 'X=11\\n\\e[30;48;5;82mif [ $X -gt 5 ];then\\e[0m\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Ensuite nous avons notre première condition.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\e[30;48;5;81m\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\e[0m\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Si celle-ci est correcte nous entrerons dans le code du 'then' correspondant.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\e[30;48;5;81m\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\e[0m\\nfi'|cat -n
+- Si cette condition est incorrecte, nous entrerons dans le 'else' correspondant à ce premier 'if'.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\e[30;48;5;81m\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\e[0m\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Ici X étant égal à 11, nous rentrons dans le 'if' car 11 est un nombre plus grand que 5.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\e[41m\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\e[0m\\nfi'|cat -n
+- Dans notre cas avec X=11, ce code ne sera pas utilisé. (FIRST ELSE)
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\e[30;48;5;82m\\techo h\\e[0m\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Dans ce 'if' nous avons notre première commande qui sera executée : echo h, qui affichera la lettre h.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\t\\e[30;48;5;82mif [ $X -lt 10 ];then\\e[0m\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Puis nous avons une nouvelle condition sur la valeur de X, si X est inférieur à 10.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\e[41m\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\e[0m\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- X étant égal à 11, et 11 n'étant pas inférieur à 10, nous ignorerons le contenu de ce 'if'.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\e[30;48;5;81m\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\e[0m\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Et nous irons dans le contenu du 'else' correspondant à ce 'if'.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\t\\e[30;48;5;82mecho e\\e[0m\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Notre deuxième commande est donc : echo e, qui affichera la lettre e.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\t\\e[30;48;5;82mif [ $X -lt 11 ];then\\e[0m\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\techo y\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Puis nous avons un nouvelle condition, si X est inférieur à 11.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\techo h\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\techo e\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\t\\e[30;48;5;82mecho y\\e[0m\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- X n'étant pas inférieur à 11, puisqu'il est égal à 11, nous irons dans le 'else' correspondant, et nous affichons notre troisième lettre avec echo y.
+#echo '';echo -e 'X=11\\nif [ $X -gt 5 ];then\\n\\t\\e[30;48;5;82mecho h\\e[0m\\n\\tif [ $X -lt 10 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 8 ];then\\n\\t\\t\\techo i\\n\\t\\telse\\n\\t\\t\\techo f\\n\\t\\tfi\\n\\telse\\n\\t\\t\\e[30;48;5;82mecho e\\e[0m\\n\\t\\tif [ $X -lt 11 ];then\\n\\t\\t\\techo o\\n\\t\\telse\\n\\t\\t\\t\\e[30;48;5;82mecho y\\e[0m\\n\\t\\tfi\\n\\tfi\\nelse\\n\\tif [ $X -lt 3 ];then\\n\\t\\techo o\\n\\t\\tif [ $X -eq 1 ];then\\n\\t\\t\\techo l\\n\\t\\telse\\n\\t\\t\\techo u\\n\\t\\tfi\\n\\telse\\n\\t\\techo x\\n\\tfi\\nfi'|cat -n
+- Au final, avec X égal à 11, voilà les trois commandes qui seront exécutés.
 
-
--eq difference with =
-
-Plusieurs niveaux if if if
-
-Nombreuses versions de conditions possibles, toutes identiques.
-
-Syntaxe que nous avons déjà vu :
-[ $x == 111 ]; echo $?
-[ $x == 11 ] && echo YES || echo NO
-
-
-
-if [ "$(whoami)" != 'root' ]; then
-
-if [ $# -eq 0 ]; then ;; fi
-	IF NO ARGUMENTS
-if [ -z "$1" ]
-if [ -f /var/log/messages ]
-
-$0 $1 $2 $@ $# $_ $- “$@” $!
-
-variable in script + variable in shell that launched bash
-difference bash et ./ (nouvelle instance de bash)
-	bash ls
-shebang
-
-
-type source ---> built-in ----> man bash
-
-
-
-
-ê
-é
-à
-è
++Vous pouvez maintenant lancer ce script avec : ${learn}bash if7${reset}.
+!bash if7£Non
+Bash affiche bien ce que nous avions prévu : h, puis e, puis y.
+Bien évidemment, lorsque la valeur de X n'est pas 11, le même code n'affichera pas la même chose.
++Affichez donc le contenu du fichier 'if8'.
+!cat if8£Non
+Ici le code est identique, seul la valeur de X a changé, essayez de lire ce code et trouvez ce qu'il affichera avant de continuer.
++Si vous pensez avoir la bonne réponse, lancez ce script pour vérifier : ${learn}bash if8${reset}.
+!bash if8£Non
+Lorsque vous voyez ces [], il s'agit en fait de la syntaxe secondaire de la commande ${code}test${reset}.
+Par exemple, ${code}[ 1 -eq 2 ]${reset} est en fait équivalent à ${code}test 1 -eq 2${reset} !
+N'hésitez donc pas à voir plus de détails sur ces ${voc}tests logiques${reset} avec un : ${code}man test${reset} !!!
+En avant pour le questionnaire !

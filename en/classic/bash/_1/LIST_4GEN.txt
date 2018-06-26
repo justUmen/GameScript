@@ -1,37 +1,37 @@
-#[ -d "$HOME/House" ] && echo "Unknown error, ${HOME}/House already exist ! Delete this folder $HOME/House and launch the script again." && exit
-#mkdir $HOME/.GameScript_bash1
+# [-d "$HOME/House"] && echo "Unexpected error, ${HOME}/House already exists on your system! Delete this $HOME/House folder and restart this script." && exit
+#mkdir $HOME/.GameScript_bash1 &> /dev/null
 #cd $HOME/
-Hello everyone and welcome in the first chapter about bash.
+Hello everyone and welcome in the first chapter named 'bash'.
 Before seeing our first command, we need to understand the logic behind the organisation of the files and folders in Linux.
 Let's start to talk about 'directories', which are also called 'folders'.
 #real_tree_1
 On linux, you can imagine the organization of files and folders like a tree.
 In this tree, the folders are shown in sky blue.
 At the base of the tree you have the symbol ${code}/${reset} which represent the ${voc}root directory${reset}.
-It a special folder that will contain ALL the other folders of the system.
+It is a special folder that will contain ALL the other folders of the system.
 #real_tree_2
 In this tree, everytime you see a new branch, it represent a new folder.
-This passage to another branch can also be seen in the sky blue names with the appearance of an additional symbol '/'.
+This passage to another branch can also be seen in their names with the appearance of an additional symbol '/'.
 For example, ${code}/home/${reset} represent the folder 'home' in the ${voc}root directory${reset}.
 ${code}/home/user/${reset} represent the directory 'user', which is the directory 'home', which is himself in the ${voc}root directory${reset}.
 And so on, like for example : ${code}/home/user/Images/${reset}
 In this case, 'Images' is in 'user', 'user' is in 'home' and 'home' is in '/'.
-But be careful, to represent a directory, having a '/' at the end isn't mandatory.
+But be careful, having a '/' at the end of the last folder isn't mandatory.
 It means that ${learn}/home/user/${reset} is equivalent to ${learn}/home/user${reset}.
 Also, ${learn}/home/${reset} and ${learn}/home${reset} are equivalent.
 #real_tree_3
-Now let's talk about the files, here in my tree they are in green. In my example, they are 'leaves' and are connected to a branch, or even sometimes the trunk itsef.
+Now let's talk about the files, here in my tree they are in green. In my example, files are 'leaves' and are connected to a branch, or even sometimes the trunk itsef.
 These files belong to a folder. But we have here some problems in red, files that can't exist...
-${codeError}fichier1${reset} can't exist because there is already a file with the same name ${codeFile}fichier1${reset} in the same directory. Here the root directory (/fichier1)
-But above, ${codeFile}fichier1${reset} can exist because even if the name of the file is the same, they are not in the same folder.
-The elements in a Unix-like operating system should have a unique reference : here ${learn}/fichier1${reset} and ${learn}/home/fichier1${reset} are not in conflit.
+${codeError}file1${reset} can't exist because there is already a file with the same name ${codeFile}file1${reset} in the same directory. Here the root directory (/file1)
+But above, ${codeFile}file1${reset} can exist because even if the name of the file is the same, they are not directly in the same folder.
+The elements in a Unix-like operating system should have a unique reference : here ${learn}/file1${reset} and ${learn}/home/file1${reset} are not in conflit.
 The file ${codeError}/home${reset} can't exist either, because there is already a folder ${code}/home/${reset} using the same name in the same place.
 For these files to exist, we must give them different names.
 #real_tree_4
-Here we just have to call the second file 'fichier2'.
+Here we just have to call the second file 'file2'.
 For ${codeError}home${reset}, we need to give another name that won't be a problem like 'Home'.
-Yes ! On linux, uppercase letters are important. 'Home' and 'home' are two differents names.
-When the uppercase letters are different from the lowercase letters, we say that they are ${voc}case sensitive${reset}.
+Yes ! On Unix, uppercase letters are important. 'Home' and 'home' are two differents names.
+When the uppercase letters are considered different from the lowercase letters, we say that the computer system is ${voc}case sensitive${reset}.
 Indeed, linux is ${voc}case sensitive${reset}. It means that 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... are all different and valid names !
 #tree_1
 It is also possible to represent the linux folders this way.
@@ -39,152 +39,150 @@ It is also possible to represent the linux folders this way.
 And here is the same example with files. Identical to the tree above.
 #tree_3
 But the structure can also be understood without the tree-like format.
-If all this isn't obvious for you now, don't worry.
+If all ofS this isn't obvious for you now, don't worry.
 Now that you understand the logic, with time and repetition it will soon be easy for you.
 This kind of line, which start with the ${voc}root directory${reset} '/' is called the ${voc}absolute path${reset} of a folder or a file.
-It represents with precision only the file or the folder in question.
+It represents with precision only the targetted file or folder.
 Here it is impossible to have too identical lines.
-This ${voc}absolute path${reset} is the most import concept of the command line.
-
-Ce ${voc}chemin absolu${reset} est le concept le plus fondamental de la ligne de commande.
-Maintenant nous pouvons voir notre première commande.
-Commençons par créer un nouveau dossier avec la commande ${learn}mkdir${reset} (mkdir vient de l'anglais ${learn}M${reset}a${learn}K${reset}e ${learn}DIR${reset}ectory).
-Il suffit de taper mkdir, suivi d'un espace et enfin du nom du dossier.
-+Créeons maintenant le dossier House en faisant : ${learn}mkdir House${reset} puis validez la commande en appuyant sur la touche entrée.
+This ${voc}absolute path${reset} is the most important concept of the command line.
+Now we can see our first command !
+Let's start by creating a new folder with the command ${learn}mkdir${reset} (mkdir comes from ${learn}M${reset}a${learn}K${reset}e ${learn}DIR${reset}ectory).
+You just have to type 'mkdir', followed by a space and the name of the folder.
++Now let's create the folder 'House' with : ${learn}mkdir House${reset} and confirm the command by pressing the Return key.
 !mkdir House£Non
-+Affichons maintenant les dossiers et les fichiers avec un simple ${learn}ls${reset} (ls vient de l'anglais ${learn}L${reset}i${learn}S${reset}t).
++Let's now display the folders and files with a simple ${learn}ls${reset} (ls comes from ${learn}L${reset}i${learn}S${reset}t).
 !ls£Non
-Vous devriez voir le dossier que vous venez de créer.
-Maintenant rentrons dans ce dossier avec la commande ${learn}cd${reset} (cd vient de l'anglais ${learn}C${reset}hange ${learn}D${reset}irectory).
-+Pour cela, il suffit de faire ${code}cd${reset}, suivi du nom du dossier voulu, dans notre cas : ${learn}cd House${reset}.
+You should see the folder you've created.
+Now we can go inside that folder with the command ${learn}cd${reset} (cd comes from ${learn}C${reset}hange ${learn}D${reset}irectory).
++To do that, we just have to do ${code}cd${reset}, followed by the name of folder, in our case : ${learn}cd House${reset}.
 !cd House£Non
-+Maintenant réaffichons les fichiers et dossiers avec un simple ${learn}ls${reset}.
++Now let's display the files and folders again with a simple : ${learn}ls${reset}.
 !ls£Non
-Ici le répertoire 'House' est vide, c'est normal puisque nous venons de le créer.
-Mais qu'en est-il ici du ${voc}chemin absolu${reset} dont je vous ai parlé avant ?
-En fait, un terminal tourne toujours dans un dossier, et peut se 'déplacer' dans l'arborescense du système.
-C'est ce que vous avez fait avec la commande ${learn}cd House${reset}, vous avez déplacé votre terminal dans le dossier 'House'.
-+Pour savoir dans quel répertoire votre terminal est en ce moment, il suffit de taper ${learn}pwd${reset} (pwd vient de l'anglais ${learn}P${reset}rint ${learn}W${reset}orking ${learn}D${reset}irectory).
+Here the directory 'House' is empty, it's normal because you've just created it.
+But what about the ${voc}absolute path${reset} I talked about before ?
+In fact, a terminal is always running in a folder, and can 'move' in the system tree.
+It is what you did with the command ${learn}cd House${reset}, you moved the terminal in the folder 'House'.
++To know in which directory your terminal is right now, you just have to type ${learn}pwd${reset} (pwd comes from ${learn}P${reset}rint ${learn}W${reset}orking ${learn}D${reset}irectory).
 !pwd£Non
-Le résultat que vous voyiez ici est le ${voc}chemin absolu${reset} du répertoire ou vous êtes en ce moment.
-Ce répertoire où vous êtes porte un nom spécial : c'est votre ${voc}${voc}répertoire courant${reset}.
-Comme je vous l'ai déjà dit, il n'est pas obligatoire de mettre un '/' pour le dernier dossier, c'est pourquoi vous voyez ici ${learn}$(pwd)${reset} sans un '/' à la fin.
-Voilà donc 4 commandes Unix fondamentales : ${learn}pwd${reset}, ${learn}ls${reset}, ${learn}cd${reset} et ${learn}mkdir${reset}.
-${learn}pwd${reset} et ${learn}ls${reset} sont des commandes particulièrement innoffensives, elle ne font que vous donnez des renseignements.
-N'hésitez donc pas à les taper systématiquement, dès que vous êtes dans un terminal.
-${learn}pwd${reset}, pour savoir quel est votre ${voc}répertoire courant${reset}
-et ${learn}ls${reset}, pour afficher le contenu de votre ${voc}répertoire courant${reset}.
-+Maintenant créons un nouveau répertoire 'Room' dans notre ${voc}répertoire courant${reset} en faisant ${learn}mkdir Room${reset}.
+The result you see here is the ${voc}absolute path${reset} of the folder you are in right now.
+This folder where you are has a special name : it's your ${voc}working directory${reset}, also called ${voc}current directory${reset}.
+Like I said before, it is not mandatory to put a '/' for the last folder, that's why you can see here ${learn}$(pwd)${reset} without a '/' at the end.
+So here you have 4 fundamental Unix commands : ${learn}pwd${reset}, ${learn}ls${reset}, ${learn}cd${reset} and ${learn}mkdir${reset}.
+${learn}pwd${reset} and ${learn}ls${reset} are very safe to use, because they just display informations.
+So don't hesitate to use them extensively, as soon as you are in a terminal.
+${learn}pwd${reset}, to know what is your ${voc}current directory${reset}.
+And ${learn}ls${reset}, to display the content of your ${voc}current directory${reset}.
++Now let's create a new folder 'Room' in our ${voc}current directory${reset} with : ${learn}mkdir Room${reset}
 !mkdir Room£Non
-+Changeons de ${voc}répertoire courant${reset} avec ${learn}cd Room${reset}.
++Let's change our ${voc}current directory${reset} with : ${learn}cd Room${reset}
 !cd Room£Non
-+Maintenant, affichez le chemin absolu de votre ${voc}répertoire courant${reset}.
++Now, try the command to display the absolute path of your ${voc}current directory${reset} !
 !pwd£Non
-+Super, et maintenant affichez les éléments du ${voc}répertoire courant${reset}.
++Awesome, now let's display the elements of your ${voc}current directory${reset} !
 !ls£Non
-Ici le dossier est vide, mais vous maitrisez maintenant les deux commandes les plus importantes : ${learn}pwd${reset} et ${learn}ls${reset}.
-Les commandes ${learn}cd${reset} et ${learn}mkdir${reset} que nous avons vu ensemble sont plus complexes.
-Il faut leur donner une cible, ou un nom comme par exemple : ${learn}mkdir Room${reset}.
-Cette 'cible' est appelée un ${voc}argument${reset}!
-Mais il est aussi possible d'avoir des commandes avec plusieurs ${voc}arguments${reset}.
-Il suffit de continuer à les séparer par des espaces.
-+On va créer les dossiers 'bed', 'closet' et 'desk' en une seule commande. Tapez donc la commande : ${learn}mkdir bed closet desk${reset}
+Here the folder is empty, but you already understand the two most important commands : ${learn}pwd${reset} et ${learn}ls${reset}.
+The commands ${learn}cd${reset} and ${learn}mkdir${reset} are more complex.
+They need a target or a name, like for example : ${learn}mkdir Room${reset}.
+This 'target' is called an ${voc}argument${reset} !
+But it is also possible to have commands with multiple ${voc}arguments${reset}.
+You just have to separate them with spaces.
++Create the folders 'bed', 'closet' and 'desk' with a single command : ${learn}mkdir bed closet desk${reset}
 !mkdir bed closet desk£Non
-+Affichez les éléments du ${voc}répertoire courant${reset}.
++Display the elements of the ${voc}current directory${reset}.
 !ls£Non
-+Maintenant pour supprimer ces dossiers, vous pouvez taper : ${learn}rmdir bed closet desk${reset}. (rmdir vient de l'anglais ${learn}R${reset}e${learn}M${reset}ove ${learn}DIR${reset}ectory)
++Now to delete these folders, you can do : ${learn}rmdir bed closet desk${reset}. (rmdir comes from ${learn}R${reset}e${learn}M${reset}ove ${learn}DIR${reset}ectory)
 !rmdir bed closet desk£Non
-${learn}rmdir${reset} est une commande plutôt innofensive, parce qu'elle refusera de supprimer un dossier si celui-ci n'est pas vide.
-Ce qui peut empêcher de graves accidents. Si par exemple, vous faites par erreur ${learn}rmdir /home${reset}.
-La commande ${learn}rm${reset} est la commande pour supprimer des fichiers. (rm vient de l'anglais ${learn}R${reset}e${learn}M${reset}ove)
+${learn}rmdir${reset} is a rather innoffensive command, because it will refuse to delete a folder if it isn't empty.
+That can prevent accidents. If for example, you did ${learn}rmdir /home${reset} by mistake.
+${learn}rm${reset} is the command to delete files. (rm comes from ${learn}R${reset}e${learn}M${reset}ove)
 #touch virus0 virus1 virus2 virus3 virus4
-Tout comme ${learn}mkdir${reset}, il faudra lui donner en ${voc}argument${reset} le nom du fichier en question, par exemple : ${learn}rm test${reset}.
-+Il vient de se passer quelque chose de bizarre... Affichez le contenu du ${voc}répertoire courant${reset}.
+Just like ${learn}mkdir${reset}, you need to give it in ${voc}argument${reset} the name of the file you want to target, for example : ${learn}rm test${reset}.
++Something strange just happened... Display the content of your ${voc}working directory${reset}.
 !ls£Non
-+rmdir${reset} a bien supprimé les dossiers. Mais ces fichiers n'ont rien à faire ici, supprimez le fichier 'virus0' avec ${learn}rm virus0${reset}
++${code}rmdir${reset} deleted the folders successfully. But these files have nothing to do here, delete the file 'virus1' with ${learn}rm virus0${reset}
 !rm virus0£Non
-+Affichez à nouveau les éléments du ${voc}répertoire courant${reset}, pour voir s'il est toujours là.
++Display again the elements of the ${voc}current directory${reset}, to see if 'virus0' is still there.
 !ls£Non
-Super, virus0 n'existe plus.
-Mais attention avec la commande ${learn}rm${reset}, c'est une commande dangereuse à ne pas utiliser à la légère.
-Les fichiers sont supprimés directement, il ne vont pas dans une corbeille, donc soyez prudent.
-Une erreur en ligne de commande ne pardonne pas.
-Une faute de frappe ou un ${voc}répertoire courant${reset} innatendu peut avoir de graves conséquences.
-Avant de lancer une commande, soyez donc sûrs de ce que vous faites.
-N'hésitez jamais a lancer ou relancer ${learn}pwd${reset} et ${learn}ls${reset} pour savoir quel est votre ${voc}répertoire courant${reset} et vérifier son contenu.
-Mais nous avons encore d'autres 'virus' à supprimer. Mais on peut aussi les supprimer d'une autre manière.
-Nous pouvons utiliser son ${voc}chemin absolu${reset}.
+Awesome, 'virus0' doesn't exist anymore.
+But be careful with ${learn}rm${reset}, it is a very dangerous command and shouldn't take it lightly.
+The files are deleted, they won't go in a recyclebin, so be careful.
+A mistake using command line can be unforgiven.
+A mispell or an unwanted ${voc}current directory${reset} can have severe consequences.
+Before confirming a command, be sure of what you are doing.
+Never hesitate to launch and relaunch ${learn}pwd${reset} and ${learn}ls${reset} to know what is your ${voc}current directory${reset} and check its content.
+But for now we have more 'virus' to delete. And we can remove them differently.
+We can use their ${voc}absolute path${reset}.
 #cd ~/
-Lorsque vous avez tapé ${learn}rm virus0${reset}, vous avez demandé la suppression du fichier 'virus0' dans votre ${voc}répertoire courant${reset}.
-+Je viens de changer votre ${voc}répertoire courant${reset}. Affichez le maintenant.
+When you did ${learn}rm virus0${reset}, you've asked for the deletion of the file 'virus0' in your ${voc}current directory${reset}.
++I've just changed your current directory, display it now.
 !pwd£Non
-+Affichez le contenu de votre ${voc}répertoire courant${reset}.
++Display the content of your ${voc}current directory${reset}.
 !ls£Non
-Le fichier 'virus1', existe toujours dans le répertoire 'Room', mais étant donné votre ${voc}répertoire courant${reset}, vous ne pouvez pas lancer ${learn}rm virus1${reset}.
-Heureusement, vous connaissez le ${voc}chemin absolu${reset} du fichier 'virus1' : ${learn}$HOME/House/Room/virus1${Reset}
-Vous pouvez utiliser son ${voc}chemin absolu${reset} comme ${voc}argument${reset}. Cette commande marchera donc quel que soit votre ${voc}répertoire courant${reset} !
-+Supprimez le avec cette commande : ${learn}rm $HOME/House/Room/virus1${reset}.
+The file 'virus1' still exists in the folder 'Room', mais with your ${voc}current directory${reset}, you can't do ${learn}rm virus1${reset}.
+Hopefully, you know the ${voc}absolute path${reset} of the file 'virus1' : ${learn}$HOME/House/Room/virus1${Reset}
+You can use its ${voc}absolute path${reset} as an argument. And this command will work whatever is your ${voc}current directory${reset} !
++Delete 'virus1' with : ${learn}rm $HOME/House/Room/virus1${reset}.
 !rm $HOME/House/Room/virus1£Non
-Maintenant, comment pouvoir vérifier si le fichier a bien été supprimé ?
-Lorsqu'une commande ne se passe pas comme prévue, elle vous renvoit très souvent une erreur.
-+Essayez de supprimer le fichier 'virus1' à nouveau en utilisant son ${voc}chemin absolu${reset}.
+Now, how can we check if the file was deleted ?
+When a command doesn't go as planned, it will display an error.
++Try to delete the file 'virus1' again with its ${voc}absolute path${reset}.
 !rm $HOME/House/Room/virus1£Non
-Ici la commande ${learn}rm${reset} vous renvoit une erreur, le fichier n'existe donc déjà plus.
-Maintenant, on peut aussi utiliser le ${voc}chemin absolu${reset} du dossier 'Room' pour afficher son contenu.
-Vous connaissez déjà la commande ${learn}ls${reset}, pour lister le contenu du ${voc}répertoire courant${reset}.
-Sans ${voc}argument${reset}, avec un simple ${learn}ls${reset}, le répertoire utilisé sera automatiquement le ${voc}répertoire courant${reset}.
-Mais il est en fait aussi possible de donner un ${voc}argument${reset} à ${learn}ls${reset}.
-Cet ${voc}argument${reset} représente le répertoire cible, par exemple ${learn}ls /${reset} affichera le contenu du ${voc}répertoire racine${reset}.
-+Nous pouvons afficher le contenu du répertoire 'Room' sans se déplacer dans l'arborescence, avec cette commande : ${learn}ls $HOME/House/Room/${reset}.
+Here the command ${learn}rm${reset} is displaying an error because the file you want to delete doesn't exist.
+We can also use the ${voc}absolute path${reset} of the folder 'Room' to display its content.
+You already know the command ${learn}ls${reset}, to display the content of your ${voc}current directory${reset}.
+Without ${voc}argument${reset}, with a simple ${learn}ls${reset}, the target folder will be the ${voc}current directory${reset}.
+But it is also possible to give an ${voc}argument${reset} to ${learn}ls${reset}.
+This ${voc}argument${reset} is the targetted folder, for example ${learn}ls /${reset} will display the content of the ${voc}root directory${reset}.
++We can display the content of the folder 'Room' without having to move in this directory first, with : ${learn}ls $HOME/House/Room/${reset}.
 !ls $HOME/House/Room/£Non
-Excellent, le fichier 'virus1' n'existe plus.
-Encore une fois, je vous rappelle que dans un ${voc}chemin absolu${reset}, si le dernier caractère est un '/', il n'est pas obligatoire.
-+Donc ici le dernier '/' dans ${learn}$HOME/House/Room/${reset} n'est pas obligatoire. Testez donc à nouveau avec cette commande : ${learn}ls $HOME/House/Room${reset}
+Excellent, the file 'virus1' no longer exists.
+Once again, I want to remind you that in an ${voc}absolute path${reset}, if the last character is a '/', it is not mandatory.
++So here the last '/' in ${learn}$HOME/House/Room/${reset} isn't mandatory. Test with this command : ${learn}ls $HOME/House/Room${reset}
 !ls $HOME/House/Room£Non
-Pas de problème, le résultat est le même pour ces deux commandes : ${learn}ls $HOME/House/Room/${reset} et ${learn}ls $HOME/House/Room${reset}.
-Quand vous avez fait ${learn}rm virus0${reset} pour la première suppression, vous avez utilisé ce que l'on appelle le ${voc}chemin relatif${reset}.
-On dit que ce chemin est relatif parce qu'il dépend de votre ${voc}répertoire courant${reset}.
-Imaginons deux fichiers 'virus' avec comme ${voc}chemin absolu${reset} : ${learn}/virus${reset} et ${learn}/bin/virus${reset}.
-Si ${learn}pwd${reset} vous donne ${learn}$HOME${reset}. Un ${learn}rm virus${reset} ne supprimera aucun d'entre eux. Cette commande voudra supprimer le fichier avec ce chemin absolu : ${learn}$HOME/virus${reset}.
+No problem there, the result is identical for both commands : ${learn}ls $HOME/House/Room/${reset} and ${learn}ls $HOME/House/Room${reset}.
+When you did ${learn}rm virus0${reset} for the first deletion, you used what's called the ${voc}relative path${reset}.
+We say that this path is 'relative' because it depends on your ${voc}working directory${reset}.
+Let's imagine two 'virus' files with ${voc}absolute path${reset} : ${learn}/virus${reset} and ${learn}/bin/virus${reset}.
+If ${learn}pwd${reset} is displaying ${learn}$HOME${reset}. A ${learn}rm virus${reset} won't delete ay yof them. This command would try to remove the file ${learn}$HOME/virus${reset}.
 #cd "$HOME"
-D'ou la très grande utilité de ce ${voc}chemin absolu${reset}. Vous pouvez utiliser ${learn}rm /virus${reset} et ${learn}rm /bin/virus${reset} quel que soit votre ${voc}répertoire courant${reset}.
-+Je viens de vous déplacer dans l'arborescence, affichez donc le chemin absolu du ${voc}répertoire courant${reset}.
+This is why this ${voc}absolute path${reset} is very important. You can do ${learn}rm /virus${reset} or ${learn}rm /bin/virus${reset} and it will work whatever is your ${voc}current directory${reset}.
++I just changed your ${voc}current directory${reset}, display it.
 !pwd£Non
-Pour changer de ${voc}répertoire courant${reset}, vous pouvez utiliser la commande ${learn}cd${reset}.
-Pour revenir dans le répertoire 'Room', vous pouvez utiliser son ${voc}chemin absolu${reset} : ${learn}cd $HOME/House/Room/${reset}
-Mais il n'est pas obligatoire d'utiliser son ${voc}chemin absolu${reset}, il est aussi possible de revenir dans le répertoire 'Room' en utilisant son ${voc}chemin relatif${reset}.
-Vous voulez aller dans ${learn}$HOME/House/Room/${reset} mais vous êtes déjà dans ${learn}$HOME${reset}.
-+Il est donc possible de se déplacer de là où vous êtes avec un ${learn}cd House/Room/${reset}. Allez-y.
+To change your ${voc}current directory${reset}, you can use the command ${learn}cd${reset}.
+To go back in the folder 'Room, you can use its ${voc}absolute path${reset} : ${learn}cd $HOME/House/Room/${reset}
+But you can also do the same thing using its ${voc}relative path${reset}.
+You want to move in ${learn}$HOME/House/Room/${reset} and you already are in ${learn}$HOME${reset}.
++It is therefore possible de move from where you are now with : ${learn}cd House/Room/${reset}. Go ahead, try it.
 !cd House/Room/£Non
-+Affichez maintenant les éléments de votre ${voc}répertoire courant${reset}.
++Display the elements of your ${voc}working directory${reset}.
 !ls£Non
-+Ici vous voyez encore des fichiers virus, supprimez le fichier virus2 en utilisant le ${voc}chemin relatif${reset}.
++Here you can still se some viruses files. delete the file 'virus2' with its ${voc}relative path${reset}.
 !rm virus2£Non
 Excellent!
-Nous avons vu dans l'exemple précédent que ${learn}cd House/Room/${reset} utilise un ${voc}chemin relatif${reset}, pourtant cette commande contient aussi des '/'.
-Donc comment reconnaitre un ${voc}chemin absolu${reset} d'un ${voc}chemin relatif${reset} ?
-Le ${voc}chemin absolu${reset} est en fait très facile à reconnaitre !
-Il commence toujours à la racine, c'est à dire que le premier caractère d'un ${voc}chemin absolu${reset} est toujours un '/'.
-Il y a aussi une syntaxe spéciale très utile pour le ${voc}chemin relatif${reset} : ${learn}..${reset}
-${learn}..${reset} représente dans l'arborescence le parent du ${voc}répertoire courant${reset}.
-C'est le vocabulaire que nous employons pour parler de cette arborescence, ce sont des relations parents / enfants.
-Par exemple pour ${learn}/home/user/test/${reset}, le dossier parent de test est user. Le dossier parent de user est home.
-Et bien évidemment test est un enfant de user, et user est un enfant de home.
-Cibler les enfants en ${voc}argument${reset} avec un ${voc}chemin relatif${reset} est très simple, il suffit d'écrire le nom de leurs parents successifs.
-Comme par exemple avec la commande de tout a l'heure : ${learn}cd House/Room/${reet}
-Pour cibler les parents, c'est un peu plus compliqué. Il faut utiliser ${learn}..${reset}.
-+Affichez donc le chemin absolu de votre ${voc}répertoire courant${reset}.
+We saw in the last example that ${learn}cd House/Room/${reset} is using a ${voc}relative path${reset}, but this path still contains several '/'.
+So how can we know if a path is an ${voc}absolute path${reset} or a ${voc}relative path${reset} ?
+The ${voc}absolute path${reset} is in fact very easy to recognize !
+It always starts at the root directory, it means that the first character of an ${voc}absolute path${reset} is always a '/'.
+There is also a very useful syntax for the ${voc}relative path${reset} : ${learn}..${reset}
+${learn}..${reset} represents in the tree the parent of your ${voc}current directory${reset}.
+It is the vocabulary we will use to talk about this tree, they have child / parent relationships.
+For example, for ${learn}/home/user/test/${reset}, the parent folder of 'test' is 'user' and the parent of 'user' is 'home'.
+And of course 'test' is a child of 'user', and 'user' is a child of 'home'.
+Targetting children in ${voc}argument${reset} with their ${voc}relative path${reset} is very simple, you just have to write the names of thei successive parents.
+Like for example with the command we used before : ${learn}cd House/Room/${reet}
+To target parents, it will is a little more complicated. We have to use these ${learn}..${reset}.
++Display the absolute path of you current directory.
 !pwd£Non
-Vous connaissez aussi la commande pour changer de répertoire courant : ${learn}cd${reset}.
-Ici nous allons nous déplacer dans le répertoire parent. Nous sommes dans ${learn}$HOME/House/Room/${reset} mais nous voulons aller dans ${learn}$HOME/House/${reset}
-+Il est possible de remonter d'un cran dans l'arborescence, ou comme je viens de le dire de se déplacer dans le répertoire parent avec un ${learn}cd ..${reset}
+You already know the command to change your current directory : ${learn}cd${reset}.
+Here we want to move in the parent folder. We are in ${learn}$HOME/House/Room/${reset} and we want to go in ${learn}$HOME/House/${reset}
++It is possible to go up one branch in the tree, or like i said before to move in the parent folder with : ${learn}cd ..${reset}
 !cd ..£Non
-+Affichez le chemin absolu du ${voc}répertoire courant${reset}.
++Display the absolute path of the current directory.
 !pwd£Non
-J'espère que le résultat de ${learn}pwd${reset} est logique pour vous.
-+Mais il nous reste deux virus à supprimer, commençons par supprimer le fichier virus3 avec son ${voc}chemin relatif${reset}.
+I hope that for you the result of ${learn}pwd${reset} is making sense.
++But we have two more viruses to get rid of, delete 'virus3' with its ${voc}relative path${reset}.
 !rm Room/virus3£Non
-+Bien ! Maintenant supprimons le fichier virus4 en utilisant son ${voc}chemin absolu${reset}.
++Good ! Now delete the file 'virus4' with its ${voc}absolute path${reset}.
 !rm $HOME/House/Room/virus4£Non
-Parfait, vous avez tout compris ! Et je vous donne rendez-vous au questionnaire !
+Amazing, you got it ! Try to confirm your knowledge with the quiz now.
 #clean

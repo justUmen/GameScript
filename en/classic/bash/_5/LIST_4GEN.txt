@@ -1,0 +1,156 @@
+#[ -d "$HOME/.GameScript_bash5" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash5 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash5 et relancer ce script." && exit
+#mkdir $HOME/.GameScript_bash5 2> /dev/null
+#cd $HOME/.GameScript_bash5
+#mkdir Dossier;touch Dossier/X;touch Dossier/Y;chmod 644 Dossier
+#echo "a">f1;chmod 000 f1;echo "ab">f2;chmod 444 f2;echo "abc">f3;chmod 600 f3;echo "abcd">f4;chmod 777 f4
+In this chapter we return to the command ${code}ls${reset}, one of the most important commands.
+And here we'll talk about its most important option: ${code}-l${reset}
++You can type: ${learn}ls -l${reset}
+!ls -l£No
+With this option, ${code}ls${reset} gives us more information about the elements of the current directory.
+At the beginning you have a strings string consisting of ${code}-${reset} and letters to the left of the first space of each line.
+The first character represents the type of the element.
+If it's a ${code}-${reset}, this item is a file, if it's a ${code}d${reset}, it's a folder.
+With this first character, it is clear that 'Folder' is a folder and the others are files.
+The other nine characters that follow represent the ${voc}permissions${reset} of the element in question.
+It is possible to have multiple users on the same computer.
+But some of your files may deserve protection.
+For example, it seems reasonable that your little sister can not delete your personal files.
+On the other hand, even if you do not want her to delete your files, you may need to give her permission to read them.
+These nine characters are used to precisely define the permissions you want.
+The 'minimal' permission is ${code}---------${reset} and the 'maximum' permission is ${code}rwxrwxrwx${reset}.
+Every ${code}-${reset} means that some type of permission is ${voc}disabled${reset}.
+Conversely, when you see a letter, it means that some type of permission is ${voc}activated${reset}.
+But each character must respect this order: ${code}rwxrwxrwx${reset}.
+That is to say that they will have to simplify only two possible states.
+The first character can be either a ${code}-${reset} or a ${code}r${reset}.
+This ${code}r${reset} comes from the English ${code}r${reset} ead and gives the right to read.
+The second character can be either a ${code}-${reset} or a ${code}w${reset}.
+This ${code}w${reset} comes from the English ${code}W${reset} rite and gives the right to write: the modification or deletion.
+The third character can be either a ${code}-${reset} or a ${code}x${reset}.
+This ${code}x${reset} comes from the English e ${code}X${reset} ecute and gives the execute right.
+And this three-character pattern ${code}rwx${reset} is repeated three times.
+The first three characters are the permissions of the ${voc}owner${reset} of the file.
+Example: - ${codeFile} rw -${reset} r ----- 2 ${codeFile} albert${reset} familyEinstein 4096 Feb 19 00:51 Example
+The name of the owner of the 'Example' file is here 'albert'.
+The three characters in green are albert's permissions.
+Example: -rw - ${codeFile} r -${reset} --- 2 albert ${codeFile} Einstein family${reset} 4096 Feb 19 00:51 Example
+Here the three characters in green are the permissions of the members of the ${voc}group${reset} 'Einstein family'.
+Here one can imagine the existence of a group 'Einstein family' for the Einstein family.
+Example: -rw-r - ${codeFile} ---${reset} 2 albert familyEinstein 4096 Feb 19 00:51 Example
+And finally, the last three characters are the permissions of other users.
+Those who are neither albert nor in the group "Einstein family".
+In this example, albert, the owner of the file has the right to read with this ${code}r${reset} and the write right with this ${code}w${reset}, but not the right to execution because the third character is not a ${codeError} x${reset} but a ${code}-${reset}.
+Members of the'Einstein family 'group are only allowed to read on this file with this ${code}r${reset}.
+They do not have the right to modify or delete it because there is no ${code}w${reset}!
+The rest of the users have no permission because there is no letter for them: ${codeFile} ---${reset}.
++Now back to our files and restart the ${learn}command ls -l${reset}
+!ls -l£No
+On a simple system, it's likely that you have a group name similar to your username, but that's not a problem.
+There are therefore many possible permission combinations, here we have 'f1' with the minimum permissions: ${code}---------${reset}.
+We have 'f4' with the maximum permissions: ${code}rwxrwxrwx${reset}.
+And we have other combinations of permissions for the other elements.
++Start by displaying the contents of the file 'f1'.
+!cat f1£No
+And yes, it is not possible to display the contents of this file because you do not have the right to read.
+To use the ${code}cat${reset} command, you will need a ${code}r${reset} instead of this red dash: - ${codeError} -${reset} --- -----.
++On the file 'f2', you have this 'r' in: - ${code}r${reset} - r - r-- which gives you the right to read. View the content of 'f2'.
+!cat f2£No
+Here no problem with the display.
++Add the text 'cd' at the end of the file 'f2'.
+!echo cd >> f2£No
+On 'f2' we still have a permission problem.
+This time we have a missing ${code}w${reset} instead of this red dash: -r ${codeError} -${reset} -r - r--.
+But 'f3' seems to have both ${code}r${reset} and ${code}w${reset}.
++Display the permissions of 'f3' with the name of the file as argument: ${learn}ls -l f3${reset}.
+!ls -l f3£No
++View the content of 'f3'.
+!cat f3£No
++Add 'def' to the 'f3' file.
+!echo def >> f3£No
++Display the contents of 'f3' again.
+!cat f3£No
+Perfect ! We can finally use the commands we have learned.
+But we have never had this permission problem in previous chapters ...
+I come here to actually simulate them for you ...
+You already know how to create a text file with ${code}echo${reset}.
++But you can also use the ${code}touch${reset} command, so: ${learn}touch file${reset}
+!touch file£No
+Now we can see the default permissions when creating a new file.
++To have the permissions of 'file', do ${learn}ls -l file${reset}
+!ls -l file£No
+If the file was created by you, you will have the right to read and write by default.
+Be careful though, if this file does not come from you, it may have limited or unexpected permissions.
+We can see here the name of the owner of the file, but is it you?
++To know your username, you can type: ${learn}whoami${reset}
+!Whoami£No
+'Who am I?' is English for 'Who am I?'
+Here your name actually corresponds to the name of the owner of this file.
+But there is at least one other user on your machine!
+This user has the rights to life and death of everything that exists in your system ...
+This is your admin account, better known as ${voc}root${reset}.
+Traditionally, your personal files must be stored in: / home / yourname
+And you should be in control of everything that's going on inside.
+But as a simple user, you can only control the items in this directory!
++Try to show the permissions of another folder, the root directory for example: ${learn}ls -l /${reset}
+!ls -l /£No
+Here we see that the owner of these elements is ${voc}root${reset}.
+You are not ${voc}root${reset}, so the first three characters of permissions do not apply to you. : d ${codeError} $ rwx {reset} r-xr-x
+You are also not part of the group: drwx ${codeError} r-x${reset} r-x
+The permissions that concern you are the last three: drwxr-x ${codeFile} r-x${reset}
+You have read rights ${codeFile} r${reset} and execute ${codeFile} x${reset}.
+But what about this ${voc}execution permission${reset}?
++Show the permissions of items in the current directory again.
+!ls -l£No
+Here we have a folder with the right of reading and writing.
++Let's go back into this folder.
+!cd File£No
+Here, despite having the right to read on this file, we can not move in it.
+For a text file, the ${codeFile} x${reset} permissions have no effect ...
+But here with a ${voc}${reset} folder, the ${codeFile} x${reset} plays an important role!
+Strangely, we have the right to read with this d ${codeFile} r${reset} w-r - r--
++So we can display the elements of this folder, do it so.
+!ls File£No
+The contents of 'Folder' is displayed. It contains an 'X' file and a 'Y' file.
++Let's now show the file permissions in this folder.
+!ls -l File£No
+Here the absence of ${codeFile} x${reset} in the permissions of 'Folder' prevents us from accessing the details.
+Be careful with these permissions!
+If something does not go as planned, you may just have a permission issue to fix.
+This is what we will see now: How to change these permissions?
+So in the first place you must be able to identify the permission you are missing!
+For example, the ${code}cat${reset} command needs read permission: ${codeFile} r${reset}.
+The file 'f1' does not give us this permission to display it.
+To change these permissions it will be necessary to use the command: ${code}chmod${reset}.
+It will first memorize 3 new letters:
+${code}u${reset} for ${code}u${reset} user or owner: - ${codeFile} rwx${reset} rwxrwx
+${code}g${reset} for the ${code}g${reset} roup: -rwx ${codeFile} rwx${reset} rwx
+and ${code}o${reset} for '${code}o${reset} thers', the English of 'others': -rwxrwx ${codeFile} rwx${reset}
+You can then use these letters in conjunction with the letters 'r', 'w' and 'x' you already know.
+You must also use the symbols ${code}+${reset} and ${code}-${reset}, to add or remove a permission.
++Restart: ${learn}ls -l${reset}
+!ls -l£No
+And let's take an example: How can we allow the display of 'f1'?
+In other words: transform ---------- into -r --------.
+First we want to change the permissions of the owner, so we will use the letter ${code}u${reset}.
+We want to add a permission, so use the symbol ${code}+${reset}.
+We want the right to read, so it will of course use the letter ${code}r${reset}.
+And the target of chmod will be the file 'f1'.
+The syntax will be: ${learn}chmod u + r f1${reset}
++Before running this command, try to display the contents of 'f1'.
+!cat f1£No
++Let's add the read permission to 'f1' for the owner with: ${learn}chmod u + r f1${reset}
+!chmod u + r f1£No
++Restart: ${learn}ls -l${reset}
+!ls -l£No
+Here we have: -r -------- for the file 'f1'.
++And finally, display the file 'f1'.
+!cat f1£No
+So you can use any combination you want: ${learn}u + r${reset}, ${learn}g-w${reset}, ${learn}u + x${reset}, etc ...
+But you can also combine them with others, for example to give the owner the right to read AND write, you can do: ${learn}u + rw${reset}.
+To remove group members and others from the write privilege, you can do this: ${learn}go-w${reset}
+Or to give all rights to everyone, you can do: ${learn}ugo + rwx${reset}.
+Or take away everyone's rights with ${learn}ugo-rwx${reset}.
+Before going on to the questionnaire I remind you that the right of writing gives the right of ${voc}suppression${reset}.
+Good luck !
+#clean
