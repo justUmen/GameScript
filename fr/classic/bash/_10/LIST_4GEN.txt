@@ -7,12 +7,13 @@ Mais les variables sont aussi capables de stocker des commandes bash.
 !cmd='ls -a /var'£Non
 +Faites donc maintenant : ${learn}cmd${reset}.
 !cmd£Non
-Ici nous avons une erreur. Bien évidemment puisque 'cmd' est une ${voc}variable${reset} et n'a jamais été une commande.
+Ici nous avons une erreur. Bien évidemment puisque 'cmd' est une ${voc}variable${reset} et n'a jamais été une commande, faites attention à ne pas confondre les deux.
 Vous pouvez néanmoins vous servir de cette variable comme une commande.
 +Mais pour cela, il faudra utiliser le \\$, faites donc : ${learn}\\$cmd${reset}.
 !\\$cmd£Non
-Mais pour lancer GameScript il vous suffit de taper 'gamescript' dans votre terminal.
-Si le code de GameScript était dans une variable, il vous faudrait taper '\\$gamescript'.
+Ici ${learn}\\$cmd${reset} remplace simplement ${learn}ls -a /var${reset}.
+Mais pour lancer GameScript, il vous suffit de taper 'gamescript' dans votre terminal.
+Si le code de GameScript était dans une variable, il vous faudrait pourtant taper '\\$gamescript'.
 On peut donc imaginer que 'gamescript' est peut être un script qui est dans un des dossiers de la variable d'environnement 'PATH'.
 Et bien pas du tout... mais cela aurait pu être le cas.
 GameScript utilise en fait un ${voc}alias${reset}, un type de variable spécialisé pour les commandes.
@@ -104,7 +105,7 @@ Vous pouvez également faire la même chose en utilisant les ${code}\\`\\`${rese
 !var=\\`ls /var/log/*.log\\`£Non
 +Puis affichez le contenu de la variable 'var'.
 !echo \\$var£Non
-Vous pouvez noter ici que l'utilisation de ${code}\\$()${reset} et ${code}``${reset} remplacent les mises a la ligne par des espaces.
+Vous pouvez noter ici que l'utilisation de ${code}\\$()${reset} et ${code}\\`\\`${reset} remplacent les mises a la ligne par des espaces !
 Nous avons déjà vu ${learn}cat${reset} pour afficher le contenu d'un fichier, mais il existe deux autres commandes bien utiles pour l'affichage du contenu des fichiers.
 Il s'agit de ${code}head${reset} et de ${code}tail${reset}, qui affichent respectivement les 10 premières et les 10 dernières lignes d'un fichier.
 La variable 'var' contient une liste de fichier, vous pouvez donc utiliser cette variable en argument de commande.
@@ -123,7 +124,7 @@ Vous pouvez donc directement utiliser ${code}tail${reset} avec le contenu de ce 
 Dans cette situation, je vous le rappelle que les mises à la ligne sont remplacés par des espaces.
 En utilisant cette méthode, le contenu de ce fichier devient une simple chaine de caractères donnée en argument à la commande ${code}tail${reset}.
 ${voc}Méfiez vous${reset} donc des noms de fichiers qui contiennent des espaces ou des caractères spéciaux.
-Si un fichier se nomme par exemple '/var/log/ce fichier.log', il sera donc considéré par ${code}tail${reset} comme deux fichiers différents : '/var/log/ce' et 'fichier.log'.
+Si un fichier se nomme par exemple '/var/log/ce fichier.log', il sera donc considéré par ${code}tail${reset} comme deux fichiers/arguments différents : '/var/log/ce' et 'fichier.log'.
 D'une manière générale, je vous conseille de ne ${voc}jamais${reset} mettre d'espaces dans vos noms de fichiers, surtout si ces fichiers seront manipulés plus tard par un autre programme.
 'ce fichier.log' peut devenir par exemple 'ce_fichier.log'.
 Mais si 'gamescript' est un alias, comment se fait-il que vous puissiez l'utiliser dans toutes vos instances de bash ?
@@ -145,9 +146,8 @@ La commande ${code}source${reset} peut également être utilisée pour lire les 
 !source variables£Non
 +Et réaffichez les valeurs de 'var' et 'var2', séparé par un espace.
 !echo \\$var \\$var2£Non
-Avec cet exemple, vous devriez mieux comprendre l'effet qu'aura la commande ${learn}source ~/.bashrc${reset}.
+Avec cet exemple, vous devriez mieux comprendre l'effet qu'aura la commande ${learn}source ~/.bashrc${reset} : elle actualisera le contenu du fichier ~/.bashrc.
 ${code}source ~/.bashrc${reset} peut aussi s'écrire ${code}. ~/.bashrc${reset}.
 C'est une syntaxe bien moins lisible que la première, mais vous devez la connaitre car vous risquez de la rencontrer un jour.
 En avant pour le questionnaire !
 #clean
-p

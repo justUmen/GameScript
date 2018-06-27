@@ -31,7 +31,7 @@ CHAPTER_NUMBER="10"
 LANGUAGE="fr"
 SPEAKER="m1"
 
-LINES=151
+LINES=152
 if [ ! "$1" == "MUTE" ]; then prepare_audio; fi
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
