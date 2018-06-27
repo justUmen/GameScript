@@ -53,16 +53,16 @@ Et vous pouvez très bien utiliser la commande ${code}less${reset} pour naviguer
 Ici le fichier est illisible car il s'agit en fait d'un fichier ${voc}binaire${reset}.
 ${code}less${reset} considère tout fichier ouvert comme un fichier texte, ce qu'il affiche n'a donc ici simplement aucun sens.
 Si 'less' est la valeur de votre variable d'environnement 'PAGER', vous auriez bien sur également pu faire ${learn}\\$PAGER /bin/bash${reset}.
-+Créons maintenant l'alias 'pager' avec : ${learn}alias pager=\\$PAGER${reset}.
-!alias pager=\\$PAGER£Non
++Créons maintenant l'alias 'monpager' avec : ${learn}alias monpager=less${reset}.
+!alias monpager=less£Non
 +Utilisez maintenant ce nouvel alias avec '/bin/bash', puis quittez avec la touche 'q'.
-!pager /bin/bash£Non
+!monpager /bin/bash£Non
 Nous avonc donc vu comment créer et manipuler les variables et les alias, mais n'oubliez pas que ces variables et ces alias ne seront disponibles que dans la session de bash que vous utilisez actuellement.
 Maintenant parlons d'une variable très particulière : ${code}\\$?${reset}
-${code}\\$?${reset} contient un nombre entre 0 et 255, qui est la valeur de retour de votre dernière commande. (anglais ${voc}exit status${reset})
+${code}\\$?${reset} contient un nombre entre 0 et 255, qui est la ${voc}valeur de retour${reset} de votre dernière commande. (anglais ${voc}exit status${reset})
 +Faites donc : ${learn}pwd;echo \\$?${reset}
 !pwd;echo \\$?£Non
-Ici la valeur retour est 0. Cela veut dire que la commande n'a pas rencontré de problème.
+Ici la valeur retour est 0. Cela veut dire que la commande ${code}pwd${reset} n'a pas rencontré de problème.
 +Maintenant faites : ${learn}pwdd;echo \\$?${reset}
 !pwdd;echo \\$?£Non
 Ici la valeur retour est 127. Cela veut dire que la commande ${codeError}pwdd${reset} n'existe pas.

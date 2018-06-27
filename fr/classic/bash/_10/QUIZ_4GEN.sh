@@ -19,7 +19,7 @@ function start_quiz(){
   answer_text_fr "Comment afficher la liste complète de vos alias ?" "alias"
   answer_text_fr "Quel est le nom (sans le $) de la variable d'environnment utilisée par la commande man ?" "PAGER"
   answer_text_fr "Comment afficher les dix dernières lignes du fichier 'test' ?" "tail test"
-  answer_text_fr "Comment affecter à la variable RET le code retour (exit status) de la dernière commande ?" "RET=$?"  
+  answer_text_fr "Comment affecter à la variable RET le code retour (exit status) de la dernière commande ?" 'RET=$?'
   answer_text_fr "Sans utiliser de '.', quelle commande vous permet d'ajouter les variables bash contenu dans le fichier 'VAR' dans votre session bash ?" "source VAR"
   answer_text_fr "Comment afficher les dix premières lignes du fichier 'test' ?" "head test"
   unlock "bash" "10" "aba2" "d414"
