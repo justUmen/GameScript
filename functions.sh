@@ -161,7 +161,7 @@ function answer_run(){
 		if [ ! "$USER_CODE" == "" ]; then
 			talk_not_press_key_ANSWER "$2" "$1"
 		fi
-		echo -en "\\e[97;45m # \\e[0m"
+		#~ echo -en "\\e[97;45m # \\e[0m"
 		read -e -r -p $'\e[97;45m # \e[0m' USER_CODE < /dev/tty
 	done
 	if [ ! "$1" == "" ];then
