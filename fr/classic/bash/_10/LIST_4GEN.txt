@@ -109,7 +109,7 @@ Vous pouvez noter ici que l'utilisation de ${code}\\$()${reset} et ${code}\\`\\`
 Nous avons déjà vu ${learn}cat${reset} pour afficher le contenu d'un fichier, mais il existe deux autres commandes bien utiles pour l'affichage du contenu des fichiers.
 Il s'agit de ${code}head${reset} et de ${code}tail${reset}, qui affichent respectivement les 10 premières et les 10 dernières lignes d'un fichier.
 La variable 'var' contient une liste de fichier, vous pouvez donc utiliser cette variable en argument de commande.
-+Affichez donc par exemple les 10 dernières lignes de tous les fichiers dans la variable 'var'.
++Affichez donc par exemple les 10 premières lignes de tous les fichiers dans la variable 'var'.
 !head \\$var£Non
 Il est aussi possible de récuperer le résultat d'une commande et d'en faire une variable temporaire qui ne sera pas sauvegardée.
 +Vous pouvez par exemple faire la même chose sans la variable 'var', avec : ${learn}head \\`ls /var/log/*.log\\`${reset}
