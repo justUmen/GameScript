@@ -8,6 +8,7 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 	rm $HOME/.GameScript_bash11/if5 2> /dev/null
 	rm $HOME/.GameScript_bash11/if6 2> /dev/null
 	rm $HOME/.GameScript_bash11/if7 2> /dev/null
+	rm $HOME/.GameScript_bash11/if8 2> /dev/null
 	rm $HOME/.GameScript_bash11/CODE 2> /dev/null
 	rmdir $HOME/.GameScript_bash11 2> /dev/null
 }
