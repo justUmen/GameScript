@@ -60,7 +60,7 @@ Si vous n'en avez pas besoin, le ${code}else${reset} dans votre script n'est pas
 +Essayez donc de faire : ${learn}if true;then echo vrai;fi${reset}
 !if true;then echo vrai;fi£Non
 Dans cet exemple, tous les espaces et les ${code};${reset} sont indispensables, faites donc bien attention à ne pas en oublier.
-${learn}if${codeFile} ${learn}true;then echo vrai;fi${reset} : L'espace entre ${code}if${reset} et son argument est ${voc}important${reset}, c'est pourquoi ${code}if [ \\$X -gt 5 ]${reset} est correct mais ${codeError}if[ \\$X -gt 5 ]${reset} ne l'est pas.
+${learn}if${codeFile} ${learn}true;then echo vrai;fi${reset} : Cet espace en vert entre ${code}if${reset} et son argument est ${voc}important${reset}, c'est pourquoi ${code}if [ \\$X -gt 5 ]${reset} est correct mais ${codeError}if[ \\$X -gt 5 ]${reset} ne l'est pas.
 ${learn}if true${codeFile};${learn}then echo vrai;fi${reset} : La commande ${code}if${reset} et son argument doivent aussi être séparés du reste, c'est pourquoi il faudra utiliser un ${code};${reset} ou une mise à la ligne.
 ${learn}if true;${codeFile}then echo vrai;${learn}fi${reset} : Pour être valide, un ${code}if${reset} doit contenir le mot clef 'then', suivi d'un espace, suivi d'au moins une commande et d'un ${code};${reset}.
 ${learn}if true;then echo vrai;${codeFile}fi${reset} : Il doit aussi se terminer par un ${code}fi${reset}.
@@ -70,7 +70,7 @@ Mais revenons sur un exemple complet 'if/then/else/fi' : ${code}if true;then ech
 Ici, quel que soit la situation, il est important de comprendre que seul l'${voc}une${reset} de ces commandes ${code}echo${reset} se lancera, ${voc}jamais${reset} les deux.
 +Revenons maintenant sur notre premier exemple, réaffichez le contenu du fichier 'if1'.
 !cat if1£Non
-+Puis lancez ce script avec : ${learn}bash if1${reset}, et donnez à X la valeur 1.
++Puis lancez ce script avec : ${learn}bash if1${reset}, puis donnez à X la valeur 1 en tapant simplement 1 et validez avec la touche entrée.
 !bash if1£Non
 +Lancez à nouveau ce script avec : ${learn}bash if1${reset}, et donnez à X une valeur numérique différente de 1.
 !bash if1£Non
