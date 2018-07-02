@@ -157,7 +157,7 @@ function enter(){
     # 1) echo -e "\e[0;33m...\e[0m" ;&
     1) echo "" ;&
   	2) echo -e "\e[97;44m - $1, $TITLE \e[0m" ;&
-  	3) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" "[BETA, NO SOUND] $1 : $CHAPTER 10" "[ALPHA, NO SOUND, NO QUIZ] $1 : $CHAPTER 11";; #"$1 : chapitre 8"
+  	3) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" "[BETA, NO SOUND] $1 : $CHAPTER 10" "[BETA, NO SOUND] $1 : $CHAPTER 11";; #"$1 : chapitre 8"
     # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
     *)
 		if [[ $MUTE == 1 ]]; then
