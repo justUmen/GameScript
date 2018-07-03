@@ -28,6 +28,22 @@ function download_all_sounds_INTRO(){
 	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
 }
 
+function download_first_video_INTRO(){
+	mkdir -p $VIDEO_LOCAL 2> /dev/null
+	wget -q $VIDEO_DL/1.mp3 -O $VIDEO_LOCAL/1.mp3
+}
+function download_all_videos_INTRO(){
+	cd $VIDEO_LOCAL || exit
+	i=2
+	rm to_dl.wget 2> /dev/null
+	while [ $i -le 22 ]; do
+		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
+		echo "$VIDEO_DL/$i.mp3.mp4" >> to_dl.wget
+		i=`expr $i + 1`
+	done
+	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
+}
+
 function talk_GAMESCRIPT(){
 	if [[ $MUTE == 0 ]]; then
 		new_sound
@@ -169,7 +185,11 @@ function enter(){
 		else
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
 			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
-			bash $HOME/.GameScript/standalone.sh
+			if [[ $VIDEO == 0 ]];then
+				bash $HOME/.GameScript/standalone.sh
+			else
+				bash $HOME/.GameScript/standalone.sh VIDEO
+			fi
 			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s
 		fi
 		;;
@@ -235,6 +255,7 @@ command -v base64 >/dev/null 2>&1 || { echo "You need the command : base64." >&2
 POSITIONAL=()
 HELP=0
 MUTE=0
+VIDEO=0
 while [[ $# -gt 0 ]]; do
   key="$1"
   case $key in
@@ -245,6 +266,10 @@ while [[ $# -gt 0 ]]; do
       ;;
       -h|--help)
         HELP=1
+        shift # past argument
+      ;;
+      -v|--video)
+        VIDEO=1
         shift # past argument
       ;;
       -p|--password|--passwords)
@@ -268,6 +293,7 @@ if [[ $MUTE == 0 ]]; then
 	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
 	# -af volume=10 ADD 10 decibels
 fi
+if [[ $VIDEO == 1 ]]; then echo "You need 'mpv' to play the videos."; fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
 
@@ -290,14 +316,41 @@ AUDIOCMP=1;
 AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/bash/Audio/m1/intro"
 AUDIO_LOCAL="$HOME/.GameScript/Audio/fr/classic/bash/m1/intro"
 
-if [[ $MUTE == 0 ]]; then
-	if [ ! -f "$AUDIO_LOCAL/1.mp3" ]; then
-		wget -q --spider http://google.com
-		if [ $? -eq 0 ]; then
-			download_first_sound_INTRO
-			download_all_sounds_INTRO
-		else
-			echo "Cannot download audio, no internet ?"
+VIDEOCMP=1;
+VIDEO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/bash/Video/m1/intro"
+VIDEO_LOCAL="$HOME/.GameScript/Video/fr/classic/bash/m1/intro"
+
+#VIDEO
+if [[ $VIDEO == 1 ]]; then
+	if [[ $MUTE == 0 ]]; then
+		if [ ! -f "$HOME/.GameScript/mpv_config" ]; then
+			echo -e "loop=inf\nautofit-larger=30%x30%\ngeometry=100%:100%" > "$HOME/.GameScript/mpv_config"
+		fi
+		if [ ! -f "$HOME/.GameScript/10FPS_idle.mp4" ]; then
+			wget https://raw.githubusercontent.com/justUmen/GameScript/master/10FPS_idle.mp4 $HOME/.GameScript/1
+		fi
+		mpv --no-config --include="$HOME/.GameScript/mpv_config" --really-quiet --input-ipc-server=/tmp/southpark "$HOME/.GameScript/10FPS_idle.mp4" &
+
+		if [ ! -f "$VIDEO_LOCAL/1.mp3.mp4" ]; then
+			wget -q --spider http://google.com
+			if [ $? -eq 0 ]; then
+				download_first_video_INTRO
+				download_all_videos_INTRO
+			else
+				echo "Cannot download video, no internet ?"
+			fi
+		fi
+	fi
+else #SIMPLE AUDIO
+	if [[ $MUTE == 0 ]]; then
+		if [ ! -f "$AUDIO_LOCAL/1.mp3" ]; then
+			wget -q --spider http://google.com
+			if [ $? -eq 0 ]; then
+				download_first_sound_INTRO
+				download_all_sounds_INTRO
+			else
+				echo "Cannot download audio, no internet ?"
+			fi
 		fi
 	fi
 fi
@@ -364,6 +417,9 @@ else
   fi
   gamescript_available_arguments $LANGUAGE
 fi
+
+
+
 
 #LAUNCH
 # if [[ -n $1 ]]; then

@@ -15,6 +15,19 @@ function download_all_sounds(){
 	done
 	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
 }
+function download_all_videos(){
+	#~ echo "Downloading..."
+	cd $VIDEO_LOCAL || exit
+	i=4
+	rm to_dl.wget 2> /dev/null
+	echo "Downloading Videos..."
+	while [ $i -le $LINES ]; do
+		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
+		echo "$VIDEO_DL/$i.mp3.mp4" >> to_dl.wget
+		i=`expr $i + 1`
+	done
+	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
+}
 
 function prepare_audio(){
 	AUDIO_LOCAL="$HOME/.GameScript/Audio/$LANGUAGE/classic/$CHAPTER_NAME/$SPEAKER/c$CHAPTER_NUMBER"
@@ -27,6 +40,20 @@ function prepare_audio(){
 			download_all_sounds
 		else
 			echo "Cannot download audio, no internet ?"
+		fi
+	fi
+}
+function prepare_video(){
+	VIDEO_LOCAL="$HOME/.GameScript/Video/$LANGUAGE/classic/$CHAPTER_NAME/$SPEAKER/c$CHAPTER_NUMBER"
+	mkdir -p $VIDEO_LOCAL 2> /dev/null
+	VIDEO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/$LANGUAGE/classic/$CHAPTER_NAME/Video/$SPEAKER/c$CHAPTER_NUMBER"
+	VIDEOCMP=1
+	if [ ! -f "$VIDEO_LOCAL/4.mp3.mp4" ]; then
+		wget -q --spider http://google.com
+		if [ $? -eq 0 ]; then
+			download_all_videos
+		else
+			echo "Cannot download videos, no internet ?"
 		fi
 	fi
 }
@@ -65,9 +92,36 @@ function new_sound(){
 		#~ ( wget $AUDIO_DL/`expr $restore + 2`.mp3 -O $AUDIO_LOCAL/`expr $restore + 2`.mp3 || rm $AUDIO_LOCAL/`expr $restore + 2`.mp3 ) &> /dev/null &
 	#~ fi
 }
+
+function new_video(){
+	#~ $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
+	#~ mpv "$VIDEO_LOCAL/$restore.mp3.mp4" &> /dev/null &
+	ADD_PLAYLIST "$VIDEO_LOCAL/$restore.mp3.mp4"
+	sleep 1
+	PLAYLIST_NEXT #play next video
+	sleep 1
+	LOOP_OFF
+	sleep 1
+	UNTIL_IDLE_IS_BACK
+	#~ sleep 1
+	#~ PLAYLIST_NEXT #play idle video
+	#~ sleep 1
+	LOOP_ON #After normal video is over, quickly put back LOOP
+}
+
+#~ PLAYLIST_NEXT #play next video
+#~ LOOP_OFF
+#~ UNTIL_IDLE_IS_BACK
+#~ LOOP_ON
+
+
 function talk(){
-	if [[ $MUTE == 0 ]]; then 
-		new_sound
+	if [[ $VIDEO == 0 ]]; then 
+		if [[ $MUTE == 0 ]]; then 
+			new_sound
+		fi
+	else
+		new_video &
 	fi
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 
@@ -83,8 +137,12 @@ function talk(){
 	press_key
 }
 function talk_not_press_key(){
-	if [[ $MUTE == 0 ]]; then 
-		new_sound
+	if [[ $VIDEO == 0 ]]; then 
+		if [[ $MUTE == 0 ]]; then 
+			new_sound
+		fi
+	else
+		new_video
 	fi
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 }
@@ -108,7 +166,7 @@ function answer_quiz(){
 		echo -en "\\e[97;45m # \\e[0m"
 		read key < /dev/tty
 		case $key in
-			0) download_all_sounds ;;
+			0) if [[ $VIDEO == 0 ]]; then download_all_sounds; else download_all_videos; fi ;;
 			1) 	if [ -f "$HOME/.GameScript/restore_$7$8" ];then
 					echo "$HOME/.GameScript/restore_$7$8 existe, continuer ou recommencer le cours du début ?"
 					while [ "$choice" != "1" ] || [ "$choice" != "2" ] || [ "$choice" != "3" ]; do
@@ -211,6 +269,10 @@ MUTE=0
 if [ "$1" == "MUTE" ]; then
 	MUTE=1
 fi
+VIDEO=0
+if [ "$1" == "VIDEO" ]; then
+	VIDEO=1
+fi
 command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000";
 
 #OBSOLETE ?
@@ -271,3 +333,68 @@ function enter_chapter(){
 	echo -e "\e[97;44m - $1, Chapitre $2 \e[0m"
 	answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2"
 }
+
+
+
+
+
+
+
+
+
+
+#VIDEO SOUTH PARK
+function UNTIL_IDLE_IS_BACK(){
+	OUT=$(echo '{ "command": ["get_property", "filename"] }' | socat - /tmp/southpark)
+	#~ echo $OUT
+	while [ "$OUT" != '{"data":"10FPS_idle.mp4","error":"success"}' ]; do
+		OUT=$(echo '{ "command": ["get_property", "filename"] }' | socat - /tmp/southpark)
+		sleep 1
+	done
+}
+function PAUSE(){
+	echo '{ "command": ["set_property", "pause", true] }' | socat - /tmp/southpark &> /dev/null
+}
+function UNPAUSE(){
+	echo '{ "command": ["set_property", "pause", false] }' | socat - /tmp/southpark &> /dev/null
+}
+function LOOP_ON(){
+	echo '{ "command": ["set_property", "loop", true] }' | socat - /tmp/southpark &> /dev/null
+}
+function LOOP_OFF(){
+	echo '{ "command": ["set_property", "loop", false] }' | socat - /tmp/southpark &> /dev/null
+}
+function PLAYLIST_NEXT(){
+	echo '{ "command": ["playlist-next"] }' | socat - /tmp/southpark &> /dev/null
+}
+function PLAYLIST_CLEAR(){
+	echo '{ "command": ["playlist-clear"] }' | socat - /tmp/southpark &> /dev/null
+}
+function ADD_PLAYLIST(){
+	echo "{ \"command\": [\"loadfile\", \"$1\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+	sleep 0.5
+	echo "{ \"command\": [\"loadfile\", \"/home/umen/SyNc/Projects/SouthPark/vids/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+}
+function WAIT_FOR_USER(){
+	echo -n "LINE = "
+	read line
+}
+
+#WORKING TEST CODE
+#~ mpv --really-quiet --input-ipc-server=/tmp/southpark --playlist mpv_playlist.txt &
+#~ sleep 2
+#~ LOOP_ON #play idle
+#~ while true; do
+	#~ WAIT_FOR_USER
+	
+	#~ PLAYLIST_NEXT #play next video
+	#~ echo "PLAY VIDEO"
+	#~ LOOP_OFF
+	
+	#~ UNTIL_IDLE_IS_BACK
+	#~ echo "BACK"
+	
+	#~ echo "PLAY IDLE"
+	#~ LOOP_ON
+#~ done
+

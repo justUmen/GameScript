@@ -110,7 +110,7 @@ A mistake using command line can be unforgiven.
 A mispell or an unwanted ${voc}current directory${reset} can have severe consequences.
 Before confirming a command, be sure of what you are doing.
 Never hesitate to launch and relaunch ${learn}pwd${reset} and ${learn}ls${reset} to know what is your ${voc}current directory${reset} and check its content.
-But for now we have more 'virus' to delete. And we can remove them differently.
+But for now we have more 'viruses' to delete. And we can remove them differently.
 We can use their ${voc}absolute path${reset}.
 #cd ~/
 When you did ${learn}rm virus0${reset}, you've asked for the deletion of the file 'virus0' in your ${voc}current directory${reset}.

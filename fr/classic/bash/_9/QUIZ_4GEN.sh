@@ -29,6 +29,13 @@ LANGUAGE="fr"
 SPEAKER="m1"
 
 LINES=142
-if [ ! "$1" == "MUTE" ]; then prepare_audio; fi
+if [ "$1" == "MUTE" ]; then
+	prepare_audio
+else
+	if [ "$1" == "VIDEO" ]; then
+		prepare_video
+	fi
+fi
+
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
