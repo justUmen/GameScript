@@ -373,7 +373,7 @@ function PLAYLIST_CLEAR(){
 function ADD_PLAYLIST(){
 	echo "{ \"command\": [\"loadfile\", \"$1\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
 	sleep 0.5
-	echo "{ \"command\": [\"loadfile\", \"/home/umen/SyNc/Projects/SouthPark/vids/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+	echo "{ \"command\": [\"loadfile\", \"~/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
 }
 function WAIT_FOR_USER(){
 	echo -n "LINE = "
