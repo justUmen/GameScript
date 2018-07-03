@@ -327,7 +327,7 @@ if [[ $VIDEO == 1 ]]; then
 			echo -e "loop=inf\nautofit-larger=30%x30%\ngeometry=100%:100%" > "$HOME/.GameScript/mpv_config"
 		fi
 		if [ ! -f "$HOME/.GameScript/10FPS_idle.mp4" ]; then
-			wget https://raw.githubusercontent.com/justUmen/GameScript/master/10FPS_idle.mp4 $HOME/.GameScript/1
+			wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/10FPS_idle.mp4 -O $HOME/.GameScript/10FPS_idle.mp4
 		fi
 		mpv --no-config --include="$HOME/.GameScript/mpv_config" --really-quiet --input-ipc-server=/tmp/southpark "$HOME/.GameScript/10FPS_idle.mp4" &
 
