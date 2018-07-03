@@ -97,11 +97,11 @@ function new_video(){
 	#~ $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
 	#~ mpv "$VIDEO_LOCAL/$restore.mp3.mp4" &> /dev/null &
 	ADD_PLAYLIST "$VIDEO_LOCAL/$restore.mp3.mp4"
-	sleep 1
+	#~ sleep 1
 	PLAYLIST_NEXT #play next video
-	sleep 1
+	#~ sleep 1
 	LOOP_OFF
-	sleep 1
+	#~ sleep 1
 	UNTIL_IDLE_IS_BACK
 	#~ sleep 1
 	#~ PLAYLIST_NEXT #play idle video
