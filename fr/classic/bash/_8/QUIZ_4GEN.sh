@@ -31,11 +31,11 @@ LANGUAGE="fr"
 SPEAKER="m1"
 
 LINES=136
-if [ "$1" == "MUTE" ]; then
-	prepare_audio
+if [ "$1" == "VIDEO" ]; then
+	prepare_video
 else
-	if [ "$1" == "VIDEO" ]; then
-		prepare_video
+	if [ ! "$1" == "MUTE" ]; then
+		prepare_audio
 	fi
 fi
 

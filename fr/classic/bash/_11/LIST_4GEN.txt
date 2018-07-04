@@ -47,7 +47,7 @@ Vous pouvez également utiliser la variable ${code}\\$?${reset} que nous avons d
 Si donné en argument à if, 0 devient ${learn}true${reset} et tout autre nombre devient ${learn}false${reset}. Ici ce 1 deviendra donc ${learn}false${reset}.
 Ce ${code}-eq${reset} permet de comparer si deux nombres sont équivalents. (de l'anglais EQual : égal)
 Vous pouvez en utilisez d'autres, comme ${code}-lt${reset} (Less Than / moins que), ${code}-gt${reset} (Greater Than / plus grand que), ${code}-ge${reset} (Greater or Equal / plus grand ou égal), ${code}-le${reset} (Less or Equal / moins ou égal) et ${code}-ne${reset} (Not Equal / pas égal).
-Par exemple, si X=1, le code ${code}[ \\$X -eq 1 ]${reset} renverra ${learn}true${reset}, ${code}[ 1 -lt 2 ]${reset} renverra ${learn}true${reset} et ${code}[ 22 -gt 2 ]${reset} renverra ${learn}false${reset}.
+Par exemple, si X=1, le code ${code}[ \\$X -eq 1 ]${reset} renverra ${learn}true${reset}, ${code}[ 1 -lt 2 ]${reset} renverra ${learn}true${reset} et ${code}[ 2 -gt 22 ]${reset} renverra ${learn}false${reset}.
 ${code}[ 1 -eq 1 ]${reset} renverra ${learn}true${reset} (\\$? = 0) si 1 est égal à 1, ce qui sera bien évidemment toujours le cas.
 C'est pourquoi vous pouvez aussi utiliser cette syntaxe que vous connaissez déjà : ${learn}[ 1 -eq 1 ] && echo GOOD${reset}
 N'importe quelle commande en argument de ${code}if${reset} peut également fonctionner.

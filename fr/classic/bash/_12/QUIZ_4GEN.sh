@@ -19,6 +19,12 @@ CHAPTER_NUMBER="11"
 LANGUAGE="fr"
 SPEAKER="m1"
 
-if [ ! "$1" == "MUTE" ]; then prepare_audio; fi
+if [ "$1" == "VIDEO" ]; then
+	prepare_video
+else
+	if [ ! "$1" == "MUTE" ]; then
+		prepare_audio
+	fi
+fi
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
