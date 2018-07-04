@@ -16,7 +16,7 @@ function start_quiz(){
   answer_text_fr "Comment afficher le contenu de la variable 'PATH' ?" 'echo $PATH'
   answer_text_fr "Comment ajouter ':/bin' à la fin de la variable 'PATH' ?" 'PATH=$PATH:/bin'
   answer_text_fr "En utilisant le caractère d'échappement, comment ajouter la lettre 'x' à la fin de la variable 'phrase' ?" 'phrase=$phrase\x'
-  answer_text_fr "Comment afficher vos variables d'environnement avec 'less' ?" "printenv|less"
+  answer_text_fr "Comment afficher vos variables d'environnement ?" "printenv"
   answer_text_fr "Comment afficher le chemin absolu du fichier utilisé par la commande 'date' ?" "type date"
   answer_text_fr "Si vous executez le script bash '/scripts/sc' dans le dossier '/var/' et que ce script contient le code 'rm f', quel est le chemin absolu du fichier que 'bash' voudra supprimer ?" "/var/f"
   unlock "bash" "9" "6521" "ddd2"
