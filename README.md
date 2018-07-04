@@ -72,10 +72,10 @@ It is an ONLINE bash script to learn about :
     Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
 
     Bash 9 => Concepts : variable , variable control , environment variables
-    Bash 9 => Code : $ , $PATH , type , printenv , less
+    Bash 9 => Code : $ , $PATH , type , printenv
 
     Bash 10 => Concepts : alias , exit status , pager
-    Bash 10 => Code : alias , $PAGER , tail , head , $? , source
+    Bash 10 => Code : alias , $PAGER , tail , head , $? , source , less
 
     Bash 11 => Concepts : condition , logic test
     Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt
@@ -107,10 +107,10 @@ It is an ONLINE bash script to learn about :
     Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
 
     Bash 9 => Concepts : variable , manipulation de variable , variable d'environnement
-    Bash 9 => Code : $ , $PATH , type , printenv , less
+    Bash 9 => Code : $ , $PATH , type , printenv
 
     Bash 10 => Concepts : alias , code retour (exit status) , pager
-    Bash 10 => Code : alias , $PAGER , tail , head , $? , source
+    Bash 10 => Code : alias , $PAGER , tail , head , $? , source , less
 
     Bash 11 => Concepts : condition , test logique
     Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt
