@@ -152,7 +152,7 @@ function gamescript_available_arguments(){
   case $1 in
     fr) echo -e "===> 1) \e[97;44m bash \e[0m"
 		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
-		echo -e "===> 2) \e[97;44m i3wm \e[0m"
+		echo -e "===> 2) \e[97;44m i3wm (en test, ne pas utiliser)\e[0m"
 
 	echo -en "\e[97;45m # \e[0m"
 	read selected < /dev/tty
