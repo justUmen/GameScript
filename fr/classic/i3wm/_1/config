@@ -1,0 +1,96 @@
+exec lxterminal -e "bash ~/.GameScript/standalone.sh;bash"
+
+font pango:monospace 8
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+floating_modifier mod4
+bindsym mod4+Return exec lxterminal
+
+bindsym mod4+Shift+q kill
+
+bindsym mod4+$left focus left
+bindsym mod4+$down focus down
+bindsym mod4+$up focus up
+bindsym mod4+$right focus right
+
+bindsym mod4+Shift+$left move left
+bindsym mod4+Shift+$down move down
+bindsym mod4+Shift+$up move up
+bindsym mod4+Shift+$right move right
+
+bindsym mod4+s layout stacking
+bindsym mod4+w layout tabbed
+bindsym mod4+e layout toggle split
+
+bindsym mod4+Shift+space floating toggle
+
+bindsym mod4+space focus mode_toggle
+
+bindsym mod4+a focus parent
+
+#bindsym mod4+d focus child
+
+bindsym mod4+Shift+minus move scratchpad
+
+bindsym mod4+minus scratchpad show
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym mod4+1 workspace $ws1
+bindsym mod4+2 workspace $ws2
+bindsym mod4+3 workspace $ws3
+bindsym mod4+4 workspace $ws4
+bindsym mod4+5 workspace $ws5
+bindsym mod4+6 workspace $ws6
+bindsym mod4+7 workspace $ws7
+bindsym mod4+8 workspace $ws8
+bindsym mod4+9 workspace $ws9
+bindsym mod4+0 workspace $ws10
+
+bindsym mod4+Shift+1 move container to workspace $ws1
+bindsym mod4+Shift+2 move container to workspace $ws2
+bindsym mod4+Shift+3 move container to workspace $ws3
+bindsym mod4+Shift+4 move container to workspace $ws4
+bindsym mod4+Shift+5 move container to workspace $ws5
+bindsym mod4+Shift+6 move container to workspace $ws6
+bindsym mod4+Shift+7 move container to workspace $ws7
+bindsym mod4+Shift+8 move container to workspace $ws8
+bindsym mod4+Shift+9 move container to workspace $ws9
+bindsym mod4+Shift+0 move container to workspace $ws10
+
+bindsym mod4+Shift+c reload
+bindsym mod4+Shift+r restart
+bindsym mod4+Shift+e exec "i3-nagbar -t warning -m "You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+mode "resize" {
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym mod4+r mode "default"
+}
+bindsym mod4+r mode "resize"
+
+bar {
+        status_command i3status
+}
+
+bindsym mod4+h split h
+bindsym mod4+v split v
+
+bindsym mod4+f fullscreen toggle
+

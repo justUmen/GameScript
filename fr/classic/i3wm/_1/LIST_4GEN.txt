@@ -1,6 +1,5 @@
-#[ -d "$HOME/.GameScript_i3wm_1" ] && echo "Erreur innatendu, ${HOME}/.GameScript_i3wm_1 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_i3wm_1 et relancer ce script." && exit
-#[ -d "$HOME/.config/i3/config" ] && echo "Attention, le fichier de configuration $HOME/.config/i3/config existe déjà sur votre système ! GameScript utilisera un fichier de configuration de i3 particulier, si vous voulez continuer, veuillez supprimer ou déplacer manuellement ce fichier. (mv $HOME/.config/i3/config $HOME/.config/i3/config_backup)"
-#[ -d "$HOME/.i3/config" ] && echo "Attention, le fichier de configuration $HOME/.i3/config existe déjà sur votre système ! GameScript utilisera un fichier de configuration de i3 particulier, si vous voulez continuer, veuillez supprimer ou déplacer manuellement ce fichier. (mv $HOME/.i3/config $HOME/.i3/config_backup)""
+#command -v xi3 i3status dillo mousepad leafpad pcmanfm jq feh wmctrl xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : ${learn}apt-get install i3 i3status dillo mousepad leafpad pcmanfm jq feh wmctrl xdotool${reset}" >&2; exit 3; }
+#if [ ! -d "$HOME/.GameScript_i3wm_1" ]; then [ -f "$HOME/.config/i3/config" ] && echo "Attention, le fichier de configuration $HOME/.config/i3/config existe déjà sur votre système ! GameScript utilisera un fichier de configuration de i3 particulier, si vous voulez continuer, veuillez supprimer ou déplacer manuellement ce fichier avant de relancer GameScript. (mv $HOME/.config/i3/config $HOME/.config/i3/config_backup)" && exit; [ -f "$HOME/.i3/config" ] && echo "Attention, le fichier de configuration $HOME/.i3/config existe déjà sur votre système ! GameScript utilisera un fichier de configuration de i3 particulier, si vous voulez continuer, veuillez supprimer ou déplacer manuellement ce fichier avant de relancer GameScript. (mv $HOME/.i3/config $HOME/.i3/config_backup)" && exit; echo "SUCCES : Veuillez maintenant fermer votre environment habituel et lancez i3 normalement, GameScript sera la pour vous accueillir." && mkdir $HOME/.GameScript_i3wm_1 && e; exit; fi
 #mkdir $HOME/.GameScript_i3wm_1 &> /dev/null
 #cd $HOME/.GameScript_i3wm_1
 #gamescript_window=$(xdotool getwindowfocus)
@@ -27,7 +26,7 @@ Contrairement a l'espace de travail 1, qui contient la fenêtre de GameScript.
 Je vous conseille d'utiliser des raccourcis clavier pour tous les programmes que vous utilisez regulierement.
 Par exemple, pour ouvrir un nouveau terminal, il faudra utiliser le raccourci clavier Super + Entree.
 On va commencer par creer une nouvelle fenêtre dans cet espace de travail 2.
-+déplacez vous dans l'espace de travail 2 avec Super + 2, ouvrez un nouveau terminal dans cet espace de travail avec Super + Entree, puis revenez sur GameScript avec Super + 1.
++Déplacez vous dans l'espace de travail 2 avec Super + 2, ouvrez un nouveau terminal dans cet espace de travail avec Super + Entree, puis revenez sur GameScript avec Super + 1.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
 #name="";while [ "$name" != "Lxterminal" ];do id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW/{print $NF}'|grep 0x); name=$(xprop -id $id | awk '/WM_CLASS/{$1=$2="";print}' | cut -d'"' -f4);  sleep .5; done;sleep 1
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
@@ -220,5 +219,7 @@ Ici vous devriez voir le "bindsym" responsable de cette combinaison de touche, m
 Essayez de faire Super + Shift + e, vous recevrez un message demandant votre confirmation, cliquez ensuite sur la croix pour annuler la fermeture de i3.
 Et si par exemple vous voulez lancer 'mousepad' au démarrage d'i3, il suffit de mettre dans votre fichier de configuration : exec mousepad
 L'utilisation des raccourcis clavier peut vous paraitre etrange et non intuitive pour le moment mais vous ne pourrez plus vous en passer.
+#mousepad ~/.config/i3/config
+Avant de quitter je viens d'ouvrir pour vous le fichier de configuration d'i3 dans l'espace de travail 2. Pour ne pas que GameScript i3wm se lance au démarrage, supprimer la premiere ligne.
 C'est tout pour cette fois, dans le prochain chapitre nous verrons comment controler avec précision l'organisation de nos fenêtres.
 En avant pour le questionnaire !
