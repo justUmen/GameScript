@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash2" ] && echo "Unexpected error, ${HOME}/.GameScript_bash3 already exists on your system! Delete this $HOME/.GameScript_bash3 folder and restart this script." && exit
+#[ -d "$HOME/.GameScript_bash3" ] && echo "Unexpected error, ${HOME}/.GameScript_bash3 already exists on your system! Delete this $HOME/.GameScript_bash3 folder and restart this script." && exit
 #mkdir $HOME/.GameScript_bash3 2> /dev/null
 #cd $HOME/.GameScript_bash3
 In Chapter 2, we saw that the options can have two shapes, one short as in ${learn}ls -l${reset}, and the other long as in ${learn}ls --all${reset}.
@@ -16,7 +16,7 @@ For example to pass the option ${code}-a${reset} and the option ${code}-w 10${re
 Be careful not to forget that there are two ${code}-${reset} before long options.
 The ${learn}ls --all${reset} and ${learn}ls -al${reset} commands are not identical at all.
 ${learn}ls --all${reset} is identical to ${learn}ls -a${reset}.
-But ${learn}ls -al${reset} is identical to ${learn}ls -a -l -l${reset}
+But ${learn}ls -all${reset} is identical to ${learn}ls -a -l -l${reset}
 +Now open the ${code}ls${reset} manual and look for the option to display its version number.
 !man ls£No
 +Display the version number of ${code}ls${reset}.
@@ -29,9 +29,9 @@ This command will simply return an echo of what you gave it as an argument.
 +Display the word 'hello' in your terminal with the command: ${learn}echo hello${reset}
 !echo hello£No
 +The command ${code}echo${reset} accepts several arguments, you can test: ${learn}echo hello everyone${reset}
-echo hello everyone£No
+!echo hello everyone£No
 Easy as pie !
-We've already seen that ${code}mkdir${reset} was used to create new folders.
+We've already seen that ${code}mkdir${reset} is used to create new folders.
 But how do we create new files?
 Just imagine that you can use the command ${code}echo${reset}!
 When you use the ${code}echo${reset} command, the result will be displayed on your device.
@@ -73,8 +73,8 @@ Here the word 'hello' has been added at the end of the text file.
 You can continue to use ${code}>>${reset} to add your new content one after the other.
 But the redirects (${code}>${reset} and ${code}>>${reset}) are not limited to the command ${code}echo${reset}.
 It can work with any command !.
-+For example, put the result of the ${learn}ls${reset} command after the 'test' file!
-!ls >>£No test
++For example, put the result of the ${learn}ls${reset} command at the end the 'test' file!
+!ls>>test£No test
 +And display the file 'test'.
 !cat test£No
 This is the ${voc}result${reset} of the command that will be redirected. Here ${learn}ls${reset} gives as result: 'test', because 'test' is the only element of the current directory.
@@ -84,7 +84,7 @@ If you want to add the word 'pwd' at the end of the file it will be necessary to
 !echo pwd >> test£No
 So be careful not to confuse ${learn}pwd >> test${reset} with ${learn}echo pwd >> test${reset}.
 +Now let's add the ${voc}result${reset} of ${code}pwd${reset} at the end of the 'test' file.
-!Pwd >>£No test
+!pwd >>£No test
 +And display the file 'test'.
 !cat test£No
 Very good ! I hope the result does not surprise you.

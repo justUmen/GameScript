@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash10" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash10" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash10 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash10 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash10 2> /dev/null
 #cd $HOME/.GameScript_bash10;ls /var/log/*.log|head -n 5 > ~/.GameScript_bash10/LOG;cat ~/.bashrc|grep '^[^#]*alias '>~/.GameScript_bash10/.MYALIAS;source ~/.GameScript_bash10/.MYALIAS 2> /dev/null
 Dans le dernier chapitre nous avons vu comment créer et manipuler les variables.

@@ -72,24 +72,24 @@ Dans cette série nous verrons ensemble comment analyser et contrôler nos diff�
 Evidemment il y a bien plus de processus que ca sur votre ordinateur.
 +Pour lister tous les processus, faites : ps -e
 !ps -e£Non
-+Pour compter le nombre de processus, vous pouvez donc faire : ps -e|wc -l
++Pour compter le nombre de processus dans cette liste, vous pouvez donc faire : ps -e|wc -l
 !ps -e|wc -l£Non
 Mais pour l'instant nous allons nous concentrer sur le résultat de la commande ps.
 +Faites donc à nouveau : ps
 !ps£Non
 Chaque processus aura un identifiant unique capable de l'identifier, son PID. (l'anglais de Process IDentifier)
-C'est un numéro unique qui pourra par exemple être utilisé pour manipuler son comportement.
-Lorsque vous lancez un programme dans un terminal, le processus qui en résulte y sera attaché.
+C'est un numéro unique qui pourra par exemple être utilisé pour manipuler le comportement du processus portant ce numéro.
+De plus, lorsque vous lancez un programme dans un terminal, le processus qui en résulte y sera attaché.
 On dit alors que bash est le parent de ce processus, et que ce processus est l'enfant de ce terminal.
 Tant que ce programme n'est pas terminé, vous ne pouvez plus lancer d'autres commandes avec ce terminal.
 
-le processus prend controle du terminal, suspend l'interpreteur bash et utilise son stdin et stdout.
+Le processus prend alors controle du terminal, suspend l'interpreteur bash et utilise son stdin et stdout.
 
 +Essayez donc de lancer leafpad, regardez l'état de votre terminal, puis quitter leafpad en cliquant sur "fichier", puis "quitter".
 !leafpad£Non
-Quitter le processus vous permet de continuer à utiliser votre terminal.
+Quitter le processus vous permet de continuer à utiliser votre terminal normalement.
 
-comme le processeur utilise stdin vous pouvez enoyez des signaux au processus.
+Comme le processeur utilise stdin vous pouvez enoyez des signaux au processus.
 par exemple
 
 Vous pouvez également fermer ce processus de manière plus brutale directement dans son terminal parent en faisant CTRL + C.
@@ -139,3 +139,5 @@ vous pouvez bg ou fg.
 
 
 
+
+-- Attention cependant car ce PID est affecté au lancement du programme, c'est à dire qu'un meme PID ne ciblera pas la meme chose . ???

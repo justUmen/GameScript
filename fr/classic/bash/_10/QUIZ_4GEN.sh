@@ -17,7 +17,7 @@ function start_quiz(){
   echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
   answer_text_fr "Comment afficher la commande complète de l'alias 'gamescript' ?" "alias gamescript"
   answer_text_fr "Comment afficher la liste complète de vos alias avec 'less' ?" "alias|less"
-  answer_text_fr "Quel est le nom (sans le $) de la variable d'environnment utilisée par la commande man ?" "PAGER"
+  answer_text_fr "Quel est le nom (sans le $) de la variable d'environnment utilisée par la commande man pour savoir quelle commande doit ouvrir le manuel ?" "PAGER"
   answer_text_fr "Comment afficher les dix dernières lignes du fichier 'test' ?" "tail test"
   answer_text_fr "Comment affecter à la variable RET le code retour (exit status) de la dernière commande ?" 'RET=$?'
   answer_text_fr "Sans utiliser de '.', quelle commande vous permet d'ajouter les variables bash contenu dans le fichier 'VAR' dans votre session bash ?" "source VAR"

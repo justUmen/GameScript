@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash5" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash5 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash5 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash5" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash5 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash5 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash5 2> /dev/null
 #cd $HOME/.GameScript_bash5
 #mkdir Dossier;touch Dossier/X;touch Dossier/Y;chmod 644 Dossier

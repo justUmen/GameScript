@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash3" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash3 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash3 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash3" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash3 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash3 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash3 2> /dev/null
 #cd $HOME/.GameScript_bash3
 Dans le chapitre 2, nous avons vu que les options peuvent avoir deux formes, l'une courte comme dans ${learn}ls -l${reset}, et l'autre longue comme dans ${learn}ls --all${reset}.

@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash4" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash4 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash4 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash4" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash4 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash4 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash4 2> /dev/null
 #cd $HOME/.GameScript_bash4
 Dans le chapitre précédent, nous avons vu comment créer et modifier les fichiers textes.

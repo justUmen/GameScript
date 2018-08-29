@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash9" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash9 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash9 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash9" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash9 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash9 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash9 2> /dev/null
 #cd $HOME/.GameScript_bash9
 #echo -e "echo Je suis code_bash\\\\npwd;ls\\\\nmkdir FOLDER">$HOME/.GameScript_bash9/code_bash;echo -e "echo Je suis code_bash2 et je ne fais rien de spécial.">$HOME/.GameScript_bash9/code_bash2;chmod +x $HOME/.GameScript_bash9/code_bash2

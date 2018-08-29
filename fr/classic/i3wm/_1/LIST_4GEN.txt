@@ -1,110 +1,224 @@
-#[ -d "$HOME/.GameScript_i3wm1" ] && echo "Erreur innatendu, ${HOME}/.GameScript_i3wm1 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_i3wm1 et relancer ce script." && exit
-#mkdir $HOME/.GameScript_i3wm1 &> /dev/null
-#cd $HOME/.GameScript_i3wm1
+#[ -d "$HOME/.GameScript_i3wm_1" ] && echo "Erreur innatendu, ${HOME}/.GameScript_i3wm_1 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_i3wm_1 et relancer ce script." && exit
+#[ -d "$HOME/.config/i3/config" ] && echo "Attention, le fichier de configuration $HOME/.config/i3/config existe déjà sur votre système ! GameScript utilisera un fichier de configuration de i3 particulier, si vous voulez continuer, veuillez supprimer ou déplacer manuellement ce fichier. (mv $HOME/.config/i3/config $HOME/.config/i3/config_backup)"
+#[ -d "$HOME/.i3/config" ] && echo "Attention, le fichier de configuration $HOME/.i3/config existe déjà sur votre système ! GameScript utilisera un fichier de configuration de i3 particulier, si vous voulez continuer, veuillez supprimer ou déplacer manuellement ce fichier. (mv $HOME/.i3/config $HOME/.i3/config_backup)""
+#mkdir $HOME/.GameScript_i3wm_1 &> /dev/null
+#cd $HOME/.GameScript_i3wm_1
 #gamescript_window=$(xdotool getwindowfocus)
-Il y a deux choses que vous devez apprendre a manipuler, les espaces de travail et les FENETRES.
+Dans un gestionnaire de fenêtres, il y a deux choses que vous devez apprendre a manipuler, les espaces de travail et les fenêtres.
 Commencons par les espaces de travail. Encore une fois je vais vous donnez mes configurations, libre a vous de les changer plus tard.
 Vous pouvez avoir plusieurs espaces de travail, chacun pourra avoir ses propres configurations et ses propres objectifs.
-Si vous regardez en bas a gauche de votre ecran vous devriez voir le chiffre 1 dans un carre.
-C'est en fait le nom de votre espace de travail ou vous etes en ce moment.
-Cet espace de travail pour l'instant ne contient que GameScript.
-
-Pour communiquer avec i3, il faudra utiliser des combinaisons de touches.
-Elles sont toutes personnalissables mais je vais vous en donner certaines que je vous conseille de garder.
-Vous pouvez passer d'un espace de travail a l'autre avec la touche super, parfois appele touche windows.
-
-Il faudra en meme temps appuyer sur la touche Super et le numero de l'espace de travail ou vous voulez aller.
+Si vous regardez en bas a gauche de votre écran vous devriez voir le chiffre 1 dans un carre.
+Le 1 est en fait le nom/numéro de l'espace de travail ou vous etes en ce moment.
+Cet espace de travail pour l'instant ne contient que la fenêtre du terminal qui contient GameScript.
+Pour communiquer avec i3, il faudra utiliser des combinaisons de touches sur votre clavier.
+Elles sont toutes personnalisables mais je vais vous en donner certaines que je vous conseille de garder.
+Vous pouvez passer d'un espace de travail a l'autre avec la touche 'Super', parfois appelee touche 'windows'.
+Il faudra en meme temps appuyer sur la touche 'Super' et le numéro de l'espace de travail ou vous voulez aller.
 Vous etes en ce moment dans l'espace de travail 1, il faudra donc faire Super + 1 pour revenir sur cet espace de travail.
 Gamescript est en ce moment dans l'espace de travail 1, souvenez vous donc que pour continuer a interagir avec GameScript, il vous faudra faire Super + 1.
-
-Maintenant, deplacez vous dans l'espace de travail 2 avec Super + 2, regardez la liste de vos espaces de travail en bas a gauche votre ecran, puis faites Super + 1 pour revenir sur GameScript.
++Maintenant, déplacez vous dans l'espace de travail 2 avec Super + 2, regardez la liste de vos espaces de travail en bas a gauche votre écran, puis faites Super + 1 pour revenir sur GameScript.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
-
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 De retour dans l'espace de travail 1 vous pouvez remarquer que l'espace de travail 2 n'est pas affiche en bas a gauche.
 Pourtant lorsque vous etiez dans l'espacce de travail 2, l'espace de travail 1 etait visible dans cette liste.
-
-En fait, i3 se debarassera automatiquement de tous les espaces de travail qui ne contiennent pas de fenetres.
+En fait, i3 se debarassera automatiquement de tous les espaces de travail qui ne contiennent pas de fenêtres.
 L'espace de travail 2 etant pour le moment vide, il ne restera pas affiche dans cette liste.
-Contrairement a l'espace de travail 1, qui contient la fenetre de GameScript.
-
+Contrairement a l'espace de travail 1, qui contient la fenêtre de GameScript.
 Je vous conseille d'utiliser des raccourcis clavier pour tous les programmes que vous utilisez regulierement.
 Par exemple, pour ouvrir un nouveau terminal, il faudra utiliser le raccourci clavier Super + Entree.
-
-On va commencer par creer une nouvelle fenetre dans cet espace de travail 2.
-Deplacez vous dans l'espace de travail 2 avec Super + 2, ouvrez un nouveau terminal avec Super + Entree, puis revenez sur GameScript.
+On va commencer par creer une nouvelle fenêtre dans cet espace de travail 2.
++déplacez vous dans l'espace de travail 2 avec Super + 2, ouvrez un nouveau terminal dans cet espace de travail avec Super + Entree, puis revenez sur GameScript avec Super + 1.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
-
-De retour dans l'espace de travail 1 vous pouvez remarquer que l'espace de travail 2 est cette fois dans la liste, car il contient une fenetre.
-
+#name="";while [ "$name" != "Lxterminal" ];do id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW/{print $NF}'|grep 0x); name=$(xprop -id $id | awk '/WM_CLASS/{$1=$2="";print}' | cut -d'"' -f4);  sleep .5; done;sleep 1
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+De retour dans l'espace de travail 1 vous pouvez remarquer que l'espace de travail 2 est cette fois dans la liste, car il contient une fenêtre.
 Vous pouvez egalement utiliser votre souris et cliquer sur le nom de l'espace de travail ou vous voulez vous rendre.
-Utilisez la liste en bas en gauche pour vous rendre sur l'espace de travail 2 et revenez sur gamescrit en utilisant votre souris egalement.
++Utilisez la liste en bas en gauche pour vous rendre sur l'espace de travail 2 et revenez sur gamescrit en utilisant votre souris egalement.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
-
-Maintenant regardez la barre en haut de votre ecran, elle contient le titre de la fenetre qu'utilise GameScript.
-Bien evidemment, il est possible d'avoir plusieurs fenetres dans un meme espace de travail.
-
-#i3-msg 'exec lxterminal' ???
-Je viens d'ouvrir un nouveau terminal dans votre espace de travail, vous devriez voir deux titres en haut de votre ecran.
-Chaque titre correspond a une fenetre, celui de gauche est le titre de la fenetre de gamescript.
-
-Les titres de fenetres s'affichent de gauche a droite, des plus anciennes aux plus recentes.
-Chaque nouvelle fenetre que vous ouvrez s'ajoutera donc a droite de cette liste.
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Maintenant regardez la barre en haut de votre écran, elle contient le titre de la fenêtre qu'utilise GameScript.
+Bien evidemment, il est possible d'avoir plusieurs fenêtres dans un meme espace de travail.
+#i3-msg 'exec lxterminal' &>/dev/null
+Je viens d'ouvrir un nouveau terminal dans votre espace de travail, vous devriez voir deux titres en haut de votre écran.
+Chaque titre correspond a une fenêtre, celui de gauche est le titre de la fenêtre de gamescript.
+Les titres de fenêtres s'affichent de gauche a droite, des plus anciennes aux plus recentes.
+Chaque nouvelle fenêtre que vous ouvrez s'ajoutera donc a droite de cette liste.
 Le terminal qui contient GameScript ayant ete ouvert en premier, il restera a le plus a gauche.
-
-Cliquez sur le titre de la deuxieme fenetre pour l'afficher, et revenez sur gamescript en cliquant sur le titre de sa fenetre.
++Cliquez sur le titre de la deuxieme fenêtre pour l'afficher, et revenez sur gamescript en cliquant sur le titre de sa fenêtre.
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done;sleep 1;while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 Bien evidemment, je vous conseille d'utiliser votre clavier pour faire cela bien plus rapidement, vous pouvez tout simplement utilisez Super + fleche de gauche/droite.
-
-Faites le donc maintenant, utilisez Super et les fleches gauche et droite.
++Faites le donc maintenant, utilisez Super + la fleche de droite pour cibler la seconde fenêtre et revenez sur GameScript avec Super + fleche de gauche..
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done;sleep 1;while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
-
-Quand vous passez sur une autre fenetre, on dit que cette fenetre a le focus.
-C'est a dire que tout autre raccourci clavier sera envoye a la fenetre qui a le focus en ce moment.
-
-Par exemple, pour fermer une fenetre, vous pouvez faire Super + Shift + E, mais attention a ne pas fermer le terminal qui contient Gamescript par erreur.
-Changez le focus avec Super + fleche de droite, et fermez le deuxieme terminal que j'ai ouvert tout a l'heure avec Super + Shift + E.
+Quand vous passez sur une autre fenêtre, on dit que cette fenêtre a le focus.
+C'est a dire que tout autre raccourci clavier sera envoye a la fenêtre qui a le focus en ce moment.
+Par exemple, pour fermer une fenêtre, vous pouvez faire Super + Shift + q, mais attention a ne pas fermer le terminal qui contient Gamescript par erreur !
++Changez le focus avec Super + fleche de droite, et fermez le deuxieme terminal que j'ai ouvert tout a l'heure avec Super + Shift + q.
+#gamescript_window=$(xdotool getwindowfocus)
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 #to_close=$(xdotool getwindowfocus)
 #while [ `xdotool search --class ""|grep "^$to_close$"` ];do sleep .5; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
-
-Maintenant, ouvrez un nouveau terminal avec Super + Entree, vous remarquerez alors que le focus changera automatiquement, il vous faudra donc manuellement revenir sur GameScript.
++Maintenant, ouvrez un nouveau terminal avec Super + Entree, vous remarquerez alors que le focus changera automatiquement en faveur de cette nouvelle fenêtre, il vous faudra donc manuellement revenir sur GameScript.
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
-Il y a 3 modes d'affichages des fenetres sur i3.
-
-Par defaut, l'affichage est en onglet, mais vous pouvez aussi avoir une liste des fenetres de haut en bas, ou le titre des fenetres prendra toute la ligne.
-Mais pour passer d'une fenetre a l'autre dans ce mode, il faudra utiliser Super + fleche du haut et bas au lieu de gauche et droite.
-Essayez donc ce mode d'affichage maintenant en faisant Super + S.
-
+#while [ `xdotool getwindowfocus` != $gamescript_window ];do sleep .5; done
+Il y a 3 modes d'affichage des fenêtres sur i3.
+Par defaut, l'affichage est en onglet, mais vous pouvez aussi avoir une liste des fenêtres de haut en bas, ou le titre des fenêtres prendra toute la ligne.
+Mais pour passer d'une fenêtre a l'autre dans ce mode, il faudra utiliser Super + fleche du haut et bas au lieu de gauche et droite.
+Essayez donc ce mode d'affichage maintenant en faisant Super + S, et naviguez entre les deux fenêtres avec SUper + fleche du haut/bas.
 Pour revenir au mode d'affichage en onglet, vous pouvez faire Super + W.
-
-Et enfin vous avez un  troisieme mode d'affichage, qui affiche toutes vos fenetres de votre espace de travail dans un damier.
+Et enfin vous avez un troisieme mode d'affichage, qui affiche toutes vos fenêtres de votre espace de travail dans un damier.
 Essayez ce mode d'affichage en faisant Super + E.
 En etant dans ce mode, vous pouvez continuer a utiliser Super + E pour alterner entre decoupage vertical et horizontal.
-Faites donc Super + E jusqu'a avoir le nouveau terminal en dessous de la fenetre de GameScript.
-
-Ici meme si les deux fenetres sont visibles a l'ecran, seulement l'une d'entre elles a le focus.
+Faites donc Super + E jusqu'a avoir le nouveau terminal en dessous de la fenêtre de GameScript.
+Ici meme si les deux fenêtres sont visibles a l'écran, seulement l'une d'entre elles a le focus.
 Toujours de la meme maniere, vous pouvez changer le focus avec Super + les fleches de votre clavier.
-Essayez donc d'alterner votre focus entre ces deux fenetres avec votre clavier et donnez ensuite le focus a la fenetre de GameScript pour continuer.
-
-
-Vous pouvez aussi remarquer qu'avec ce mode d'affichage, il est aussi possible de changer la fenetre focus avec le curseur de votre souris.
++Donnez le focus a la fenêtre du bas et lancer la commande ls dedans, puis redonnez le focus a la fenêtre de GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#while [ `xdotool getwindowfocus` != $gamescript_window ];do sleep .5; done
+Vous pouvez aussi remarquer qu'avec ce mode d'affichage, il est aussi possible de changer la fenêtre focus avec le curseur de votre souris.
 Notez que seul le mouvement de votre curseur est necessaire pour ce changement de focus, vous n'avez pas besoin de cliquer.
-
++Essayez donc d'alterner le focus entre les deux fenêtres juste en déplacant votre souris.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#while [ `xdotool getwindowfocus` != $gamescript_window ];do sleep .5; done
 Bien evidemment, comme tout ce que vous faites dans i3, je vous conseille d'utiliser votre souris au minimum et de privilegier vos raccourcis clavier.
-Si vous continuez, GameScript disparaitra... et il vous faudra le retrouver pour continuer.
-#i3-msg 'move window to workspace 5'
-
-GameScript est donc en ce moment dans l'espace de travail 5.
-Vous savez deja comment passer d'un espace de travail a l'autre, mais il est aussi possible de deplacer vos fenetres dans un autre espace de travail.
-Remettez donc la fenetre de GameScript dans l'espace de travail 1 avec Super + Shift + 1, puis revenez sur l'espace de travail 1.
-
-Avoir plusieurs espaces de travail differents vous permet d'organiser vos fenetres selon votre volonte.
+Attention, apres cette phrase, la fenêtre de GameScript disparaitra... et il vous faudra la retrouver pour continuer.
+#i3-msg 'move window to workspace 5' &>/dev/null
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 5 ]; do sleep .5; done
+Felicitation, vous avez retrouve GameScript dans l'espace de travail 5 !
+Vous savez déjà comment passer d'un espace de travail a l'autre, mais il est aussi possible de déplacer vos fenêtres dans un autre espace de travail.
++Remettez donc la fenêtre de GameScript dans l'espace de travail 1 avec Super + Shift + 1, puis revenez sur l'espace de travail 1 pour retrouver GameScript et continuer.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Vous pouvez remarquer que la fenêtre de GameScript est desormais en dessous, car elle est devenu la fenêtre la plus recente sur cet espace de travail.
+Avoir plusieurs espaces de travail differents vous permet d'organiser vos fenêtres selon votre volonte.
 Personnelement, j'utilise l'espace de travail 1 pour tous mes terminaux.
 L'espace de travail 2 pour mes editeurs de texte.
-L'espace de travail 3 pour navigateur web et autres fenetres oriente web.
-L'espace de travail 4 pour gestionnaire de fichier et affichage de contenu, comme visionneuse d'image.
-L'espace de travail 5 pour tout ce qui est social, email, chat, IRC, etc...
-
-Organiser vos fenetres par theme vous permet de les retrouver tres rapidement, meme si elles sont tres nombreuses.
-
+L'espace de travail 3 pour navigateur web et autres fenêtres oriente web.
+L'espace de travail 4 pour gestionnaire de fichier et affichage de contenu, comme visionneuse d'image ou autre.
+L'espace de travail 5 pour tout ce qui est social : email, rocketchat, discord, IRC, etc...
+Organiser vos fenêtres par theme vous permet de les retrouver tres rapidement, meme si elles sont tres nombreuses.
+#gamescript_window=$(xdotool getwindowfocus)
++Fermez la fenêtre du dessus pour continuer.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#to_close=$(xdotool getwindowfocus)
+#while [ `xdotool search --class ""|grep "^$to_close$"` ];do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#echo -e "<html>\\\\n\\\\t<head>\\\\n\\\\t\\\\t<link rel="stylesheet" href="style.css">\\\\n\\\\t</head>\\\\n\\\\t<body>\\\\n\\\\t\\\\t<h1>GameScript</h1>\\\\n\\\\t\\\\t<div>bonjour</div>\\\\n\\\\t</body>\\\\n</html>" > ~/.GameScript_i3wm_1/index.html
+#echo -e "h1{color:red;}" > ~/.GameScript_i3wm_1/style.css
+#i3-msg exec leafpad ~/.GameScript_i3wm_1/index.html &>/dev/null
+#i3-msg exec dillo ~/.GameScript_i3wm_1/index.html &>/dev/null
+#i3-msg exec pcmanfm ~/.GameScript_i3wm_1/ &>/dev/null
+Je viens de preparer un exemple complet, avec une fenêtre par espace de travail.
+Cet exemple utilise mes configurations personnelles, mais libre a vous d'avoir votre propre organisation plus tard, en fonction des programmes que vous utilisez le plus souvent.
++L'espace de travail 2 contient un fichier index.html ouvert dans un editeur de texte, visitez cet espace de travail avant de revenir sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
++L'espace de travail 3 contient le meme fichier html ouvert dans un navigateur web, visitez cet espace de travail avant de revenir sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
++Et enfin l'espace de travail 4 contient un gestionnaire de fichier ouvert dans le dossier qui contient ce fichier html, visitez cet espace de travail avant de revenir sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 4 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Donc au lieu d'avoir 4 fenêtres differentes, vous avez ici 4 espaces de travail contenant chacun une fenêtre.
++Modifiez le mot "bonjour" du fichier html par le mot "bonsoir" dans l'espace de travail 2, sauvegardez le fichier, puis revenez sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
++Affichez maintenant le changement en actualisant votre navigateur web dans l'espace de travail 3, puis revenez sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
++Allez maintenant sur l'espace de travail 4 et ouvrez le fichier "style.css" avec leafpad en faisant clic droit sur le fichier, ouvrir avec, Leafpad, puis revenez sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 4 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+Vous avez surement remarque que leafpad ne s'est pas ouvert dans l'espace de travail 4, mais dans l'espace de travail 2.
+C'est en fait parce que j'ai configure votre i3 pour que cela soit le cas. 
+Votre espace de travail 2 devrait d'aileurs etre en ce moment de couleur rouge.
+Ce rouge veut dire qu'une nouvelle fenêtre vient de s'ouvrir dans cet espace de travail, et cette couleur restera rouge tant que cette fenêtre n'aura pas recu de focus.
++Modifiez donc ce fichier "style.css" en changeant 'red' par 'blue', enregistrez les modifications, verifiez l'effet de vos changements dans l'espace de travail 3 et revenez sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+Avec i3, il est donc possible de controler dans quel espace de travail se lance quel programme.
+"leafpad" etant un editeur de texte, nous voulons qu'il soit sur l'espace de travail 2 par defaut.
+Ce genre de configuration doit etre ecrit dans le fichier : ~/.config/i3/config
+Pour ouvrir systematiquement leafpad dans l'espace de travail 2, j'ai ajoute dans votre fichier de configuration la ligne : ${code}assign [class="Leafpad"] workspace 2${reset}
++Essayez donc de faire la meme chose avec mousepad, un autre editeur de texte : ${learn}echo 'assign [class="Mousepad"] workspace 2'>>~/.config/i3/config${reset}
+!echo 'assign [class="Mousepad"] workspace 2'>>~/.config/i3/config
++Lancez maintenant mousepad en le detachant du terminal de GameScript en faisant : mousepad&
+!mousepad&
+Vous pouvez remarquer que mousepad s'est ouvert sur l'espace de travail 1, ce qui n'est pas vraiment ce qui etait prevu.
+Pour que vos modifications soit prises en compte, il vous faudra reactualiser le fichier de configuration avec : Super + Shift + c, faites le donc maintenant.
+Vous devriez voir l'interface de i3 clignoter pendant un bref instant.
+Mais notre fenêtre de mousepad est toujours dans l'espace de travail 1, car "assign" n'aura d'effet que pour les nouvelles fenêtres.
+Fermez donc cette fenêtre de mousepad avant de continuer.
+Desormais toutes les instances de mousepad seront automatiquement lancees dans l'espace de travail 2.
++Lancez donc mousepad a nouveau en le detachant du terminal de GameScript en faisant : ${learn}mousepad&${reset}
+!mousepad&
+Vous etes toujours en ce moment dans l'espace de travail 1, mais vous devriez voir l'espace de travail 2 s'illuminer en rouge.
++Fermez cette nouvelle fenêtre de mousepad avant de continuer.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
++Ouvrez donc maintenant galculator avec ${learn}galculator&${reset} et revenez sur gamescript.
+!galculator&
+Vous pouvez remarquer que cette fenêtre remplira entierement votre écran, ce qui n'est pas vraiment pratique pour ce genre de fenêtre.
+Il est cependant possible d'alterner entre mode "mosaique" et "flottant" avec la combinaison de touche Super + Shift + Espace.
+Apres avoir cible la calculatrice, utilisez donc cette combinaison de touche pour la rendre flottante.
+Vous pouvez remarquer que sur i3 une fenêtre flottante est toujours au premier plan, meme si le focus est sur une autre fenêtre.
+Mais ce changement pour une fenêtre flottante est temporaire et n'affectera que cette instance de galculator.
+Le mode d'affichage par defaut des fenêtres est la mosaique, pour que "galculator" soit toujours en mode flottant il va falloir encore changer le fichier de configuration.
+Le code assign [class="Leafpad"] workspace 2 que nous avons déjà vu, cible toutes les instances de leafpad en utilisant en argument "class" qui est egal a "Leafpad".
+Pour connaitre la classe d'une fenêtre vous pouvez utiliser xprop.
++Tapez donc la commande xprop, le curseur deviendra une croix, puis cliquez sur le terminal qui contient GameScript.
+!xprop
+Le nom de la "class" de la fenêtre que vous avez ciblee est le deuxieme nom de la ligne qui commence par WM_CLASS.
+Si seul cette ligne vous interesse, vous pouvez utilisez grep avec par exemple : xprop|grep CLASS
++Faites donc ${learn}xprop|grep CLASS${reset} et cliquez sur la calculatrice pour recuperer le nom de sa "class".
+!xprop|grep CLASS
+Votre resultat devrait etre : WM_CLASS(STRING) = "galculator", "Galculator"
+La "class" est ici la deuxieme chaine de caracteres : "Galculator"
+Pour que la "class" "Galculator" soit systematiquement en mode flottant, il faudra ajouter dans le fichier de configuration : for_window [class="Galculator"] floating enable
+Si vous voulez que votre fenêtre flottante soit sur tous les espaces de travail il vous faudra utiliser "sticky enable"
+"for_window" accepte plusieurs parametres, que vous pouvez separer par des virgules.
+Pour que la class "Galculator" soir a la fois flottante et presente sur tous les espaces de travail il faudra donc faire : for_window [class="Galculator"] floating enable, sticky enable
++Fermez la calculatrice et faites : ${code}echo 'for_window [class="Galculator"] floating enable, sticky enable'>>~/.config/i3/config${reset}
+!echo 'for_window [class="Galculator"] floating enable, sticky enable'>>~/.config/i3/config
++Affichez les deux dernieres lignes de votre fichier de configuration avec : ${learn}tail -n 2 ~/.config/i3/config${reset}
+!tail -n 2 ~/.config/i3/config
+Bien sur, n'oubliez pas de reactualiser le fichier de configuration maintenant avec Super + Shift + c.
++Apres avoir reactualise le fichier de configuration, relancez donc galculator avec : galculator&
+!galculator&
+Ici vous pouvez voir que la calculatrice est maintenant en mode flottant grace au code "floating enable".
+Mais si vous essayez de changer d'espace de travail vous verrez qu'avec le code "sticky enable" la fenêtre vous suivra.
+Déplacez vous donc dans l'espace de travail 5 et revenez sur GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 5 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+Notez que pour déplacer cette fenêtre flottante, vous pouvez maintenir la touche Super et le bouton gauche de votre souris enfoncé.
+Il n'est cependant pas tres pratique d'avoir a lancer toutes les applications a partir d'un terminal.
+C'est pourquoi un lanceur d'application est un outil tres important dans i3.
+Nous allons donc creer notre premier raccourci clavier personnalise pour ce lanceur d'application.
+Pour cet exemple nous utiliserons "rofi", plus précisement la commande "rofi -show run" et la combinaison de touche Alt + F2.
+Pour i3, la touche Alt est "mod1", et la touche Super est "mod4". Le code de configuration sera donc : ${code}bindsym mod1+F2 exec rofi -show run${reset}
++Ajoutez donc ce code a la suite de votre fichier de configuration avec : ${learn}echo 'bindsym Mod1+F2 exec rofi -show run'>>~/.config/i3/config${reset}
+!echo 'bindsym Mod1+F2 exec rofi -show run'>>~/.config/i3/config
+Et enfin, reactualisez votre fichier de configuration avec : Super + Shift + c
+Fites maintenant Alt + F2 pour lancer "rofi", et executez "galculator"..
+Voila donc trois examples pour les trois configurations les plus fondamentales d'i3 : assign, for_window et bindsym.
++Pour un rappel de syntaxe, affichez les 3 lignes de configurations que nous avons ajoutees dans ce chapitre avec : ${learn}tail -n 3 ~/.config/i3/config${reset}
+!tail -n 3 ~/.config/i3/config
+${code}assign${reset} est utilise pour lier certaines fenêtres a un certain espace de travail.
+${code}for_window${reset} est utilise pour donner une configuration particuliere a certaines fenêtres.
+Et enfin ${code}bindsym${reset} est utilise pour lancer d'autres commandes directement avec une combinaison de touche.
+Bien evidemment tous les combinaisons de touche que vous utilisez son personnalisable.
+Par exemple, pour recharger votre fichier de configuration vous devez faire : Super+Shift+c.
++Mais ce code est modifiable comme tous les autres dans votre fichier de configuration. Faites donc : grep reload ~/.config/i3/config
+!grep reload ~/.config/i3/config
+Ici vous devriez voir le "bindsym" responsable de cette combinaison de touche, mais libre a vous de le modifier si vous le desirez.
++Par exemple, pour voir la ligne pour quitter proprement i3, faites : grep exit ~/.config/i3/config
+!grep exit ~/.config/i3/config
+Essayez de faire Super + Shift + e, vous recevrez un message demandant votre confirmation, cliquez ensuite sur la croix pour annuler la fermeture de i3.
+Et si par exemple vous voulez lancer 'mousepad' au démarrage d'i3, il suffit de mettre dans votre fichier de configuration : exec mousepad
+L'utilisation des raccourcis clavier peut vous paraitre etrange et non intuitive pour le moment mais vous ne pourrez plus vous en passer.
+C'est tout pour cette fois, dans le prochain chapitre nous verrons comment controler avec précision l'organisation de nos fenêtres.
+En avant pour le questionnaire !

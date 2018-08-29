@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash7" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash7 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash7 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash7" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash7 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash7 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash7 2> /dev/null
 #cd $HOME/.GameScript_bash7
 Nous avons déjà vu dans les chapitres précédents comment utiliser le symbole ${code}>${reset}.

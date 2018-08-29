@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash2" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash2 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash2 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash2" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash2 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash2 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash2 2> /dev/null
 #cd $HOME/.GameScript_bash2
 #touch $HOME/.GameScript_bash2/bOb

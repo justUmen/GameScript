@@ -1,35 +1,90 @@
-#[ -d "$HOME/.GameScript_bash12" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash12 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash12 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash12" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash12 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash12 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash12 2> /dev/null
 #cd $HOME/.GameScript_bash12
 
 
+Dans le chapitre précédent nous avons vu l'utilisation des conditions en bash avec la combinaison if/then/else/fi.
+
+Comme dans cet exemple :
+
+if [ $X -gt 10 ];then
+	echo plus grand que 10
+else
+	if [ $X -gt 5 ];then
+		echo entre 5 et 10
+	fi
+fi
+
+Mais il existe une autre syntaxe capable de combiner un else et un if : elif.
+C'est a dire que le code precedent peut etre ecrit de cette maniere.
+
+if [ $X -gt 10 ];then
+	echo plus grand que 10
+elif [ $X -gt 5 ];then
+	echo entre 5 et 10
+fi
+
+elif est particulierement utile pour
+
+if [ $X -ge 5 ];then
+	if [ $X -le 10 ];then
+		echo La valeur de X est entre 5 et 10.
+	fi
+fi
+
+if [ $X -ge 5 ] && [ $X -le 10 ];then
+	echo La valeur de X est entre 5 et 10.
+fi
 
 
 
+$V1=true
+$V2=true
+if test true && test true;then
+	echo "TRUE && TRUE is TRUE"
+fi
+if test true && test false;then
+	echo "TRUE && FALSE is TRUE"
+fi
+if test false && test false;then
+	echo "FALSE && FALSE is TRUE"
+fi
+if test true || test true;then
+	echo "TRUE || TRUE is TRUE"
+fi
+if test true || test false;then
+	echo "TRUE || FALSE is TRUE"
+fi
+if test false || test false;then
+	echo "FALSE || FALSE is TRUE"
+fi
 
-Combines if logics : 
-	 if test 1 -eq 1 || test 2 -eq 1
-	 if [ 1 -eq 1 ] || [ 2 -eq 1 ];
 
 elif
-
-
-
+X=14;if [ $X -ge 10 ] && [ $X -le 20 ];then echo La valeur de X est entre 10 et 20. \($X\); elif [ $X -ge 30 ] && [ $X -le 40 ]; then echo La valeur de X est entre 30 et 40. \($X\);fi
 
 -eq difference with =
-
-if, simple command with arguments ???
-	if [  ] then ... fi ???
+	if [ "$(whoami)" != 'root' ]; then
 
 
-if [ "$(whoami)" != 'root' ]; then
 
-if [ $# -eq 0 ]; then ;; fi
-	IF NO ARGUMENTS
-if [ -z "$1" ]
+#MORE ABOUT TEST -f, more ???
 if [ -f /var/log/messages ]
 
+
+
+
+#BASH SCRIPT ARGUMENTS
+read OR use argument of script !!! $1 !!!!!!
+	if [ $# -eq 0 ]; then ;; fi
+		IF NO ARGUMENTS
+	if [ -z "$1" ]
+
+
+#BASH SCRIPT VARIABLES
 $0 $1 $2 $@ $# $_ $- “$@” $!
+
+
 
 variable in script + variable in shell that launched bash
 difference bash et ./ (nouvelle instance de bash)
@@ -37,22 +92,16 @@ difference bash et ./ (nouvelle instance de bash)
 shebang
 
 
-type source ---> built-in ----> man bash
-
-
-[ $x == 111 ];echo $?
 
 
 
+functions
 
-
-read OR use agument of script !!! $1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-argument of function
+argument of functions
 
 POSIX ??? [] [[ ]]
 
-while < 
-
+while <
 
 $((expression)) arithmetic
 
@@ -64,10 +113,15 @@ SUBSHELLS
 CODE PLANNING BEFORE CODING
 
 
+
+
+
+type source ---> built-in ----> man bash
+
+
+
+
 ê
 é
 à
 è
-
-
-

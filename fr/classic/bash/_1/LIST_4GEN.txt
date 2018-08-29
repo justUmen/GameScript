@@ -1,4 +1,4 @@
-#[ -d "$HOME/House" ] && echo "Erreur innatendu, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancer ce script." && exit
+#[ -d "$HOME/House" ] && echo "Erreur inattendue, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash1 &> /dev/null
 #cd $HOME/
 Hey salut tout le monde et bienvenu dans le premier chapitre sur bash.

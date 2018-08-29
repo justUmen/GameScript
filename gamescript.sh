@@ -150,9 +150,17 @@ function my_passwords(){
 function gamescript_available_arguments(){
   #LATER MENU HERE FOR SUBJECT SELECTION
   case $1 in
-    fr) echo -e "===> Sujets disponibles pour le moment : \n\t\e[97;44m bash \e[0m"
+    fr) echo -e "===> 1) \e[97;44m bash \e[0m"
 		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
-        launch_gamescript $LANGUAGE classic bash
+		echo -e "===> 2) \e[97;44m i3wm \e[0m"
+
+	echo -en "\e[97;45m # \e[0m"
+	read selected < /dev/tty
+	if [ "$selected" == "1" ];then
+		launch_gamescript $LANGUAGE classic bash
+	elif [ "$selected" == "2" ];then
+		launch_gamescript $LANGUAGE classic i3wm
+    fi
 		;;
     en) echo -e "===> Available subjects for now : \n\t\e[97;44m bash \e[0m"
 		echo -e "This series have the name \e[97;44m bash \e[0m, but ??????."
@@ -167,13 +175,20 @@ function enter(){
   #use curl if exist ? better ? can avoid cache ?
   case $1 in
     bash) TITLE="Bourne Again SHell" ;;
+    i3wm) TITLE="The i3 Window Manager" ;;
     *) TITLE="" ;;
   esac
   case $2 in
     # 1) echo -e "\e[0;33m...\e[0m" ;&
     1) echo "" ;&
   	2) echo -e "\e[97;44m - $1, $TITLE \e[0m" ;&
-  	3) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" "[BETA, NO SOUND] $1 : $CHAPTER 10" "[BETA, NO SOUND] $1 : $CHAPTER 11";; #"$1 : chapitre 8"
+  	3)
+	  case $1 in
+		bash) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" "[BETA, NO SOUND] $1 : $CHAPTER 10" "[BETA, NO SOUND] $1 : $CHAPTER 11";; #"$1 : chapitre 8"
+		i3wm) show_menu "$1" "$1 : $CHAPTER 1" ;;
+		*) TITLE="" ;;
+	  esac
+	;;
     # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
     *)
 		if [[ $MUTE == 1 ]]; then
@@ -205,6 +220,8 @@ function launch_gamescript(){
   # echo "SUBJECT = $SUBJECT"
   if [ "$3" == "bash" ]; then
 	   enter bash 1
+  elif [ "$3" == "i3wm" ]; then
+	   enter i3wm 1
   fi
 }
 
