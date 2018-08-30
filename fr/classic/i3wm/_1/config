@@ -1,5 +1,5 @@
 exec lxterminal -e "bash ~/.GameScript/standalone.sh;bash"
-exec i3-msg 'layout tabbed'
+exec i3-msg 'workspace 1, layout tabbed'
 
 assign [class="Leafpad"] workspace 2
 assign [class="qutebrowser"] workspace 3
@@ -73,7 +73,7 @@ bindsym mod4+Shift+0 move container to workspace $ws10
 
 bindsym mod4+Shift+c reload
 bindsym mod4+Shift+r restart
-bindsym mod4+Shift+e exec "i3-nagbar -t warning -m "You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
         bindsym Left        resize shrink width 10 px or 10 ppt
