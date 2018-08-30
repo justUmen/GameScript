@@ -1,6 +1,5 @@
 exec lxterminal -e "bash ~/.GameScript/standalone.sh;bash"
-
-layout tabbed
+exec i3-msg 'layout tabbed'
 
 assign [class="Leafpad"] workspace 2
 assign [class="qutebrowser"] workspace 3
