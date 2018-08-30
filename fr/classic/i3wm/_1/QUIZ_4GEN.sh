@@ -1,6 +1,7 @@
 function clean(){ #in enter_chapter
 rm $HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
+rm ~/.GameScript/i3wm_1_installed 2> /dev/null
 }
 
 function start_quiz(){
@@ -12,6 +13,8 @@ function start_quiz(){
   unlock "i3wm" "1" "" ""
 
   wget "https://github.com/justUmen/WallpaperGenerator/raw/master/Wallpaper/fr/i3wm_1/`xrandr | grep ' connected' | sed 's/.*primary //' | sed 's/+.*//'`.jpg" -O ~/.GameScript/i3wm_1_wallpaper.jpg
+  
+  sleep 2
   feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg
 
   echo -e "Je viens de changer votre fond d'écran avec un rappel de ce que vous venez d'apprendre dans ce chapitre avec la commande : 'feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg'"

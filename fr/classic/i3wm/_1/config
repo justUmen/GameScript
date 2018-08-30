@@ -1,25 +1,27 @@
 exec lxterminal -e "bash ~/.GameScript/standalone.sh;bash"
 
+layout tabbed
+
+assign [class="Leafpad"] workspace 2
+assign [class="qutebrowser"] workspace 3
+assign [class="Pcmanfm"] workspace 4
+
 font pango:monospace 8
-set $up l
-set $down k
-set $left j
-set $right semicolon
 
 floating_modifier mod4
 bindsym mod4+Return exec lxterminal
 
 bindsym mod4+Shift+q kill
 
-bindsym mod4+$left focus left
-bindsym mod4+$down focus down
-bindsym mod4+$up focus up
-bindsym mod4+$right focus right
+bindsym mod4+Left focus left
+bindsym mod4+Down focus down
+bindsym mod4+Up focus up
+bindsym mod4+Right focus right
 
-bindsym mod4+Shift+$left move left
-bindsym mod4+Shift+$down move down
-bindsym mod4+Shift+$up move up
-bindsym mod4+Shift+$right move right
+bindsym mod4+Shift+Left move left
+bindsym mod4+Shift+Down move down
+bindsym mod4+Shift+Up move up
+bindsym mod4+Shift+Right move right
 
 bindsym mod4+s layout stacking
 bindsym mod4+w layout tabbed
