@@ -1,17 +1,21 @@
 #command -v xi3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : ${learn}apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool${reset}" >&2; exit 3; }
-#if [ ! -f "$HOME/.GameScript/i3wm_1_installed" ]; then [ -f "$HOME/.config/i3/config" ] && echo "Erreur, le fichier de configuration $HOME/.config/i3/config existe déjà sur votre système ! GameScript utilisera un fichier de configuration de i3 particulier, si vous voulez continuer, veuillez supprimer ou déplacer manuellement ce fichier avant de relancer GameScript. (mv $HOME/.config/i3/config $HOME/.config/i3/config_backup)" && exit; [ -f "$HOME/.i3/config" ] && echo "Erreur, le fichier de configuration $HOME/.i3/config existe déjà sur votre système ! GameScript utilisera un fichier de configuration de i3 particulier, si vous voulez continuer, veuillez supprimer ou déplacer manuellement ce fichier avant de relancer GameScript. (mv $HOME/.i3/config $HOME/.i3/config_backup)" && exit;touch $HOME/.GameScript/i3wm_1_installed;wget https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/i3wm/_1/config -O ~/.config/i3/config &> /dev/null; echo "SUCCES : Veuillez maintenant fermer votre environment habituel et lancez i3 normalement, GameScript sera là pour vous accueillir."; rm /home/umen/.GameScript/restore_i3wm1; exit; fi
+#mkdir ~/.config 2>/dev/null
+#mkdir ~/.config/i3 2>/dev/null
+#[ -f "$HOME/.config/i3/config_GS_backup" ] && echo "$HOME/.config/i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
+#[ -f "$HOME/.i3/config_GS_backup" ] && echo "$HOME/.i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
+#if [ ! -f "$HOME/.GameScript/i3wm_1_installed" ]; then [ -f "$HOME/.config/i3/config" ] && mv $HOME/.config/i3/config $HOME/.config/i3/config_GS_backup && echo "Votre fichier de configuration $HOME/.config/i3/config a été renommé en $HOME/.config/i3/config_GS_backup"; [ -f "$HOME/.i3/config" ] && mv $HOME/.i3/config $HOME/.i3/config_GS_backup && echo "Votre fichier de configuration $HOME/.i3/config a été renommé en $HOME/.i3/config_GS_backup"; touch $HOME/.GameScript/i3wm_1_installed;wget https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/i3wm/_1/config -O ~/.config/i3/config &> /dev/null; rm $HOME/.GameScript/restore_i3wm1; echo "SUCCES : Veuillez maintenant fermer votre environment habituel et lancez i3 normalement, GameScript sera là pour vous accueillir."; exit; fi
 #mkdir $HOME/.GameScript_i3wm_1 &> /dev/null
 #cd $HOME/.GameScript_i3wm_1
 #gamescript_window=$(xdotool getwindowfocus)
 Dans un gestionnaire de fenêtres, il y a deux choses que vous devez apprendre à manipuler, les espaces de travail et les fenêtres.
-Commencons par les espaces de travail. Ici je vais vous donnez mes configurations, libre à vous de les modifier plus tard.
+Commencons par les espaces de travail. Ici je vais vous donnez mes configurations, mais libre à vous de les modifier plus tard.
 Vous pouvez avoir plusieurs espaces de travail, et chacun pourra avoir ses propres configurations et ses propres objectifs.
-Si vous regardez en bas a gauche de votre écran vous devriez voir le chiffre 1 dans un carre.
-Le 1 est en fait le nom/numéro de l'espace de travail ou vous êtes en ce moment.
+Si vous regardez en bas à gauche de votre écran vous devriez voir le chiffre 1 dans un carre.
+Le 1 est en fait le nom/numéro de l'espace de travail où vous êtes en ce moment.
 Cet espace de travail pour l'instant ne contient que la fenêtre du terminal qui contient GameScript.
 Le gestionnaire de fenêtres i3 se base sur des combinaisons de touches pour fonctionner.
 Elles sont toutes personnalisables mais je vais vous en donner certaines que je vous conseille de garder.
-Vous pouvez passer d'un espace de travail à l'autre avec la touche 'Super', parfois appelée par certains novices : 'touche window'.
+Vous pouvez passer d'un espace de travail à l'autre avec la touche 'Super', parfois appelée par certains novices : 'touche windows'.
 Il faudra en même temps appuyer sur la touche 'Super' et le numéro de l'espace de travail ou vous voulez aller.
 Gamescript est en ce moment dans l'espace de travail 1, souvenez vous donc que pour continuer à interagir avec GameScript, il vous faudra faire 'Super + 1'.
 +Maintenant, déplacez vous dans l'espace de travail 2 avec Super + 2, regardez la liste de vos espaces de travail en bas à gauche votre écran, puis faites 'Super + 1' pour revenir sur GameScript.
@@ -24,22 +28,22 @@ L'espace de travail 2 étant pour le moment vide, il ne restera pas affiché dan
 Contrairement à l'espace de travail 1, qui contient la fenêtre de GameScript.
 Je vous conseille d'utiliser des raccourcis clavier pour tous les programmes que vous utilisez regulièrement.
 Par exemple, pour ouvrir un nouveau terminal, il faudra utiliser le raccourci clavier 'Super + Entree'.
-On va commencer par creer une nouvelle fenêtre dans cet espace de travail 2.
+On va commencer par créer une nouvelle fenêtre dans cet espace de travail 2.
 +Déplacez vous dans l'espace de travail 2 avec 'Super + 2', ouvrez un nouveau terminal dans cet espace de travail avec 'Super + Entree', puis revenez sur GameScript avec 'Super + 1'.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
 #name="";while [ "$name" != "Lxterminal" ];do id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW/{print $NF}'|grep 0x); name=$(xprop -id $id | awk '/WM_CLASS/{$1=$2="";print}' | cut -d'"' -f4);  sleep .5; done;sleep 1
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 De retour dans l'espace de travail 1, vous pouvez remarquer que l'espace de travail 2 est cette fois dans la liste, car maintenant il n'est plus vide.
 Vous pouvez également utiliser votre souris et cliquer sur le nom de l'espace de travail où vous voulez vous rendre.
-+Utilisez la liste en bas en gauche pour vous rendre sur l'espace de travail 2 et revenez sur gamescrit en utilisant uniquement votre souris.
++Utilisez la liste en bas en gauche pour vous rendre sur l'espace de travail 2, fermez ce terminal et revenez sur GameScript en utilisant votre souris.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
-Regardez maintenant la barre en haut de votre écran : elle contient le titre de la fenêtre qui GameScript.
+Regardez maintenant la barre bleu en haut de votre écran : elle contient le titre de la fenêtre qui contient GameScript.
 Bien évidemment, il est possible d'avoir plusieurs fenêtres dans un même espace de travail.
 #i3-msg 'exec lxterminal' &>/dev/null; while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done; i3-msg focus left
 Je viens d'ouvrir un nouveau terminal dans votre espace de travail, vous devriez maintenant voir deux onglets différents en haut de votre écran.
 Chaque onglet correspond a une fenêtre, celui de gauche est le titre de la fenêtre de gamescript.
-Les titres de fenêtres s'affichent de gauche a droite, des plus anciennes aux plus récentes.
+Les titres de fenêtres s'affichent de gauche à droite, des plus anciennes aux plus récentes.
 Chaque nouvelle fenêtre s'ajoutera donc a droite des onglets deja présents.
 Le terminal qui contient GameScript ayant été ouvert en premier, il restera le plus a gauche.
 +Cliquez sur l'onglet de la deuxième fenêtre pour l'afficher, et revenez sur gamescript en cliquant sur le premier onglet.
@@ -50,7 +54,7 @@ Bien évidemment, je vous conseille d'utiliser votre clavier pour faire cela bie
 Quand vous ciblez une autre fenêtre, on dit que cette fenêtre a le ${voc}focus${reset}.
 C'est à dire que tout autre raccourci clavier sera envoyé à la fenêtre qui a le focus en ce moment.
 Par exemple, pour fermer une fenêtre, vous pouvez faire 'Super + Shift + q', mais attention à ne pas fermer le terminal qui contient Gamescript par erreur !
-+Changez le focus avec 'Super + flèche de droite', et fermez le deuxième terminal que j'ai ouvert tout a l'heure avec 'Super + Shift + q'.
++Changez le focus avec 'Super + flèche de droite', et fermez le deuxième terminal que j'ai ouvert tout à l'heure avec 'Super + Shift + q'.
 #gamescript_window=$(xdotool getwindowfocus)
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 #to_close=$(xdotool getwindowfocus)
@@ -69,7 +73,7 @@ Revenez maintenant au mode d'affichage en onglet en faisant 'Super + w'.
 Et enfin vous avez un troisième mode d'affichage, qui affiche toutes vos fenêtres de votre espace de travail dans un damier.
 Essayez ce mode d'affichage en faisant 'Super + e'.
 En étant dans ce mode, vous pouvez continuer à utiliser 'Super + e' pour alterner entre découpage vertical et horizontal.
-Faites donc Super + E jusqu'à avoir le nouveau terminal en dessous de la fenêtre de GameScript.
+Faites donc 'Super + e' jusqu'à avoir le nouveau terminal en dessous de la fenêtre de GameScript.
 Ici même si les deux fenêtres sont visibles a l'écran, seulement l'une d'entre elles a le focus.
 Toujours de la même maniere, vous pouvez changer le focus avec 'Super + les fleches de votre clavier'.
 +Donnez le focus à la fenêtre du bas et lancer la commande ${learn}ls${reset} dedans, puis redonnez le focus à la fenêtre de GameScript.
@@ -90,12 +94,12 @@ Vous savez déjà comment passer d'un espace de travail a l'autre, mais il est a
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 Vous pouvez remarquer que la fenêtre de GameScript est désormais en dessous, car elle est devenu la fenêtre la plus récente sur cet espace de travail.
-Si l'affichage était en onglet, GameScript serait donc dans la fenêtre la plus a droite.
-Avoir plusieurs espaces de travail differents vous permet d'organiser vos fenêtres selon votre volonté.
+Si l'affichage était en onglet, GameScript serait donc dans l'onglet le plus à droite.
+Avoir plusieurs espaces de travail différents vous permet d'organiser vos fenêtres selon votre volonté.
 Personnelement, j'utilise l'espace de travail 1 pour mon terminal principal, qui doit toujours être opérationnel rapidement.
-J'utilise l'espace de travail 2 pour mes editeurs de texte.
-J'utilise l'espace de travail 3 pour navigateur web et autres fenêtres oriente web.
-J'utilise l'espace de travail 4 pour gestionnaire de fichier et affichage de contenu.
+J'utilise l'espace de travail 2 pour mes éditeurs de texte.
+J'utilise l'espace de travail 3 pour mes navigateur web et autres fenêtres oriente web.
+J'utilise l'espace de travail 4 pour mes gestionnaires de fichier.
 Et j'utilise l'espace de travail 5 pour tout ce qui est social : email, rocketchat, discord, IRC, etc...
 Organiser vos fenêtres par thème vous permet de les retrouver très rapidement, même si elles sont très nombreuses.
 #gamescript_window=$(xdotool getwindowfocus)
@@ -142,15 +146,15 @@ Ce rouge veut dire qu'une nouvelle fenêtre vient de s'ouvrir dans cet espace de
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
 Avec i3, il est donc possible de contrôler dans quel espace de travail se lance quel programme.
-'leafpad' étant un éditeur de texte, nous voulons qu'il soit sur l'espace de travail 2 par defaut.
+'leafpad' étant un éditeur de texte, nous voulons qu'il soit sur l'espace de travail 2 par défaut.
 Ce genre d'envie doit être écrit dans le fichier de configuration d'i3 : ${code}$HOME/.config/i3/config${reset}
-Pour ouvrir systématiquement 'leafpad' dans l'espace de travail 2, j'ai ajouté dans votre fichier de configuration la ligne : ${code}assign [class="Leafpad"] workspace 2${reset}
+Pour ouvrir systématiquement 'leafpad' dans l'espace de travail 2, j'ai ajouté dans votre fichier de configuration la ligne : ${code}assign [class=\\"Leafpad\\"] workspace 2${reset}
 +Essayez donc de faire la même chose avec 'mousepad', un autre éditeur de texte : ${learn}echo 'assign [class=\\"Mousepad\\"] workspace 2'>>~/.config/i3/config${reset}
 !echo 'assign [class=\\"Mousepad\\"] workspace 2'>>~/.config/i3/config
 +Lancez maintenant 'mousepad' en le détachant du terminal de GameScript et ignorant ses erreurs en faisant : ${learn}mousepad&>/dev/null&${reset}
 !mousepad&>/dev/null&
 Vous pouvez remarquer que 'mousepad' s'est ouvert sur l'espace de travail 1, ce qui n'est pas vraiment ce qui était prévu.
-Pour que vos modifications soit prises en compte, il vous faudra réactualiser le fichier de configuration avec : 'Super + Shift + c', faites le donc maintenant.
+Pour que vos modifications soit prises en compte, il vous faudra réactualiser le fichier de configuration avec : 'Super + Shift + c', faites le donc maintenant avant de continuer.
 Apres avoir fait 'Super + Shift + c', vous devriez voir l'interface d'i3 clignoter pendant un bref instant.
 Mais notre fenêtre de 'mousepad' est toujours dans l'espace de travail 1, car 'assign' n'aura d'effet que pour les nouvelles fenêtres.
 Fermez donc cette fenêtre de 'mousepad' avant de continuer.
@@ -164,7 +168,7 @@ Vous êtes toujours en ce moment dans l'espace de travail 1, mais vous devriez v
 +Ouvrez donc maintenant 'galculator' avec ${learn}galculator&>/dev/null&${reset} et revenez sur gamescript.
 !galculator&>/dev/null&
 Vous pouvez remarquer que cette fenêtre remplira la moitié de votre écran, ce qui n'est pas vraiment pratique pour ce genre de fenêtre.
-Dans ce genre de situation, il existe un mode particulier dit 'flottant', que vous pouvez activer et desactiver avec la combinaison de touche 'Super + Shift + Espace'.
+Dans ce genre de situation, il existe un mode particulier dit 'flottant', que vous pouvez activer et désactiver avec la combinaison de touche 'Super + Shift + Espace'.
 Après avoir 'focus' la calculatrice, utilisez donc cette combinaison de touche pour la rendre indépendante des autres.
 Vous pouvez remarquer que sur i3 une fenêtre flottante est toujours au premier plan, même si le focus est sur une autre fenêtre.
 Mais ce changement pour une fenêtre flottante est temporaire et n'affectera que cette instance de galculator !
@@ -199,18 +203,18 @@ Notez que pour déplacer cette fenêtre flottante, vous pouvez maintenir la touc
 Il n'est cependant pas très pratique d'avoir à lancer toutes les applications à partir d'un terminal.
 C'est pourquoi un lanceur d'application est un outil très important dans i3 !
 Nous allons donc créer notre premier raccourci clavier personnalisé pour ce lanceur d'application.
-Pour créer un nouveau raccourci clavie, il faudra utiliser ${code}bindsym${reset}.
+Pour créer un nouveau raccourci clavier, il faudra utiliser ${code}bindsym${reset}.
 Pour cet exemple nous utiliserons ${code}rofi${reset}, plus précisement la commande ${code}rofi -show run${reset} et la combinaison de touche 'Alt + F2'.
 Pour i3, la touche 'Alt' est ${code}mod1${reset}, et la touche 'Super' est ${code}mod4${reset}. Le code de configuration sera donc : ${code}bindsym mod1+F2 exec rofi -show run${reset}
-+Ajoutez donc ce code à la suite de votre fichier de configuration avec : ${learn}echo 'bindsym Mod1+F2 exec rofi -show run'>>~/.config/i3/config${reset}
-!echo 'bindsym Mod1+F2 exec rofi -show run'>>~/.config/i3/config
++Ajoutez donc ce code à la suite de votre fichier de configuration avec : ${learn}echo 'bindsym mod1+F2 exec rofi -show run'>>~/.config/i3/config${reset}
+!echo 'bindsym mod1+F2 exec rofi -show run'>>~/.config/i3/config
 Et enfin, réactualisez votre fichier de configuration avec 'Super + Shift + c'.
 Faites maintenant 'Alt + F2' pour lancer ${code}rofi -show run${reset}, et exécutez 'galculator' avec.
 Voila donc trois examples pour les trois configurations les plus fondamentales d'i3 : ${code}assign${reset}, ${code}for_window${reset} et ${code}bindsym${reset}.
 +Pour un rappel de syntaxe, affichez les 3 lignes de configurations que nous avons ajoutées dans ce chapitre avec : ${learn}tail -n 3 ~/.config/i3/config${reset}
 !tail -n 3 ~/.config/i3/config
 ${code}assign${reset} est utilisé pour lier certaines fenêtres à un certain espace de travail.
-${code}for_window${reset} est utilisé pour donner une configuration particulière a certaines fenêtres.
+${code}for_window${reset} est utilisé pour donner une configuration particulière à certaines fenêtres.
 Et enfin ${code}bindsym${reset} est utilisé pour lancer d'autres commandes directement avec une combinaison de touche.
 Vous pouvez maintenant fermer les calculatrices.
 Bien évidemment tous les combinaisons de touche que vous utilisez sont personnalisables.
@@ -218,12 +222,12 @@ Par exemple, pour recharger votre fichier de configuration vous devez faire : 'S
 +Mais ce code est modifiable comme tous les autres dans votre fichier de configuration. Faites donc : ${learn}grep reload ~/.config/i3/config${reset}
 !grep reload ~/.config/i3/config
 Ici vous devriez voir le "bindsym" responsable de cette combinaison de touche, mais libre à vous de le modifier si vous le désirez.
-+Par exemple, pour voir la ligne responsable pour quitter i3, faites : grep exit ~/.config/i3/config
++Par exemple, pour voir la ligne responsable pour quitter i3, faites : ${learn}grep exit ~/.config/i3/config${reset}
 !grep exit ~/.config/i3/config
 Essayez de faire maintenant 'Super + Shift + e' pour voir ce code en action : vous recevrez un message demandant votre confirmation, cliquez ensuite sur la croix pour annuler la fermeture de i3.
 Et si par exemple vous voulez lancer 'mousepad' au démarrage d'i3, il suffit de mettre dans votre fichier de configuration : ${code}exec mousepad${reset}
 L'utilisation des raccourcis clavier peut vous paraitre étrange pour le moment, mais faites moi confiance, vous ne pourrez bientôt plus vous en passer !
-#mousepad ~/.config/i3/config
+#i3-msg exec 'mousepad ~/.config/i3/config'
 Avant d'en finir avec ce chapitre, je viens d'ouvrir pour vous le fichier de configuration d'i3 dans l'espace de travail 2.
 Pour éviter que 'GameScript i3wm' ne se lance au démarrage à chaque fois, supprimez la première ligne contenant le code 'exec'.
 C'est tout pour cette fois, dans le prochain chapitre nous verrons comment contrôler avec précision l'organisation de nos fenêtres.
