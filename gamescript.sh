@@ -209,6 +209,7 @@ function enter(){
 		fi
 		;;
   esac
+  #This run after finishing a standalone ? :p ???
   #~ enter bash 1 #go back in the menu
   gamescript_available_arguments #go back in the menu
 }
