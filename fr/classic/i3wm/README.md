@@ -8,6 +8,8 @@ i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'
 #dependancies : i3wm, mplayer, jq, dillo, lxterminal, mousepad, leafpad
 - launch i3 with particular configurations (Do not launch if one of the files exist : ~/.i3/config or ~/.config/i3/config ??? manually remove or move)
 
+TRY TO DETECT LXTERMINAL BUT it display errors
+#name="";while [ "$name" != "Lxterminal" ];do id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW/{print $NF}'|grep 0x) 2>/dev/null; sleep .5; name=$(xprop -id $id | awk '/WM_CLASS/{$1=$2="";print}' | cut -d'"' -f4) 2>/dev/null;  sleep .5; done; sleep 1
 
 #Images of keyboard shortcut
 super key:win key

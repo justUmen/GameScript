@@ -40,7 +40,6 @@ Par exemple, pour ouvrir un nouveau terminal, il faudra utiliser le raccourci cl
 On va commencer par créer une nouvelle fenêtre dans cet espace de travail 2.
 +Déplacez vous dans l'espace de travail 2 avec 'Super + 2', ouvrez un nouveau terminal dans cet espace de travail avec 'Super + Entrée', puis revenez sur GameScript avec 'Super + 1'.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
-#name="";while [ "$name" != "Lxterminal" ];do id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW/{print $NF}'|grep 0x) 2>/dev/null; sleep .5; name=$(xprop -id $id | awk '/WM_CLASS/{$1=$2="";print}' | cut -d'"' -f4) 2>/dev/null;  sleep .5; done; sleep 1
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 De retour dans l'espace de travail 1, vous pouvez remarquer que l'espace de travail 2 est cette fois dans la liste, car maintenant il n'est plus vide.
 Vous pouvez également utiliser votre souris et cliquer sur le nom de l'espace de travail où vous voulez vous rendre.
