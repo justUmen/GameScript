@@ -211,7 +211,7 @@ Déplacez vous donc dans l'espace de travail 5 et revenez sur GameScript.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
 Vous pouvez noter que le mode 'sticky' ne fonctionne que si pour les fenêtres flottantes.
 Notez également que pour déplacer cette fenêtre flottante, vous pouvez maintenir la touche 'Super' et le bouton gauche de votre souris enfoncés.
-Essayez donc de déplacer la calculatrice, en maintenant la touche 'Super' enfoncée, vous n'avez pas besoin de cliquer sur la barre de titre.
+Essayez donc de déplacer la calculatrice en maintenant la touche 'Super' enfoncée, vous n'avez pas besoin de cliquer sur la barre de titre.
 Il n'est cependant pas très pratique d'avoir à lancer toutes les applications à partir d'un terminal.
 C'est pourquoi un ${voc}lanceur d'application${reset} (anglais ${voc}run dialog${reset}) est un outil très important dans i3 !
 Nous allons donc créer notre premier raccourci clavier personnalisé pour ce lanceur d'application.
