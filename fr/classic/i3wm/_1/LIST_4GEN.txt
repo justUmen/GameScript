@@ -10,8 +10,8 @@
 #command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : ${learn}apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool${reset}" >&2; exit 3; }
 #mkdir ~/.config 2>/dev/null
 #mkdir ~/.config/i3 2>/dev/null
-#[ -f "$HOME/.config/i3/config_GS_backup" ] && echo "$HOME/.config/i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
-#[ -f "$HOME/.i3/config_GS_backup" ] && echo "$HOME/.i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
+#[ -f "$HOME/.config/i3/config_GS_backup" ] && [ ! -f "$HOME/.GameScript/i3wm_1_installed" ] && echo "$HOME/.config/i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
+#[ -f "$HOME/.i3/config_GS_backup" ] && [ ! -f "$HOME/.GameScript/i3wm_1_installed" ] && echo "$HOME/.i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
 #if [ ! -f "$HOME/.GameScript/i3wm_1_installed" ]; then [ -f "$HOME/.config/i3/config" ] && mv $HOME/.config/i3/config $HOME/.config/i3/config_GS_backup && echo "Votre fichier de configuration $HOME/.config/i3/config a été renommé en $HOME/.config/i3/config_GS_backup"; [ -f "$HOME/.i3/config" ] && mv $HOME/.i3/config $HOME/.i3/config_GS_backup && echo "Votre fichier de configuration $HOME/.i3/config a été renommé en $HOME/.i3/config_GS_backup"; touch $HOME/.GameScript/i3wm_1_installed;wget https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/i3wm/_1/config -O ~/.config/i3/config &> /dev/null; rm $HOME/.GameScript/restore_i3wm1; echo "SUCCES : Veuillez maintenant fermer votre environment habituel et lancez i3 normalement : Déconnexion et sélection de i3 dans votre Display Manager (lightdm, gdm, xdm...). GameScript sera là pour vous accueillir. :-)"; exit; fi
 #mkdir $HOME/.GameScript_i3wm_1 &> /dev/null
 #cd $HOME/.GameScript_i3wm_1
