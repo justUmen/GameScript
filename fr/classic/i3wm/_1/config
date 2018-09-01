@@ -34,9 +34,8 @@ bindsym mod4+a focus parent
 
 #bindsym mod4+d focus child
 
-bindsym mod4+Shift+minus move scratchpad
-
-bindsym mod4+minus scratchpad show
+bindsym mod1+Shift+minus move scratchpad
+bindsym mod1+minus scratchpad show
 
 set $ws1 "1"
 set $ws2 "2"
