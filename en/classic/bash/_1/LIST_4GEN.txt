@@ -1,11 +1,11 @@
-# [-d "$HOME/House"] && echo "Unexpected error, ${HOME}/House already exists on your system! Delete this $HOME/House folder and restart this script." && exit
+#[ -d "$HOME/House"] && echo "Unexpected error, ${HOME}/House already exists on your system! Delete this $HOME/House folder and restart this script." && exit
 #mkdir $HOME/.GameScript_bash1 &> /dev/null
 #cd $HOME/
 Hello everyone and welcome to the first chapter named 'bash'.
-Before learning about our first command, we need to understand the logic behind the organisation of files and folders in Linux.
+Before learning about our first command, we need to understand the logic behind the organisation of files and folders in Unix-like operating systems, like Linux.
 Let's start to talk about 'directories', also known as 'folders'.
 #real_tree_1
-On linux, you can picture the organization of files and folders as a tree.
+You can picture the organization of files and folders as a tree.
 In this tree, the folders are shown in sky blue.
 At the bottom of the tree you have the symbol ${code}/${reset} which represents the ${voc}root directory${reset}.
 It is a special folder that will contain ALL the other folders of the system.
@@ -32,9 +32,9 @@ Here we just have to call the second file 'file2'.
 For ${codeError}home${reset}, we need to give another name that won't be a problem like 'Home'.
 Yes ! On Unix, uppercase letters are important. 'Home' and 'home' are two differents names.
 When the uppercase letters are considered different from the lowercase letters, we say that the computer system is ${voc}case sensitive${reset}.
-Indeed, linux is ${voc}case sensitive${reset}. It means that 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... are all different and valid names !
+Indeed, Unix-like Operating Systems are ${voc}case sensitive${reset}. It means that 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... are all different and valid names !
 #tree_1
-It is also possible to represent the linux folders this way.
+It is also possible to represent the folders this way.
 #tree_2
 And here is the same example with files. Identical to the tree above.
 #tree_3

@@ -102,6 +102,8 @@ Sans les ${code}()${reset}, les conditions se lisent simplement de gauche à dro
 ${learn}cat FICHIER&&echo GOOD||echo ERROR${reset} a en fait un ordre logique équivalent à ${learn}(cat FICHIER&&echo GOOD)||echo ERROR${reset}
 Comme ${code}cat FICHIER&&echo GOOD${reset} renvoit une erreur, ${code}echo ERROR${reset} se lancera.
 Vous pouvez donc changer aussi le sens de lecture de vos conditions avec les ${code}()${reset}.
+
+
 Par exemple, prenons le code suivant : ${learn}cd DOSSIER&&(cat FICHIER||echo \\"FICHIER n'existe pas dans DOSSIER\\")||echo \\"DOSSIER n'existe pas\\"${reset}
 Les ${code}()${reset} permettent de lier la commande ${code}echo \\"FICHIER n'existe pas dans DOSSIER\\"${reset} avec la commande ${code}cat FICHIER${reset}.
 Sans les ${code}()${reset}, ${code}echo \\"FICHIER n'existe pas dans DOSSIER\\"${reset} se lancera si la commande ${code}cd DOSSIER${reset} renvoit une erreur, ce qui n'est pas ce que l'on veut.

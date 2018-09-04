@@ -110,29 +110,29 @@ Whether your goal is to change the execution logic of your commands, or as we di
 To redirect standard output, you must use ${code}>${reset} or ${code}1>${reset}.
 To redirect the error output, you must use ${code}2>${reset}.
 If you want to redirect both at once, you can use: ${code}&>${reset}.
-Or of course ${code}& >>${reset} if you want to add the content at the end of a file.
-+Do: ${learn}pwd & >> f${reset}
-!& Pwd >> f£No
-${code}& >>${reset} starts with a special character, so the space on the left is not needed, as opposed to ${code}1>${reset} or ${code}2>${reset} that we saw previously.
-+Do the same command with a typo: ${learn}pwdd & >> f${reset}
-!>> PWDD & f£No
+Or of course ${code}&>>${reset} if you want to add the content at the end of a file.
++Do: ${learn}pwd&>>f${reset}
+!pwd&>>f£No
+${code}&>>${reset} starts with a special character, so the space on the left is not needed, as opposed to ${code}1>${reset} or ${code}2>${reset} that we saw previously.
++Try to do the same command with a typo: ${learn}pwdd&>>f${reset}
+!pwdd&>>f£No
 With this command, nothing is displayed in the terminal, so both redirections happen correctly.
-${code}& >>${reset} is well equivalent to the combination of ${code}1 >>${reset} and ${code}2 >>${reset}.
-But sometimes it's possible that a feed does not interest you at all.
-For this kind of case there is a special file, ${code}/ dev / null${reset}, that you can use with your redirects.
-${code}/ dev / null${reset} is an empty file that will always be empty.
-+Then display the contents of the non-existent file 'X', getting rid of error messages.
-!cat X 2> / dev / null£No
-+Display the contents of the file ${code}/ dev / null${reset}
-!cat / dev / null£No
-Indeed, despite this redirection, ${code}/ dev / null${reset} is always empty.
-If you want to get rid of both streams, just use ${code}&> / dev / null${reset}.
-You can also, if you want, redirect a feed to another feed.....
-${code}2> & 1${reset} will redirect the standard error output to standard output, and ${code}1> & 2${reset} will redirect the standard output to the standard error output.
+${code}&>>${reset} is indeed equivalent to the combination of ${code}1>>${reset} and ${code}2>>${reset}.
+But sometimes it's possible that a stream does not interest you at all.
+In this case, there is a special file, ${code}/dev/null${reset}, that you can use for your redirections.
+${code}/dev/null${reset} is an empty file that will always be empty.
++Display the contents of the non-existent file 'X', getting rid of error messages.
+!cat X 2>/dev/null£No
++Display the content of the file ${code}/dev/null${reset}
+!cat /dev/null£No
+Indeed, despite our redirection, ${code}/dev/null${reset} is still empty.
+If you want to get rid of both streams, just use ${code}&>/dev/null${reset}.
+You can also, if you want, redirect a stream to another stream.....
+${code}2>&1${reset} will redirect the standard error output to the standard output, and ${code}1>&2${reset} will redirect the standard output to the standard error output.
 +Add at the end of the file '/tmp/pwd.log' the standard output of the command ${code}pwd${reset}, then group its standard error output with its standard output.
-!pwd >> / tmp / pwd.log 2> & 1£No
+!pwd>>/tmp/pwd.log 2>&1£No
 +Display the contents of the file '/tmp/pwd.log'.
-!cat /tmp/pwd.logissNo
+!cat /tmp/pwd.log£No
 +Now, do it with a typo: ${learn}pwdd >> / tmp / pwd.log 2> & 1${reset}
 !pwdd >> / tmp / pwd.log 2> & 1£No
 +Then redisplay the contents of '/tmp/pwd.log'.
