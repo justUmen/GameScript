@@ -8,10 +8,10 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 
 function start_quiz(){
   echo ""
-  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 2 \e[0m"
+  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Quiz Chapter 2 \e[0m"
   echo -e "- The answer should be as short as possible, a good answer adding uneeded characters will be considered as wrong."
   echo -e "Example : If the answer is 'ls'. The answers 'ls .', 'ls ./' and 'ls ././' won't work."
-  answer_text_fr "What's the symbole that represents the user's home directory ?" "~"
+  answer_text_fr "What's the symbol that represents the user's home directory ?" "~"
   answer_text_fr "Which symbol is at the beginning of a hidden file's name ?" "."
   answer_text_fr "Which symbol is at the beginning of a hidden folder's name ?" "."
   answer_text_fr "How do you move to the grandparent directory ?" "cd ../.."
@@ -24,7 +24,7 @@ function start_quiz(){
 
 CHAPTER_NAME="bash"
 CHAPTER_NUMBER="2"
-LANGUAGE="fr"
+LANGUAGE="en"
 SPEAKER="m1"
 
 LINES=142

@@ -11,9 +11,9 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 
 function start_quiz(){
   echo ""
-  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 8 \e[0m"
-  echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
-  echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
+  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Quiz Chapter 8 \e[0m"
+  echo -e "- The answer should be as short as possible, a good answer adding uneeded characters will be considered as wrong."
+  echo -e "Example : If the answer is 'ls'. The answers 'ls .', 'ls ./' and 'ls ././' won't work."
   answer_text_fr "Comment afficher les lignes du fichier 'message' qui contiennent au moins une lettre 'a' ?" "grep a message"
   answer_text_fr "En utilisant l'entrée standard, comment afficher toutes les lignes du fichier 'grep' qui contiennent le mot 'cat' ?" "cat grep|grep cat"
   answer_text_fr "En utilisant 'cat', comment envoyer à la sortie standard le contenu classé par ordre aphabétique du fichier 'noms' ?" "cat noms|sort"

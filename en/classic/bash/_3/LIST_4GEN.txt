@@ -131,7 +131,7 @@ Here, the spaces are displayed correctly.
 +You can also replace the ${code}\\"${reset} by ${code}'${reset}. Do so with the ${learn}echo 'X X'${reset}
 !echo 'X X'£No
 If you have many ${code}'${reset} to display, I advise you to use the ${code}\\"${reset} as the delimiter, and if you have lots of ${code}\\"${reset} to display, I advise you to use ${code}'${reset} as the delimiter.
-For example, even if the display is equivalent ${learn}echo '\\"Peter\\" and \\"Mary\\"'${reset} is more readable than ${learn}echo \\"\\\\\\\"Peter\\\\\\\" et \\\\\\\"Mary\\\\\\\"\\"${reset}
+For example, even if the display is equivalent, ${learn}echo '\\"Peter\\" and \\"Mary\\"'${reset} is more readable than ${learn}echo \\"\\\\\\\"Peter\\\\\\\" et \\\\\\\"Mary\\\\\\\"\\"${reset}
 The ${voc}escape character${reset} ${code}\\${reset} can also be used to display other special characters, such as line breaks or tabs.
 +Quickly look at this list in the command manual ${code}echo${reset}.
 !man echo£No

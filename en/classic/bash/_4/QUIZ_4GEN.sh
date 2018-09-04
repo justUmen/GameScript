@@ -15,24 +15,24 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 
 function start_quiz(){
   echo ""
-  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 4 \e[0m"
-  echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
-  echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
-  answer_text_fr "Quelle est la commande pour déplacer des fichiers ou dossiers ?" "mv"
-  answer_text_fr "Quelle est la commande pour renommer des fichiers ou dossiers ?" "mv"
-  answer_text_fr "Comment renommer un fichier nommé 'oui' dans votre répertoire courant en 'non' et le déplacer dans son répertoire parent ?" "mv oui ../non"
-  answer_text_fr "Comment copier dans votre répertoire courant un fichier dont le chemin absolu est '/root/file' ?" "cp /root/file ."
-  answer_text_fr "Comment copier un fichier caché '.file' situé dans votre répertoire parent et le renommer en un fichier non caché 'file' dans le dossier '/root' ?" "cp ../.file /root/file"
-  answer_text_fr "Quel symbole doit être utilisé pour séparer simplement deux commandes sur une même ligne ?" ";"
-  answer_text_fr "Comment exécuter la commande 'rm file' uniquement si la commande précédente 'cd /root' est un succès ?" "cd /root&&rm file"
-  answer_text_fr "Comment afficher 'good' si la commande 'cd /root' est un succès, et 'bad' sinon ?" "cd /root&&echo good||echo bad"
+  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Quiz Chapter 4 \e[0m"
+  echo -e "- The answer should be as short as possible, a good answer adding uneeded characters will be considered as wrong."
+  echo -e "Example : If the answer is 'ls'. The answers 'ls .', 'ls ./' and 'ls ././' won't work."
+  answer_text_fr "What is the command to move files and folders ?" "mv"
+  answer_text_fr "What is the command to rename files and folders ?" "mv"
+  answer_text_fr "How to rename a file called 'yes' in your current directory 'no' and move it in your parent directory ?" "mv yes ../no"
+  answer_text_fr "How to copy in your current directory a file with the absolute path '/root/file' ?" "cp /root/file ."
+  answer_text_fr "How to copy the hidden file '.file' in your parent directory and rename it into a non hidden file 'file' in the folder '/root' ?" "cp ../.file /root/file"
+  answer_text_fr "Which symbol have to be used to separate two commands if they are on the same line ?" ";"
+  answer_text_fr "How to execute the command 'rm file' only if the previous command 'cd /root' is a success ?" "cd /root&&rm file"
+  answer_text_fr "How to display 'good' if the command 'cd /root' is a success, and 'bad' otherwise ?" "cd /root&&echo good||echo bad"
   unlock "bash" "4" "a9d1" "21af"
 }
 
 
 CHAPTER_NAME="bash"
 CHAPTER_NUMBER="4"
-LANGUAGE="fr"
+LANGUAGE="en"
 SPEAKER="m1"
 
 LINES=130

@@ -7,25 +7,25 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 
 function start_quiz(){
   echo ""
-  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 3 \e[0m"
-  echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
-  echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
-  answer_text_fr "Quel est la version abrégée de 'ls -a -l' ?" "ls -al"
-  answer_text_fr "Comment ajouter le mot 'non' à la fin du fichier texte 'oui' ?" "echo non>>oui"
-  answer_text_fr "Comment remplacer le contenu du fichier 'test' par 'exemple' ?" "echo exemple>test"
-  answer_text_fr "Comment afficher le contenu du fichier 'test' ?" "cat test"
-  answer_text_fr "Sur bash, quel est le caractère d'échappement ?" "\\"
-  answer_text_fr "Comment afficher dans le terminal : a>b" "echo a\>b"
-  answer_text_fr "Quel est la lettre à utiliser après le caractère d'échappement pour représenter une mise à la ligne ?" "n"
-  answer_text_fr "Affichez, sans utiliser le caractère d'échappement, la phrase : j'ai bon" "echo \"j'ai bon\""
-  answer_text_fr "Affichez trois guillemets (\"), sans utiliser le caractère d'échappement." "echo '\"\"\"'"
+  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Quiz Chapter 3 \e[0m"
+  echo -e "- The answer should be as short as possible, a good answer adding uneeded characters will be considered as wrong."
+  echo -e "Example : If the answer is 'ls'. The answers 'ls .', 'ls ./' and 'ls ././' won't work."
+  answer_text_fr "What is the short version of 'ls -a -l' ?" "ls -al"
+  answer_text_fr "How to add the word 'no' at the end of the file 'yes' ?" "echo no>>yes"
+  answer_text_fr "How to replace the content of the file 'test' by 'example' ?" "echo example>test"
+  answer_text_fr "How to display the content of the file 'test' ?" "cat test"
+  answer_text_fr "On bash, what is the escape character ?" "\\"
+  answer_text_fr "How to display in a terminal : a>b" "echo a\>b"
+  answer_text_fr "Which letter need to be used after the escape character to represent a new line ?" "n"
+  answer_text_fr "Display, without using the escape character the sentence : I'll be there" "echo \"I'll be there\""
+  answer_text_fr "Display 3 quotation marks (\"), without using the escape character." "echo '\"\"\"'"
   unlock "bash" "3" "2452" "93a3"
 }
 
 
 CHAPTER_NAME="bash"
 CHAPTER_NUMBER="3"
-LANGUAGE="fr"
+LANGUAGE="en"
 SPEAKER="m1"
 
 LINES=154

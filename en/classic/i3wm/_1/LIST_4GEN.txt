@@ -1,0 +1,250 @@
+#command -v lxterminal >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v i3 >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v i3status >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v qutebrowser >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v mousepad  >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v leafpad >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v pcmanfm >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v jq >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v feh >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v wmctrl >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v galculator >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#mkdir ~/.config 2>/dev/null
+#mkdir ~/.config/i3 2>/dev/null
+#[ -f "$HOME/.config/i3/config_GS_backup" ] && [ ! -f "$HOME/.GameScript/i3wm_1_installed" ] && echo "$HOME/.config/i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
+#[ -f "$HOME/.i3/config_GS_backup" ] && [ ! -f "$HOME/.GameScript/i3wm_1_installed" ] && echo "$HOME/.i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
+#if [ ! -f "$HOME/.GameScript/i3wm_1_installed" ]; then [ -f "$HOME/.config/i3/config" ] && mv $HOME/.config/i3/config $HOME/.config/i3/config_GS_backup && echo "Votre fichier de configuration $HOME/.config/i3/config a été renommé en $HOME/.config/i3/config_GS_backup"; [ -f "$HOME/.i3/config" ] && mv $HOME/.i3/config $HOME/.i3/config_GS_backup && echo "Votre fichier de configuration $HOME/.i3/config a été renommé en $HOME/.i3/config_GS_backup"; touch $HOME/.GameScript/i3wm_1_installed;wget https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/i3wm/_1/config -O ~/.config/i3/config &> /dev/null; rm $HOME/.GameScript/restore_i3wm1; echo "SUCCES : Veuillez maintenant fermer votre environment habituel et lancez i3 normalement : Déconnexion et sélection de i3 dans votre Display Manager (lightdm, gdm, xdm...). GameScript sera là pour vous accueillir. :-)"; exit; fi
+#mkdir $HOME/.GameScript_i3wm_1 &> /dev/null
+#cd $HOME/.GameScript_i3wm_1
+#gamescript_window=$(xdotool getwindowfocus)
+In a ${voc}Window Manager${reset} (wm), you need to learn how to control two things : the ${voc}Workspaces${reset}) and the ${voc}Windows${reset}.
+Let's start with the ${voc}Workspaces${reset}. Here I'm going to give you my own configurations, but you can change them afterwards if you want to.
+You can have several workspaces, and each of them can have its own settings and a particular objective in mind.
+If you look at the bottom left side of your screen, you should see the number 1 in a square.
+This '1' is the number/name of the workspace you are currently in.
+For now, this workspace only contains the window of the terminal that launched GameScript.
+The window manager i3 (i3wm) is based on keyboard bindings in order to work.
+There are all customizable, but I will give you some that I advise you to keep.
+You can go from one workspace to another with the key 'Super', sometimes named by some neophytes : "Windows Key".
+You need to keep holding the key "Super" et press the number of the workspace you want to go to.
+GameScript is now in workspace 1, remember this because if you want to continue to interact with GameScript, you will have to do 'Super + 1'.
++Now, move inside workspace 2 with 'Super + 2', check out the workspace list on the bottom left of your screen, and do 'Super + 1' to come back on GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Now that you are back in workspace 1, you can see that workspace 2 is not longer displayed in the list on the bottom left.
+But when you were in workspace 2, workspace 1 was visible in this list.
+In fact, i3 will automatically get rid of any workspaces, if they don't contain a window.
+Workspace 2 being empty, it will no longer be listed here.
+The workspace 1 however, will be listed because it contains the window of GameScript.
+I advise you to use keyboard shortcuts for all the programs that you use often.
+For exemple, to open a new terminal, you need to use the shortcut 'Super + Return'.
+We will start by creating a new window on workspace 2.
++Move inside workspace 2 with 'SUper + 2', open a new terminal in this workspace with 'Super + Return', and come back on GameScript with 'Super + 1'.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Back in workspace 1, you can see that workspace 2 is this time listed, because it is no longer empty.
+You can also use your mouse et click on the name of workspace you want to go to.
++Use you r mouse and the list of workspaces to go to workspace 2, close this terminal et come back on GameScript by using only your mouse.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Look now the blue bar on top of your screen : it contains the title of the window where GameScript is running.
+Of course, it is possible to have several windows on the same workspace.
+#i3-msg 'exec lxterminal' &>/dev/null; while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done; i3-msg focus left
+I've just opened a new terminal in your workspace, you should now see two different tabs on the top of your screen.
+Each tab represents a window, the one on the left is the title of the GameScript window.
+The windows are displayed in these tabs from left to right, from the oldest to the more recent.
+Each new window will be added on the far right of the already existing tabs.
+The terminal running GameScript was open first, it will therefore stay on the far left.
++Click on the tab of the second window to display it, et come back on GameScript by clicking on the first tab.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done;sleep 1;while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Of course, I advise you to use your keyboard to do this, you can simply use 'Super + left/right arrow'.
++Do it now, try 'Super + left arrow' to go on the second window et come back on GameScript with 'Super + right arrow'.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done;sleep 1;while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+WHen you go on a window, we say that this window is the ${voc}focus${reset}.
+It means that all keyboard shortcuts are going to be sent to the focused window.
+For example, to close a window, the key binding is 'Super + Shift + q', but be careful not to close GameScript by mistake.
++Change the focus with 'Super + right arrow', and close the second terminal I opened before with 'Super + Shift + q'.
+#gamescript_window=$(xdotool getwindowfocus)
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#to_close=$(xdotool getwindowfocus)
+#while [ `xdotool search --class ""|grep "^$to_close$"` ];do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
++Now, open a new terminal with 'Super + Return', you will see that the focus changes immediately for this newly opened window, you will then have to come back manually on GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#while [ `xdotool getwindowfocus` != $gamescript_window ];do sleep .5; done
+There are 3 types of layouts available in i3.
+Here, the windows are ${voc}tabbed${reset}, but they can also be ${voc}stacked${reset}, where the title of the windows will fill the whole screen.
+But to go from one window to the other with this stacked layout, you will have to use 'Super + up/down arrows', instead of left and right arrows.
++Try this layout now with 'Super + s', and toggle between the two windows with 'Super + up/down arrows'.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#while [ `xdotool getwindowfocus` != $gamescript_window ];do sleep .5; done
+Now go back to the tabbed layout with 'Super + w'.
+And finally you have a third layout, a tiling layout where all your windows are going to be displayed on the workspace, in an optimized manner.
+Try this layout with 'Super + e'.
+You can then continue to use 'Super + e' to toggle between horizontal display and vertical display.
+Use 'Super + e' until you have the new terminal below GameScript.
+Here, even if both windows are visible on the screen, only one of them has the focus.
+Here the focused window has its title bar and its border in blue.
+Using the same method you can switch focus with 'Super + arrows'.
++Give the focus to the bottom window, launch the command ${learn}ls${reset} inside and give the focus back to GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#while [ `xdotool getwindowfocus` != $gamescript_window ];do sleep .5; done
+You can notice that with this kind of layout, it is also possible to change the focused window with your mouse cursor.
+Also, note that only the movement of your cursor can trigger it, you don't have to click.
++Try to switch focus between the two windows now by using your mouse.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#while [ `xdotool getwindowfocus` != $gamescript_window ];do sleep .5; done
+Of course, like everything you do in i3, I recommend you to use your mouse as less as possible, and use your keyboard instead.
+Be careful, after this sentence, GameScript will vanish... And you will have to find if to continue.
+#i3-msg 'move window to workspace 5' &>/dev/null
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 5 ]; do sleep .5; done
+Congratulations, you were able to find GameScript back in workspace 5.
+You already know how to go from one workspace to another, but it is also possible to move your windows in another workspace.
++Put back GameScript in workspace 1 with 'Super + Shift + 1', and go back to workspace 1 to continue.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+You can notice that the GameScript window is now below the other one. It is because GameScript is now the newest window on this workspace.
+If layout was tabbed, GameScript would be the last tab on the right.
+Having multiples workspaces is very useful to organise with windows according to your will.
+Personnaly, I use workspace 1 for my primary terminal, that I want be operational quickly.
+I use workspace 2 for my text editors.
+I use workspace 3 for my web browsers and other web-oriented windows.
+I use workspace 4 for my file managers.
+And I use workspace 5 for everything social : email, our rocketchat, our discord, etc...
+Organizing your windows by theme enables you to find them back very quickly, even if you have a lot of them.
+#gamescript_window=$(xdotool getwindowfocus)
++Close the window above to continue.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#to_close=$(xdotool getwindowfocus)
+#while [ `xdotool search --class ""|grep "^$to_close$"` ];do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+#echo -e "<html>\\\\n\\\\t<head>\\\\n\\\\t\\\\t<link rel="stylesheet" href="style.css">\\\\n\\\\t</head>\\\\n\\\\t<body>\\\\n\\\\t\\\\t<h1>GameScript</h1>\\\\n\\\\t\\\\t<div>good morning</div>\\\\n\\\\t</body>\\\\n</html>" > ~/.GameScript_i3wm_1/index.html
+#echo -e "h1{color:red;}" > ~/.GameScript_i3wm_1/style.css
+#i3-msg exec leafpad ~/.GameScript_i3wm_1/index.html &>/dev/null
+#i3-msg exec qutebrowser ~/.GameScript_i3wm_1/index.html &>/dev/null
+#i3-msg exec pcmanfm ~/.GameScript_i3wm_1/ &>/dev/null
+I've just prepared for you a full example, with a single window per workspace.
+This example is using my owns configurations, but you will be free to have your own later on, depending on which programs you use often.
++Workspace 2 has a file 'index.html; opened in a text ditor (leafpad), visit this workspace and come back to GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
++Workspace 3 has the same html file opened in a web browser (qutebrowser), visit this workspace and come back to GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
++And finally, workspace 4 has a file manager (pcmanfm) opened in the folde that contains our html file. Visit this workspace and come back to GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 4 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+So instead of having 4 different windows, we have here 4 workspaces, and each of them contains a window.
++Change the text 'good morning' on the html file by 'good evening' on workspace 2, save the file et come back on GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
++Display the changes by refreshing the web browser (key F5) on workspace 3 and come back on GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
++Go on workspace 4 and open the file 'style.css' with leafpad by doing : right clic on the file, open with, and select Leafpad. And come back on GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 4 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+You probably noticed that leafpad didn't open on workspace 4, but in workspace 2 !
+It is because I configured your i3 to do that.
+By the way, your workspace 2 should now be red in the list of workspaces.
+This red means that a new window was opened in this workspace, and this color will stay red until this new window receive the focus.
++In the file 'style.css', change the color 'red' by 'blue', save the file, check the changes with F5 on your web browser and come back on GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+With i3, it is possible to define in which workspace you want a program to open.
+'leafpad' being a text editor, we want it to open on workspace 2 by default.
+This must be set in i3 configuration file : ${code}$HOME/.config/i3/config${reset}
+To always open 'leafpad' in workspace 2, I added in your configuration file the line : ${code}assign [class=\\"Leafpad\\"] workspace 2${reset}
++Try to do the same thing with 'mousepad', another text editor : ${learn}echo 'assign [class=\\"Mousepad\\"] workspace 2'>>~/.config/i3/config${reset}
+!echo 'assign [class=\\"Mousepad\\"] workspace 2'>>~/.config/i3/config
++Now launch 'mousepad', detach it to the current terminal and ignore its errors with : ${learn}mousepad&>/dev/null&${reset}
+!mousepad&>/dev/null&
+You can notice that 'mousepad' opened in workspace 1, which is not what was expected.
+For our modifications to be in effect, we need to ${voc}reload${reset} the configuration file with : 'Super + Shift + c', do it before moving on.
+After doing 'Super + Shift + c', you shoudl see the i3 interface blinking for an instant.
+But our 'mousepad' window is still in workspace 1, because 'assign' will affect only newly created windows.
+Close this 'mousepad' window before continuing.
+From now on, all the instances of 'mousepad' will be sent to workspace 2.
++Launch mouse pad again with : ${learn}mousepad&>/dev/null&${reset}
+!mousepad&>/dev/null&
+You are still in workspace 1 now, but you should see workspace 2 in red.
++Find and close this 'mousepad' window before continuing.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
++Open now 'galculator' with ${learn}galculator&>/dev/null&${reset} and come back on GameScript.
+!galculator&>/dev/null&
+On can notice that this window will fill half of your screen, which is not ideal for this type of window...
+In this kind of situation, you can use a specific mode called ${voc}floating${reset}, that you can activate/deactivate with 'Super + Shift + Spacebar'.
+After having 'focus' the calculator, use this keybind on it to make it independant from the others.
+You can notice that on i3, a floating window is always on on top of the others, even if the focus is on another window !
+But this change is temporary : it will only affect this instance of galculator.
+For 'galculator' to always be in floating more, we need once again to edit the configuration file.
+The code ${code}assign [class=\\"Leafpad\\"] workspace 2${reset} that we already saw, is targetting all instances of leafpad by using the argument ${code}class${reset} which should be equal to ${code}Leafpad${reset}.
+To know the ${voc}class${reset} of a specific window, you can use the command : ${code}xprop${reset}
++Launch the command ${learn}xprop${reset}, your mouse cursor will turn into a cross, and click on the terminal where GameScript is running.
+!xprop
+The name of the 'class' of the window who have targetted is the second name of the line starting with 'WM_CLASS'.
+If you are only interested in this line, you can use ${code}grep${reset}.
++Do ${learn}xprop|grep CLASS${reset} et click on the calculator to find its 'class'.
+!xprop|grep CLASS
+The result should be : ${code}WM_CLASS(STRING) = \\"galculator\\", \\"Galculator\\"${reset}
+The ${code}class${reset} is here the second string : ${code}\\"Galculator\\"${reset}
+If you want all windows with the class ${code}Galculator${reset} to be in floating mode, you will have to add in the configuration file : ${code}for_window [class=\\"Galculator\\"] floating enable${reset}
+If you want your floating window to be displayed on all workspaces, you will have to use the code : ${code}sticky enable${reset}
+${code}for_window${reset} accepts several parameters, that you can separate with commas.
+For the 'class' ${code}Galculator${reset} to be in floating mode and stay on all workspaces, you need to have : ${code}for_window [class=\\"Galculator\\"] floating enable, sticky enable${reset}
++Close the calculator and do : ${code}echo 'for_window [class=\\"Galculator\\"] floating enable, sticky enable'>>~/.config/i3/config${reset}
+!echo 'for_window [class=\\"Galculator\\"] floating enable, sticky enable'>>~/.config/i3/config
++Display the two last lines of you configuration file with : ${learn}tail -n 2 ~/.config/i3/config${reset}
+!tail -n 2 ~/.config/i3/config
+Of course, don't forget to reload you configuration file with 'Super + Shift + c'
++After reloading your configuration, launch galculator with : ${learn}galculator&>/dev/null&${reset}
+!galculator&>/dev/null&
+Here you can see that the calculator is now in floating mode because of the ${code}floating enable${reset} part.
+But if you try to cahnge workspace, you will see that because of ${code}sticky enable${reset}, the window will follow you.
+Move in workspace 5 and come back to GameScript.
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 5 ]; do sleep .5; done
+#while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
+You can note that the 'sticky' mode will only work for floating windows.
+Also, if you want to move this floating window, you can hold the key 'Super' and the left button of you mouse.
+Try to move around the calculator this way, by holding the key 'Super', ou don't need to click on the title bar.
+But it isn't very practical to always launch your applications from a terminal.
+This is why an ${voc}application launcher${reset} / ${voc}run dialog${reset} is a very important tool in i3 !
+We will create our first customized keybind for our run dialog.
+To create a new keyboard bind, we need to use ${code}bindsym${reset}.
+In this example we will use the program ${code}rofi${reset}, and more precisely the command ${code}rofi -show run${reset} and the key combinaison 'Alt + F2'.
+In the i3 configuration file, if you want to launch a command, you will have to preceed it with the keyword ${code}exec${reset}.
+For i3, the key 'Alt' is ${code}mod1${reset}, and the key 'Super' is ${code}mod4${reset}. The configuration code shoudl therefore be : ${code}bindsym mod1+F2 exec rofi -show run${reset}
++Add this code at the end of your configuration file with : ${learn}echo 'bindsym mod1+F2 exec rofi -show run'>>~/.config/i3/config${reset}
+!echo 'bindsym mod1+F2 exec rofi -show run'>>~/.config/i3/config
+And finaly, reload your configuration with 'Super + Shift + c'.
+Now do 'Alt + F2' to launch ${code}rofi -show run${reset}, and execute 'galculator' with it.
+So here we have 3 basic examples for the 3 most basic i3 configurations : ${code}assign${reset}, ${code}for_window${reset} et ${code}bindsym${reset}.
++As a syntax reminder, display the 3 lines we added in this chapter with : ${learn}tail -n 3 ~/.config/i3/config${reset}
+!tail -n 3 ~/.config/i3/config
+${code}assign${reset} is used to link some windows with a specific workspace.
+${code}for_window${reset} is used to give a special configuration to some windows.
+And finally ${code}bindsym${reset} is used to launch other commands with a combinaison of keys.
+You can now close the calculators.
+Of course, all keybinds you have used are customizables.
+For example, to reload the configuration file, you need to do : 'Super+Shift+c'.
++But this code can also be changed like all the others in your configuration file. Do : ${learn}grep reload ~/.config/i3/config${reset}
+!grep reload ~/.config/i3/config
+Here you should see the 'bindsym' responsible for this event, but you can freely change it if you want.
++For example, to see the line responsible for exiting i3, do : ${learn}grep exit ~/.config/i3/config${reset}
+!grep exit ~/.config/i3/config
+Check this code in action by doing 'Super + Shift + e' : you will receive a message asking you confimation. Click on the cross to cancel.
+ANd if for example, you want to start 'nm-applet' automaticaly when i3 starts, you just have to add in your configuration : ${code}exec nm-applet${reset}.
+'nm-applet' is a graphical interface that is able to handle networks connections of 'NetworkManger'. (Install with the packet 'network-manager-applet' on Arch and 'network-manager-gnome' on Debian)
+The use of the keyboard for everything can be strange for you, but trust me, you won't be able to do without soon !
+#i3-msg exec 'mousepad ~/.config/i3/config'
+Before closing this chapter, I've just opened for you the configuration file of i3 in workspace 2.
+To avoid 'GameScript i3wm' to start when i3 is starting, remove the first line with the 'exec' code.
+That is it for now, in the next chapter we will see how we can manage our windows and layouts with high precision.
+You are ready for the quiz !
+#clean

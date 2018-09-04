@@ -1,4 +1,4 @@
-#[ -d "$HOME/.GameScript_bash8" ] && echo "Erreur innatendu, ${HOME}/.GameScript_bash8 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash8 et relancer ce script." && exit
+#[ -d "$HOME/.GameScript_bash8" ] && echo "Unexpected error, ${HOME}/.GameScript_bash8 already exists on your system! Delete this $HOME/.GameScript_bash8 folder and restart this script." && exit
 #mkdir $HOME/.GameScript_bash8 2> /dev/null
 #cd $HOME/.GameScript_bash8
 #echo -e "Joseph\\\\nemail:joseph@bjornulf.org\\\\nCarla\\\\nemail:carla@bjornulf.org\\\\nCharlie\\\\nemail:charlie@bjornulf.org\\\\nAkemail\\\\nemail:akemail@bjornulf.org\\\\nBob\\\\nemail:bob@bjornulf.org\\\\nAlbert\\\\nemail:albert@bjornulf.org\\\\nJessica\\\\nemail:jessica@bjornulf.org\\\\nCarla\\\\nemail:carla@bjornulf.org" > $HOME/.GameScript_bash8/LIST

@@ -159,12 +159,12 @@ sleep 2
 i3-msg focus up, resize set 30 ppt, focus down
 
 Ce mode automatique utilise la commande i3-msg avec certaines de ses commandes : ici move, focus, resize et layout.
-Pour information le code responsable de cette disposition est : "i3-msg layout splith, move down, resize set 0 ppt 30 ppt, focus up, resize set 30 ppt, focus down"
-Si par exemple vous desirez utilisez ce code en raccourci clavier vous pouvez simplement rajouter dans votre fichier de configuration : bindsym mod1+x layout splith, move down, resize set 0 ppt 30 ppt, focus up, resize set 30 ppt, focus down
+Nous verrons ce code en details plus tard, mais pour information le code responsable de cette disposition est : "i3-msg layout splith, move down, resize set 0 ppt 30 ppt, focus up, resize set 30 ppt, focus down"
+Si par exemple vous desirez utiliser ce code en raccourci clavier vous pouvez simplement rajouter dans votre fichier de configuration : bindsym mod1+x layout splith, move down, resize set 0 ppt 30 ppt, focus up, resize set 30 ppt, focus down
 
 i3-msg accepte une commande, ou une liste de commandes separes par une virgule qui vont s'executer les unes apres les autres.
-Attention cependant avec l'utilisation de ce mode automatique, il faut que vos fenetres existent avant de pouvoir les organiser.
-Si vous desirez mettre en place votre disposition avant de lancer vos fenetres, il faudra utiliser une autre methode : un fichier JSON.
+Attention cependant avec l'utilisation de ce mode automatique, il faut que vos fenetres existent avant de pouvoir les organiser !
+Si vous desirez faire l'inverse : c'est a dire mettre en place votre disposition avant de lancer vos fenetres, il faudra utiliser une autre methode : un fichier JSON.
 
 La structure peut paraitre un peu etrange, surtout pour ceux qui ne connaissent pas le javascript, mais JSON est aujourd'hui un standard tres important.
 
@@ -251,28 +251,32 @@ Les deux espaces de travail semblent similaire mais le 8 contient simplement 2 f
 Le code sur l'espace de travail 8 est ....
 Le 9 contient aussi deux fenetres mais chacune est dans un containeur avec un "layout splith", le code est ....
 
-Pour voir la difference : Allez sur l'espace de travail 8, faites Alt + F2 et lancez leafpad. Puis allez sur l'espace de travail 9 et lancez leafpad a nouveau.
-Ici vous voyez que l'emplacement de la nouvelle fenetre est differente.
+Pour voir la difference : Allez sur l'espace de travail 8, faites Alt + F2 et lancez XXX. Puis allez sur l'espace de travail 9 et lancez XXX a nouveau.
+Ici vous voyez que l'emplacement de la nouvelle fenetre XXX est differente sur l'espace de travail 8 et 9.
 
 Vous l'avez peut etre deja compris mais ce sont en fait les containeurs qui definissent le type de presentation : en onglet, en liste, decoupage vertical ou horizontal.
 Lorsque vous selectionnez une fenetre et faites par exemple SUPER + e, le changement d'affichage affectera en fait le containeur de cette fenetre.
 
 ??? il n'y a pas de containeur ???
-S'il n'y a qu'un seul containeur sur votre espace de travail, Super + e (l'equivalent de la commande i3-msg split toggle) changera donc pour toutes vos fenetres de votre espace de travail. (Puisque toutes vos fenetres sont dans ce containeur.)
+S'il n'y a aucun ou qu'un seul containeur sur votre espace de travail, Super + e (l'equivalent de la commande i3-msg split toggle) changera donc pour toutes vos fenetres de votre espace de travail. (Puisque toutes vos fenetres sont dans ce containeur.)
 
 !Ouvrez maintenant deux nouveaux terminaux dans le containeur de GameScript avec : lxterminal&lxterminal& et revenez sur GameScript pour continuer.
 +lxterminal&lxterminal&
 
 Ici il n'y a qu'un seul containeur, testez donc SUPER + e / s / w, vous verrez que les trois fenetres sont affectes par le changement.
+
+??? Deplacez fenetre de Gamescript en haut puis revenir au point de depart. ???
+
+'Super + Shift + fleche du haut' est en fait equivalent a la commande "i3-msg move up".
+Bien evident, la fleche du bas, de gauche et de droite sont aussi utilisables et correspondent respectivement a "move down", "move left" et "move right".
+
+
 Maintenant nous allons creer un deuxieme containeur manuellement pour la fenetre de GameScript.
-Pour faire cela, ciblez la fenetre de GameScript et faites Super + Shift + fleche du haut.
+Pour faire cela, ciblez la fenetre de GameScript et faites 'Super + Shift + fleche du haut'.
 
-Super + Shift + fleche du haut est en fait equivalent a la commande "i3-msg move up".
-Bien evident la fleche du bas, de gauche et de droite sont aussi utilisables et correspondent respectivement a "move down", "move left" et "move right".
+Quand l'affichage est vertical, deplacer la fenetre en haut, a pour effet "secondaire" de sortir la fenetre de son containeur d'origine.
 
-Deplacer la fenetre en haut a pour effet de sortir la fenetre de son containeur d'origine.
-
-Cela aura aussi pour effet de creer un autre containeur pour la fenetre de GameScript.
+Cela aura aussi pour effet de creer un autre containeur pour la fenetre de GameScript. ??? vrai ou pas ??? fenetre sans containeur ptet ?
 
 Remettez donc la fenetre de GameScript dans le containeur du dessous avec SUPER + Shift + fleche du bas.
 
