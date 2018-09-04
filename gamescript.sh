@@ -184,13 +184,13 @@ function enter(){
   	3)
 	  case $LANGUAGE in
 		fr) case $1 in
-				bash) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" 	"[NO SOUND] $1 : $CHAPTER 10" "[NO SOUND] $1 : $CHAPTER 11";; #"$1 : chapitre 8"
+				bash) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" 	"[NO SOUND] $1 : $CHAPTER 10" "[NO SOUND] $1 : $CHAPTER 11" ;; #"$1 : chapitre 8"
 				i3wm) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
 				*) TITLE="" ;;
 			esac
 			;;
 		en) case $1 in
-				bash) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3";; #"$1 : chapitre 8"
+				bash) show_menu "$1" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 1" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 2" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 3" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 4" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 5" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 6" ;; #"$1 : chapitre 8"
 				i3wm) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
 				*) TITLE="" ;;
 			esac
