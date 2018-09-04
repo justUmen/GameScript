@@ -437,7 +437,7 @@ function justumen_intro_en(){
 	talk_GAMESCRIPT justumen "Thank you for supporting GameScript and my other projects on https://www.patreon.com/justumen"
 	talk_GAMESCRIPT justumen "And thank you to tell me about bugs if you find some. :-)"
 	talk_GAMESCRIPT justumen "GameScript is and will stay closely linked to our chat, available at : https://rocket.justumen.org/, and our discord : "
-talk_GAMESCRIPT justumen "You can confirm your knowledge with passwords given by GameScript and you will unlock badges withing our chats."
+talk_GAMESCRIPT justumen "You can confirm your knowledge with the passwords given by GameScript and you will be able unlock badges within our chats."
 	talk_GAMESCRIPT justumen "If you are a new GameScript user, I invite you to create your account on https://github.com/ and to use it to connect to our chat : https://rocket.justumen.org/."
 	talk_GAMESCRIPT justumen "If you already have a github account, please type your pseudo here, so that GameScript can generate your passwords accordingly."
 	PSEUDO=""
