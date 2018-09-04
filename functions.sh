@@ -166,13 +166,25 @@ function answer_quiz(){
 		echo -en "\\e[97;45m # \\e[0m"
 		read key < /dev/tty
 		case $key in
-			0) if [[ $VIDEO == 0 ]]; then download_all_sounds; else download_all_videos; fi ;;
-			1) 	if [ -f "$HOME/.GameScript/restore_$7$8" ];then
-					echo "$HOME/.GameScript/restore_$7$8 existe, continuer ou recommencer le cours du début ?"
+			0) 	if [[ $VIDEO == 0 ]]; then download_all_sounds; else download_all_videos; fi ;;
+			1) 	case $LANGUAGE in
+					fr) ANSWER_QUIZ_TEXT="$HOME/.GameScript/restore_$7$8 existe, continuer ou recommencer le cours du début ?"
+						TEXT_CONTINUE="Continuer"
+						TEXT_RESTART="Recommencer"
+						TEXT_BACK="Retour"
+					;;
+					en) ANSWER_QUIZ_TEXT="$HOME/.GameScript/restore_$7$8 already exists, continue or start lecture from the beginning ?"
+						TEXT_CONTINUE="Continue"
+						TEXT_RESTART="Restart"
+						TEXT_BACK="Back"
+					;;
+				esac
+				if [ -f "$HOME/.GameScript/restore_$7$8" ];then
+					echo "$ANSWER_QUIZ_TEXT"
 					while [ "$choice" != "1" ] || [ "$choice" != "2" ] || [ "$choice" != "3" ]; do
-						echo -e "\\e[0;100m 1) \\e[0m Continuer"
-						echo -e "\\e[0;100m 2) \\e[0m Recommencer"
-						echo -e "\\e[0;100m 3) \\e[0m Retour"
+						echo -e "\\e[0;100m 1) \\e[0m $TEXT_CONTINUE"
+						echo -e "\\e[0;100m 2) \\e[0m $TEXT_RESTART"
+						echo -e "\\e[0;100m 3) \\e[0m $TEXT_BACK"
 						echo -en "\\e[97;45m # \\e[0m"
 						read choice < /dev/tty
 						case $choice in
