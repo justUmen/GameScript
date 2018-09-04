@@ -331,6 +331,8 @@ case $LANGUAGE in
 	;;
 	fr) CHAPTER="chapitre"
 	;;
+	*) echo "Unknown language, exiting..."; exit
+	;;
 esac
 
 

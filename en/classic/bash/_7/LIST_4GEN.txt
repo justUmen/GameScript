@@ -104,9 +104,9 @@ And because ${code}cat FILE&&echo GOOD${reset} returns an error, ${code}echo ERR
 But you can also change the reading direction of your conditions with ${code}()${reset}.
 For example, let's take the following code: ${learn}cd FOLDER&&(cat FILE||echo \\"FILE does not exists in FOLDER.\\")||echo \\"FOLDER does not exists.\\"${reset}
 The ${code}()${reset} bind the command ${code}echo \\"FILE does not exists in FOLDER\\"${reset} with ${code}cat FILE${reset}.
-Without ${code}()${reset}, ${code}echo \\"FILE does not exist in DOSSIER \\"${reset} will launch if the command ${code}cd DOSSIER${reset} returns an error, which is not what we want.
-You can use these ${code}()${reset} to group your code.
-Whether your goal is to change the execution logic of your commands, or as before to group the output streams.
+Without ${code}()${reset}, ${code}echo \\"FILE does not exist in DOSSIER\\"${reset} will be executed if the command ${code}cd DOSSIER${reset} returns an error, which is not what we want.
+You can use these ${code}()${reset} to regroup your code differently.
+Whether your goal is to change the execution logic of your commands, or as we did before to regroup the output streams.
 To redirect standard output, you must use ${code}>${reset} or ${code}1>${reset}.
 To redirect the error output, you must use ${code}2>${reset}.
 If you want to redirect both at once, you can use: ${code}&>${reset}.
