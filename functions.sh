@@ -337,10 +337,11 @@ function unlock(){
 function enter_chapter(){
 	#Usage : enter_chapter bash 1 1 (first 1 is chapter, next one is for case)
 	echo ""
-	echo -e "\e[97;44m - $1, Chapitre $2 \e[0m"
 	case $LANGUAGE in
-		fr) answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2" ;;
-		en) answer_quiz "Lecture" "Quiz" "Return" "4" "5" "6" "$1" "$2" ;;
+		fr) echo -e "\e[97;44m - $1, Chapitre $2 \e[0m"
+			answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2" ;;
+		en) echo -e "\e[97;44m - $1, Chapter $2 \e[0m"
+			answer_quiz "Lecture" "Quiz" "Return" "4" "5" "6" "$1" "$2" ;;
 	esac
 }
 
