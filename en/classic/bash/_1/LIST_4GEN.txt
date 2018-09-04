@@ -1,4 +1,4 @@
-#[ -d "$HOME/House"] && echo "Unexpected error, ${HOME}/House already exists on your system! Delete this $HOME/House folder and restart this script." && exit
+#[ -d "$HOME/House" ] && echo "Unexpected error, ${HOME}/House already exists on your system! Delete this $HOME/House folder and restart this script." && exit
 #mkdir $HOME/.GameScript_bash1 &> /dev/null
 #cd $HOME/
 Hello everyone and welcome to the first chapter named 'bash'.
