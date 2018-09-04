@@ -204,9 +204,14 @@ function answer_text_fr(){
 	#~ echo -en "\\e[97;45m # \\e[0m"
 	read -e -r -p $'\e[97;45m # \e[0m' USER_CODE < /dev/tty
 	if [ ! "$USER_CODE" == "$2" ]; then
-		talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\nSi vous vous sentez vraiment bloqué, demandez de l'aide sur notre chat : https://rocket.bjornulf.org\\e[0m"
-		#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
-		exit
+		case $LANGUAGE in
+			fr) talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\nSi vous vous sentez vraiment bloqué, demandez de l'aide sur notre chat : https://rocket.bjornulf.org\\e[0m"
+				#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
+				exit ;;
+			en) talk_not_press_key justumen "\\e[4;37mSorry Wrong answer. I recommend you to do / re-do the lecture :-)\nIf you feel stuck, ask for help in our chat : https://rocket.bjornulf.org\\e[0m"
+				#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
+				exit ;;
+		esac
 	else
 		talk_not_press_key justumen "Correct !"
 		QUIZ_NUMBER=`expr $QUIZ_NUMBER + 1`
@@ -333,7 +338,10 @@ function enter_chapter(){
 	#Usage : enter_chapter bash 1 1 (first 1 is chapter, next one is for case)
 	echo ""
 	echo -e "\e[97;44m - $1, Chapitre $2 \e[0m"
-	answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2"
+	case $LANGUAGE in
+		fr) answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2" ;;
+		en) answer_quiz "Lecture" "Quiz" "Return" "4" "5" "6" "$1" "$2" ;;
+	esac
 }
 
 
