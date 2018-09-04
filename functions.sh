@@ -205,10 +205,10 @@ function answer_text_fr(){
 	read -e -r -p $'\e[97;45m # \e[0m' USER_CODE < /dev/tty
 	if [ ! "$USER_CODE" == "$2" ]; then
 		case $LANGUAGE in
-			fr) talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\nSi vous vous sentez vraiment bloqué, demandez de l'aide sur notre chat : https://rocket.bjornulf.org\\e[0m"
+			fr) talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\nSi vous vous sentez vraiment bloqué, demandez de l'aide sur notre chat : https://rocket.bjornulf.org ou notre discord : https://discord.gg/25eRgvD\\e[0m"
 				#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
 				exit ;;
-			en) talk_not_press_key justumen "\\e[4;37mSorry Wrong answer. I recommend you to do / re-do the lecture :-)\nIf you feel stuck, ask for help in our chat : https://rocket.bjornulf.org\\e[0m"
+			en) talk_not_press_key justumen "\\e[4;37mSorry Wrong answer. I recommend you to do / re-do the lecture :-)\nIf you think you already understand the content of the lecture, this question is probably a trap, read the question again carefully. :-)\nIf you feel stuck, ask for help in our chat : https://rocket.bjornulf.org or our discord : https://discord.gg/25eRgvD\\e[0m"
 				#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
 				exit ;;
 		esac
