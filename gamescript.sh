@@ -219,7 +219,7 @@ function enter(){
   esac
   #This run after finishing a standalone ? :p ???
   #~ enter bash 1 #go back in the menu
-  gamescript_available_arguments #go back in the menu
+  gamescript_available_arguments $LANGUAGE #go back in the menu
 }
 
 function launch_gamescript(){
