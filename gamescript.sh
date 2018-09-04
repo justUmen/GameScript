@@ -201,7 +201,7 @@ function enter(){
     *)
 		if [[ $MUTE == 1 ]]; then
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
-			mkdir -p $HOME/$LANGUAGE/classic/$1/
+			#~ mkdir -p $HOME/$LANGUAGE/classic/$1/ #??? what is this doing here ?
 			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
 			bash $HOME/.GameScript/standalone.sh MUTE
 			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s -- MUTE
