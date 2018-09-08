@@ -1,188 +1,138 @@
-#[ -d "$HOME/House" ] && echo "Erreur innatendu, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancer ce script." && exit
-#mkdir $HOME/.GameScript_bash1 &> /dev/null
-#cd $HOME/
-Hey salut tout le monde et bienvenu dans le premier chapitre sur bash.
-Avant de pouvoir apprendre notre première commande, il va falloir d'abord comprendre la logique derrière l'organisation des répertoires et des fichiers sur les systèmes d'exploitation de ${voc}type Unix${reset}, comme ${voc}Linux${reset}.
-Commençons par nous intéresser aux 'répertoires', qui portent aussi le nom de 'dossiers'.
-#real_tree_1
-Vous pouvez imaginer le système d'organisation des dossiers comme un arbre.
-Dans cet arbre les lignes qui représentent les dossiers sont en bleu ciel.
-A la base de cet arbre vous avez le symbole ${code}/${reset} qui représente le ${voc}répertoire racine${reset}.
-C'est un répertoire spécial qui contiendra TOUS les autres dossiers du système.
-#real_tree_2
-Dans cet arbre, à chaque fois qu'une branche se sépare de l'arbre, c'est un nouveau dossier.
-Ce passage à une autre branche se remarque aussi dans les titres en bleu ciel avec l'apparition d'un nouveau symbole '/' supplémentaire.
-Par exemple, ${code}/home/${reset} représente le dossier 'home' dans le ${voc}répertoire racine${reset}.
-${code}/home/user/${reset} représente le dossier 'user', qui est dans le dossier 'home', qui est lui même dans le ${voc}répertoire racine${reset}.
-Et ainsi de suite, comme par exemple : ${code}/home/user/Images/${reset}
-Dans ce cas, 'Images' est dans 'user', 'user' est dans 'home' et 'home' est dans '/'.
-Mais attention, pour représenter un répertoire, il n'est pas obligatoire de rajouter un '/' à la fin.
-C'est à dire que ${learn}/home/user/${reset} est équivalent à ${learn}/home/user${reset}.
-De même, ${learn}/home/${reset} et ${learn}/home${reset} sont équivalents.
-#real_tree_3
-Parlons maintenant des fichiers, dans mon arbre ils sont ici en vert. Ce sont dans mon exemple des 'feuilles' et sont directement acrochés à une branche, ou parfois même directement au tronc.
-Ces fichiers appartiennent donc directement à un dossier. Mais nous avons ici quelques problèmes en rouge, des fichiers qui ne peuvent pas exister...
-${codeError}fichier1${reset} ne peut pas exister car il y a déjà un fichier du même nom ${codeFile}fichier1${reset} dans le même répertoire. Ici le répertoire racine. (/fichier1)
-En revanche, en haut, ${codeFile}fichier1${reset} peut exister car même si le nom du fichier est le même, ils ne sont pas dans le même dossier.
-Les éléments d'un système de type Unix doivent avoir une référence unique : ici ${learn}/fichier1${reset} et ${learn}/home/fichier1${reset} ne sont pas en conflit.
-Le fichier ${codeError}/home${reset} ne peut pas exister non plus car il y a déjà un dossier ${code}/home/${reset} qui utilise le même nom au même endroit.
-Pour que ces fichiers puissent exister, il faut leur donner d'autres noms.
-#real_tree_4
-Ici, il suffit d'appeler le deuxième fichier 'fichier2' et le tour est joué.
-Pour ${codeError}home${reset}, il suffit également de lui donner un autre nom qui ne pose pas de problème comme 'Home', avec un h majuscule.
-Oui ! Dans un système d'exploitation de type Unix, les majuscules sont importantes. 'Home', avec un grand H et 'home' sont deux noms différents.
-En informatique, quand les majuscules ne sont pas équivalentes aux minuscules, on dit que les noms sont ${voc}sensibles à la casse${reset}.
-Effectivement, les systèmes de type Unix sont ${voc}sensibles à la casse${reset}. C'est à dire que 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... sont valides et différentes !
-#tree_1
-Il est aussi possible de représenter l'arborescence linux de cette manière.
-#tree_2
-Et ici le même exemple avec les fichiers. Identique à l'arbre que l'on a déjà vu.
-#tree_3
-Mais l'arborescence peut aussi être très claire sans les décalages.
-Si ça n'est pas encore très intuitif pour vous, ne vous inquiétez pas.
-Maintenant que vous connaissez la logique, avec le temps et la répétition ce sera pour vous très bientôt évident.
-Ce genre de ligne, qui commence par ce '/' ou ${voc}répertoire racine${reset} s'appelle le ${voc}chemin absolu${reset} d'un fichier ou d'un dossier.
-Elle représente avec précision uniquement le fichier ou dossier en question.
-Ici il est impossible d'avoir deux lignes identiques.
-Ce ${voc}chemin absolu${reset} est le concept le plus fondamental de la ligne de commande.
-Maintenant nous pouvons voir notre première commande.
-Commençons par créer un nouveau dossier avec la commande ${learn}mkdir${reset} (mkdir vient de l'anglais ${learn}M${reset}a${learn}K${reset}e ${learn}DIR${reset}ectory).
-Il suffit de taper mkdir, suivi d'un espace et enfin du nom du dossier.
-+Créeons maintenant le dossier House en faisant : ${learn}mkdir House${reset} puis validez la commande en appuyant sur la touche entrée.
-!mkdir House£Non
-+Affichons maintenant les dossiers et les fichiers avec un simple ${learn}ls${reset} (ls vient de l'anglais ${learn}L${reset}i${learn}S${reset}t).
-!ls£Non
-Vous devriez voir le dossier que vous venez de créer.
-Maintenant rentrons dans ce dossier avec la commande ${learn}cd${reset} (cd vient de l'anglais ${learn}C${reset}hange ${learn}D${reset}irectory).
-+Pour cela, il suffit de faire ${code}cd${reset}, suivi du nom du dossier voulu, dans notre cas : ${learn}cd House${reset}.
-!cd House£Non
-+Maintenant réaffichons les fichiers et dossiers avec un simple ${learn}ls${reset}.
-!ls£Non
-Ici le répertoire 'House' est vide, c'est normal puisque nous venons de le créer.
-Mais qu'en est-il ici du ${voc}chemin absolu${reset} dont je vous ai parlé avant ?
-En fait, un terminal tourne toujours dans un dossier, et peut se 'déplacer' dans l'arborescense du système.
-C'est ce que vous avez fait avec la commande ${learn}cd House${reset}, vous avez déplacé votre terminal dans le dossier 'House'.
-+Pour savoir dans quel répertoire votre terminal est en ce moment, il suffit de taper ${learn}pwd${reset} (pwd vient de l'anglais ${learn}P${reset}rint ${learn}W${reset}orking ${learn}D${reset}irectory).
-!pwd£Non
-Le résultat que vous voyiez ici est le ${voc}chemin absolu${reset} du répertoire ou vous êtes en ce moment.
-Ce répertoire où vous êtes porte un nom spécial : c'est votre ${voc}${voc}répertoire courant${reset}.
-Comme je vous l'ai déjà dit, il n'est pas obligatoire de mettre un '/' pour le dernier dossier, c'est pourquoi vous voyez ici ${learn}$(pwd)${reset} sans un '/' à la fin.
-Voilà donc 4 commandes Unix fondamentales : ${learn}pwd${reset}, ${learn}ls${reset}, ${learn}cd${reset} et ${learn}mkdir${reset}.
-${learn}pwd${reset} et ${learn}ls${reset} sont des commandes particulièrement innoffensives, elle ne font que vous donnez des renseignements.
-N'hésitez donc pas à les taper systématiquement, dès que vous êtes dans un terminal.
-${learn}pwd${reset}, pour savoir quel est votre ${voc}répertoire courant${reset}
-et ${learn}ls${reset}, pour afficher le contenu de votre ${voc}répertoire courant${reset}.
-+Maintenant créons un nouveau répertoire 'Room' dans notre ${voc}répertoire courant${reset} en faisant ${learn}mkdir Room${reset}.
-!mkdir Room£Non
-+Changeons de ${voc}répertoire courant${reset} avec ${learn}cd Room${reset}.
-!cd Room£Non
-+Maintenant, affichez le chemin absolu de votre ${voc}répertoire courant${reset}.
-!pwd£Non
-+Super, et maintenant affichez les éléments du ${voc}répertoire courant${reset}.
-!ls£Non
-Ici le dossier est vide, mais vous maitrisez maintenant les deux commandes les plus importantes : ${learn}pwd${reset} et ${learn}ls${reset}.
-Les commandes ${learn}cd${reset} et ${learn}mkdir${reset} que nous avons vu ensemble sont plus complexes.
-Il faut leur donner une cible, ou un nom comme par exemple : ${learn}mkdir Room${reset}.
-Cette 'cible' est appelée un ${voc}argument${reset}!
-Mais il est aussi possible d'avoir des commandes avec plusieurs ${voc}arguments${reset}.
-Il suffit de continuer à les séparer par des espaces.
-+On va créer les dossiers 'bed', 'closet' et 'desk' en une seule commande. Tapez donc la commande : ${learn}mkdir bed closet desk${reset}
-!mkdir bed closet desk£Non
-+Affichez les éléments du ${voc}répertoire courant${reset}.
-!ls£Non
-+Maintenant pour supprimer ces dossiers, vous pouvez taper : ${learn}rmdir bed closet desk${reset}. (rmdir vient de l'anglais ${learn}R${reset}e${learn}M${reset}ove ${learn}DIR${reset}ectory)
-!rmdir bed closet desk£Non
-${learn}rmdir${reset} est une commande plutôt innofensive, parce qu'elle refusera de supprimer un dossier si celui-ci n'est pas vide.
-Ce qui peut empêcher de graves accidents. Si par exemple, vous faites par erreur ${learn}rmdir /home${reset}.
-La commande ${learn}rm${reset} est la commande pour supprimer des fichiers. (rm vient de l'anglais ${learn}R${reset}e${learn}M${reset}ove)
-#touch virus0 virus1 virus2 virus3 virus4
-Tout comme ${learn}mkdir${reset}, il faudra lui donner en ${voc}argument${reset} le nom du fichier en question, par exemple : ${learn}rm test${reset}.
-+Il vient de se passer quelque chose de bizarre... Affichez le contenu du ${voc}répertoire courant${reset}.
-!ls£Non
-+${code}rmdir${reset} a bien supprimé les dossiers. Mais ces fichiers n'ont rien à faire ici, supprimez le fichier 'virus0' avec ${learn}rm virus0${reset}
-!rm virus0£Non
-+Affichez à nouveau les éléments du ${voc}répertoire courant${reset}, pour voir s'il est toujours là.
-!ls£Non
-Super, virus0 n'existe plus.
-Mais attention avec la commande ${learn}rm${reset}, c'est une commande dangereuse à ne pas utiliser à la légère.
-Les fichiers sont supprimés directement, il ne vont pas dans une corbeille, donc soyez prudent.
-Une erreur en ligne de commande ne pardonne pas.
-Une faute de frappe ou un ${voc}répertoire courant${reset} innatendu peut avoir de graves conséquences.
-Avant de lancer une commande, soyez donc sûrs de ce que vous faites.
-N'hésitez jamais a lancer ou relancer ${learn}pwd${reset} et ${learn}ls${reset} pour savoir quel est votre ${voc}répertoire courant${reset} et vérifier son contenu.
-Mais nous avons encore d'autres 'virus' à supprimer. Mais on peut aussi les supprimer d'une autre manière.
-Nous pouvons utiliser son ${voc}chemin absolu${reset}.
-#cd ~/
-Lorsque vous avez tapé ${learn}rm virus0${reset}, vous avez demandé la suppression du fichier 'virus0' dans votre ${voc}répertoire courant${reset}.
-+Je viens de changer votre ${voc}répertoire courant${reset}. Affichez le maintenant.
-!pwd£Non
-+Affichez le contenu de votre ${voc}répertoire courant${reset}.
-!ls£Non
-Le fichier 'virus1', existe toujours dans le répertoire 'Room', mais étant donné votre ${voc}répertoire courant${reset}, vous ne pouvez pas lancer ${learn}rm virus1${reset}.
-Heureusement, vous connaissez le ${voc}chemin absolu${reset} du fichier 'virus1' : ${learn}$HOME/House/Room/virus1${Reset}
-Vous pouvez utiliser son ${voc}chemin absolu${reset} comme ${voc}argument${reset}. Cette commande marchera donc quel que soit votre ${voc}répertoire courant${reset} !
-+Supprimez le avec cette commande : ${learn}rm $HOME/House/Room/virus1${reset}.
-!rm $HOME/House/Room/virus1£Non
-Maintenant, comment pouvoir vérifier si le fichier a bien été supprimé ?
-Lorsqu'une commande ne se passe pas comme prévue, elle vous renvoit très souvent une erreur.
-+Essayez de supprimer le fichier 'virus1' à nouveau en utilisant son ${voc}chemin absolu${reset}.
-!rm $HOME/House/Room/virus1£Non
-Ici la commande ${learn}rm${reset} vous renvoit une erreur, le fichier n'existe donc déjà plus.
-Maintenant, on peut aussi utiliser le ${voc}chemin absolu${reset} du dossier 'Room' pour afficher son contenu.
-Vous connaissez déjà la commande ${learn}ls${reset}, pour lister le contenu du ${voc}répertoire courant${reset}.
-Sans ${voc}argument${reset}, avec un simple ${learn}ls${reset}, le répertoire utilisé sera automatiquement le ${voc}répertoire courant${reset}.
-Mais il est en fait aussi possible de donner un ${voc}argument${reset} à ${learn}ls${reset}.
-Cet ${voc}argument${reset} représente le répertoire cible, par exemple ${learn}ls /${reset} affichera le contenu du ${voc}répertoire racine${reset}.
-+Nous pouvons afficher le contenu du répertoire 'Room' sans se déplacer dans l'arborescence, avec cette commande : ${learn}ls $HOME/House/Room/${reset}.
-!ls $HOME/House/Room/£Non
-Excellent, le fichier 'virus1' n'existe plus.
-Encore une fois, je vous rappelle que dans un ${voc}chemin absolu${reset}, si le dernier caractère est un '/', il n'est pas obligatoire.
-+Donc ici le dernier '/' dans ${learn}$HOME/House/Room/${reset} n'est pas obligatoire. Testez donc à nouveau avec cette commande : ${learn}ls $HOME/House/Room${reset}
-!ls $HOME/House/Room£Non
-Pas de problème, le résultat est le même pour ces deux commandes : ${learn}ls $HOME/House/Room/${reset} et ${learn}ls $HOME/House/Room${reset}.
-Quand vous avez fait ${learn}rm virus0${reset} pour la première suppression, vous avez utilisé ce que l'on appelle le ${voc}chemin relatif${reset}.
-On dit que ce chemin est relatif parce qu'il dépend de votre ${voc}répertoire courant${reset}.
-Imaginons deux fichiers 'virus' avec comme ${voc}chemin absolu${reset} : ${learn}/virus${reset} et ${learn}/bin/virus${reset}.
-Si ${learn}pwd${reset} vous donne ${learn}$HOME${reset}. Un ${learn}rm virus${reset} ne supprimera aucun d'entre eux. Cette commande voudra supprimer le fichier avec ce chemin absolu : ${learn}$HOME/virus${reset}.
-#cd "$HOME"
-D'ou la très grande utilité de ce ${voc}chemin absolu${reset}. Vous pouvez utiliser ${learn}rm /virus${reset} et ${learn}rm /bin/virus${reset} quel que soit votre ${voc}répertoire courant${reset}.
-+Je viens de vous déplacer dans l'arborescence, affichez donc le chemin absolu du ${voc}répertoire courant${reset}.
-!pwd£Non
-Pour changer de ${voc}répertoire courant${reset}, vous pouvez utiliser la commande ${learn}cd${reset}.
-Pour revenir dans le répertoire 'Room', vous pouvez utiliser son ${voc}chemin absolu${reset} : ${learn}cd $HOME/House/Room/${reset}
-Mais il n'est pas obligatoire d'utiliser son ${voc}chemin absolu${reset}, il est aussi possible de revenir dans le répertoire 'Room' en utilisant son ${voc}chemin relatif${reset}.
-Vous voulez aller dans ${learn}$HOME/House/Room/${reset} mais vous êtes déjà dans ${learn}$HOME${reset}.
-+Il est donc possible de se déplacer de là où vous êtes avec un ${learn}cd House/Room/${reset}. Allez-y.
-!cd House/Room/£Non
-+Affichez maintenant les éléments de votre ${voc}répertoire courant${reset}.
-!ls£Non
-+Ici vous voyez encore des fichiers virus, supprimez le fichier virus2 en utilisant le ${voc}chemin relatif${reset}.
-!rm virus2£Non
-Excellent!
-Nous avons vu dans l'exemple précédent que ${learn}cd House/Room/${reset} utilise un ${voc}chemin relatif${reset}, pourtant cette commande contient aussi des '/'.
-Donc comment reconnaitre un ${voc}chemin absolu${reset} d'un ${voc}chemin relatif${reset} ?
-Le ${voc}chemin absolu${reset} est en fait très facile à reconnaitre !
-Il commence toujours à la racine, c'est à dire que le premier caractère d'un ${voc}chemin absolu${reset} est toujours un '/'.
-Il y a aussi une syntaxe spéciale très utile pour le ${voc}chemin relatif${reset} : ${learn}..${reset}
-${learn}..${reset} représente dans l'arborescence le parent du ${voc}répertoire courant${reset}.
-C'est le vocabulaire que nous employons pour parler de cette arborescence, ce sont des relations parents / enfants.
-Par exemple pour ${learn}/home/user/test/${reset}, le dossier parent de test est user. Le dossier parent de user est home.
-Et bien évidemment test est un enfant de user, et user est un enfant de home.
-Cibler les enfants en ${voc}argument${reset} avec un ${voc}chemin relatif${reset} est très simple, il suffit d'écrire le nom de leurs parents successifs.
-Comme par exemple avec la commande de tout a l'heure : ${learn}cd House/Room/${reet}
-Pour cibler les parents, c'est un peu plus compliqué. Il faut utiliser ${learn}..${reset}.
-+Affichez donc le chemin absolu de votre ${voc}répertoire courant${reset}.
-!pwd£Non
-Vous connaissez aussi la commande pour changer de répertoire courant : ${learn}cd${reset}.
-Ici nous allons nous déplacer dans le répertoire parent. Nous sommes dans ${learn}$HOME/House/Room/${reset} mais nous voulons aller dans ${learn}$HOME/House/${reset}
-+Il est possible de remonter d'un cran dans l'arborescence, ou comme je viens de le dire de se déplacer dans le répertoire parent avec un ${learn}cd ..${reset}
-!cd ..£Non
-+Affichez le chemin absolu du ${voc}répertoire courant${reset}.
-!pwd£Non
-J'espère que le résultat de ${learn}pwd${reset} est logique pour vous.
-+Mais il nous reste deux virus à supprimer, commençons par supprimer le fichier virus3 avec son ${voc}chemin relatif${reset}.
-!rm Room/virus3£Non
-+Bien ! Maintenant supprimons le fichier virus4 en utilisant son ${voc}chemin absolu${reset}.
-!rm $HOME/House/Room/virus4£Non
-Parfait, vous avez tout compris ! Et je vous donne rendez-vous au questionnaire !
-#clean
+Votre système d'exploitation est multitâche, c'est à dire qu'il est capable d'exécuter plusieurs tâches simultanément.
+Par exemple, vous pouvez avoir un éditeur de texte et un navigateur web ouvert en même temps sans rencontrer de difficultés.
+Lorsque ces programmes sont en cours d'exécution sur votre ordinateur, on parle alors de ${voc}processus${reset}.
+Un programme est donc une entité 'passive', alors qu'un processus est une entité 'active'.
+Un même programme peut être lancé plusieures fois, il est donc possible d'avoir plusieurs processus pour un seul programme.
+Dans cette série nous verrons ensemble comment analyser et contrôler nos différents processus.
++Commencons par lister vos processus avec la commande : ${learn}ps${reset}
+!ps£Non
+Evidemment il y a bien plus de processus que ca sur votre ordinateur.
++Pour lister tous les processus, faites : ${learn}ps -e${reset}
+!ps -e£Non
++Pour compter le nombre de processus dans cette liste, vous pouvez donc faire : ${learn}ps -e|wc -l${reset}
+!ps -e|wc -l£Non
+Mais pour l'instant nous allons nous concentrer sur le résultat de la commande ps.
++Faites donc à nouveau : ${learn}ps${reset}
+!ps£Non
+Chaque processus aura un identifiant unique capable de l'identifier : son PID. (l'anglais de Process IDentifier)
+C'est un numéro unique qui pourra par exemple être utilisé pour manipuler le comportement du processus portant ce numéro.
+Tout programme qui tourne actuellement sur votre système d'exploitation est un processus !
+Votre terminal est un processus, mais l'instance de bash à l'intérieur de ce terminal est également un processus.
+Ce terminal et son instance de bash ont une relation parent/enfant : On dit que cette instance de bash est l'enfant de ce terminal et que ce terminal est le parent de cette instance de bash.
+Cette instance de bash est en fait elle-même le parent du processus GameScript que vous utilisez en ce moment.
+Toutes les commandes que vous lancez seront bien évidemment aussi des processus.
+Si cette commande est lancé à partir de bash, ce bash sera le parent de ce processus et y sera 'attaché'.
+Tant que ce programme n'est pas terminé, vous ne pouvez plus lancer d'autres commandes avec cette instance de bash.
+Le processus en question prendra alors controle de l'interpreteur bash et s'appropriera son stdin et stdout.
++Essayez donc de lancer leafpad, regardez l'état de votre terminal, puis quitter leafpad en cliquant sur "fichier", puis "quitter".
+!leafpad£Non
+Quitter le processus leafpad vous permet de continuer à utiliser votre terminal normalement.
+Ici vous pouvez donc continuer à utiliser GameScript.
+Comme le processeur utilise stdin vous pouvez envoyer des signaux au processus.
+Vous pouvez par exemple fermer ce processus directement dans le terminal ou il est attaché avec une combinaison de touche.
+Attention cependant à ne pas le faire deux fois, car GameScript est lui-même un processus qui peut être fermé avec la même combinaison de touche : 'Ctrl+ c'.
++Ouvrez leafpad, puis fermez le en faisant 'Ctrl + c' dans votre terminal.
+!leafpad£Non
+Si vous voulez lancer un programme, mais que vous voulez continuer à utiliser votre terminal, vous pouvez suspendre ce programme avec la combinaison 'Ctrl+ z'.
+Encore une fois, attention à ne pas le faire deux fois et détacher GameScript par erreur.
++Ouvrez leafpad, retournez dans votre terminal et détachez 'leafpad' avec 'Ctrl + z' pour continuer à utiliser GameScript.
+!leafpad£Non
+Ici vous pouvez remarquer que leafpad est toujours ouvert, mais vous pouvez continuer à utiliser GameScript normalement.
++Faites donc à nouveau : ${learn}ps${reset}
+!ps£Non
+Sans argument, la commande ${learn}ps${reset} affichera le processus correspondant à votre terminal ainsi que tous ses processus enfants.
+Comme vous avez utilisé ce terminal pour lancer 'leafpad', vous pouvez voir ici 'leafpad' est dans la liste.
++Affichez donc les relations parents/enfants de vos processus avec : ${learn}ps -l${reset}
+!ps -l£Non
+Avec cette option -l, vous pouvez voir une nouvelle colonne nommée 'PPID' : Il s'agit de l'identifiant du processus parent. (Parent Process IDentifier)
+Ici vous pouvez voir clairement que GameScript et leafpad sont tous les deux des enfants de ce processus bash.
+Vous pouvez voir ces relations sous la frome d'un arbre avec l'option -H.
++Essayez donc avec la commande : ${learn}ps -H${reset}
+!ps -H£Non
+Maintenant, essayez d'écrire quelque chose dans leafpad, puis revenez sur GameScript pour continuer.
+'Ctrl + z' a suspendu ce processus de leafpad, ce qui a eu pour effet de le rendre inutilisable.
+Pour faire l'inverse de 'Ctrl + z', c'est à dire récuperer ce programme, vous pouvez utilisez la commande 'fg'.
++Lancez ${learn}fg${reset}, essayez d'utiliser votre instance de 'leafpad' et faites à nouveau 'Ctrl + z' pour continuer à utiliser GameScript.
+!fg£Non
+'fg' est l'abréviation de 'foreground', l'anglais de 'premier plan'.
+Vous pouvez aussi utiliser la commande 'bg', l'abréviation de 'background', l'anglais de 'arrière plan' pour que le processus soit utilisable mais ne monopolise pas le terminal.
++Affichez la situation des processus que vous avez ouvert dans ce terminal avec : ${learn}jobs${reset}
+!jobs£Non
+Un 'job' est un processus que vous pouvez contrôler avec 'fg' ou 'bg'.
++Rajoutons un processus à cette liste : lancez une autre instance de 'leafpad', puis faites à nouveau 'Ctrl + z' pour continuer à utiliser GameScript.
+!leafpad£Non
++Et faites à nouveau : ${learn}jobs${reset}
+!jobs£Non
+Ici nous avons deux 'jobs', et aucun d'entre eux n'est utilisable, comme vous pouvez le voir car leur état est : ${voc}suspended${reset}.
+Si il n'y a qu'un seul job dans votre terminal, vous n'avez pas besoin de spécifier un argument.
+En revanche, si vous en avez plusieurs, il faudra donner en argument leur identifiants, que vous pouvez voir tout à gauche entre crochets.
++Nous voulons maintenant mettre le job [1] en arrière plan, faites donc : ${learn}bg %1${reset}
+!bg %1£Non
+Vous devriez voir une ligne confirmant le changement d'état de votre job avec le mot clef : ${voc}continued${reset}.
+Si vous vouliez utiliser ${learn}fg${reset} à la place, la syntaxe aurait été similaire : ${learn}fg %1${reset}
++Affichez l'état de vos jobs.
+!jobs£Non
+Vous devriez voir maintenant que l'une des deux instances de leafpad avec comme état : ${voc}running${reset}.
+Cette instance de leafpad fonctionne tout à fait normalement et vous pouvez continuer à utiliser GameScript en même temps.
+Il est aussi possible de lancer directement à partir de votre terminal un processus en arrière plan avec le symbole ${code}&${reset} à la fin de votre commande.
++Faites le donc maintenant. Lancez une autre instance de leafpad et mettez la en arrière plan avec : ${learn}leafpad&${reset}
+!leafpad&£Non
++Et réaffichez l'état de vos jobs.
+!jobs£Non
+'jobs', 'bg', 'fg' et '&' sont très utiles pour contrôler les jobs du terminal en question.
+Mais si vous fermez ce terminal, tous ses jobs se fermeront également !
++Voyons un exemple de ce phénomène : Ouvrez un terminal qui lance directement une instance de mousepad avec ${learn}lxterminal -e mousepad${reset}, puis fermez ce terminal !
+!lxterminal -e mousepad£Non
+Vous pouvez voir que cette instance de mousepad s'est également fermée.
++Réaffichez l'état de vos jobs.
+!jobs£Non
+Il en est de même pour ces jobs, lorsque vous quitter ce terminal, ces processus se fermeront.
+Pour éviter que cela n'arrive, vous pouvez demander à votre terminal d'abandonner ce processus.
++Faites donc : ${learn}disown %1${reset}
+!disown %1£Non
++Puis réaffichez l'état de vos jobs.
+!jobs£Non
+A partir de maintenant, cette instance de leafpad ne se fermera plus quand votre terminal se fermera.
+Mais n'oubliez pas que ces jobs sont avant tout des processus !
+Et vous pouvez aussi directement les contrôler avec leur PID.
++Affichez le PID de ces jobs avec : ${learn}jobs -l${reset}
+!jobs -l£Non
++Ou vous pouvez listez vos processus avec : ${learn}ps${reset}
+!ps£Non
+Avec le PID d'un processus et la commande ${code}kill${reset}, vous pouvez le cibler même en dehors de votre terminal. (contrairement à fg, bg et disown.)
+La commande ${code}kill${reset} (anglais de tuer) permet de fermer un processus dont le PID est donné en argument.
+#THISPID=`jobs -l|head -n 1|awk '{ print $3 }'`
++Fermez un des processus de leafpad avec : ${learn}kill $THISPID${reset}
+!kill $THISPID£Non
++Listez vos processus à nouveau avec : ${learn}ps -l${reset}
+!ps -l£Non
+Ici il est bien clair que l'une des instances de leafpad a été fermée.
+Mais la commande ${code}kill${reset} est capable de faire bien plus que simplement fermer un processus.
++Regardez rapidement le résultat de la commande ${code}man 7 signal${reset} pour affichez la liste des signaux disponibles et revenez sur GameScript.
+!man 7 signal£Non
+Ici nous allons nous intéresser à quatre signaux : SIGTSTP, SIGCONT, SIGTERM et SIGKILL
+SIGTERM est le signal par défaut de la commande ${code}kill${reset}, c'est à dire que la commande ${code}kill${reset} est équivalente à ${code}kill -SIGTERM${reset}.
+SIGTERM demandera au programme de se fermer. Ce programme recevra ce signal et tentera de se fermer proprement.
+Si votre programme ne répond plus pour une certaine raison, il ne sera pas possible de le fermer de cette manière.
+Dans ce genre de situation, qui ne devrait jamais se produire sans une excellente raison, vous pouvez envoyez le signal SIGKILL.
+Contrairement à SIGTERM, le signal SIGKILL ne peut pas être capturé par le processus cible, il ne pourra donc pas se fermer proprement.
++Listez à nouveau vos jobs avec : ${learn}jobs -l${reset}
+!jobs -l£Non
++Listez à nouveau vos processus avec : ${learn}ps -l${reset}
+!ps -l£Non
+Le status de vos processus est dans la commande ${code}ps${reset} une lettre : T est l'équivalent du status job 'running', et S est l'équivalent du status 'suspended'.
+Pour plus de détails sur ces status et leur signification, n'hésitez pas à visitez le manuel de la commande ${code}ps${reset}.
+#THISPID=`jobs -l|head -n 1|awk '{ print $3 }'`
+Voyons maintenant deux autres signaux, capable de changer le status du processus : SIGTSTP, SIGCONT.
+Le signal SIGTSTP a le même effet que la combinaison de touche 'Ctrl + z' sur un processus au premier plan, sauf qu'il est capable de cibler n'importe quel processus avec son PID.
++Suspendez un processus leafpad avec : ${learn}kill -SIGTSTP $THISPID${reset}
+!kill -SIGTSTP $THISPID£Non
++Puis listez le status de vos jobs avec : ${learn}jobs -l${reset}
+!jobs -l£Non
++Pour permettre au processus de continuer, faites : ${learn}kill -SIGCONT $THISPID${reset}
+!kill -SIGCONT $THISPID£Non
++Puis listez le status de vos jobs avec : ${learn}jobs -l${reset}
+!jobs -l£Non
+Mais alors qu'en est-il de la combinaison 'Ctrl + c' ?
+Le signal équivalent est SIGINT, qui représente une interruption par l'intermédiaire du clavier.
+Mais son effet est finalement similaire à SIGTERM, ce qui donne donc au processus l'occasion de se fermer correctement.

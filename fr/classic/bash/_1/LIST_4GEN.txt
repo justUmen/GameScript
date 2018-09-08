@@ -1,7 +1,7 @@
 #[ -d "$HOME/House" ] && echo "Erreur inattendue, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash1 &> /dev/null
 #cd $HOME/
-Hey salut tout le monde et bienvenu dans le premier chapitre sur bash.
+Hey salut tout le monde et bienvenue dans le premier chapitre sur bash.
 Avant de pouvoir apprendre notre première commande, il va falloir d'abord comprendre la logique derrière l'organisation des répertoires et des fichiers sur les systèmes d'exploitation de ${voc}type Unix${reset}, comme ${voc}Linux${reset}.
 Commençons par nous intéresser aux 'répertoires', qui portent aussi le nom de 'dossiers'.
 #real_tree_1
@@ -145,7 +145,7 @@ On dit que ce chemin est relatif parce qu'il dépend de votre ${voc}répertoire 
 Imaginons deux fichiers 'virus' avec comme ${voc}chemin absolu${reset} : ${learn}/virus${reset} et ${learn}/bin/virus${reset}.
 Si ${learn}pwd${reset} vous donne ${learn}$HOME${reset}. Un ${learn}rm virus${reset} ne supprimera aucun d'entre eux. Cette commande voudra supprimer le fichier avec ce chemin absolu : ${learn}$HOME/virus${reset}.
 #cd "$HOME"
-D'ou la très grande utilité de ce ${voc}chemin absolu${reset}. Vous pouvez utiliser ${learn}rm /virus${reset} et ${learn}rm /bin/virus${reset} quel que soit votre ${voc}répertoire courant${reset}.
+D'où la très grande utilité de ce ${voc}chemin absolu${reset}. Vous pouvez utiliser ${learn}rm /virus${reset} et ${learn}rm /bin/virus${reset} quel que soit votre ${voc}répertoire courant${reset}.
 +Je viens de vous déplacer dans l'arborescence, affichez donc le chemin absolu du ${voc}répertoire courant${reset}.
 !pwd£Non
 Pour changer de ${voc}répertoire courant${reset}, vous pouvez utiliser la commande ${learn}cd${reset}.

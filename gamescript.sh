@@ -385,7 +385,7 @@ else #SIMPLE AUDIO
 fi
 
 function justumen_intro_fr(){
-	talk_GAMESCRIPT justumen "Bonjour et bienvenu sur GameScript.
+	talk_GAMESCRIPT justumen "Bonjour et bienvenue sur GameScript.
 	GameScript est un script écrit en ${voc}bash${reset} qui peut vous aider à apprendre le ${voc}bash${reset}.
 	GameScript est interactif :
 	 * Lorsque vous voyez ces \e[0;33m...\e[0m le script attend que vous pressiez une touche pour continuer.";
@@ -445,7 +445,7 @@ talk_GAMESCRIPT justumen "You can confirm your knowledge with the passwords give
 		echo -en "\e[97;45m # \e[0m"
 		read -r PSEUDO < /dev/tty
 	done
-	talk_GAMESCRIPT justumen "Bonne journée à vous et bonne chance !"
+	talk_GAMESCRIPT justumen "I wish you a good day and good luck !"
 }
 
 if [ ! -f "$HOME/.GameScript/username" ]; then

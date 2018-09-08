@@ -14,7 +14,7 @@ function start_quiz(){
   answer_text_fr "Le code de configuration pour que leafpad soit dans une fenêtre flottante est (vrai/faux) : assign [class=\"Leafpad\"] floating enable" "faux"
   answer_text_fr "Quel est le code à ajouter dans le fichier de configuration d'i3 pour lancer le script '/this/script.sh' au démarrage d'i3." "exec /this/script.sh"
   answer_text_fr "Quel est le mot clef responsable de la création des nouveaux raccourcis clavier dans le fichier de configuration d'i3 ?" "bindsym"
-  answer_text_fr "Quel est le code à ajouter dans le fichier de configuration d'i3 pour lancer le script '/this/script.sh' avec la combinaison de touche Alt + o ?" "bindsym mod1+o exec /this/script"
+  answer_text_fr "Quel est le code à ajouter dans le fichier de configuration d'i3 pour lancer le script '/this/script.sh' avec la combinaison de touche Alt + o ?" "bindsym mod1+o exec /this/script.sh"
   answer_text_fr "Justumen aime bien i3. (vrai/faux)" "vrai"
   
   wget "https://github.com/justUmen/WallpaperGenerator/raw/master/Wallpaper/fr/i3wm_1/`xrandr | grep ' connected' | sed 's/.*primary //' | sed 's/+.*//'`.jpg" -O ~/.GameScript/i3wm_1_wallpaper.jpg &>/dev/null

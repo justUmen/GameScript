@@ -17,8 +17,8 @@ function start_quiz(){
   answer_text_fr "Comment se déplacer dans le répertoire grand parent ?" "cd ../.."
   answer_text_fr "Quel est le symbole qui représente le répertoire courant ?" "."
   answer_text_fr "Comment afficher le manuel de la commande rm" "man rm"
-  answer_text_fr "Par quel symbole commence les options courtes de commande données en argument ?" "-"
-  answer_text_fr "Par quel symboles commencent les options longues de commande donnée en argument ?" "--"
+  answer_text_fr "Par quel symbole commencent les options courtes de commande données en argument ?" "-"
+  answer_text_fr "Par quel symboles commencent les options longues de commande données en argument ?" "--"
   unlock "bash" "2" "246e" "1f13"
 }
 

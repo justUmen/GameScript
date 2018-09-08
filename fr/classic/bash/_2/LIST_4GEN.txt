@@ -32,7 +32,7 @@ Ces deux commandes donnent le même résultat qu'un simple ${learn}ls${reset}.
 Sans argument, la commande ${learn}ls${reset} cible par défaut le répertoire ${code}.${reset}.
 +Pour supprimer ce fichier 'bOb', vous pouvez donc par exemple taper ${learn}rm ./bOb${reset}, allez-y.
 !rm ./bOb£Non
-Il n'y a pas de message d'erreur, cela veut donc dire que la commande a bien fonctionnée.
+Il n'y a pas de message d'erreur, cela veut donc dire que la commande a bien fonctionné.
 +Vérifions néanmoins le contenu du répertoire courant.
 !ls£Non
 +Parfait, il n'existe plus. Affichez maintenant le chemin du répertoire courant.
@@ -110,7 +110,7 @@ Pour quitter le manuel, appuyez sur la touche 'q' de votre clavier, comme ${voc}
 !man ls£Non
 Si vous avez oublié certaines options d'une commande, vous pouvez toujours ouvrir son manuel.
 Si vous posez une question sur internet à propos d'une commande, mais que la réponse est dans le manuel, il est possible que vous ayez la réponse : RTFM.
-C'est un acronyme anglais pour 'Read The Fucking Manual' ou 'Lit le Putain de Manuel'.
+C'est un acronyme anglais pour 'Read The Fucking Manual' ou 'Lis le Putain de Manuel'.
 Apprendre à lire les manuels est indispensable pour pouvoir vous débrouiller seul face à des problèmes simples.
 Avec la répétition vous devriez vous souvenir des options les plus importantes, mais ayez toujours le réflexe de visiter le manuel avant de demander de l'aide. Le manuel sera toujours là pour vous.
 +Faites le donc pour ${code}rmdir${reset}, regardez rapidement les options disponibles dans le manuel et quittez avec la touche 'q' : ${learn}man rmdir${reset}
