@@ -1,51 +1,43 @@
 # Gamescript.sh [french only for now...]
 
-## Simple installation :
-
-### BASH
+## Installation :
 
 Add `gamescript` alias to your .bashrc file by copy/pasting this command in a bash terminal :
 
     echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
 
-### ZSH
-
-Add `gamescript` alias to your .xshrc file by copy/pasting this command in a zsh terminal :
-
-    echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.zshrc; source ~/.zshrc
-
-## Simple usage :
+## Usage :
 
     gamescript
 
-## Dependencies :
+## Dependancies :
 
 * bash > version 4
 * wget
 * mplayer or mpg123 (mplayer recommended)
 * base64
 
-### Arch family (manjaro, antergos, ...)
+### Install dependencies on Arch family (manjaro, antergos, ...)
 
     pacman -S wget mplayer mpg123
 
-### Debian family (ubuntu, mint, ...)
+### Install dependencies on Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer mpg123
 
-## What is it ?
+## What is GameScript ?
 
 It is an ONLINE bash script to learn about :
 
 * bash (included : GNU commands + Unix-like operating system file organization / permissions)
+* i3wm
 * system [ not yet implemented ]
 * network [ not yet implemented ]
-* i3wm [ not yet implemented ]
 * html (included : css) [ not yet implemented ]
 * javascript [ not yet implemented ]
 * - [ not yet implemented ]
 
-# Bash : Code and concepts by chapter (English)
+# Bash : Code and concepts by chapter
 
     Bash 1 => Concepts : command , argument , relative path , absolute path , folder parent/child , current directory , working directory
     Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
@@ -85,18 +77,8 @@ It is an ONLINE bash script to learn about :
 * "classic" = default mode, technical content only
 * "story" = learning with stories [ not yet implemented ]
 
-## ToDo :
-
-* have default language ?
-* better colors if the terminal can print them ! Keep basic colors for basic terminals.
-* allow arrows and tab in "read"
-* add offline option --offline, then it will download all standalone into a folder .GameScript ?? + update
-* better help with online/offline, update
-* each chapter have basic knowledge identical to wallpaper generator
-
 ## Details :
 
 * standalone files are generated and can be downloaded as standalone in offline mode. : https://github.com/justUmen/GameScript_standalone
 
 Support me and my projects on https://www.patreon.com/justumen :-)
-

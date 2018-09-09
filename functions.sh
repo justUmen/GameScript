@@ -81,8 +81,9 @@ function press_key(){
 
 #TODO ???
 function new_sound(){
-	pkill mplayer &> /dev/null
-	pkill mpg123 &> /dev/null
+	kill `ps aux|grep $SOUNDPLAYER|grep -v grep|grep -v MUSIC|awk '{print $2}'`
+	#~ pkill mplayer &> /dev/null
+	#~ pkill mpg123 &> /dev/null
 	$SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
 	#~ if [[ ! -f "$AUDIO_DL/`expr $restore + 1`.mp3" ]];then
 		#~ ( wget $AUDIO_DL/`expr $restore + 1`.mp3 -O $AUDIO_LOCAL/`expr $restore + 1`.mp3 || rm $AUDIO_LOCAL/`expr $restore + 1`.mp3 ) &> /dev/null &

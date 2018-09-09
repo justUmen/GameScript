@@ -3,8 +3,9 @@
 function press_key_GAMESCRIPT(){
 	echo -en "\e[0;33m...\e[0m"
 	read -s -n1 key < /dev/tty
-	pkill mplayer &> /dev/null
-	pkill mpg123 &> /dev/null
+	kill `ps aux|grep $SOUNDPLAYER|grep -v grep|grep -v MUSIC|awk '{print $2}'`
+	#~ pkill mplayer &> /dev/null
+	#~ pkill mpg123 &> /dev/null
 }
 
 function new_sound(){
@@ -64,6 +65,8 @@ function goodbye(){
 		fr) echo "Au revoir et bonne journée. :)" ;;
 		en) echo "Goodbye and have a nice day. :)" ;;
 	esac
+	pkill mplayer
+	pkill mpg123
 	exit 0
 }
 function show_menu(){
@@ -422,7 +425,6 @@ if [ $# -ne 0 ]; then
 	done
 	echo -e "\n\n"
 fi
-
 if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; fi
 if [[ $MUTE == 0 ]]; then
@@ -436,6 +438,10 @@ fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
 
+#BACKGROUND MUSIC
+if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
+	mplayer /home/umen/.GameScript/Audio/MUSIC/1.mp3 &>/dev/null &
+fi
 
 #PREPARE TEXT BASED ON LANGUAGE
 case $LANGUAGE in
