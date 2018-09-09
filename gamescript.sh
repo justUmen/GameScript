@@ -194,6 +194,7 @@ function enter(){
   case $1 in
     bash) TITLE="Bourne Again SHell" ;;
     i3wm) TITLE="The i3 Window Manager" ;;
+    i3wm) TITLE="Unix-like system" ;;
     *) TITLE="" ;;
   esac
   case $2 in
@@ -205,12 +206,14 @@ function enter(){
 		fr) case $1 in
 				bash) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" 	"[NO SOUND] $1 : $CHAPTER 10" "[NO SOUND] $1 : $CHAPTER 11" ;; #"$1 : chapitre 8"
 				i3wm) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
+				sys) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
 				*) TITLE="" ;;
 			esac
 			;;
 		en) case $1 in
 				bash) show_menu "$1" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 1" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 2" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 3" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 4" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 5" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 6" ;; #"$1 : chapitre 8"
 				i3wm) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
+				#~ sys) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
 				*) TITLE="" ;;
 			esac
 			;;
@@ -247,10 +250,13 @@ function launch_gamescript(){
   # echo "TYPE = $TYPE"
   SUBJECT=$3
   # echo "SUBJECT = $SUBJECT"
+  #??? STUPID ???
   if [ "$3" == "bash" ]; then
 	   enter bash 1
   elif [ "$3" == "i3wm" ]; then
 	   enter i3wm 1
+  elif [ "$3" == "sys" ]; then
+	   enter sys 1
   fi
 }
 
