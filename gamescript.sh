@@ -158,7 +158,7 @@ function gamescript_available_arguments(){
   echo ""
   case $1 in
     fr) echo -e "Sélectionnez un sujet : "
-		echo -e "\\e[0;100m 1) \\e[0m \e[97;44m bash [ $CHAPTER 1-12 ] \e[0m"
+		echo -e "\\e[0;100m 1) \\e[0m \e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
 		#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
 		echo -e "\\e[0;100m 2) \\e[0m \e[97;44m i3wm [ $CHAPTER 1 ] \e[0m"
 		echo -e "\\e[0;100m e) \\e[0m Quitter"
