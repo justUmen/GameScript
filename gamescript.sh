@@ -230,8 +230,8 @@ function enter(){
 		;;
   esac
   #This run after finishing a standalone ? :p ???
-  #~ enter bash 1 #go back in the menu
-  gamescript_available_arguments $LANGUAGE #go back in the menu
+  enter $SUBJECT 1 #go back in the subject menu
+  #~ gamescript_available_arguments $LANGUAGE #go back in the main menu
 }
 
 function launch_gamescript(){
@@ -419,18 +419,18 @@ if [ $# -ne 0 ]; then
 		  ;;
 	  esac
 	done
-	#~ echo -e "\n"
+	echo -e "\n\n"
 fi
 
 if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; fi
 if [[ $MUTE == 0 ]]; then
-	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "\n\nWithout the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
+	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "Without the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
 	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
 	# -af volume=10 ADD 10 decibels
 fi
 if [[ $VIDEO == 1 ]]; then
-	command -v mpv &> /dev/null || { echo -e "\n\nYou need to install 'mpv' to play the videos." >&2; exit 4; };
+	command -v mpv &> /dev/null || { echo -e "You need to install 'mpv' to play the videos." >&2; exit 4; };
 fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
@@ -442,7 +442,7 @@ case $LANGUAGE in
 	;;
 	fr) CHAPTER="chapitre"
 	;;
-	*) echo -e "\n\nUnknown language, exiting... Use for example : gamescript -l en"; exit
+	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; exit
 	;;
 esac
 
@@ -509,7 +509,7 @@ if [ ! -f "$HOME/.GameScript/username" ]; then
 else
   #Random welcome back
   if [ "$LANGUAGE" == "fr" ]; then
-    echo -e "\n\nContent de vous revoir $(cat ~/.GameScript/username) !"
+    echo -e "Content de vous revoir $(cat ~/.GameScript/username) !"
     # echo "Quel sujet vous intéresse aujourd'hui ?"
   fi
   gamescript_available_arguments $LANGUAGE
