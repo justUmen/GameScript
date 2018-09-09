@@ -31,10 +31,6 @@ It is an ONLINE bash script to learn about :
 
 * bash (included : GNU commands + Unix-like operating system file organization / permissions)
 * i3wm
-* system [ not yet implemented ]
-* network [ not yet implemented ]
-* html (included : css) [ not yet implemented ]
-* javascript [ not yet implemented ]
 * - [ not yet implemented ]
 
 # Bash : Code and concepts by chapter
