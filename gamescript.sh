@@ -336,7 +336,7 @@ function create_config(){
 		*) echo "Unknown language. Exiting" && exit ;;
 	esac
 	echo ""
-	echo -e "LANGUAGE=$LANGUAGE\nMUTE=0\nVOICE=1\nMUSIC=1\nNOISE=1\nVIDEO=0\nAUDIO_GROUP=default\nSPEAKER=m1" > ~/.GameScript/config
+	echo -e "LANGUAGE=$LANGUAGE\nMUTE=0\nVOICE=1\nMUSIC=1\nNOISE=1\nVIDEO=0\nSOUND_FAMILY=default\nSPEAKER=m1" > ~/.GameScript/config
 }
 
 
@@ -444,7 +444,11 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 #BACKGROUND MUSIC
 if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
-	mplayer /home/umen/.GameScript/Sounds/default/Music/1.mp3 &>/dev/null &
+	if [[ "$SOUND_FAMILY" != "" ]]; then
+		mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+	else
+		echo "Corrupted or obsolete ~/.GameScript/config file, please delete it and launch gamescript again. :)" && exit
+	fi
 fi
 
 #PREPARE TEXT BASED ON LANGUAGE
