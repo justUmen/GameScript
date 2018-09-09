@@ -440,7 +440,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 #BACKGROUND MUSIC
 if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
-	mplayer /home/umen/.GameScript/Audio/MUSIC/1.mp3 &>/dev/null &
+	mplayer /home/umen/.GameScript/Audio/MUSIC/default/1.mp3 &>/dev/null &
 fi
 
 #PREPARE TEXT BASED ON LANGUAGE
