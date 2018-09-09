@@ -5,7 +5,7 @@ for L in "fr" "en"; do #ADD languages
 	cd $L || exit
 	for T in "classic"; do #ADD types, like story
 		cd $T || exit
-		for S in "bash" "i3wm"; do #ADD subjects, like php
+		for S in "bash" "i3wm" "sys"; do #ADD subjects, like php
 			cd $S || exit
 			for D in `find . -type d -name "_*"`; do
 NUMB=`echo "${D:2}"|sed 's/_//'`

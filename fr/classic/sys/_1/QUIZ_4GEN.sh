@@ -1,16 +1,6 @@
 function clean(){ #in enter_chapter
 rm $HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
-rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null						
-	rm $HOME/House/Room/virus0 2> /dev/null
-	rm $HOME/House/Room/virus1 2> /dev/null
-	rm $HOME/House/Room/virus2 2> /dev/null
-	rm $HOME/House/Room/virus3 2> /dev/null
-	rm $HOME/House/Room/virus4 2> /dev/null
-	rmdir $HOME/House/Room/bed 2> /dev/null
-	rmdir $HOME/House/Room/closet 2> /dev/null
-	rmdir $HOME/House/Room/desk 2> /dev/null
-	rmdir $HOME/House/Room/ 2> /dev/null
-	rmdir $HOME/House/ 2> /dev/null
+rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 	rmdir $HOME/.GameScript_bash1 2> /dev/null
 }
 
@@ -32,12 +22,18 @@ function start_quiz(){
 }
 
 
-CHAPTER_NAME="bash"
+CHAPTER_NAME="sys"
 CHAPTER_NUMBER="1"
 LANGUAGE="fr"
 SPEAKER="m1"
 
-LINES=187
-if [ ! "$1" == "MUTE" ]; then prepare_audio; fi
+LINES=142
+if [ "$1" == "VIDEO" ]; then
+	prepare_video
+else
+	if [ ! "$1" == "MUTE" ]; then
+		prepare_audio
+	fi
+fi
 
 enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER

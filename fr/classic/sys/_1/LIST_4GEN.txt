@@ -1,3 +1,6 @@
+#[ -d "$HOME/.GameScript_sys1" ] && echo "Erreur inattendue, ${HOME}/.GameScript_sys1 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_sys1 et relancez ce script." && exit
+#mkdir $HOME/.GameScript_sys1 2> /dev/null
+#cd $HOME/.GameScript_sys1
 Votre système d'exploitation est multitâche, c'est à dire qu'il est capable d'exécuter plusieurs tâches simultanément.
 Par exemple, vous pouvez avoir un éditeur de texte et un navigateur web ouvert en même temps sans rencontrer de difficultés.
 Lorsque ces programmes sont en cours d'exécution sur votre ordinateur, on parle alors de ${voc}processus${reset}.
@@ -136,3 +139,5 @@ Le signal SIGTSTP a le même effet que la combinaison de touche 'Ctrl + z' sur u
 Mais alors qu'en est-il de la combinaison 'Ctrl + c' ?
 Le signal équivalent est SIGINT, qui représente une interruption par l'intermédiaire du clavier.
 Mais son effet est finalement similaire à SIGTERM, ce qui donne donc au processus l'occasion de se fermer correctement.
+En avant pour le questionnaire !
+#clean

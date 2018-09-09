@@ -445,6 +445,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 #BACKGROUND MUSIC
 if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 	if [[ "$SOUND_FAMILY" != "" ]]; then
+		mkdir -p ~/.GameScript/Sounds/default/Music 2> /dev/null
 		mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
 	else
 		echo "Corrupted or obsolete ~/.GameScript/config file, please delete it and launch gamescript again. :)" && exit
