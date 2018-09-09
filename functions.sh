@@ -157,12 +157,12 @@ function answer_quiz(){
 	#$7 = bash, from enter_chapter
 	# echo " ---> $7 <--- "
 	key="9"
-	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "3" ]; do
+	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "e" ]; do
 		# echo ""
 		#~ echo -e "\\e[0;100m 0) \\e[0m Télécharger audio en avance"
 		echo -e "\\e[0;100m 1) \\e[0m $1"
 		echo -e "\\e[0;100m 2) \\e[0m $2"
-		echo -e "\\e[0;100m 3) \\e[0m $3"
+		echo -e "\\e[0;100m e) \\e[0m $3"
 		echo -en "\\e[97;45m # \\e[0m"
 		read key < /dev/tty
 		case $key in
@@ -184,7 +184,7 @@ function answer_quiz(){
 					while [ "$choice" != "1" ] || [ "$choice" != "2" ] || [ "$choice" != "3" ]; do
 						echo -e "\\e[0;100m 1) \\e[0m $TEXT_CONTINUE"
 						echo -e "\\e[0;100m 2) \\e[0m $TEXT_RESTART"
-						echo -e "\\e[0;100m 3) \\e[0m $TEXT_BACK"
+						echo -e "\\e[0;100m e) \\e[0m $TEXT_BACK"
 						echo -en "\\e[97;45m # \\e[0m"
 						read choice < /dev/tty
 						case $choice in
@@ -204,7 +204,7 @@ function answer_quiz(){
 				start_quiz
 				;;
 			2) start_quiz ;;
-			3) exit ;;
+			e) exit ;;
 		esac
 	done
 }
@@ -349,6 +349,8 @@ function unlock(){
 	touch "$HOME/.GameScript/good_$1$2" 2> /dev/null
 	mkdir $HOME/.GameScript/passwords/ 2> /dev/null
 	echo -n "$PASS" > "$HOME/.GameScript/passwords/$1$2"
+	press_key
+	echo ""
 	exit
 }
 
@@ -359,7 +361,7 @@ function enter_chapter(){
 		fr) echo -e "\e[97;44m - $1, Chapitre $2 \e[0m"
 			answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2" ;;
 		en) echo -e "\e[97;44m - $1, Chapter $2 \e[0m"
-			answer_quiz "Lecture" "Quiz" "Return" "4" "5" "6" "$1" "$2" ;;
+			answer_quiz "Lecture" "Quiz" "Back" "4" "5" "6" "$1" "$2" ;;
 	esac
 }
 

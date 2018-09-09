@@ -59,11 +59,12 @@ function talk_GAMESCRIPT_not_press(){
 }
 
 function goodbye(){
-  case $1 in
-	fr) echo "Au revoir et bonne journée. :)" ;;
-	en) echo "Goodbye and have a nice day. :)" ;;
-  esac
-  exit 0
+	echo ""
+	case $LANGUAGE in
+		fr) echo "Au revoir et bonne journée. :)" ;;
+		en) echo "Goodbye and have a nice day. :)" ;;
+	esac
+	exit 0
 }
 function show_menu(){
   #Usage : show_menu bash "bash : chapitre 1" "bash : chapitre 2"
@@ -78,23 +79,28 @@ function show_menu(){
     for ARG in "$@"; do #For each arguments
   		# echo -e "\\e[0;100m $argCMP) \\e[0m $ARG"
       if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then
-    	   echo -e "\e[0;100m $argCMP) \e[97;42m $ARG (SUCCESS) \e[0m"
+    	   echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG (SUCCESS) \e[0m"
       else
-         echo -e "\e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
+         echo -e "   \e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
       fi
       argCMP=`expr $argCMP + 1`
     done
     # echo ""
-  	echo -e "\e[0;100m e) \e[0m Exit"
+    case $LANGUAGE in
+		fr) echo -e "   \e[0;100m e) \e[0m Retour" ;;
+		en) echo -e "   e[0;100m e) \e[0m Back" ;;
+	esac
+  	#~ echo -e "\e[0;100m e) \e[0m Exit"
     # echo ""
-		echo -en "\e[97;45m # \e[0m"
+		echo -en "   \e[97;45m # \e[0m"
 		read selected < /dev/tty
 	done
 	# echo -en "\n\e[0;33m...\e[0m"
 	if [ "$selected" != "e" ];then
     enter bash `expr $selected + 3`
   else
-    goodbye $LANGUAGE
+    #~ goodbye $LANGUAGE
+    gamescript_available_arguments $LANGUAGE
   fi
 }
 
@@ -149,23 +155,29 @@ function my_passwords(){
 
 function gamescript_available_arguments(){
   #MENU - SUBJECT SELECTION
+  echo ""
   case $1 in
-    fr) echo -e "===> 1) \e[97;44m bash \e[0m"
-		echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
-		echo -e "===> 2) \e[97;44m i3wm \e[0m"
+    fr) echo -e "Sélectionnez un sujet : "
+		echo -e "\\e[0;100m 1) \\e[0m \e[97;44m bash [ $CHAPTER 1-12 ] \e[0m"
+		#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
+		echo -e "\\e[0;100m 2) \\e[0m \e[97;44m i3wm [ $CHAPTER 1 ] \e[0m"
+		echo -e "\\e[0;100m e) \\e[0m Quitter"
 		;;
-    en) echo -e "===> 1) \e[97;44m bash \e[0m"
-		echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
-		echo -e "===> 2) \e[97;44m i3wm \e[0m"\
+    en) echo -e "Select a subject : "
+		echo -e "\\e[0;100m 1) \\e[0m \e[97;44m bash [ $CHAPTER 1-6 ]\e[0m"
+		#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
+		echo -e "\\e[0;100m 2) \\e[0m \e[97;44m i3wm [ $CHAPTER 1 ]\e[0m"
+		echo -e "\\e[0;100m e) \\e[0m Exit"
 		;;
   esac
   echo -en "\e[97;45m # \e[0m"
   read selected < /dev/tty
   case $selected in
-    "1") launch_gamescript $LANGUAGE classic bash
-       ;;
-    "2") launch_gamescript $LANGUAGE classic i3wm
-       ;;
+    "1") launch_gamescript $LANGUAGE classic bash ;;
+    "2") launch_gamescript $LANGUAGE classic i3wm ;;
+    "3") launch_gamescript $LANGUAGE classic sys ;;
+    e) goodbye ;;
+    *) echo "Error" && goodbye ;;
   esac
   exit
 }
@@ -180,7 +192,7 @@ function enter(){
   case $2 in
     # 1) echo -e "\e[0;33m...\e[0m" ;&
     1) echo "" ;&
-  	2) echo -e "\e[97;44m - $1, $TITLE \e[0m" ;&
+  	2) echo -e "   \e[97;44m - $1, $TITLE \e[0m" ;&
   	3)
 	  case $LANGUAGE in
 		fr) case $1 in
@@ -235,154 +247,6 @@ function launch_gamescript(){
   fi
 }
 
-
-
-
-
-
-
-
-
-
-
-
-LANGUAGE="xx"
-#QUIT if no arguments
-if [ $# -eq 0 ]; then
-	#~ gamescript_help $LANGUAGE
-	echo "GameScript in english  : gamescript -l en"
-	echo "GameScript en français : gamescript -l fr"
-	echo ""
-	echo "GameScript without audio : gamescript -l en -m"
-	echo ""
-	echo "Passwords : gamescript -p"
-	exit
-fi
-
-#QUIT if launched as root
-if [ "$(id -u)" == "0" ]; then
-	echo "Launching something as root is very dangerous, don't do it !" 1>&2
-	exit 1
-fi
-
-#QUIT IF $HOME IS EMPTY
-if [ "$HOME" == "" ]; then
-	echo "\$HOME doesn't exist !"
-	exit 8
-fi
-
-#QUIT if bad dependancies : bash 4.x and base64
-if ((BASH_VERSINFO[0] < 4)); then
-	bash --version
-	echo "Bash is too old, please update it..."
-	exit 2
-fi
-command -v base64 >/dev/null 2>&1 || { echo "You need the command : base64." >&2; exit 3; }
-
-POSITIONAL=()
-HELP=0
-MUTE=0
-VIDEO=0
-while [[ $# -gt 0 ]]; do
-  key="$1"
-  case $key in
-      -l|--language)
-        LANGUAGE="$2"
-        shift # past argument
-        shift # past value
-      ;;
-      -h|--help)
-        HELP=1
-        shift # past argument
-      ;;
-      -v|--video)
-        VIDEO=1
-        shift # past argument
-      ;;
-      -p|--password|--passwords)
-        PASSWORD=1
-        shift # past argument
-      ;;
-      -m|--mute)
-        MUTE=1
-        shift # past argument
-      ;;
-      *) # unknown option
-        POSITIONAL+=("$1") # save it in an array for later
-        shift # past argument
-      ;;
-  esac
-done
-if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
-if [[ $PASSWORD == 1 ]]; then my_passwords; fi
-if [[ $MUTE == 0 ]]; then
-	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo "Without the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
-	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
-	# -af volume=10 ADD 10 decibels
-fi
-if [[ $VIDEO == 1 ]]; then echo "You need 'mpv' to play the videos."; fi
-set -- "${POSITIONAL[@]}" # restore positional parameters
-# echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
-
-
-#PREPARE TEXT BASED ON LANGUAGE
-case $LANGUAGE in
-	en) CHAPTER="chapter"
-	;;
-	fr) CHAPTER="chapitre"
-	;;
-	*) echo "Unknown language, exiting..."; exit
-	;;
-esac
-
-
-
-reset='\e[0m'
-#~ voc='\e[1m'
-voc='\e[4;37m'
-
-AUDIOCMP=1;
-AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/$LANGUAGE/classic/bash/Audio/m1/intro"
-AUDIO_LOCAL="$HOME/.GameScript/Audio/$LANGUAGE/classic/bash/m1/intro"
-
-VIDEOCMP=1;
-VIDEO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/$LANGUAGE/classic/bash/Video/m1/intro"
-VIDEO_LOCAL="$HOME/.GameScript/Video/$LANGUAGE/classic/bash/m1/intro"
-
-#VIDEO
-if [[ $VIDEO == 1 ]]; then
-	if [[ $MUTE == 0 ]]; then
-		if [ ! -f "$HOME/.GameScript/mpv_config" ]; then
-			echo -e "loop=inf\nautofit-larger=30%x30%\ngeometry=100%:100%" > "$HOME/.GameScript/mpv_config"
-		fi
-		if [ ! -f "$HOME/.GameScript/10FPS_idle.mp4" ]; then
-			wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/10FPS_idle.mp4 -O $HOME/.GameScript/10FPS_idle.mp4
-		fi
-		mpv --no-config --loop --include=~/.GameScript/mpv_config --really-quiet --input-ipc-server=/tmp/southpark ~/.GameScript/10FPS_idle.mp4 &
-
-		if [ ! -f "$VIDEO_LOCAL/1.mp3.mp4" ]; then
-			wget -q --spider http://google.com
-			if [ $? -eq 0 ]; then
-				download_first_video_INTRO
-				download_all_videos_INTRO
-			else
-				echo "Cannot download video, no internet ?"
-			fi
-		fi
-	fi
-else #SIMPLE AUDIO
-	if [[ $MUTE == 0 ]]; then
-		if [ ! -f "$AUDIO_LOCAL/1.mp3" ]; then
-			wget -q --spider http://google.com
-			if [ $? -eq 0 ]; then
-				download_first_sound_INTRO
-				download_all_sounds_INTRO
-			else
-				echo "Cannot download audio, no internet ?"
-			fi
-		fi
-	fi
-fi
 
 function justumen_intro_fr(){
 	talk_GAMESCRIPT justumen "Bonjour et bienvenue sur GameScript.
@@ -448,6 +312,188 @@ talk_GAMESCRIPT justumen "You can confirm your knowledge with the passwords give
 	talk_GAMESCRIPT justumen "I wish you a good day and good luck !"
 }
 
+function create_config(){
+	echo "Creation of the configuration file : ~/.GameScript/config"
+	echo ""
+	echo "Please select a default language :"
+	echo -e "\\e[0;100m 1) \\e[0m English"
+	echo -e "\\e[0;100m 2) \\e[0m Français"
+	echo -e "\\e[0;100m e) \\e[0m exit"
+	echo -en "\e[97;45m # \e[0m"
+	read default_language < /dev/tty
+	case $default_language in
+		1) LANGUAGE="en" ;; 
+		2) LANGUAGE="fr" ;; 
+		e) exit ;; 
+		*) echo "Unknown language. Exiting" && exit ;;
+	esac
+	echo ""
+	echo -e "LANGUAGE=$LANGUAGE\nMUTE=0\nVOICE=1\nMUSIC=1\nNOISE=1\nVIDEO=0\nSPEAKER=m1" > ~/.GameScript/config
+}
+
+
+
+
+
+
+
+#QUIT if launched as root
+if [ "$(id -u)" == "0" ]; then
+	echo "Launching something as root is very dangerous, don't do it !" 1>&2
+	exit 1
+fi
+#QUIT IF $HOME IS EMPTY
+if [ "$HOME" == "" ]; then
+	echo "\$HOME doesn't exist !"
+	exit 8
+fi
+#QUIT if bad dependancies : bash 4.x and base64
+if ((BASH_VERSINFO[0] < 4)); then
+	bash --version
+	echo "Bash is too old, please update it..."
+	exit 2
+fi
+#QUIT if no base64 for password
+command -v base64 >/dev/null 2>&1 || { echo "You need the command : base64." >&2; exit 3; }
+
+#CONFIG FILE
+if [ -f ~/.GameScript/config ]; then
+	echo -e "Reading configuration file : ~/.GameScript/config\n"
+	source ~/.GameScript/config
+else
+	create_config
+	source ~/.GameScript/config
+fi
+
+HELP=0
+#~ MUTE=0
+#~ VIDEO=0
+if [ $# -ne 0 ]; then
+	echo -n "Temporary changes with inline arguments : "
+	POSITIONAL=()
+	while [[ $# -gt 0 ]]; do
+	  key="$1"
+	  case $key in
+		  -l|--language)
+			LANGUAGE="$2"
+			echo -n "LANGUAGE=$2 "
+			shift # past argument
+			shift # past value
+		  ;;
+		  -h|--help)
+			HELP=1
+			shift # past argument
+		  ;;
+		  -p|--password|--passwords)
+			PASSWORD=1
+			shift # past argument
+		  ;;
+		  -v|--video)
+			VIDEO=1
+			echo -n "VIDEO=1 "
+			shift # past argument
+		  ;;
+		  -m|--mute)
+			MUTE=1
+			echo -n "MUTE=1 "
+			shift # past argument
+		  ;;
+		  -N|--no-voice)
+			VOICE=0
+			echo -n "VOICE=0 "
+			shift # past argument
+		  ;;
+		  -M|--no-music)
+			VOICE=0
+			echo -n "MUSIC=0 "
+			shift # past argument
+		  ;;
+		  -R|--no-sound-effect)
+			VOICE=0
+			echo -n "SOUND_EFFECT=0 "
+			shift # past argument
+		  ;;
+		  *) # unknown option
+			POSITIONAL+=("$1") # save it in an array for later
+			shift # past argument
+		  ;;
+	  esac
+	done
+	#~ echo -e "\n"
+fi
+
+if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
+if [[ $PASSWORD == 1 ]]; then my_passwords; fi
+if [[ $MUTE == 0 ]]; then
+	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "\n\nWithout the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
+	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
+	# -af volume=10 ADD 10 decibels
+fi
+if [[ $VIDEO == 1 ]]; then
+	command -v mpv &> /dev/null || { echo -e "\n\nYou need to install 'mpv' to play the videos." >&2; exit 4; };
+fi
+set -- "${POSITIONAL[@]}" # restore positional parameters
+# echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
+
+
+#PREPARE TEXT BASED ON LANGUAGE
+case $LANGUAGE in
+	en) CHAPTER="chapter"
+	;;
+	fr) CHAPTER="chapitre"
+	;;
+	*) echo -e "\n\nUnknown language, exiting... Use for example : gamescript -l en"; exit
+	;;
+esac
+
+reset='\e[0m'
+#~ voc='\e[1m'
+voc='\e[4;37m'
+
+AUDIOCMP=1;
+AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/$LANGUAGE/classic/bash/Audio/m1/intro"
+AUDIO_LOCAL="$HOME/.GameScript/Audio/$LANGUAGE/classic/bash/m1/intro"
+
+VIDEOCMP=1;
+VIDEO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/$LANGUAGE/classic/bash/Video/m1/intro"
+VIDEO_LOCAL="$HOME/.GameScript/Video/$LANGUAGE/classic/bash/m1/intro"
+
+#VIDEO
+if [[ $VIDEO == 1 ]]; then
+	if [[ $MUTE == 0 ]]; then
+		if [ ! -f "$HOME/.GameScript/mpv_config" ]; then
+			echo -e "loop=inf\nautofit-larger=30%x30%\ngeometry=100%:100%" > "$HOME/.GameScript/mpv_config"
+		fi
+		if [ ! -f "$HOME/.GameScript/10FPS_idle.mp4" ]; then
+			wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/10FPS_idle.mp4 -O $HOME/.GameScript/10FPS_idle.mp4
+		fi
+		mpv --no-config --loop --include=~/.GameScript/mpv_config --really-quiet --input-ipc-server=/tmp/southpark ~/.GameScript/10FPS_idle.mp4 &
+
+		if [ ! -f "$VIDEO_LOCAL/1.mp3.mp4" ]; then
+			wget -q --spider http://google.com
+			if [ $? -eq 0 ]; then
+				download_first_video_INTRO
+				download_all_videos_INTRO
+			else
+				echo "Cannot download video, no internet ?"
+			fi
+		fi
+	fi
+else #SIMPLE AUDIO
+	if [[ $MUTE == 0 ]]; then
+		if [ ! -f "$AUDIO_LOCAL/1.mp3" ]; then
+			wget -q --spider http://google.com
+			if [ $? -eq 0 ]; then
+				download_first_sound_INTRO
+				download_all_sounds_INTRO
+			else
+				echo "Cannot download audio, no internet ?"
+			fi
+		fi
+	fi
+fi
+
+#Store username in config instead ?
 if [ ! -f "$HOME/.GameScript/username" ]; then
   #STORE LOCAL PERSONAL PROGRESSION : hidden file like ~/.GameScript/bash_1 ...
   #STORE USER : ~/.GameScript/username
@@ -463,7 +509,7 @@ if [ ! -f "$HOME/.GameScript/username" ]; then
 else
   #Random welcome back
   if [ "$LANGUAGE" == "fr" ]; then
-    echo "Content de vous revoir $(cat ~/.GameScript/username) !"
+    echo -e "\n\nContent de vous revoir $(cat ~/.GameScript/username) !"
     # echo "Quel sujet vous intéresse aujourd'hui ?"
   fi
   gamescript_available_arguments $LANGUAGE
