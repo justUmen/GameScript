@@ -12,7 +12,7 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 
 function start_quiz(){
   echo ""
-  echo -e "\e[15;5;44m Bash 'Bourne Again SHell' : Quiz Chapter 10 \e[0m"
+  echo -e "\e[15;44m Bash 'Bourne Again SHell' : Quiz Chapter 10 \e[0m"
   echo -e "- The answer should be as short as possible, a good answer adding uneeded characters will be considered as wrong."
   echo -e "Example : If the answer is 'ls'. The answers 'ls .', 'ls ./' and 'ls ././' won't work."
   answer_text_fr "Comment afficher la commande complète de l'alias 'gamescript' ?" "alias gamescript"

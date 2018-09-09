@@ -71,6 +71,7 @@ function show_menu(){
 	selected="99"
   # echo "$#"
   #TEST IF NUMBER, ALLOW ONLY NUMBERS ???
+	#~ while [ "$selected" != "e" ] && [ "$selected" -gt "$#" ]; do #Answer in menu
 	while [ "$selected" != "e" ] && [ "$selected" -gt "$#" ]; do #Answer in menu
     # echo ""
     argCMP=1
@@ -158,15 +159,15 @@ function gamescript_available_arguments(){
   echo ""
   case $1 in
     fr) echo -e "Sélectionnez un sujet : "
-		echo -e "\\e[0;100m 1) \\e[0m \e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
+		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
 		#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
-		echo -e "\\e[0;100m 2) \\e[0m \e[97;44m i3wm [ $CHAPTER 1 ] \e[0m"
+		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ] \e[0m"
 		echo -e "\\e[0;100m e) \\e[0m Quitter"
 		;;
     en) echo -e "Select a subject : "
-		echo -e "\\e[0;100m 1) \\e[0m \e[97;44m bash [ $CHAPTER 1-6 ]\e[0m"
+		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-6 ]\e[0m"
 		#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
-		echo -e "\\e[0;100m 2) \\e[0m \e[97;44m i3wm [ $CHAPTER 1 ]\e[0m"
+		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ]\e[0m"
 		echo -e "\\e[0;100m e) \\e[0m Exit"
 		;;
   esac
