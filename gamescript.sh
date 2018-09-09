@@ -221,7 +221,8 @@ function enter(){
 	;;
     # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
     *)
-		if [[ $MUTE == 1 ]]; then
+		#MUTE=1 AND VOICE=0 IS DIFFERENT BUT SAME FOR STANDALONE BECAUSE MUSIC PLAYED IN GAMESCRIPT (WHAT ABOUT SOUND EFFECTS ?) ???
+		if [[ $MUTE == 1 ]] || [[ $VOICE == 0 ]]; then
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
 			#~ mkdir -p $HOME/$LANGUAGE/classic/$1/ #??? what is this doing here ?
 			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
