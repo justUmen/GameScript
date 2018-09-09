@@ -160,10 +160,10 @@ function answer_quiz(){
 	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "e" ]; do
 		# echo ""
 		#~ echo -e "\\e[0;100m 0) \\e[0m Télécharger audio en avance"
-		echo -e "\\e[0;100m 1) \\e[0m $1"
-		echo -e "\\e[0;100m 2) \\e[0m $2"
-		echo -e "\\e[0;100m e) \\e[0m $3"
-		echo -en "\\e[97;45m # \\e[0m"
+		echo -e "      \\e[0;100m 1) \\e[0m $1"
+		echo -e "      \\e[0;100m 2) \\e[0m $2"
+		echo -e "      \\e[0;100m e) \\e[0m $3"
+		echo -en "      \\e[97;45m # \\e[0m"
 		read key < /dev/tty
 		case $key in
 			0) 	if [[ $VIDEO == 0 ]]; then download_all_sounds; else download_all_videos; fi ;;
@@ -182,10 +182,10 @@ function answer_quiz(){
 				if [ -f "$HOME/.GameScript/restore_$7$8" ];then
 					echo "$ANSWER_QUIZ_TEXT"
 					while [ "$choice" != "1" ] || [ "$choice" != "2" ] || [ "$choice" != "3" ]; do
-						echo -e "\\e[0;100m 1) \\e[0m $TEXT_CONTINUE"
-						echo -e "\\e[0;100m 2) \\e[0m $TEXT_RESTART"
-						echo -e "\\e[0;100m e) \\e[0m $TEXT_BACK"
-						echo -en "\\e[97;45m # \\e[0m"
+						echo -e "      \\e[0;100m 1) \\e[0m $TEXT_CONTINUE"
+						echo -e "      \\e[0;100m 2) \\e[0m $TEXT_RESTART"
+						echo -e "      \\e[0;100m e) \\e[0m $TEXT_BACK"
+						echo -en "      \\e[97;45m # \\e[0m"
 						read choice < /dev/tty
 						case $choice in
 							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
@@ -358,9 +358,9 @@ function enter_chapter(){
 	#Usage : enter_chapter bash 1 1 (first 1 is chapter, next one is for case)
 	echo ""
 	case $LANGUAGE in
-		fr) echo -e "\e[97;44m - $1, Chapitre $2 \e[0m"
+		fr) echo -e "      \e[97;44m - $1, Chapitre $2 \e[0m"
 			answer_quiz "Cours" "Questionnaire" "Retour" "4" "5" "6" "$1" "$2" ;;
-		en) echo -e "\e[97;44m - $1, Chapter $2 \e[0m"
+		en) echo -e "      \e[97;44m - $1, Chapter $2 \e[0m"
 			answer_quiz "Lecture" "Quiz" "Back" "4" "5" "6" "$1" "$2" ;;
 	esac
 }
