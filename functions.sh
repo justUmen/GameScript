@@ -81,7 +81,10 @@ function press_key(){
 
 #TODO ???
 function new_sound(){
-	kill `ps aux|grep $SOUNDPLAYER|grep -v grep|grep -v MUSIC|awk '{print $2}'`
+	VOICE_PID=$(ps aux|grep $SOUNDPLAYER|grep -v grep|grep -v MUSIC|awk '{print $2}')
+	if [[ "$VOICE_PID" != "" ]]; then
+		kill $VOICE_PID
+	fi
 	#~ pkill mplayer &> /dev/null
 	#~ pkill mpg123 &> /dev/null
 	$SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
