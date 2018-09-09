@@ -3,7 +3,10 @@
 function press_key_GAMESCRIPT(){
 	echo -en "\e[0;33m...\e[0m"
 	read -s -n1 key < /dev/tty
-	kill `ps aux|grep $SOUNDPLAYER|grep -v grep|grep -v MUSIC|awk '{print $2}'`
+	VOICE_PID=$(ps -f|grep "$SOUNDPLAYER"|grep -v grep|grep -v MUSIC|awk '{print $2}'|head -n 1)
+	if [[ "$VOICE_PID" != "" ]]; then
+		kill $VOICE_PID
+	fi
 	#~ pkill mplayer &> /dev/null
 	#~ pkill mpg123 &> /dev/null
 }
@@ -316,6 +319,7 @@ talk_GAMESCRIPT justumen "You can confirm your knowledge with the passwords give
 	talk_GAMESCRIPT justumen "I wish you a good day and good luck !"
 }
 
+#??? TEST CONFIG
 function create_config(){
 	echo "Creation of the configuration file : ~/.GameScript/config"
 	echo ""
@@ -332,7 +336,7 @@ function create_config(){
 		*) echo "Unknown language. Exiting" && exit ;;
 	esac
 	echo ""
-	echo -e "LANGUAGE=$LANGUAGE\nMUTE=0\nVOICE=1\nMUSIC=1\nNOISE=1\nVIDEO=0\nSPEAKER=m1" > ~/.GameScript/config
+	echo -e "LANGUAGE=$LANGUAGE\nMUTE=0\nVOICE=1\nMUSIC=1\nNOISE=1\nVIDEO=0\nAUDIO_GROUP=default\nSPEAKER=m1" > ~/.GameScript/config
 }
 
 
@@ -440,7 +444,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 #BACKGROUND MUSIC
 if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
-	mplayer /home/umen/.GameScript/Audio/MUSIC/default/1.mp3 &>/dev/null &
+	mplayer /home/umen/.GameScript/Sounds/default/Music/1.mp3 &>/dev/null &
 fi
 
 #PREPARE TEXT BASED ON LANGUAGE
