@@ -11,6 +11,7 @@ function start_quiz(){
   echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
 #^C+c , ^C+z , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL
   answer_text_fr "Quelle est la commande qui affiche la liste de vos 'jobs' ?" "jobs"
+  answer_text_fr "Comment lancer le gestionnaire de fichier 'pcmanfm' en arrière plan à partir d'un terminal ?" "pcmanfm&"
   answer_text_fr "Si votre job est 'Stopped', quel signal devez vous envoyer pour le rendre utilisable ? (le signal doit la syntaxe -SIG...)" "SIGCONT"
   answer_text_fr "Quelle est la lettre INCONNU dans la phrase ? : Pour envoyer le signal SIGINT au processus, vous devez faire 'Ctrl + INCONNU'." "c"
   answer_text_fr "Un PID représente uniquement un seul processus à un moment donné. (vrai/faux)" "vrai"

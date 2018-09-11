@@ -219,7 +219,7 @@ function enter(){
 						"[NO SOUND] $CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt"
 						;;
 				i3wm) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-				sys)  show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+				sys)  show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 				*) TITLE="" ;;
 			esac
 			;;
@@ -233,7 +233,7 @@ function enter(){
 						"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
 						;;
 				i3wm) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-				#~ sys) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+				#~ sys) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 				*) TITLE="" ;;
 			esac
 			;;
