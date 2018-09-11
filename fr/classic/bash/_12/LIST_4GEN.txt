@@ -121,6 +121,11 @@ type source ---> built-in ----> man bash
 
 
 
+
+\ avant mise a la ligne to esacpe \n (code peut continuer sur une autre ligne)
+
+
+
 ê
 é
 à

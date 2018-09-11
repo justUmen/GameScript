@@ -85,8 +85,8 @@ function show_menu(){
     shift
     for ARG in "$@"; do #For each arguments
   		# echo -e "\\e[0;100m $argCMP) \\e[0m $ARG"
-      if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then
-    	   echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG (SUCCESS) \e[0m"
+      if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then #OLD (SUCCESS) GREEN IF QUIZ ANSWERED
+    	   echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG \e[0m"
       else
          echo -e "   \e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
       fi
@@ -95,7 +95,7 @@ function show_menu(){
     # echo ""
     case $LANGUAGE in
 		fr) echo -e "   \e[0;100m e) \e[0m Retour" ;;
-		en) echo -e "   e[0;100m e) \e[0m Back" ;;
+		en) echo -e "   \e[0;100m e) \e[0m Back" ;;
 	esac
   	#~ echo -e "\e[0;100m e) \e[0m Exit"
     # echo ""
@@ -112,68 +112,66 @@ function show_menu(){
 }
 
 function gamescript_help(){
-  case $1 in
-    en) echo "
-===> HELP en
+  case $LANGUAGE in
+    en) echo "===> HELP en
 Available arguments :
-\"--help\" or \"-h\"
-\"--language XX\" or \"-l XX\" to change the language (en/english is the default language)
- Example : \"-l fr\" or \"--language fr\" set the language on french
+\"--help\" ou \"-h\" pour afficher l'aide
+\"--passwords\" ou \"-p\" pour afficher vos mots de passe
 
-Complete example, to launch gamescript on bash in french :
-
-wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
-
-or you can create an alias : (alias in $HOME/.bashrc for example)
-
-alias gamescript=\"wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --\"
-
-You can then launch it with \"gamescript\", or even with arguments like \"gamescript --language fr bash\".
+Arguments for temporary changes :
+\"--language XX\" ou \"-l XX\" to change the language
+ Exemple : \"-l fr\" or \"--language fr\" to use the french language
+\"--mute\" or \"-m\" to disable all sounds in GameScript
+\"--no-music\" or \"-M\" to disable background music in GameScript
+\"--no-voice\" or \"-N\" to disable voices in GameScript
 "
 ;;
-    fr) echo "
-===> AIDE fr
+    fr) echo "===> AIDE fr
 Arguments disponibles :
 \"--help\" ou \"-h\" pour afficher l'aide
-\"--language XX\" ou \"-l XX\" pour change la langue (en/english est la langue par défaut)
- Exemple : \"-l fr\" or \"--language fr\" pour sélectionner la langue française
+\"--passwords\" ou \"-p\" pour afficher vos mots de passe
 
-Exemple complet, pour lancer gamescript sur bash en français :
-
-wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s -- -l fr bash
-
-ou vous pouvez créer un alias : (alias dans $HOME/.bashrc par exemple)
-
-alias gamescript=\"wget -q -O - https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh | bash -s --\"
-
-Vous pouvez alors simplement lancer \"gamescript\", ou avec des argument comme \"gamescript --language fr bash\".
+Arguments pour changements temporaires :
+\"--language XX\" ou \"-l XX\" pour changer la langue
+ Exemple : \"-l en\" ou \"--language en\" pour utiliser la langue anglaise
+\"--mute\" ou \"-m\" pour désactiver tous les sons de GameScript
+\"--no-music\" ou \"-M\" pour désactiver les musiques de fond de GameScript
+\"--no-voice\" ou \"-N\" pour désactiver les voix de GameScript
 "
+#~ \"--video\" ou \"-v\" pour activer les vidéos de GameScript
+#~ \"--no-sound-effect\" ou \"-R\" pour désactiver les bruitages de GameScript
 ;;
     *) echo "unknown language"
   esac
-  exit #exit after display help
+  #~ exit #exit after display help
 }
 
 function my_passwords(){
-  for filename in $HOME/.GameScript/passwords/*; do
-    echo "$filename : password`cat $filename`"
-  done
+	echo ""
+	echo "$HOME/.GameScript/username : `cat ~/.GameScript/username`"
+	for filename in $HOME/.GameScript/passwords/*; do
+		echo "$filename : password`cat $filename`"
+	done
 }
 
 function gamescript_available_arguments(){
   #MENU - SUBJECT SELECTION
   echo ""
   case $1 in
-    fr) echo -e "Sélectionnez un sujet : "
+    fr) echo -e "Menu principal : "
 		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
 		#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
 		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ] \e[0m"
+		echo -e "\\e[0;100m h) \\e[0m Aide"
+		echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
 		echo -e "\\e[0;100m e) \\e[0m Quitter"
 		;;
-    en) echo -e "Select a subject : "
+    en) echo -e "Main menu : "
 		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-6 ]\e[0m"
 		#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
 		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ]\e[0m"
+		echo -e "\\e[0;100m h) \\e[0m Help"
+		echo -e "\\e[0;100m p) \\e[0m My passwords"
 		echo -e "\\e[0;100m e) \\e[0m Exit"
 		;;
   esac
@@ -183,8 +181,10 @@ function gamescript_available_arguments(){
     "1") launch_gamescript $LANGUAGE classic bash ;;
     "2") launch_gamescript $LANGUAGE classic i3wm ;;
     "3") launch_gamescript $LANGUAGE classic sys ;;
+	h) gamescript_help $LANGUAGE; goodbye ;; 
+    p) my_passwords; goodbye ;; 
     e) goodbye ;;
-    *) echo "Error" && goodbye ;;
+    *) echo "Error"; goodbye ;;
   esac
   exit
 }
@@ -204,16 +204,35 @@ function enter(){
   	3)
 	  case $LANGUAGE in
 		fr) case $1 in
-				bash) show_menu "$1" "$1 : $CHAPTER 1" "$1 : $CHAPTER 2" "$1 : $CHAPTER 3" "$1 : $CHAPTER 4" "$1 : $CHAPTER 5" "$1 : $CHAPTER 6" "$1 : $CHAPTER 7" "$1 : $CHAPTER 8" "$1 : $CHAPTER 9" 	"[NO SOUND] $1 : $CHAPTER 10" "[NO SOUND] $1 : $CHAPTER 11" ;; #"$1 : chapitre 8"
-				i3wm) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
-				sys) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
+				bash) show_menu "$1" \
+						"$CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
+						"$CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
+						"$CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
+						"$CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
+						"$CHAPTER 5 \e[0m : ls -l , chmod" \
+						"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod" \
+						"$CHAPTER 7 \e[0m : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()" \
+						"$CHAPTER 8 \e[0m : | , wc , sort , grep , uniq , - , |& , <" \
+						"$CHAPTER 9 \e[0m : \$ , \$PATH , type , printenv" 	\
+						"[NO SOUND] $CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , $? , source , less" \
+						"[NO SOUND] $CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt"
+						;;
+				i3wm) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+				sys)  show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 				*) TITLE="" ;;
 			esac
 			;;
 		en) case $1 in
-				bash) show_menu "$1" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 1" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 2" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 3" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 4" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 5" "[NO SOUND / NOT TESTED] $1 : $CHAPTER 6" ;; #"$1 : chapitre 8"
-				i3wm) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
-				#~ sys) show_menu "$1" "[NO SOUND] $1 : $CHAPTER 1" ;;
+				bash) show_menu "$1" \
+						"$CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
+						"$CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
+						"$CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
+						"$CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
+						"$CHAPTER 5 \e[0m : ls -l , chmod" \
+						"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
+						;;
+				i3wm) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+				#~ sys) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 				*) TITLE="" ;;
 			esac
 			;;
@@ -419,12 +438,12 @@ if [ $# -ne 0 ]; then
 			shift # past argument
 		  ;;
 		  -M|--no-music)
-			VOICE=0
+			MUSIC=0
 			echo -n "MUSIC=0 "
 			shift # past argument
 		  ;;
 		  -R|--no-sound-effect)
-			VOICE=0
+			SOUND_EFFECT=0
 			echo -n "SOUND_EFFECT=0 "
 			shift # past argument
 		  ;;
@@ -434,9 +453,10 @@ if [ $# -ne 0 ]; then
 		  ;;
 	  esac
 	done
-	echo -e "\n\n"
+	#~ echo -e "\n\n"
+	echo -e "\n"
 fi
-if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; fi
+if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; exit; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; fi
 if [[ $MUTE == 0 ]]; then
 	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "Without the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
@@ -453,7 +473,14 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 	if [[ "$SOUND_FAMILY" != "" ]]; then
 		mkdir -p ~/.GameScript/Sounds/default/Music 2> /dev/null
+		#~ stty intr undef
+		#~ (trap '' INT; mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &)
 		mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+		#~ stty intr ^C
+		#~ &
+		#~ bind -x '"\C-c": pkill leafpad'
+		#~ leafpad
+		#~ stty intr ^C
 	else
 		echo "Corrupted or obsolete ~/.GameScript/config file, please delete it and launch gamescript again. :)" && exit
 	fi
@@ -465,7 +492,7 @@ case $LANGUAGE in
 	;;
 	fr) CHAPTER="chapitre"
 	;;
-	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; exit
+	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; pkill mplayer; pkill mpg123; exit #pkill if -l with bad argument music not stop :P ???
 	;;
 esac
 
@@ -530,10 +557,12 @@ if [ ! -f "$HOME/.GameScript/username" ]; then
   echo -n "$PSEUDO" > ~/.GameScript/username
   gamescript_available_arguments $LANGUAGE
 else
-  #Random welcome back
+  #Random welcome back ???
   if [ "$LANGUAGE" == "fr" ]; then
     echo -e "Content de vous revoir $(cat ~/.GameScript/username) !"
     # echo "Quel sujet vous intéresse aujourd'hui ?"
+  elif [ "$LANGUAGE" == "en" ]; then
+    echo -e "Good to see you again $(cat ~/.GameScript/username) !"
   fi
   gamescript_available_arguments $LANGUAGE
 fi

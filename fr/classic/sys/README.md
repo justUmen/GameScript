@@ -1,7 +1,7 @@
 #SYSTEM = process + system commands + boot process + system folders + logs + daemon + ...
 
 sys 1 concepts : processus , signaux
-sys 1 commands : jobs , fg , bg , kill , SIGCONT , SIGINT , SIGTSTP , SIGKILL
+sys 1 commands : ^C+c , ^C+z , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL
 
 https://en.wikipedia.org/wiki/Linux_Standard_Base
 https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard

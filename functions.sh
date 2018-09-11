@@ -34,12 +34,14 @@ function prepare_audio(){
 	mkdir -p $AUDIO_LOCAL 2> /dev/null
 	AUDIO_DL="https://raw.githubusercontent.com/justUmen/GameScript/master/$LANGUAGE/classic/$CHAPTER_NAME/Audio/$SPEAKER/c$CHAPTER_NUMBER"
 	AUDIOCMP=1
-	if [ ! -f "$AUDIO_LOCAL/4.mp3" ]; then
-		wget -q --spider http://google.com
-		if [ $? -eq 0 ]; then
-			download_all_sounds
-		else
-			echo "Cannot download audio, no internet ?"
+	if [[ "$MUTE" != 1 ]] && [[ "$VOICE" != "0" ]];then
+		if [ ! -f "$AUDIO_LOCAL/4.mp3" ]; then
+			wget -q --spider http://google.com
+			if [ $? -eq 0 ]; then
+				download_all_sounds
+			else
+				echo "Cannot download audio, no internet ?"
+			fi
 		fi
 	fi
 }

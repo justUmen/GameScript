@@ -1,143 +1,174 @@
 #[ -d "$HOME/.GameScript_sys1" ] && echo "Erreur inattendue, ${HOME}/.GameScript_sys1 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_sys1 et relancez ce script." && exit
+#command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install xdotool" >&2; exit 3; }
 #mkdir $HOME/.GameScript_sys1 2> /dev/null
 #cd $HOME/.GameScript_sys1
 Votre système d'exploitation est multitâche, c'est à dire qu'il est capable d'exécuter plusieurs tâches simultanément.
 Par exemple, vous pouvez avoir un éditeur de texte et un navigateur web ouvert en même temps sans rencontrer de difficultés.
 Lorsque ces programmes sont en cours d'exécution sur votre ordinateur, on parle alors de ${voc}processus${reset}.
-Un programme est donc une entité 'passive', alors qu'un processus est une entité 'active'.
+Un programme est donc une entité ${voc}passive${reset} (Seulement présent sur votre disque en tant que fichier exécutable), alors qu'un processus est une entité ${voc}active${reset} (Exécuté par votre processeur).
 Un même programme peut être lancé plusieures fois, il est donc possible d'avoir plusieurs processus pour un seul programme.
-Dans cette série nous verrons ensemble comment analyser et contrôler nos différents processus.
+Dans cette série nous verrons ensemble comment analyser et contrôler ces processus.
 +Commencons par lister vos processus avec la commande : ${learn}ps${reset}
 !ps£Non
-Evidemment il y a bien plus de processus que ca sur votre ordinateur.
+Evidemment il y a bien plus de processus que ça sur votre ordinateur...
 +Pour lister tous les processus, faites : ${learn}ps -e${reset}
 !ps -e£Non
 +Pour compter le nombre de processus dans cette liste, vous pouvez donc faire : ${learn}ps -e|wc -l${reset}
 !ps -e|wc -l£Non
-Mais pour l'instant nous allons nous concentrer sur le résultat de la commande ps.
+Mais pour l'instant nous allons nous concentrer sur le résultat de la commande ps, qui affiche uniquement certains processus.
 +Faites donc à nouveau : ${learn}ps${reset}
 !ps£Non
-Chaque processus aura un identifiant unique capable de l'identifier : son PID. (l'anglais de Process IDentifier)
-C'est un numéro unique qui pourra par exemple être utilisé pour manipuler le comportement du processus portant ce numéro.
-Tout programme qui tourne actuellement sur votre système d'exploitation est un processus !
+Tout exécutable qui a été 'exécuté' sur votre système d'exploitation est un processus !
 Votre terminal est un processus, mais l'instance de bash à l'intérieur de ce terminal est également un processus.
-Ce terminal et son instance de bash ont une relation parent/enfant : On dit que cette instance de bash est l'enfant de ce terminal et que ce terminal est le parent de cette instance de bash.
-Cette instance de bash est en fait elle-même le parent du processus GameScript que vous utilisez en ce moment.
++Affichez plus détails sur ces processus avec : ${learn}ps -f${reset}
+!ps -f£Non
+Chaque processus aura un identifiant unique capable de l'identifier : son PID. (l'anglais de Process IDentifier)
+C'est un numéro unique qui pourra être utilisé pour manipuler le comportement du processus portant ce numéro.
++Affichez donc le même résultat avec une indentation : ${learn}ps -fH${reset}
+!ps -fH£Non
+Vous pouvez voir ici, une colonne nommée 'PPID' : Il s'agit de l'identifiant du processus parent. (Parent Process IDentifier)
+Les processus ont une relation parent/enfant : On dit que 'ps -fH' est le processus enfant de 'standalone.sh' et que 'standalone.sh' est le parent du processus 'ps -fH'.
+Cette indentation/décalage avec l'option '-H' représente visuellement cette relation enfant/parent.
+Ici vous pouvez voir que 'gamescript.sh' est le parent d'un processus 'standalone', qui est en fait le chapitre que vous utilisez en ce moment.
 Toutes les commandes que vous lancez seront bien évidemment aussi des processus.
-Si cette commande est lancé à partir de bash, ce bash sera le parent de ce processus et y sera 'attaché'.
-Tant que ce programme n'est pas terminé, vous ne pouvez plus lancer d'autres commandes avec cette instance de bash.
-Le processus en question prendra alors controle de l'interpreteur bash et s'appropriera son stdin et stdout.
+C'est pourquoi vous pouvez voir ici la commande 'ps -fH', c'est un processus comme un autre.
+La seul différence avec les autres est que ce processus 'ps -fH' n'existe plus.
+Il existera juste le temps qu'il lui faut pour afficher ce qu'il doit afficher et se fermera.
+Si cette commande est lancée à partir d'un shell bash, cette instance de bash sera le parent de ce processus et cette commande y sera 'attachée'.
+Le processus en question prendra le contrôle de votre shell et s'appropriera son interactivité.
++Voyons la même chose au ralentit : lancez par exemple la commande qui attend 5 secondes : ${learn}sleep 5${reset}
+!sleep 5£Non
+Ici, votre terminal attend que la commande soit terminée pour vous rendre la main.
+#gamescript_window=$(xdotool getwindowfocus)
 +Essayez donc de lancer leafpad, regardez l'état de votre terminal, puis quitter leafpad en cliquant sur "fichier", puis "quitter".
 !leafpad£Non
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 Quitter le processus leafpad vous permet de continuer à utiliser votre terminal normalement.
-Ici vous pouvez donc continuer à utiliser GameScript.
-Comme le processeur utilise stdin vous pouvez envoyer des signaux au processus.
-Vous pouvez par exemple fermer ce processus directement dans le terminal ou il est attaché avec une combinaison de touche.
-Attention cependant à ne pas le faire deux fois, car GameScript est lui-même un processus qui peut être fermé avec la même combinaison de touche : 'Ctrl+ c'.
-+Ouvrez leafpad, puis fermez le en faisant 'Ctrl + c' dans votre terminal.
-!leafpad£Non
+Si vous lancez un processus interactif (comme leafpad), votre terminal se mettre en 'pause'.
+Vous ne pouvez plus interagir avec votre shell, mais vous pouvez envoyer des signaux à ce processus à partir du terminal qui l'a lancé.
+Vous pouvez par exemple fermer ce processus avec une combinaison de touche.
+Attention cependant à ne pas le faire deux fois, car 'gamescript.sh' est lui-même un processus qui peut être fermé avec la même combinaison de touche.
+#gamescript_window=$(xdotool getwindowfocus)
++Ouvrez un nouveau terminal et lancez directement leafpad dessus avec ${learn}lxterminal -e leafpad${reset}, allez sur ce terminal et faites 'Ctrl + c'.
+!lxterminal -e leafpad£Non
+#sleep 1; while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
+Ici vous voyez que faire 'Ctrl + c' dans le terminal parent a fermé ce processus leafpad.
 Si vous voulez lancer un programme, mais que vous voulez continuer à utiliser votre terminal, vous pouvez suspendre ce programme avec la combinaison 'Ctrl+ z'.
-Encore une fois, attention à ne pas le faire deux fois et détacher GameScript par erreur.
-+Ouvrez leafpad, retournez dans votre terminal et détachez 'leafpad' avec 'Ctrl + z' pour continuer à utiliser GameScript.
-!leafpad£Non
-Ici vous pouvez remarquer que leafpad est toujours ouvert, mais vous pouvez continuer à utiliser GameScript normalement.
-+Faites donc à nouveau : ${learn}ps${reset}
-!ps£Non
-Sans argument, la commande ${learn}ps${reset} affichera le processus correspondant à votre terminal ainsi que tous ses processus enfants.
-Comme vous avez utilisé ce terminal pour lancer 'leafpad', vous pouvez voir ici 'leafpad' est dans la liste.
-+Affichez donc les relations parents/enfants de vos processus avec : ${learn}ps -l${reset}
-!ps -l£Non
-Avec cette option -l, vous pouvez voir une nouvelle colonne nommée 'PPID' : Il s'agit de l'identifiant du processus parent. (Parent Process IDentifier)
-Ici vous pouvez voir clairement que GameScript et leafpad sont tous les deux des enfants de ce processus bash.
-Vous pouvez voir ces relations sous la frome d'un arbre avec l'option -H.
-+Essayez donc avec la commande : ${learn}ps -H${reset}
-!ps -H£Non
+Pour revenir sur le programme qui a été suspendu vous devez utiliser la commande ${code}fg${reset}.
+Essayez donc de suspendre GameScript avec la combinaison de touche 'Ctrl + z', puis faites ${code}fg${reset} pour revenir sur GameScript, et appuyez sur Entrée.
+...
+Ce que vous avez fait ici avec GameScript peut être fait avec d'autres processus.
++Ouvrez un nouveau terminal avec un shell bash en faisant ici : ${learn}lxterminal -e bash${reset}.
+!lxterminal -e bash£Non
+Mettez ce terminal dans un endroit comfortable pour vous, nous allons faire plusieurs aller-retour entre ce terminal et GameScript.
+Dans ce nouveau terminal, lancez ${learn}leafpad${reset}, faites 'Ctrl + z' pour détacher ce processus de leafpad du terminal et revenez sur GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+Ici vous pouvez remarquer que leafpad ne s'est pas fermé, mais vous pouvez continuer à utiliser votre terminal normalement.
++Faites donc dans votre autre terminal : ${learn}ps${reset}
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+Sans argument, la commande ${learn}ps${reset} affichera le processus enfants de votre shell.
+Comme vous avez utilisé ce terminal pour lancer 'leafpad', vous pouvez voir ici que 'leafpad' est dans la liste.
++Retournez dans ce terminal et affichez les relations parents/enfants de vos processus avec la commande : ${learn}ps -fH${reset}
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+Ici vous pouvez voir clairement que leafpad est un enfant de votre shell (bash).
 Maintenant, essayez d'écrire quelque chose dans leafpad, puis revenez sur GameScript pour continuer.
-'Ctrl + z' a suspendu ce processus de leafpad, ce qui a eu pour effet de le rendre inutilisable.
-Pour faire l'inverse de 'Ctrl + z', c'est à dire récuperer ce programme, vous pouvez utilisez la commande 'fg'.
-+Lancez ${learn}fg${reset}, essayez d'utiliser votre instance de 'leafpad' et faites à nouveau 'Ctrl + z' pour continuer à utiliser GameScript.
-!fg£Non
+'Ctrl + z' a suspendu ce processus de leafpad, ce qui a eu pour effet de le rendre ${voc}inutilisable${reset}.
+Pour faire l'inverse de 'Ctrl + z', c'est à dire récuperer ce programme, vous pouvez utilisez la commande 'fg' que nous avons déjà vu.
++Retournez sur votre terminal, lancez ${learn}fg${reset}, essayez d'utiliser votre instance de 'leafpad' et revenez sur GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 'fg' est l'abréviation de 'foreground', l'anglais de 'premier plan'.
 Vous pouvez aussi utiliser la commande 'bg', l'abréviation de 'background', l'anglais de 'arrière plan' pour que le processus soit utilisable mais ne monopolise pas le terminal.
-+Affichez la situation des processus que vous avez ouvert dans ce terminal avec : ${learn}jobs${reset}
-!jobs£Non
++Retournez sur votre terminal, faites 'Ctrl + z' pour pouvoir utiliser votre shell et affichez la situation des processus que vous avez ouvert dans ce terminal avec la commande : ${learn}jobs${reset}
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 Un 'job' est un processus que vous pouvez contrôler avec 'fg' ou 'bg'.
-+Rajoutons un processus à cette liste : lancez une autre instance de 'leafpad', puis faites à nouveau 'Ctrl + z' pour continuer à utiliser GameScript.
-!leafpad£Non
-+Et faites à nouveau : ${learn}jobs${reset}
-!jobs£Non
-Ici nous avons deux 'jobs', et aucun d'entre eux n'est utilisable, comme vous pouvez le voir car leur état est : ${voc}suspended${reset}.
-Si il n'y a qu'un seul job dans votre terminal, vous n'avez pas besoin de spécifier un argument.
-En revanche, si vous en avez plusieurs, il faudra donner en argument leur identifiants, que vous pouvez voir tout à gauche entre crochets.
-+Nous voulons maintenant mettre le job [1] en arrière plan, faites donc : ${learn}bg %1${reset}
-!bg %1£Non
-Vous devriez voir une ligne confirmant le changement d'état de votre job avec le mot clef : ${voc}continued${reset}.
+Nous allons maintenant rajouter un processus à cette liste !
+Retournez sur votre terminal, lancez une autre instance de 'leafpad', faites à nouveau 'Ctrl + z' et lancer la commande : ${learn}jobs${reset} avant de revenir sur GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+Ici nous avons deux 'jobs', et aucun d'entre eux n'est utilisable, comme vous pouvez le voir car leur état est : ${voc}Stopped${reset}.
+Si il n'y a qu'un seul job dans votre terminal, vous n'avez pas besoin de spécifier un argument aux commandes ${code}fg${reset} et ${code}bg${reset}.
+En revanche, si vous en avez plusieurs, il faudra ajouter en argument leur identifiants, que vous pouvez voir tout à gauche entre crochets.
++Retournez sur votre terminal, et mettez le job [1] en arrière plan avec ${learn}bg %1${reset}, puis revenez sur GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 Si vous vouliez utiliser ${learn}fg${reset} à la place, la syntaxe aurait été similaire : ${learn}fg %1${reset}
-+Affichez l'état de vos jobs.
-!jobs£Non
-Vous devriez voir maintenant que l'une des deux instances de leafpad avec comme état : ${voc}running${reset}.
-Cette instance de leafpad fonctionne tout à fait normalement et vous pouvez continuer à utiliser GameScript en même temps.
-Il est aussi possible de lancer directement à partir de votre terminal un processus en arrière plan avec le symbole ${code}&${reset} à la fin de votre commande.
-+Faites le donc maintenant. Lancez une autre instance de leafpad et mettez la en arrière plan avec : ${learn}leafpad&${reset}
-!leafpad&£Non
-+Et réaffichez l'état de vos jobs.
-!jobs£Non
++Retournez sur votre terminal, et faites à nouveau : ${learn}jobs${reset}
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+Vous devriez voir maintenant que l'une des deux instances de leafpad a comme état : ${voc}Running${reset}.
+Cette instance de leafpad fonctionne tout à fait normalement et vous pouvez continuer à utiliser votre terminal en même temps.
+Il est aussi possible de lancer directement un processus en arrière plan avec le symbole ${code}&${reset} à la fin de votre commande.
++Faites le donc maintenant. Retournez sur votre terminal, lancez une autre instance de leafpad en arrière plan avec ${learn}leafpad&${reset} et refaites ${learn}jobs${reset}.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+Ici vous voyez qu'avec l'utiisation du symbole ${code}&${reset} son statut est ${voc}Running${reset}.
 'jobs', 'bg', 'fg' et '&' sont très utiles pour contrôler les jobs du terminal en question.
-Mais si vous fermez ce terminal, tous ses jobs se fermeront également !
-+Voyons un exemple de ce phénomène : Ouvrez un terminal qui lance directement une instance de mousepad avec ${learn}lxterminal -e mousepad${reset}, puis fermez ce terminal !
+Mais ${voc}attention${reset} !! Si vous fermez ce terminal, tous ses jobs se fermeront également !
++Voyons un exemple de ce phénomène : Ouvrez un nouveau terminal qui lance directement une instance de mousepad avec ${learn}lxterminal -e mousepad${reset}, puis fermez ce terminal !
 !lxterminal -e mousepad£Non
 Vous pouvez voir que cette instance de mousepad s'est également fermée.
-+Réaffichez l'état de vos jobs.
-!jobs£Non
-Il en est de même pour ces jobs, lorsque vous quitter ce terminal, ces processus se fermeront.
-Pour éviter que cela n'arrive, vous pouvez demander à votre terminal d'abandonner ce processus.
-+Faites donc : ${learn}disown %1${reset}
-!disown %1£Non
-+Puis réaffichez l'état de vos jobs.
-!jobs£Non
-A partir de maintenant, cette instance de leafpad ne se fermera plus quand votre terminal se fermera.
+Attention donc à ne pas fermer le terminal qui contient vos processus importants.
+Si vous voulez fermer ce terminal, mais que le processus reste ouvert, vous pouvez ordonner à ce terminal d'abandonner ce processus avec la commande ${learn}disown${reset}.
++Faites donc dans votre terminal ${learn}disown %1${reset}, puis réaffichez l'état de vos jobs.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+Ici vous voyez que l'un des processus de leafpad n'est plus dans la liste.
+A partir de maintenant, ce processus ne se fermera plus quand votre terminal se fermera. (Faites moi confiance.)
 Mais n'oubliez pas que ces jobs sont avant tout des processus !
-Et vous pouvez aussi directement les contrôler avec leur PID.
-+Affichez le PID de ces jobs avec : ${learn}jobs -l${reset}
-!jobs -l£Non
-+Ou vous pouvez listez vos processus avec : ${learn}ps${reset}
-!ps£Non
-Avec le PID d'un processus et la commande ${code}kill${reset}, vous pouvez le cibler même en dehors de votre terminal. (contrairement à fg, bg et disown.)
+Et vous pouvez aussi directement les contrôler avec leur PID, quel que soit votre terminal actuel.
++Retournez sur votre terminal et affichez le PID de vos jobs avec : ${learn}jobs -l${reset}
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
++Retournez sur votre terminal et affichez également ces éléments en tant que processus avec la commande : ${learn}ps${reset}
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+Avec son PID et la commande ${code}kill${reset}, vous pouvez cibler un processus même en dehors de votre terminal. (contrairement à fg, bg et disown.)
 La commande ${code}kill${reset} (anglais de tuer) permet de fermer un processus dont le PID est donné en argument.
-#THISPID=`jobs -l|head -n 1|awk '{ print $3 }'`
-+Fermez un des processus de leafpad avec : ${learn}kill $THISPID${reset}
+#THISPID=`ps -e|grep leafpad|grep -v grep|tail -n 1|awk '{ print $1 }'`
++Fermez un des processus de leafpad à partir de GameScript avec : ${learn}kill $THISPID${reset}
 !kill $THISPID£Non
-+Listez vos processus à nouveau avec : ${learn}ps -l${reset}
-!ps -l£Non
+Retournez sur votre terminal et listez vos processus à nouveau avec ${learn}ps -fH${reset} puis revenez sur GameScript.
+#while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
+#while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 Ici il est bien clair que l'une des instances de leafpad a été fermée.
-Mais la commande ${code}kill${reset} est capable de faire bien plus que simplement fermer un processus.
+Malgré son nom, la commande ${code}kill${reset} est capable de faire bien plus que de fermer un processus.
+${code}kill${reset} est capable d'envoyer vers un processus une grande quantité de ${voc}signaux${reset} différents.
 +Regardez rapidement le résultat de la commande ${code}man 7 signal${reset} pour affichez la liste des signaux disponibles et revenez sur GameScript.
 !man 7 signal£Non
-Ici nous allons nous intéresser à quatre signaux : SIGTSTP, SIGCONT, SIGTERM et SIGKILL
-SIGTERM est le signal par défaut de la commande ${code}kill${reset}, c'est à dire que la commande ${code}kill${reset} est équivalente à ${code}kill -SIGTERM${reset}.
-SIGTERM demandera au programme de se fermer. Ce programme recevra ce signal et tentera de se fermer proprement.
-Si votre programme ne répond plus pour une certaine raison, il ne sera pas possible de le fermer de cette manière.
-Dans ce genre de situation, qui ne devrait jamais se produire sans une excellente raison, vous pouvez envoyez le signal SIGKILL.
+Ici nous allons nous intéresser à seulement quatre signaux de ces signaux : SIGTERM , SIGTSTP, SIGCONT et SIGKILL
+SIGTERM est le signal par défaut de la commande ${code}kill${reset}, c'est à dire que la commande ${code}kill${reset} est équivalente à la commande ${code}kill -SIGTERM${reset}.
+Le processus en argument de la commande ${code}kill${reset} recevra ce signal SIGTERM et tentera de se fermer proprement.
+Si votre processus ne répond plus pour une certaine raison, il ne sera pas possible de le fermer de cette manière...
+Dans ce genre de situation, (qui ne devrait jamais se produire sans une excellente raison) vous pouvez envoyez le signal SIGKILL !
 Contrairement à SIGTERM, le signal SIGKILL ne peut pas être capturé par le processus cible, il ne pourra donc pas se fermer proprement.
-+Listez à nouveau vos jobs avec : ${learn}jobs -l${reset}
-!jobs -l£Non
-+Listez à nouveau vos processus avec : ${learn}ps -l${reset}
-!ps -l£Non
-Le status de vos processus est dans la commande ${code}ps${reset} une lettre : T est l'équivalent du status job 'running', et S est l'équivalent du status 'suspended'.
-Pour plus de détails sur ces status et leur signification, n'hésitez pas à visitez le manuel de la commande ${code}ps${reset}.
-#THISPID=`jobs -l|head -n 1|awk '{ print $3 }'`
-Voyons maintenant deux autres signaux, capable de changer le status du processus : SIGTSTP, SIGCONT.
-Le signal SIGTSTP a le même effet que la combinaison de touche 'Ctrl + z' sur un processus au premier plan, sauf qu'il est capable de cibler n'importe quel processus avec son PID.
+Pour afficher le statut de vos processus, vous pouvez utiliser ps avec son option -l. Essayez donc ${learn}ps -lfH${reset} dans votre terminal.
+Le statut de vos processus est dans le résultat de ${code}ps -l${reset} une lettre dans la colonne S (statut).
+${code}T${reset} est l'équivalent du statut job 'Running', et ${code}S${reset} est l'équivalent du statut 'Stopped'.
+Pour plus de détails sur ces statut et leur signification, n'hésitez pas à visitez le manuel de la commande ${code}ps${reset}.
+#THISPID=`ps -e|grep leafpad|head -n 1|awk '{ print $1 }'`
+Voyons maintenant deux autres signaux, capables de changer le statut de vos processus : SIGTSTP, SIGCONT.
+Le signal SIGTSTP a le même effet que la combinaison de touche 'Ctrl + z', votre processus sera 'suspendu'.
++Listez les statut de vos processus leafpad avec : ${learn}ps -elf|grep leafpad${reset} ('elf' est l'anglais de 'elfe' :p)
+!ps -elf|grep leafpad£Non
 +Suspendez un processus leafpad avec : ${learn}kill -SIGTSTP $THISPID${reset}
 !kill -SIGTSTP $THISPID£Non
-+Puis listez le status de vos jobs avec : ${learn}jobs -l${reset}
-!jobs -l£Non
-+Pour permettre au processus de continuer, faites : ${learn}kill -SIGCONT $THISPID${reset}
++Puis listez à nouveau le statut de vos processus leafpad avec : ${learn}ps -lf|grep leafpad${reset}
+!ps -elf|grep leafpad£Non
+Cette commande confirme que cette instance de leafpad à été suspendue (T), mais vous pouvez tester par vous-même.
++Pour permettre au processus de continuer à exister, faites : ${learn}kill -SIGCONT $THISPID${reset}
 !kill -SIGCONT $THISPID£Non
-+Puis listez le status de vos jobs avec : ${learn}jobs -l${reset}
-!jobs -l£Non
-Mais alors qu'en est-il de la combinaison 'Ctrl + c' ?
-Le signal équivalent est SIGINT, qui représente une interruption par l'intermédiaire du clavier.
-Mais son effet est finalement similaire à SIGTERM, ce qui donne donc au processus l'occasion de se fermer correctement.
-En avant pour le questionnaire !
++Puis faites à nouveau : ${learn}ps -elf|grep leafpad${reset}
+!ps -elf|grep leafpad£Non
+Cette commande confirme que cette instance de leafpad est à nouveau utilisable (S), mais vous pouvez tester par vous-même.
+Mais... qu'en est-il de la combinaison 'Ctrl + c' que nous avions déjà vu ? Est-ce un signal ?
+Et bien oui, le signal en question est SIGINT, qui représente une interruption par l'intermédiaire du clavier.
+Mais son effet est similaire à SIGTERM : il donne donc au processus l'occasion de se fermer correctement.
+Avant de finir ce chapitre, ferme le terminal que vous avez ouvert.
+Comme promis, l'un des processus de leafpad a survécu : celui que vous avez ${code}disown${reset}.
+Vous être prêt pour le questionnaire de ce chapitre !
 #clean
