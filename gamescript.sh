@@ -7,8 +7,6 @@ function press_key_GAMESCRIPT(){
 	if [[ "$VOICE_PID" != "" ]]; then
 		kill $VOICE_PID
 	fi
-	#~ pkill mplayer &> /dev/null
-	#~ pkill mpg123 &> /dev/null
 }
 
 function new_sound(){

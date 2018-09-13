@@ -100,6 +100,32 @@ function new_sound(){
 }
 
 function new_video(){
+	VIDEO_PID=$(ps -ef|grep "mpv --really-quiet --loop=no --input-ipc-server=/tmp/southpark"|grep -v grep|awk '{print $2}'|head -n 1)
+	if [[ "$VIDEO_PID" == "" ]]; then
+		rm /tmp/southpark
+		#~ echo "restore = $restore"
+		#~ echo "PATH = $VIDEO_LOCAL/$restore.mp3.mp4"
+		mpv --really-quiet --loop=no --input-ipc-server=/tmp/southpark $VIDEO_LOCAL/$restore.mp3.mp4 &
+		sleep 2
+		VIDEO_PID=$(ps -ef|grep "mpv --really-quiet --loop=no --input-ipc-server=/tmp/southpark"|grep -v grep|awk '{print $2}'|head -n 1)
+		while [[ "$VIDEO_PID" == "" ]]; do
+			VIDEO_PID=$(ps -ef|grep "mpv --really-quiet --loop=no --input-ipc-server=/tmp/southpark"|grep -v grep|awk '{print $2}'|head -n 1)
+			sleep 1
+		done
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+	else
+		echo "{ \"command\": [\"loadfile\", \"$VIDEO_LOCAL/$restore.mp3.mp4\", \"replace\"] }" | socat - /tmp/southpark &> /dev/null
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
+	fi
+}
+function new_videoOLD(){
 	#~ $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
 	#~ mpv "$VIDEO_LOCAL/$restore.mp3.mp4" &> /dev/null &
 	ADD_PLAYLIST "$VIDEO_LOCAL/$restore.mp3.mp4"
@@ -127,7 +153,7 @@ function talk(){
 			new_sound
 		fi
 	else
-		new_video &
+		new_video
 	fi
 	echo -e "($restore)\e[0;32m $1\e[0m - $2"
 
