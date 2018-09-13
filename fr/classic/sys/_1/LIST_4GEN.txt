@@ -1,5 +1,6 @@
 #[ -d "$HOME/.GameScript_sys1" ] && echo "Erreur inattendue, ${HOME}/.GameScript_sys1 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_sys1 et relancez ce script." && exit
-#command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install xdotool" >&2; exit 3; }
+#command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install xdotool galculator" >&2; exit 3; }
+#command -v galculator >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install xdotool galculator" >&2; exit 3; }
 #mkdir $HOME/.GameScript_sys1 2> /dev/null
 #cd $HOME/.GameScript_sys1
 Votre système d'exploitation est multitâche, c'est à dire qu'il est capable d'exécuter plusieurs tâches simultanément.
@@ -107,9 +108,9 @@ Il est aussi possible de lancer directement un processus en arrière plan avec l
 Ici vous voyez qu'avec l'utiisation du symbole ${code}&${reset} son statut est ${voc}Running${reset}.
 'jobs', 'bg', 'fg' et '&' sont très utiles pour contrôler les jobs du terminal en question.
 Mais ${voc}attention${reset} !! Si vous fermez ce terminal, tous ses jobs se fermeront également !
-+Voyons un exemple de ce phénomène : Ouvrez un nouveau terminal qui lance directement une instance de mousepad avec ${learn}lxterminal -e mousepad${reset}, puis fermez ce terminal !
-!lxterminal -e mousepad£Non
-Vous pouvez voir que cette instance de mousepad s'est également fermée.
++Voyons un exemple de ce phénomène : Ouvrez un nouveau terminal qui lance directement une instance de mousepad avec ${learn}lxterminal -e galculator${reset}, puis fermez ce terminal !
+!lxterminal -e galculator£Non
+Vous pouvez voir que cette instance de galculator s'est également fermée.
 Attention donc à ne pas fermer le terminal qui contient vos processus importants.
 Si vous voulez fermer ce terminal, mais que le processus reste ouvert, vous pouvez ordonner à ce terminal d'abandonner ce processus avec la commande ${learn}disown${reset}.
 +Faites donc dans votre terminal ${learn}disown %1${reset}, puis réaffichez l'état de vos jobs.
@@ -155,7 +156,7 @@ Le signal SIGTSTP a le même effet que la combinaison de touche 'Ctrl + z', votr
 !ps -elf|grep leafpad£Non
 +Suspendez un processus leafpad avec : ${learn}kill -SIGTSTP $THISPID${reset}
 !kill -SIGTSTP $THISPID£Non
-+Puis listez à nouveau le statut de vos processus leafpad avec : ${learn}ps -lf|grep leafpad${reset}
++Puis listez à nouveau le statut de vos processus leafpad avec : ${learn}ps -elf|grep leafpad${reset}
 !ps -elf|grep leafpad£Non
 Cette commande confirme que cette instance de leafpad à été suspendue (T), mais vous pouvez tester par vous-même.
 +Pour permettre au processus de continuer à exister, faites : ${learn}kill -SIGCONT $THISPID${reset}
