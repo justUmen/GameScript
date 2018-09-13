@@ -6,11 +6,11 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 
     echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
 
-## Usage :
+## Launch :
 
     gamescript
 
-## Dependancies :
+## Dependencies :
 
 * bash > version 4
 * wget
