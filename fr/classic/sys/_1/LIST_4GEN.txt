@@ -60,7 +60,7 @@ Essayez donc de suspendre GameScript avec la combinaison de touche 'Ctrl + z', p
 ...
 Ce que vous avez fait ici avec GameScript peut être fait avec d'autres processus.
 Ouvrez un nouveau terminal et mettez le dans un endroit facilement accessible, nous allons faire plusieurs aller-retour entre ce terminal et GameScript.
-Dans ce nouveau terminal, lancez ${learn}leafpad${reset}, faites 'Ctrl + z' pour détacher ce processus de leafpad du terminal et revenez sur GameScript.
++Dans ce nouveau terminal, lancez ${learn}leafpad${reset}, faites 'Ctrl + z' pour détacher ce processus de leafpad du terminal et revenez sur GameScript.
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 Ici vous pouvez remarquer que leafpad ne s'est pas fermé, mais vous pouvez continuer à utiliser votre terminal normalement.
@@ -86,7 +86,7 @@ Vous pouvez aussi utiliser la commande 'bg', l'abréviation de 'background', l'a
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 Un 'job' est un processus que vous pouvez contrôler avec 'fg' ou 'bg'.
 Nous allons maintenant rajouter un processus à cette liste !
-Retournez sur votre terminal, lancez une autre instance de 'leafpad', faites à nouveau 'Ctrl + z' et lancer la commande : ${learn}jobs${reset} avant de revenir sur GameScript.
++Retournez sur votre terminal, lancez une autre instance de 'leafpad', faites à nouveau 'Ctrl + z' et lancer la commande : ${learn}jobs${reset} avant de revenir sur GameScript.
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 Ici nous avons deux 'jobs', et aucun d'entre eux n'est utilisable, comme vous pouvez le voir car leur état est : ${voc}Stopped${reset}.
@@ -131,7 +131,7 @@ La commande ${code}kill${reset} (anglais de tuer) permet de fermer un processus 
 #THISPID=`ps -e|grep leafpad|grep -v grep|tail -n 1|awk '{ print $1 }'`
 +Fermez un des processus de leafpad à partir de GameScript avec : ${learn}kill $THISPID${reset}
 !kill $THISPID£Non
-Retournez sur votre terminal et listez vos processus à nouveau avec ${learn}ps -fH${reset} puis revenez sur GameScript.
++Retournez sur votre terminal et listez vos processus à nouveau avec ${learn}ps -fH${reset} puis revenez sur GameScript.
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 Ici il est bien clair que l'une des instances de leafpad a été fermée.
@@ -167,7 +167,7 @@ Cette commande confirme que cette instance de leafpad est à nouveau utilisable 
 Mais... qu'en est-il de la combinaison 'Ctrl + c' que nous avions déjà vu ? Est-ce un signal ?
 Et bien oui, le signal en question est SIGINT, qui représente une interruption par l'intermédiaire du clavier.
 Mais son effet est similaire à SIGTERM : il donne donc au processus l'occasion de se fermer correctement.
-Avant de finir ce chapitre, ferme le terminal que vous avez ouvert.
-Comme promis, l'un des processus de leafpad a survécu : celui que vous avez ${code}disown${reset}.
+Avant de finir ce chapitre, fermez le terminal que vous avez ouvert auparavant.
+Comme promis, l'un des processus de leafpad a survécu : celui que vous avez ${code}disown${reset} !
 Vous être prêt pour le questionnaire de ce chapitre !
 #clean
