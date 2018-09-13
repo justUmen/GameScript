@@ -58,9 +58,7 @@ Pour revenir sur le programme qui a été suspendu vous devez utiliser la comman
 Essayez donc de suspendre GameScript avec la combinaison de touche 'Ctrl + z', puis faites ${code}fg${reset} pour revenir sur GameScript, et appuyez sur Entrée.
 ...
 Ce que vous avez fait ici avec GameScript peut être fait avec d'autres processus.
-+Ouvrez un nouveau terminal avec un shell bash en faisant ici : ${learn}lxterminal -e bash${reset}.
-!lxterminal -e bash£Non
-Mettez ce terminal dans un endroit comfortable pour vous, nous allons faire plusieurs aller-retour entre ce terminal et GameScript.
+Ouvrez un nouveau terminal et mettez le dans un endroit facilement accessible, nous allons faire plusieurs aller-retour entre ce terminal et GameScript.
 Dans ce nouveau terminal, lancez ${learn}leafpad${reset}, faites 'Ctrl + z' pour détacher ce processus de leafpad du terminal et revenez sur GameScript.
 #while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep 2; done
