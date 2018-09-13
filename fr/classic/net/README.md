@@ -1,6 +1,41 @@
+CONCEPTS of :
+INTERNET :
+- IP
+- PORT
+- DNS
+LOCAL :
+- MAC
+- ARP
+
+Keywords :
+default gateway , router , protocol , 
+
+Passive commands : (no packets are emitted)
+- ip (ip route, ip addr...)
+- netstat
+AND tcpdump !!!
+
+Active commands :
+- ping
+- wget / curl
+- netcat
+AND scapy !!!
+
+
+
+
+
+
+
+
+
+
 #need stable internet, don't turn off or unexpected
 
 #DEP : tcpdump
+
+
+
 
 iproute VS net-tools ?
 

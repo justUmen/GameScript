@@ -1,0 +1,4 @@
+#[ -d "$HOME/.GameScript_github1" ] && echo "Erreur inattendue, ${HOME}/.GameScript_github1 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_github1 et relancez ce script." && exit
+#command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install xdotool" >&2; exit 3; }
+#mkdir $HOME/.GameScript_github1 2> /dev/null
+#cd $HOME/.GameScript_github1

@@ -155,6 +155,7 @@ function my_passwords(){
 }
 
 function gamescript_available_arguments(){
+while [ true ]; do	
   #MENU - SUBJECT SELECTION
   echo ""
   case $1 in
@@ -182,12 +183,12 @@ function gamescript_available_arguments(){
     "1") launch_gamescript $LANGUAGE classic bash ;;
     "2") launch_gamescript $LANGUAGE classic i3wm ;;
     "3") launch_gamescript $LANGUAGE classic sys ;;
-	h) gamescript_help $LANGUAGE; goodbye ;; 
-    p) my_passwords; goodbye ;; 
+	h) gamescript_help $LANGUAGE ;; 
+    p) my_passwords ;; 
     e) goodbye ;;
     *) echo "Error"; goodbye ;;
   esac
-  exit
+done
 }
 
 function enter(){
@@ -215,7 +216,7 @@ function enter(){
 						"$CHAPTER 7 \e[0m : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()" \
 						"$CHAPTER 8 \e[0m : | , wc , sort , grep , uniq , - , |& , <" \
 						"$CHAPTER 9 \e[0m : \$ , \$PATH , type , printenv" 	\
-						"[NO SOUND] $CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , $? , source , less" \
+						"[NO SOUND] $CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , \$? , source , less" \
 						"[NO SOUND] $CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt"
 						;;
 				i3wm) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
@@ -457,8 +458,8 @@ if [ $# -ne 0 ]; then
 	#~ echo -e "\n\n"
 	echo -e "\n"
 fi
-if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; exit; fi
-if [[ $PASSWORD == 1 ]]; then my_passwords; fi
+if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; goodbye; fi
+if [[ $PASSWORD == 1 ]]; then my_passwords; goodbye; fi
 if [[ $MUTE == 0 ]]; then
 	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "Without the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
 	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
