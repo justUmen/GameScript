@@ -7,7 +7,7 @@
 |English|https://github.com/justUmen/GameScript/blob/master/README.md|13|
 |Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|7|
 
-Interactive script to learn about some computer related subjects that I consider important.  
+GameScript is an interactive script to learn about some computer related subjects that I consider important.  
 Works with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.  
 
 ## Community project :
