@@ -4,8 +4,8 @@
 
 |LANGUAGE|README|AVAILABLE CHAPTERS|
 |:-----:|:-----:|:-----:|
-|English|https://github.com/justUmen/GameScript/blob/master/README.md|13|
-|Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|7|
+|English|https://github.com/justUmen/GameScript/blob/master/README.md|7|
+|Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13|
 
 GameScript is an interactive script to learn about some computer related subjects that I consider important.  
 GameScript should work with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.  
