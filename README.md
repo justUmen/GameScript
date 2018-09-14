@@ -1,8 +1,11 @@
 # GameScript
 
+##Select your language :
+
 |LANGUAGE|README|
 |:-----:|:-----:|
-|French / Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|
+|English|https://github.com/justUmen/GameScript/blob/master/README_FR.md|
+|Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|
 
 Interactive script to learn about some computer related subjects that I consider important.  
 Works with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.  
