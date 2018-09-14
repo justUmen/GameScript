@@ -105,7 +105,7 @@ function new_video(){
 		rm /tmp/southpark
 		#~ echo "restore = $restore"
 		#~ echo "PATH = $VIDEO_LOCAL/$restore.mp3.mp4"
-		mpv --really-quiet --loop=no --input-ipc-server=/tmp/southpark $VIDEO_LOCAL/$restore.mp3.mp4 &
+		mpv --really-quiet --loop=no --input-ipc-server=/tmp/southpark --no-config --include=~/.GameScript/mpv_config $VIDEO_LOCAL/$restore.mp3.mp4 &
 		sleep 2
 		VIDEO_PID=$(ps -ef|grep "mpv --really-quiet --loop=no --input-ipc-server=/tmp/southpark"|grep -v grep|awk '{print $2}'|head -n 1)
 		while [[ "$VIDEO_PID" == "" ]]; do

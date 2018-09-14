@@ -512,12 +512,14 @@ VIDEO_LOCAL="$HOME/.GameScript/Video/$LANGUAGE/classic/bash/m1/intro"
 if [[ $VIDEO == 1 ]]; then
 	if [[ $MUTE == 0 ]]; then
 		if [ ! -f "$HOME/.GameScript/mpv_config" ]; then
-			echo -e "loop=inf\nautofit-larger=30%x30%\ngeometry=100%:100%" > "$HOME/.GameScript/mpv_config"
+			echo -e "autofit-larger=30%x30%\ngeometry=100%:100%" > "$HOME/.GameScript/mpv_config"
 		fi
 		if [ ! -f "$HOME/.GameScript/10FPS_idle.mp4" ]; then
 			wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/10FPS_idle.mp4 -O $HOME/.GameScript/10FPS_idle.mp4
 		fi
-		mpv --no-config --loop --include=~/.GameScript/mpv_config --really-quiet --input-ipc-server=/tmp/southpark ~/.GameScript/10FPS_idle.mp4 &
+		#Inside standalone now :)
+		#~ rm /tmp/southpark
+		#~ mpv --no-config --loop --include=~/.GameScript/mpv_config --really-quiet --input-ipc-server=/tmp/southpark ~/.GameScript/10FPS_idle.mp4 &
 
 		if [ ! -f "$VIDEO_LOCAL/1.mp3.mp4" ]; then
 			wget -q --spider http://google.com
