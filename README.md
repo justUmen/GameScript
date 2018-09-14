@@ -1,7 +1,7 @@
 # GameScript [french and english for now...]
 
-Interactive script to learn about some computer related subjects. ()
-Works with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommanded.
+Interactive script to learn about some computer related subjects. ()  
+Works with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommanded.  
 
 ## Installation :
 
