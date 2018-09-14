@@ -27,7 +27,7 @@ Some chapters may have more dependencies to install.
 
     apt-get install wget mplayer mpg123
 
-###Situation [french] :
+### Situation [french] :
 
 |CHAPTER|TEXT|SOUND|CHAT BADGE|
 |---------|:-----:|:-----:|:-----:|
@@ -46,7 +46,7 @@ Some chapters may have more dependencies to install.
 |sys 1|✓|⛌|✓|
 |i3wm 1|✓|⛌|✓|
 
-###Situation [english] :
+### Situation [english] :
 
 |CHAPTER|TEXT|SOUND|CHAT BADGE|
 |---------|:-----:|:-----:|:-----:|
