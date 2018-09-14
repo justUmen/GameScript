@@ -8,7 +8,7 @@ If you have several options to pass to the same command, you can put them one af
 Of course you can use the long versions in the same way, or even mix them with short options.
 +Try doing the same thing with: ${learn}ls -a --width=1${reset}
 !ls -a --width=1£No
-But do not forget the short options start with ${code}-${reset} and the long options start with ${code}--${reset}.
+But do not forget that the short options start with ${code}-${reset} and the long options start with ${code}--${reset}.
 If you use short options, you can also group them with the same ${code}-${reset}.
 For example to pass the option ${code}-a${reset} and the option ${code}-w 10${reset} to ${code}ls${reset}, you can type ${code}ls -aw 10${reset}
 +Try this command: ${learn}ls -aw 10${reset}
@@ -23,12 +23,12 @@ But ${learn}ls -all${reset} is identical to ${learn}ls -a -l -l${reset}
 !ls --version£No
 Perfect !
 GameScript is currently displaying text in your device.
-GameScript using the same commands you are currently learning, but which one is used here to display these sentences?
-To display something in a terminal, you will need to use the command ${code}echo${reset}.
+GameScript uses the same commands you are currently learning, but can you tell which one is used here to display these sentences?
+To display something in a terminal, you will need to use the ${code}echo${reset} command.
 This command will simply return an echo of what you gave it as an argument.
 +Display the word 'hello' in your terminal with the command: ${learn}echo hello${reset}
 !echo hello£No
-+The command ${code}echo${reset} accepts several arguments, you can test: ${learn}echo hello everyone${reset}
++The command ${code}echo${reset} can accept several arguments, you can test: ${learn}echo hello everyone${reset}
 !echo hello everyone£No
 Easy as pie !
 We've already seen that ${code}mkdir${reset} is used to create new folders.
@@ -70,7 +70,7 @@ But if the file already exists, the new content will be added to the end of the 
 +Then display the contents of the 'test' file.
 !cat test£No
 Here the word 'hello' has been added at the end of the text file.
-You can continue to use ${code}>>${reset} to add your new content one after the other.
+You can continue to use ${code}>>${reset} to add new content in the file.
 But the redirects (${code}>${reset} and ${code}>>${reset}) are not limited to the command ${code}echo${reset}.
 It can work with any command !.
 +For example, put the result of the ${learn}ls${reset} command at the end the 'test' file!
@@ -97,7 +97,7 @@ Here, ${code}echo${reset} considers that there are two arguments, the first argu
 It therefore displays the two arguments separated by a space.
 It is therefore sometimes useful to limit the number of arguments to one!
 But how to display this space so that the sequel is not considered as a new argument?
-It will be necessary to use what one calls in computer a ${voc}escape character${reset}.
+It will be necessary to use what one calls in computer an ${voc}escape character${reset}.
 Here it is the character ${code}\\${reset}.
 This escape character will affect ${voc}only${reset} the next character.
 In our case, to represent a space with the command ${code}echo${reset} we can use ${code}\\\\${reset}.
@@ -109,11 +109,11 @@ To have a single argument, delete this space after the 'a'.
 !echo a \\ b£No
 +Now, try to display a second space between a and b.
 !echo a \\ \\ b£No
-This escape character is very useful for displaying characters that you wouldn't show otherwise.
+This escape character is very useful for displaying characters that wouldn't show up otherwise.
 For example, the ${learn}>${reset} symbol, which as you know, is also interpreted by your terminal as a special character.
 +Test this command: ${learn}echo x\\\\>y${reset}
 !echo x\\>y£No
-Here, you understand the ${} Voice huge reset} ${difference there is between ${learn}echo \\ x> y {reset} $ and ${learn}echo x> y${reset} .
+Here, you can understand the ${} Voice huge reset} ${difference there is between ${learn}echo \\ x> y {reset} $ and ${learn}echo x> y${reset} .
 ${learn}echo x> y${reset} will create a new 'y' file with the content 'x'!
 ${learn}echo x \\\\> y${reset} simply displays text in the terminal.
 To display the symbol ${code}\\${reset} with echo, just add it just before your escape character.
