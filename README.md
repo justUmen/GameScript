@@ -1,5 +1,8 @@
 # GameScript [french and english for now...]
 
+Interactive script to learn about some computer related subjects. ()
+Works with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommanded.
+
 ## Installation :
 
 Add `gamescript` alias to your .bashrc file by copy/pasting this command in a bash terminal :
@@ -107,10 +110,8 @@ Some chapters may have more dependencies to install.
 ## Types :
 
 * "classic" = default mode, technical content only
-* "story" = learning with stories [ not yet implemented ]
+* "story" = learning with stories [ none created for now ]
 
-## Details :
 
-* standalone files are generated and can be downloaded as standalone in offline mode. : https://github.com/justUmen/GameScript_standalone
 
 Support me and my projects on https://www.patreon.com/justumen :-)
