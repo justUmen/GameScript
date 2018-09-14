@@ -1,4 +1,8 @@
-# GameScript [available in french and english]
+# GameScript
+
+|LANGUAGE|README|
+|:-----:|:-----:|
+|French / Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|
 
 Interactive script to learn about some computer related subjects that I consider important.  
 Works with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.  
@@ -35,28 +39,7 @@ Some chapters may have more dependencies to install.
 
     apt-get install wget mplayer mpg123
 
-### Situation [french] :
-
-|CHAPTER|TEXT|SOUND|CHAT BADGE|
-|---------|:-----:|:-----:|:-----:|
-|bash 1|✓|✓|✓|
-|bash 2|✓|✓|✓|
-|bash 3|✓|✓|✓|
-|bash 4|✓|✓|✓|
-|bash 5|✓|✓|✓|
-|bash 6|✓|✓|✓|
-|bash 7|✓|✓|✓|
-|bash 8|✓|✓|✓|
-|bash 9|✓|✓|✓|
-|bash 10|✓||✓|
-|bash 11|✓||✓|
-|bash 12||||
-|sys 1|✓||✓|
-|sys 2||||
-|i3wm 1|✓||✓|
-|i3wm 2||||
-
-### Situation [english] :
+### Current situation :
 
 |CHAPTER|TEXT|SOUND|CHAT BADGE|
 |---------|:-----:|:-----:|:-----:|
