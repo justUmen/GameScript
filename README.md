@@ -1,7 +1,12 @@
-# GameScript [french and english for now...]
+# GameScript [available in french and english]
 
-Interactive script to learn about some computer related subjects.  
-Works with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommanded.  
+Interactive script to learn about some computer related subjects that I consider important.  
+Works with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.  
+
+## Community project :
+
+It is now almost entirely done by me, but I hope this will be a community project sooner or later.  
+If you wish to translate some of the content in another language, please contact me.
 
 ## Installation :
 
@@ -55,7 +60,7 @@ Some chapters may have more dependencies to install.
 
 |CHAPTER|TEXT|SOUND|CHAT BADGE|
 |---------|:-----:|:-----:|:-----:|
-|bash 1|✓||✓|
+|bash 1|✓ [https://www.github.com/Altarov]||✓|
 |bash 2|✓||✓|
 |bash 3|✓||✓|
 |bash 4|✓||✓|
