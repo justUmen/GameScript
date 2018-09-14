@@ -40,11 +40,13 @@ Some chapters may have more dependencies to install.
 |bash 7|✓|✓|✓|
 |bash 8|✓|✓|✓|
 |bash 9|✓|✓|✓|
-|bash 10|✓|✓|✓|
+|bash 10|✓|⛌|✓|
 |bash 11|✓|⛌|✓|
-|bash 12|✓|⛌|✓|
+|bash 12|⛌|⛌|⛌|
 |sys 1|✓|⛌|✓|
+|sys 2|⛌|⛌|⛌|
 |i3wm 1|✓|⛌|✓|
+|i3wm 2|⛌|⛌|⛌|
 
 ### Situation [english] :
 
@@ -63,7 +65,9 @@ Some chapters may have more dependencies to install.
 |bash 11|⛌|⛌|⛌|
 |bash 12|⛌|⛌|⛌|
 |sys 1|⛌|⛌|⛌|
+|sys 2|⛌|⛌|⛌|
 |i3wm 1|✓|⛌|✓|
+|i3wm 2|⛌|⛌|⛌|
 
 # Bash : Code and concepts by chapter
 
