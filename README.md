@@ -25,14 +25,10 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 
     apt-get install wget mplayer mpg123
 
-## What is GameScript ?
-
-It is an ONLINE bash script to learn about :
-
 ###Situation [french] :
 
 | CHAPTER | TEXT  | SOUND | VIDEO |
-|---------|-------|-------|-------|
+|---------|:-----:|:-----:|:-----:|
 |bash 1|<span style="color:green">✓</span>|<span style="color:green">✓</span>|<span style="color:green">✓</span>|
 |bash ||||
 
