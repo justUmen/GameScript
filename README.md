@@ -29,9 +29,16 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 
 It is an ONLINE bash script to learn about :
 
-* bash (included : GNU commands + Unix-like operating system file organization / permissions)
-* i3wm
-* - [ not yet implemented ]
+###Situation [french] :
+| CHAPTER | TEXT  | SOUND | VIDEO |
+|---------|-------|-------|-------|
+|bash 1|<span style="color:green">✓</span>|<span style="color:green">✓</span>|<span style="color:green">✓</span>|
+|bash ||||
+
+###Situation [english] :
+| CHAPTER | TEXT  | SOUND | VIDEO |
+|---------|-------|-------|-------|
+|bash 1|✓|||
 
 # Bash : Code and concepts by chapter
 
