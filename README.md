@@ -61,8 +61,8 @@ Some chapters may have more dependencies to install.
 |CHAPTER|TEXT|SOUND|CHAT BADGE|
 |---------|:-----:|:-----:|:-----:|
 |bash 1|✓[Altarov](https://www.github.com/Altarov)||✓|
-|bash 2|✓||✓|
-|bash 3|✓||✓|
+|bash 2|✓[Altarov](https://www.github.com/Altarov)||✓|
+|bash 3|✓[Altarov](https://www.github.com/Altarov)||✓|
 |bash 4|✓||✓|
 |bash 5|✓||✓|
 |bash 6|✓||✓|
