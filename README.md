@@ -1,6 +1,6 @@
 # GameScript
 
-##Select your language :
+## Select your language :
 
 |LANGUAGE|README|
 |:-----:|:-----:|
