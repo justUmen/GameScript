@@ -17,6 +17,8 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 * mplayer or mpg123 (mplayer recommended)
 * base64
 
+Some chapters may have more dependencies to install.
+
 ### Install dependencies on Arch family (manjaro, antergos, ...)
 
     pacman -S wget mplayer mpg123
@@ -27,16 +29,41 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 
 ###Situation [french] :
 
-| CHAPTER | TEXT  | SOUND | VIDEO |
+|CHAPTER|TEXT|SOUND|CHAT BADGE|
 |---------|:-----:|:-----:|:-----:|
-|bash 1|<span style="color:green">✓</span>|<span style="color:green">✓</span>|<span style="color:green">✓</span>|
-|bash ||||
+|bash 1|✓|✓|✓|
+|bash 2|✓|✓|✓|
+|bash 3|✓|✓|✓|
+|bash 4|✓|✓|✓|
+|bash 5|✓|✓|✓|
+|bash 6|✓|✓|✓|
+|bash 7|✓|✓|✓|
+|bash 8|✓|✓|✓|
+|bash 9|✓|✓|✓|
+|bash 10|✓|✓|✓|
+|bash 11|✓|⛌|✓|
+|bash 12|✓|⛌|✓|
+|sys 1|✓|⛌|✓|
+|i3wm 1|✓|⛌|✓|
 
 ###Situation [english] :
 
-| CHAPTER | TEXT  | SOUND | VIDEO |
-|---------|-------|-------|-------|
-|bash 1|✓|||
+|CHAPTER|TEXT|SOUND|CHAT BADGE|
+|---------|:-----:|:-----:|:-----:|
+|bash 1|✓|⛌|✓|
+|bash 2|✓|⛌|✓|
+|bash 3|✓|⛌|✓|
+|bash 4|✓|⛌|✓|
+|bash 5|✓|⛌|✓|
+|bash 6|✓|⛌|✓|
+|bash 7|⛌|⛌|⛌|
+|bash 8|⛌|⛌|⛌|
+|bash 9|⛌|⛌|⛌|
+|bash 10|⛌|⛌|⛌|
+|bash 11|⛌|⛌|⛌|
+|bash 12|⛌|⛌|⛌|
+|sys 1|⛌|⛌|⛌|
+|i3wm 1|✓|⛌|✓|
 
 # Bash : Code and concepts by chapter
 
