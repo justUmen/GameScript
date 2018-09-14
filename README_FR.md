@@ -1,6 +1,6 @@
 # GameScript
 
-|CHAPTER|TEXT|SOUND|CHAT BADGE|
+|CHAPITRE|TEXTE|SON|BADGE CHAT|
 |---------|:-----:|:-----:|:-----:|
 |bash 1|✓|✓|✓|
 |bash 2|✓|✓|✓|
@@ -19,7 +19,7 @@
 |i3wm 1|✓||✓|
 |i3wm 2||||
 
-# Bash : Code and concepts by chapter
+# Bash : Code et concepts par chapitre
 
      Bash 1 => Concepts : commande , argument , chemin relatif , chemin absolu , dossier parent/enfant , répertoire courant
      Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
