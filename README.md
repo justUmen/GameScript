@@ -4,7 +4,7 @@
 
 |LANGUAGE|README|
 |:-----:|:-----:|
-|English|https://github.com/justUmen/GameScript/blob/master/README_FR.md|
+|English|https://github.com/justUmen/GameScript/blob/master/README.md|
 |Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|
 
 Interactive script to learn about some computer related subjects that I consider important.  
