@@ -1,5 +1,42 @@
 # GameScript
 
+GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique.
+GameScript devrait fonctionner avec "Windows bas" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé. (Support donné pour famille Debian et Arch)
+
+## Projet communautaire :
+
+Pour l'instant, ce projet est presque entièrement fait par moi, mais dans le futur ce projet devrait .
+Si vous désirez traduire son contenu dans une autre langue, merci de me contacter.
+
+## Installation :
+
+Ajoutez un alias à `gamescript` à votre fichier .bashrc en copie/collant cete commande :
+
+    echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
+
+## Lancement :
+
+    gamescript
+
+## Dépendances :
+
+* bash > version 4
+* wget
+* mplayer or mpg123 (mplayer is recommended !)
+* base64
+
+Certains chapitres peuvent avoir plus de dépendances requises.
+
+### Installer les dépendances sur Arch (manjaro, antergos, ...)
+
+    pacman -S wget mplayer mpg123
+
+### Installer les dépendances sur Debian (ubuntu, mint, ...)
+
+    apt-get install wget mplayer mpg123
+
+### Situation actuelle :
+
 |CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
 |---------|:-----:|:-----:|:-----:|:-----:|
 |bash 1|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
@@ -55,3 +92,5 @@
      Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt
 
 
+PATREON : https://www.patreon.com/justumen
+PAYPAL : https://www.paypal.me/justumen
