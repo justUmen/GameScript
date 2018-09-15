@@ -45,7 +45,7 @@ Some chapters may have more dependencies to install.
 ### Current situation :
 
 |CHAPTER|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
-|---------|:-----:|:-----:|:-----:|
+|---------|:-----:|:-----:|:-----:|:-----:|
 |bash 1|✓[Altarov](https://www.github.com/Altarov)||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
 |bash 2|✓[Altarov](https://www.github.com/Altarov)||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
 |bash 3|✓[Altarov](https://www.github.com/Altarov)||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
