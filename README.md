@@ -44,24 +44,24 @@ Some chapters may have more dependencies to install.
 
 ### Current situation :
 
-|CHAPTER|TEXT|SOUND|CHAT BADGE|
+|CHAPTER|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
 |---------|:-----:|:-----:|:-----:|
-|bash 1|✓[Altarov](https://www.github.com/Altarov)||✓|
-|bash 2|✓[Altarov](https://www.github.com/Altarov)||✓|
-|bash 3|✓[Altarov](https://www.github.com/Altarov)||✓|
-|bash 4|✓||✓|
-|bash 5|✓||✓|
-|bash 6|✓||✓|
-|bash 7||||
-|bash 8||||
-|bash 9||||
-|bash 10||||
-|bash 11||||
-|bash 12||||
-|sys 1||||
-|sys 2||||
-|i3wm 1|✓||✓|
-|i3wm 2||||
+|bash 1|✓[Altarov](https://www.github.com/Altarov)||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
+|bash 2|✓[Altarov](https://www.github.com/Altarov)||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
+|bash 3|✓[Altarov](https://www.github.com/Altarov)||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
+|bash 4|✓||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
+|bash 5|✓||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
+|bash 6|✓||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
+|bash 7|||||
+|bash 8|||||
+|bash 9|||||
+|bash 10|||||
+|bash 11|||||
+|bash 12|||||
+|sys 1|||||
+|sys 2|||||
+|i3wm 1|✓||✓|[Rocket with GitHub](https://rocket.bjornulf.org) [Discord](https://discord.gg/Dj47Tpf)|
+|i3wm 2|||||
 
 # Bash : Code and concepts by chapter
 
