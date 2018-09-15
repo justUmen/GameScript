@@ -1,23 +1,23 @@
 # GameScript
 
-|CHAPITRE|TEXTE|SON|BADGE CHAT|
-|---------|:-----:|:-----:|:-----:|
-|bash 1|✓|✓|✓|
-|bash 2|✓|✓|✓|
-|bash 3|✓|✓|✓|
-|bash 4|✓|✓|✓|
-|bash 5|✓|✓|✓|
-|bash 6|✓|✓|✓|
-|bash 7|✓|✓|✓|
-|bash 8|✓|✓|✓|
-|bash 9|✓|✓|✓|
-|bash 10|✓||✓|
-|bash 11|✓||✓|
-|bash 12||||
-|sys 1|✓||✓|
-|sys 2||||
-|i3wm 1|✓||✓|
-|i3wm 2||||
+|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
+|---------|:-----:|:-----:|:-----:|:-----:|
+|bash 1|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 2|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 3|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 4|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 5|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 6|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 7|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 8|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 9|✓|✓|✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 10|✓||✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 11|✓||✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|bash 12|||||
+|sys 1|✓||✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|sys 2|||||
+|i3wm 1|✓||✓|[Rocket + GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|i3wm 2|||||
 
 # Bash : Code et concepts par chapitre
 
