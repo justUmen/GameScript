@@ -153,6 +153,11 @@ function my_passwords(){
 }
 
 function gamescript_available_arguments(){
+
+#IF NEEDED THERE ??? (After fail quiz)
+stop_quiz_music
+unpause_music
+
 while [ true ]; do	
   #MENU - SUBJECT SELECTION
   echo ""

@@ -11,20 +11,20 @@ function pause_music(){
 function unpause_music(){
 	#~ echo "UNPAUSE MUSIC"
 	kill -SIGCONT $1	
-	QUIZ_MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
+	QUIZ_MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
 	if [[ "QUIZ_$MUSIC_PID" != "" ]]; then
 		kill $QUIZ_MUSIC_PID
 	fi
 }
 function stop_quiz_music(){
-	QUIZ_MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
+	QUIZ_MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
 	if [[ "$QUIZ_MUSIC_PID" != "" ]]; then
 		kill $QUIZ_MUSIC_PID
 	fi
 }
 function start_quiz_music(){
 	if [[ "$MUTE" == "0" ]]; then
-		MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
+		MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
 		if [[ "$MUSIC_PID" != "" ]]; then
 			pause_music $MUSIC_PID
 		fi
