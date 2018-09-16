@@ -155,9 +155,9 @@ function my_passwords(){
 function unpause_music(){
 	#~ echo "UNPAUSE MUSIC"
 	kill -SIGCONT $1	
-	QUIZ_MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
-	if [[ "QUIZ_$MUSIC_PID" != "" ]]; then
-		kill $QUIZ_MUSIC_PID
+	MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
+	if [[ "$MUSIC_PID" != "" ]]; then
+		kill -SIGCONT $MUSIC_PID
 	fi
 }
 function stop_quiz_music(){
