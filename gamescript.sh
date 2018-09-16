@@ -152,6 +152,20 @@ function my_passwords(){
 	done
 }
 
+function unpause_music(){
+	#~ echo "UNPAUSE MUSIC"
+	kill -SIGCONT $1	
+	QUIZ_MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
+	if [[ "QUIZ_$MUSIC_PID" != "" ]]; then
+		kill $QUIZ_MUSIC_PID
+	fi
+}
+function stop_quiz_music(){
+	QUIZ_MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
+	if [[ "$QUIZ_MUSIC_PID" != "" ]]; then
+		kill $QUIZ_MUSIC_PID
+	fi
+}
 function gamescript_available_arguments(){
 
 #IF NEEDED THERE ??? (After fail quiz)
