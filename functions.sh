@@ -14,12 +14,21 @@ function unpause_music(){
 		kill $QUIZ_MUSIC_PID
 	fi
 }
-function start_quiz_music(){
-	MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
-	if [[ "$MUSIC_PID" != "" ]]; then
-		pause_music $MUSIC_PID
+function stop_quiz_music(){
+	QUIZ_MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
+	if [[ "$QUIZ_MUSIC_PID" != "" ]]; then
+		kill $QUIZ_MUSIC_PID
 	fi
-	mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz1.mp3 &>/dev/null &
+}
+function start_quiz_music(){
+	if [[ "$MUTE" == "0" ]] && [[ "$MUSIC" == "1" ]]; then
+		MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
+		if [[ "$MUSIC_PID" != "" ]]; then
+			pause_music $MUSIC_PID
+		fi
+		mplayer -ss 4 /home/umen/.GameScript/Sounds/default/Music/quiz_1.m4a &>/dev/null &
+		#-ss 4 for mortal kombat
+	fi
 	#??? change with $SOUNDPLAYER OR SMT
 }
 
@@ -241,27 +250,20 @@ function answer_quiz(){
 						case $choice in
 							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
 								start_lecture `cat "$HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER"`
-								start_quiz_music
 								start_quiz
 								;;
 							2) 	clean
 								start_lecture 1
-								start_quiz_music
 								start_quiz
 								;;
 							3) exit ;;
 						esac
 					done
 				fi
-#HERE ?
-MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
-if [[ "$MUSIC_PID" != "" ]]; then
-	unpause_music $MUSIC_PID
-fi
 				start_lecture 1
 				start_quiz
 				;;
-			2) start_quiz ;;
+			2) 	start_quiz ;;
 			e) exit ;;
 		esac
 	done

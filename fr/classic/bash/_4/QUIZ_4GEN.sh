@@ -14,6 +14,7 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 }
 
 function start_quiz(){
+  start_quiz_music
   echo ""
   echo -e "\e[15;44m Bash 'Bourne Again SHell' : Questionnaire du chapitre 4 \e[0m"
   echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
