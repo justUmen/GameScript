@@ -2,10 +2,16 @@
 shopt -s expand_aliases
 source ~/.bashrc
 
+function pause_music(){
+	kill -SIGTSTP $1
+}
+function unpause_music(){
+	kill -SIGCONT $1	
+}
 function start_quiz_music(){
-	VOICE_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
+	MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
 	if [[ "$MUSIC_PID" != "" ]]; then
-		kill $MUSIC_PID
+		pause_music $MUSIC_PID
 	fi
 	mplayer -volume 50 /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz1.mp3 &>/dev/null &
 	#??? change with $SOUNDPLAYER OR SMT
@@ -241,6 +247,11 @@ function answer_quiz(){
 						esac
 					done
 				fi
+#HERE ?
+MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
+if [[ "$MUSIC_PID" != "" ]]; then
+	unpause_music $MUSIC_PID
+fi
 				start_lecture 1
 				start_quiz
 				;;
