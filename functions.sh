@@ -7,13 +7,17 @@ function pause_music(){
 }
 function unpause_music(){
 	kill -SIGCONT $1	
+	QUIZ_MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
+	if [[ "QUIZ_$MUSIC_PID" != "" ]]; then
+		kill $QUIZ_MUSIC_PID
+	fi
 }
 function start_quiz_music(){
 	MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
 	if [[ "$MUSIC_PID" != "" ]]; then
 		pause_music $MUSIC_PID
 	fi
-	mplayer -volume 50 /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz1.mp3 &>/dev/null &
+	mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz1.mp3 &>/dev/null &
 	#??? change with $SOUNDPLAYER OR SMT
 }
 
@@ -248,7 +252,7 @@ function answer_quiz(){
 					done
 				fi
 #HERE ?
-MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
+MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
 if [[ "$MUSIC_PID" != "" ]]; then
 	unpause_music $MUSIC_PID
 fi
