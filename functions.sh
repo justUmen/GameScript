@@ -1,6 +1,8 @@
 #SOME ADDED AND CHANGE IN CLI learn_cli.sh in CLASSIC
 shopt -s expand_aliases
 source ~/.bashrc
+#Needed ?
+#~ source ~/.GameScript/config
 
 function pause_music(){
 	echo "PAUSE MUSIC"
@@ -21,6 +23,7 @@ function stop_quiz_music(){
 	fi
 }
 function start_quiz_music(){
+	echo "MUTE = $MUTE"
 	if [[ "$MUTE" == "0" ]] && [[ "$MUSIC" == "1" ]]; then
 		MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
 		if [[ "$MUSIC_PID" != "" ]]; then
@@ -256,7 +259,7 @@ function answer_quiz(){
 								start_lecture 1
 								start_quiz
 								;;
-							3) exit ;;
+							e) exit ;;
 						esac
 					done
 				fi
