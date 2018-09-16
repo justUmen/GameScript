@@ -5,11 +5,11 @@ source ~/.bashrc
 #~ source ~/.GameScript/config
 
 function pause_music(){
-	echo "PAUSE MUSIC"
+	#~ echo "PAUSE MUSIC"
 	kill -SIGTSTP $1
 }
 function unpause_music(){
-	echo "UNPAUSE MUSIC"
+	#~ echo "UNPAUSE MUSIC"
 	kill -SIGCONT $1	
 	QUIZ_MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
 	if [[ "QUIZ_$MUSIC_PID" != "" ]]; then
@@ -23,8 +23,7 @@ function stop_quiz_music(){
 	fi
 }
 function start_quiz_music(){
-	echo "MUTE = $MUTE"
-	if [[ "$MUTE" == "0" ]] && [[ "$MUSIC" == "1" ]]; then
+	if [[ "$MUTE" == "0" ]]; then
 		MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
 		if [[ "$MUSIC_PID" != "" ]]; then
 			pause_music $MUSIC_PID
