@@ -2,6 +2,15 @@
 shopt -s expand_aliases
 source ~/.bashrc
 
+function start_quiz_music(){
+	VOICE_PID=$(ps -f|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
+	if [[ "$MUSIC_PID" != "" ]]; then
+		kill $MUSIC_PID
+	fi
+	mplayer -volume 50 /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz1.mp3 &>/dev/null &
+	#??? change with $SOUNDPLAYER OR SMT
+}
+
 function download_all_sounds(){
 	#~ echo "Downloading..."
 	cd $AUDIO_LOCAL || exit
@@ -220,10 +229,12 @@ function answer_quiz(){
 						case $choice in
 							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
 								start_lecture `cat "$HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER"`
+								start_quiz_music
 								start_quiz
 								;;
 							2) 	clean
 								start_lecture 1
+								start_quiz_music
 								start_quiz
 								;;
 							3) exit ;;

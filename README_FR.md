@@ -1,11 +1,11 @@
 # GameScript
 
 GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique.
-GameScript devrait fonctionner avec "Windows bas" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé. (Support donné pour famille Debian et Arch)
+GameScript devrait fonctionner sur "Windows bash" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé. (Support donné pour famille Debian et Arch)
 
 ## Projet communautaire :
 
-Pour l'instant, ce projet est presque entièrement fait par moi, mais dans le futur ce projet devrait .
+GameScript est un projet communautaire, si vous remarquez quelque chose qui pourrait ???
 Si vous désirez traduire son contenu dans une autre langue, merci de me contacter.
 
 ## Installation :
