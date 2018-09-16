@@ -3,9 +3,11 @@ shopt -s expand_aliases
 source ~/.bashrc
 
 function pause_music(){
+	echo "PAUSE MUSIC"
 	kill -SIGTSTP $1
 }
 function unpause_music(){
+	echo "UNPAUSE MUSIC"
 	kill -SIGCONT $1	
 	QUIZ_MUSIC_PID=$(ps -f|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
 	if [[ "QUIZ_$MUSIC_PID" != "" ]]; then
