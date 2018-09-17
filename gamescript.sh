@@ -8,7 +8,6 @@ function press_key_GAMESCRIPT(){
 		kill $VOICE_PID
 	fi
 }
-
 function new_sound(){
 	$SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" &> /dev/null &
 	AUDIOCMP=`expr $AUDIOCMP + 1`
@@ -474,11 +473,9 @@ fi
 if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; goodbye; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; goodbye; fi
 if [[ $MUTE == 0 ]]; then
-	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "Without the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
+	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "Without the option -m, you need to install mplayer or mpg123..." >&2; exit 3; }
 	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
 	# -af volume=10 ADD 10 decibels
-	command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123"
-	command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
 fi
 if [[ $VIDEO == 1 ]]; then
 	command -v mpv &> /dev/null || { echo -e "You need to install 'mpv' to play the videos." >&2; exit 4; };
@@ -492,7 +489,10 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		mkdir -p ~/.GameScript/Sounds/default/Music 2> /dev/null
 		#~ stty intr undef
 		#~ (trap '' INT; mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &)
-		$SOUND_PLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
+		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
+		$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+		#~ echo "$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
 		#~ stty intr ^C
 		#~ &
 		#~ bind -x '"\C-c": pkill leafpad'
