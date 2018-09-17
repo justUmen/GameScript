@@ -3,48 +3,40 @@ shopt -s expand_aliases
 source ~/.bashrc
 
 function pause_music(){
-	#~ echo "PAUSE MUSIC"
 	kill -SIGTSTP $1
 }
 function start_quiz_music(){
 	if [[ "$MUTE" == "0" ]]; then
-		MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|awk '{print $2}'|head -n 1)
+		MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC"|grep Music|awk '{print $2}'|head -n 1)
 		if [[ "$MUSIC_PID" != "" ]]; then
 			pause_music $MUSIC_PID
 		fi
-		mplayer -ss 4 /home/umen/.GameScript/Sounds/default/Music/quiz_1.m4a &>/dev/null &
-		#-ss 4 for mortal kombat
+		$SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.m4a &>/dev/null &
 	fi
 	#??? change with $SOUNDPLAYER OR SMT
 }
-
 function download_all_sounds(){
-	#~ echo "Downloading..."
 	cd $AUDIO_LOCAL || exit
 	i=4
 	rm to_dl.wget 2> /dev/null
 	echo "Downloading Audio..."
 	while [ $i -le $LINES ]; do
-		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
 		echo "$AUDIO_DL/$i.mp3" >> to_dl.wget
 		i=`expr $i + 1`
 	done
 	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
 }
 function download_all_videos(){
-	#~ echo "Downloading..."
 	cd $VIDEO_LOCAL || exit
 	i=4
 	rm to_dl.wget 2> /dev/null
 	echo "Downloading Videos..."
 	while [ $i -le $LINES ]; do
-		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
 		echo "$VIDEO_DL/$i.mp3.mp4" >> to_dl.wget
 		i=`expr $i + 1`
 	done
 	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
 }
-
 function prepare_audio(){
 	AUDIO_LOCAL="$HOME/.GameScript/Audio/$LANGUAGE/classic/$CHAPTER_NAME/$SPEAKER/c$CHAPTER_NUMBER"
 	mkdir -p $AUDIO_LOCAL 2> /dev/null
@@ -75,15 +67,13 @@ function prepare_video(){
 		fi
 	fi
 }
-
 function encode_b64(){
 	echo -n "$2$1$3" | base64
 }
-
 function press_key(){
 	echo -en "\e[0;33m...\e[0m"
 	read -s -n1 key < /dev/tty
-	if [ "$key" == 'Q' ]; then
+	if [ "$key" == 'e' ]; then
 		exit
 	fi
 	#OBSOLETE ?
@@ -142,27 +132,6 @@ function new_video(){
 		echo "{ \"command\": [\"loadfile\", \"$HOME/.GameScript/10FPS_idle.mp4\", \"append\"] }" | socat - /tmp/southpark &> /dev/null
 	fi
 }
-function new_videoOLD(){
-	#~ $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
-	#~ mpv "$VIDEO_LOCAL/$restore.mp3.mp4" &> /dev/null &
-	ADD_PLAYLIST "$VIDEO_LOCAL/$restore.mp3.mp4"
-	sleep 1
-	PLAYLIST_NEXT #play next video
-	#~ sleep 1
-	LOOP_OFF
-	sleep 1
-	UNTIL_IDLE_IS_BACK
-	#~ sleep 1
-	#~ PLAYLIST_NEXT #play idle video
-	#~ sleep 1
-	LOOP_ON #After normal video is over, quickly put back LOOP
-}
-
-#~ PLAYLIST_NEXT #play next video
-#~ LOOP_OFF
-#~ UNTIL_IDLE_IS_BACK
-#~ LOOP_ON
-
 
 function talk(){
 	if [[ $VIDEO == 0 ]]; then 

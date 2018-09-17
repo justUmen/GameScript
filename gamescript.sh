@@ -153,13 +153,13 @@ function my_passwords(){
 }
 
 function unpause_music(){
-	MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
+	MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
 	if [[ "$MUSIC_PID" != "" ]]; then
 		kill -SIGCONT $MUSIC_PID
 	fi
 }
 function stop_quiz_music(){
-	QUIZ_MUSIC_PID=$(ps -ef|grep "mplayer"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
+	QUIZ_MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC_QUIZ"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
 	if [[ "$QUIZ_MUSIC_PID" != "" ]]; then
 		kill $QUIZ_MUSIC_PID
 	fi
@@ -477,6 +477,8 @@ if [[ $MUTE == 0 ]]; then
 	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "Without the option -m, you need to install mplayer or mpg123." >&2; exit 3; }
 	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
 	# -af volume=10 ADD 10 decibels
+	command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123"
+	command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
 fi
 if [[ $VIDEO == 1 ]]; then
 	command -v mpv &> /dev/null || { echo -e "You need to install 'mpv' to play the videos." >&2; exit 4; };
@@ -490,7 +492,7 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		mkdir -p ~/.GameScript/Sounds/default/Music 2> /dev/null
 		#~ stty intr undef
 		#~ (trap '' INT; mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &)
-		mplayer -volume 40 /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a &>/dev/null &
+		$SOUND_PLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
 		#~ stty intr ^C
 		#~ &
 		#~ bind -x '"\C-c": pkill leafpad'
