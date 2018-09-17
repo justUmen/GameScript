@@ -491,7 +491,22 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		#~ (trap '' INT; mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &)
 		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
 		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
-		$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/w1.mp3" ];then
+			echo "Background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
+			$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+		else
+			echo "No background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 doesn't exist yet"
+			echo -e "For example, to download one (medieval music) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a https://www.youtube.com/watch\?v\=DEeAN471boQ\e[0m"
+			echo -e "But you need to install \e[30;48;5;82mffmpeg\e[0m and \e[30;48;5;82myoutube-dl\e[0m first. (sudo apt-get install youtube-dl ffmpeg)"
+		fi
+		echo ""
+		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3" ];then
+			echo "Quiz music : /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3"
+		else
+			echo "No quiz music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3 doesn't exist"
+			echo -e "For example, to download one (mortal kombat) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.m4a https://www.youtube.com/watch\?v\=EAwWPadFsOA\e[0m"
+			echo -e "But you need to install \e[30;48;5;82mffmpeg\e[0m and \e[30;48;5;82myoutube-dl\e[0m first. (sudo apt-get install youtube-dl ffmpeg)"
+		fi
 		#~ echo "$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
 		#~ stty intr ^C
 		#~ &
