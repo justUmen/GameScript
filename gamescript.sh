@@ -490,7 +490,6 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		#~ stty intr undef
 		#~ (trap '' INT; mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &)
 		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
-		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
 		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3" ];then
 			echo "Background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
 			$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
