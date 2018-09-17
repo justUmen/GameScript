@@ -8,6 +8,7 @@ function pause_music(){
 function start_quiz_music(){
 	if [[ "$MUTE" == "0" ]]; then
 		MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
+		echo "BACKGROUND MUSIC = $MUSIC_PID"
 		if [[ "$MUSIC_PID" != "" ]]; then
 			pause_music $MUSIC_PID
 		fi
