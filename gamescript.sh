@@ -202,7 +202,7 @@ done
 }
 
 function enter(){
-#IF NEEDED THERE ??? (After fail quiz)
+#IF NEEDED THERE ??? (After fail quiz) doesnt bother too much
 stop_quiz_music
 unpause_music
   #USAGE : enter bash 1
@@ -490,7 +490,7 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		mkdir -p ~/.GameScript/Sounds/default/Music 2> /dev/null
 		#~ stty intr undef
 		#~ (trap '' INT; mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &)
-		mplayer -volume 50 /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+		mplayer -volume 50 /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a &>/dev/null &
 		#~ stty intr ^C
 		#~ &
 		#~ bind -x '"\C-c": pkill leafpad'
