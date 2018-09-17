@@ -483,6 +483,27 @@ fi
 set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
 
+
+#PREPARE TEXT BASED ON LANGUAGE
+case $LANGUAGE in
+	en) CHAPTER="chapter"
+		TEXT_MUSIC_1="No background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 doesn't exist yet"
+		TEXT_MUSIC_2="For example, to download one (1h of medieval music) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a https://www.youtube.com/watch\?v\=DEeAN471boQ\e[0m"
+		TEXT_MUSIC_COMMON="But you need to install 'ffmpeg' and 'youtube-dl' first, \e[30;48;5;82msudo apt-get install youtube-dl ffmpeg\e[0m on Debian/Ubuntu/Mint."
+		TEXT_MUSIC_QUIZ_1="No quiz music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3 doesn't exist"
+		TEXT_MUSIC_QUIZ_2="For example, to download one (mortal kombat) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.m4a https://www.youtube.com/watch\?v\=EAwWPadFsOA\e[0m"
+	;;
+	fr) CHAPTER="chapitre"
+		TEXT_MUSIC_1="Pas de musique de fond : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 n'existe pas encore."
+		TEXT_MUSIC_2="Par exemple, pour en télécharger une (1h de musique mediévale) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a https://www.youtube.com/watch\?v\=DEeAN471boQ\e[0m"
+		TEXT_MUSIC_COMMON="Mais vous devez d'abord installer 'ffmpeg' et 'youtube-dl', \e[30;48;5;82msudo apt-get install youtube-dl ffmpeg\e[0m sur Debian/Ubuntu/Mint."
+		TEXT_MUSIC_QUIZ_1="Pas de musique de quiz : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3 n'existe pas encore."
+		TEXT_MUSIC_QUIZ_2="Par exemple, pour en télécharger une (mortal kombat) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.m4a https://www.youtube.com/watch\?v\=EAwWPadFsOA\e[0m"
+	;;
+	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; pkill mplayer; pkill mpg123; exit #pkill if -l with bad argument music not stop :P ???
+	;;
+esac
+
 #BACKGROUND MUSIC
 if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 	if [[ "$SOUND_FAMILY" != "" ]]; then
@@ -494,17 +515,17 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 			echo "Background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
 			$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
 		else
-			echo "No background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 doesn't exist yet"
-			echo -e "For example, to download one (medieval music) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a https://www.youtube.com/watch\?v\=DEeAN471boQ\e[0m"
-			echo -e "But you need to install \e[30;48;5;82mffmpeg\e[0m and \e[30;48;5;82myoutube-dl\e[0m first. (sudo apt-get install youtube-dl ffmpeg)"
+			echo "$TEXT_MUSIC_1"
+			echo -e "$TEXT_MUSIC_2"
+			echo -e "$TEXT_MUSIC_COMMON"
 		fi
 		echo ""
 		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3" ];then
 			echo "Quiz music : /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3"
 		else
-			echo "No quiz music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3 doesn't exist"
-			echo -e "For example, to download one (mortal kombat) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.m4a https://www.youtube.com/watch\?v\=EAwWPadFsOA\e[0m"
-			echo -e "But you need to install \e[30;48;5;82mffmpeg\e[0m and \e[30;48;5;82myoutube-dl\e[0m first. (sudo apt-get install youtube-dl ffmpeg)"
+			echo "$TEXT_MUSIC_1"
+			echo -e "$TEXT_MUSIC_2"
+			echo -e "$TEXT_MUSIC_COMMON"
 		fi
 		echo ""
 		#~ echo "$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
@@ -518,15 +539,6 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 	fi
 fi
 
-#PREPARE TEXT BASED ON LANGUAGE
-case $LANGUAGE in
-	en) CHAPTER="chapter"
-	;;
-	fr) CHAPTER="chapitre"
-	;;
-	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; pkill mplayer; pkill mpg123; exit #pkill if -l with bad argument music not stop :P ???
-	;;
-esac
 
 reset='\e[0m'
 #~ voc='\e[1m'
