@@ -6,6 +6,7 @@ rm $HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER 2> /dev/null
 }
 
 function start_quiz(){
+  start_quiz_music
   echo ""
   echo -e "\e[15;44m Bash 'Bourne Again SHell' : Quiz Chapter 3 \e[0m"
   echo -e "- The answer should be as short as possible, a good answer adding uneeded characters will be considered as wrong."

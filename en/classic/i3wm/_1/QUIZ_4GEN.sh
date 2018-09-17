@@ -5,6 +5,7 @@ rmdir $HOME/.GameScript_i3wm_1
 }
 
 function start_quiz(){
+  start_quiz_music
   echo ""
   echo -e "\e[15;5;44m i3wm 'i3 Window Manager' : Questionnaire du chapitre 1 \e[0m"
   echo -e "- The answer should be as short as possible, a good answer adding uneeded characters will be considered as wrong."

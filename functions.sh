@@ -6,17 +6,22 @@ function pause_music(){
 	kill -SIGTSTP $1
 }
 function start_quiz_music(){
+	echo "$SOUNDPLAYER_MUSIC_QUIZ !!!"
 	if [[ "$MUTE" == "0" ]]; then
-		echo "$SOUNDPLAYER_MUSIC !!"
-		MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC"|grep Music|awk '{print $2}'|head -n 1)
+		MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER"|grep Music|awk '{print $2}'|head -n 1)
 		if [[ "$MUSIC_PID" != "" ]]; then
 			pause_music $MUSIC_PID
 		fi
-		echo "$SOUNDPLAYER_MUSIC_QUIZ !!"
-		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
 		$SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3 &>/dev/null &
 	fi
-	#??? change with $SOUNDPLAYER OR SMT
+}
+function stop_quiz_music(){
+	if [[ "$MUTE" == "0" ]]; then
+		MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC_QUIZ"|grep quiz|awk '{print $2}'|head -n 1)
+		if [[ "$MUSIC_PID" != "" ]]; then
+			kill $MUSIC_PID
+		fi
+	fi
 }
 function download_all_sounds(){
 	cd $AUDIO_LOCAL || exit
@@ -239,10 +244,12 @@ function answer_text_fr(){
 	if [ ! "$USER_CODE" == "$2" ]; then
 		case $LANGUAGE in
 			fr) talk_not_press_key justumen "\\e[4;37mDésolé, réponse fausse ou trop longue. Je vous conseille de suivre / refaire le cours.\nSi vous pensez maitriser le contenu du cours, il y a surement un piège, relisez donc attentivement la question. :-)\nSi vous vous sentez vraiment bloqué, demandez de l'aide sur notre chat : https://rocket.bjornulf.org ou notre discord : https://discord.gg/25eRgvD\\e[0m"
+				stop_quiz_music
 				#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
 				exit ;;
 			en) talk_not_press_key justumen "\\e[4;37mSorry answer wrong or too long. I recommend you to do / re-do the lecture :-)\nIf you think you already understand the content of the lecture, this question is probably a trap, read the question again carefully. :-)\nIf you feel stuck, ask for help in our chat : https://rocket.bjornulf.org or our discord : https://discord.gg/25eRgvD\\e[0m"
 				#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
+				stop_quiz_music
 				exit ;;
 		esac
 	else
@@ -312,6 +319,8 @@ if [ "$1" == "VIDEO" ]; then
 	VIDEO=1
 fi
 command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000";
+command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
+command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
 
 #OBSOLETE ?
 #~ restore=2 #first line of LIST_4GEN should be environment test (test ~/House)
