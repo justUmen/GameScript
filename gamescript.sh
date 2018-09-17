@@ -507,6 +507,7 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 			echo -e "For example, to download one (mortal kombat) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.m4a https://www.youtube.com/watch\?v\=EAwWPadFsOA\e[0m"
 			echo -e "But you need to install \e[30;48;5;82mffmpeg\e[0m and \e[30;48;5;82myoutube-dl\e[0m first. (sudo apt-get install youtube-dl ffmpeg)"
 		fi
+		echo ""
 		#~ echo "$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
 		#~ stty intr ^C
 		#~ &
