@@ -6,9 +6,8 @@ function pause_music(){
 	kill -SIGTSTP $1
 }
 function start_quiz_music(){
-	echo "$SOUNDPLAYER_MUSIC_QUIZ !!!"
 	if [[ "$MUTE" == "0" ]]; then
-		MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER"|grep Music|awk '{print $2}'|head -n 1)
+		MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
 		if [[ "$MUSIC_PID" != "" ]]; then
 			pause_music $MUSIC_PID
 		fi
