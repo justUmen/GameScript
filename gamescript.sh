@@ -490,7 +490,7 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		mkdir -p ~/.GameScript/Sounds/default/Music 2> /dev/null
 		#~ stty intr undef
 		#~ (trap '' INT; mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &)
-		mplayer -volume 50 /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a &>/dev/null &
+		mplayer -volume 40 /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a &>/dev/null &
 		#~ stty intr ^C
 		#~ &
 		#~ bind -x '"\C-c": pkill leafpad'
