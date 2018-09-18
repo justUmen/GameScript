@@ -104,5 +104,5 @@ Some chapters may have more dependencies to install.
 
 
 
-PATREON : https://www.patreon.com/justumen
-PAYPAL : https://www.paypal.me/justumen
+MY PATREON : https://www.patreon.com/justumen  
+MY PAYPAL : https://www.paypal.me/justumen  

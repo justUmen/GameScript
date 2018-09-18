@@ -1,8 +1,6 @@
 #[ -d "$HOME/.GameScript_bash12" ] && echo "Erreur inattendue, ${HOME}/.GameScript_bash12 existe déjà sur votre système ! Supprimez ce dossier $HOME/.GameScript_bash12 et relancez ce script." && exit
 #mkdir $HOME/.GameScript_bash12 2> /dev/null
 #cd $HOME/.GameScript_bash12
-
-
 Dans le chapitre précédent nous avons vu l'utilisation des conditions en bash avec la combinaison if/then/else/fi.
 
 Comme dans cet exemple :
@@ -123,6 +121,11 @@ type source ---> built-in ----> man bash
 
 
 \ avant mise a la ligne to esacpe \n (code peut continuer sur une autre ligne)
+
+
+
+
+case esac
 
 
 
