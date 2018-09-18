@@ -1,5 +1,8 @@
 # GameScript
 
+GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique.
+GameScript devrait fonctionner sur "Windows bash" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé.  
+
 ## Demo utilisation :
 
 <img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
@@ -10,9 +13,6 @@
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">
 </p>
-
-GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique.
-GameScript devrait fonctionner sur "Windows bash" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé.  
 
 ## Projet communautaire :
 

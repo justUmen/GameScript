@@ -1,5 +1,15 @@
 # GameScript
 
+## Select your language :
+
+|LANGUAGE|README|AVAILABLE CHAPTERS|
+|:-----:|:-----:|:-----:|
+|English|https://github.com/justUmen/GameScript/blob/master/README.md|7/13|
+|Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13/13|
+
+GameScript is an interactive script to learn about some computer related subjects.  
+GameScript should work with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.   
+
 ## Demo Usage :
 
 <img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
@@ -10,16 +20,6 @@
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">
 </p>
-
-## Select your language :
-
-|LANGUAGE|README|AVAILABLE CHAPTERS|
-|:-----:|:-----:|:-----:|
-|English|https://github.com/justUmen/GameScript/blob/master/README.md|7/13|
-|Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13/13|
-
-GameScript is an interactive script to learn about some computer related subjects.  
-GameScript should work with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.   
 
 ## Community project :
 
