@@ -83,18 +83,6 @@ function press_key(){
 	if [ "$key" == 'e' ]; then
 		exit
 	fi
-	#OBSOLETE ?
-	#~ if [ "$key" == 'q' ] || [ "$key" == 'e' ]; then
-		#~ pkill mpg123  > /dev/null 2>&1
-		#~ echo -e "\e[0m "
-		#~ exit 1
-	#~ fi
-	#~ if [ "$key" == 'r' ]; then
-		#~ pkill mpg123  > /dev/null 2>&1
-		#~ normal_line $restore
-	#~ fi
-	#~ pkill mpg123
-	#~ pkill mplayer > /dev/null 2>&1
 }
 
 #TODO ???
@@ -103,16 +91,7 @@ function new_sound(){
 	if [[ "$VOICE_PID" != "" ]]; then
 		kill $VOICE_PID
 	fi
-	#~ pkill mplayer &> /dev/null
-	#~ pkill mpg123 &> /dev/null
 	$SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
-	#~ if [[ ! -f "$AUDIO_DL/`expr $restore + 1`.mp3" ]];then
-		#~ ( wget $AUDIO_DL/`expr $restore + 1`.mp3 -O $AUDIO_LOCAL/`expr $restore + 1`.mp3 || rm $AUDIO_LOCAL/`expr $restore + 1`.mp3 ) &> /dev/null &
-		#~ ( wget -nc $AUDIO_DL/`expr $restore + 1`.mp3 -O $AUDIO_LOCAL/`expr $restore + 1`.mp3 || ( rm $AUDIO_LOCAL/`expr $restore + 1`.mp3 ; wget -nc $AUDIO_DL/`expr $restore + 2`.mp3 -O $AUDIO_LOCAL/`expr $restore + 2`.mp3 || $AUDIO_LOCAL/`expr $restore + 2`.mp3 ) ) &> /dev/null & #download next one, or the one after if it doesn't exist
-	#~ fi
-	#~ if [[ ! -f "$AUDIO_DL/`expr $restore + 2`.mp3" ]];then
-		#~ ( wget $AUDIO_DL/`expr $restore + 2`.mp3 -O $AUDIO_LOCAL/`expr $restore + 2`.mp3 || rm $AUDIO_LOCAL/`expr $restore + 2`.mp3 ) &> /dev/null &
-	#~ fi
 }
 
 function new_video(){
@@ -317,8 +296,9 @@ VIDEO=0
 if [ "$1" == "VIDEO" ]; then
 	VIDEO=1
 fi
-command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000";
-command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
+#~ command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000";
+command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -volume=100" || SOUNDPLAYER="mpg123";
+command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume=35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
 command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
 
 #OBSOLETE ?
