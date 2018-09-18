@@ -26,7 +26,8 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 
 ## Demo :
 
-<img src="https://github.com/justUmen/GameScript/blob/master/GS_usage.svg?sanitize=true">
+![Alt text](https://raw.githubusercontent.com/justUmen/GameScript/master/GS_usage.svg?sanitize=true)
+<img src="https://raw.githubusercontent.com/justUmen/GameScript/master/GS_usage.svg?sanitize=true">
 
 ## Dependencies :
 
