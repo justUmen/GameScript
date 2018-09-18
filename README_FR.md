@@ -1,6 +1,6 @@
 # GameScript
 
-GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique, avec enregistrements audio et musique de fond.
+GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique, avec enregistrements audio et musique de fond.  
 GameScript devrait fonctionner sur "Windows bash" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé.  
 
 ## Demo :
