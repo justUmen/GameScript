@@ -300,7 +300,7 @@ fi
 #SET in gamescript.sh too (need to be similar)
 command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -volume 100" || SOUNDPLAYER="mpg123";
 command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
-command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer -volume 60" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
+command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC_QUIZ="mplayer -volume 50" || SOUNDPLAYER_MUSIC_QUIZ="mpg123"
 
 #OBSOLETE ?
 #~ restore=2 #first line of LIST_4GEN should be environment test (test ~/House)
