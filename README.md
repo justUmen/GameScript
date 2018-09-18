@@ -12,7 +12,7 @@
 |Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13/13|
 
 GameScript is an interactive script to learn about some computer related subjects.  
-GameScript should work with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.  
+GameScript should work with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.   
 
 ## Community project :
 
