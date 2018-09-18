@@ -16,7 +16,7 @@ GameScript should work with "Windows bash" (Cygwin as well) and "macOS bash" but
 
 ## Community project :
 
-GameScript is a community project in constant evolution, if you see something that can be improved or if you wish to translate some of the content in another language, please contact me.
+GameScript is a community project in constant evolution, if you see something that can be improved or if you wish to translate some of the content in another language, please contact us.
 
 ## Installation :
 
