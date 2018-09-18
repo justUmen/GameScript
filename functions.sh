@@ -156,6 +156,14 @@ function talk_not_press_key_ANSWER(){
 	echo -nE "$2"
 	echo -e "\\e[0m"
 }
+function how_to_leave_chapter(){
+	echo ""
+	case $LANGUAGE in
+		fr) echo "Pour fermer ce chapitre, appuyez sur la touche 'e' quand vous voyez ces ... " ;;
+		en) echo "To close this chapter, press the key 'e' when you see these '...'" ;;
+	esac
+	echo ""
+}
 
 function answer_quiz(){
 	#$7 = bash, from enter_chapter
@@ -193,10 +201,12 @@ function answer_quiz(){
 						read choice < /dev/tty
 						case $choice in
 							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
+								how_to_leave_chapter
 								start_lecture `cat "$HOME/.GameScript/restore_$CHAPTER_NAME$CHAPTER_NUMBER"`
 								start_quiz
 								;;
 							2) 	clean
+								how_to_leave_chapter
 								start_lecture 1
 								start_quiz
 								;;
