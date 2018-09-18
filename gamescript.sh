@@ -201,9 +201,11 @@ done
 }
 
 function enter(){
-#IF NEEDED THERE ??? (After fail quiz) doesnt bother too much
-stop_quiz_music
-unpause_music
+	#IF NEEDED THERE ??? (After fail quiz) doesnt bother too much
+	if [[ "$MUTE" == "0" ]] && [[ "$MUSIC" == "1" ]]; then
+		stop_quiz_music
+		unpause_music
+	fi
   #USAGE : enter bash 1
   case $1 in
     bash) TITLE="Bourne Again SHell" ;;
