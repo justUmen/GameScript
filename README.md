@@ -6,7 +6,9 @@
 
 ## Example unlock badges (here bash levels) on discord :
 
-<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
+<p style="text-align:center">
+	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
+</p>
 
 ## Select your language :
 
