@@ -35,17 +35,19 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 * mplayer or mpg123 (mplayer is recommended !)
 * base64
 
-Some chapters may have more dependencies to install.
+Some chapters may have more dependencies to install. (see ALL below)
 
-### Install dependencies on Arch family (manjaro, antergos, ...)
+### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...)
 
     pacman -S wget mplayer mpg123
+    pacman -S wget mplayer mpg123 i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
-### Install dependencies on Debian family (ubuntu, mint, ...)
+### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer mpg123
+	apt-get install wget mplayer mpg123 i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
-### Current situation :
+### Current list of the lectures available in english :
 
 |CHAPTER|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
 |---------|:-----:|:-----:|:-----:|:-----:|
