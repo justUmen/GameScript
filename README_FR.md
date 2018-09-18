@@ -6,7 +6,7 @@
 
 ## Exemple des badges (ici niveau en bash) sur discord :
 
-<p style="text-align:center">
+<p align="center">
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
 </p>
 
