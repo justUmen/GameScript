@@ -4,7 +4,7 @@
 
 <img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
 
-## Example unlock badges (here bash levels) on discord and rocketchat : (rocketchat only available in french for now, coming soon.)
+## Example unlock badges (here bash levels) on discord and rocketchat : (rocketchat only available in french for now, coming soon...)
 
 <p align="center">
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
