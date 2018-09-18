@@ -1,11 +1,16 @@
 # GameScript
 
-## Demo :
+## Demo utilisation :
 
 <img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
 
+## Exemple des badges (ici niveau en bash) sur discord :
+
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord_1.png">
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord_2.png">
+
 GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique.
-GameScript devrait fonctionner sur "Windows bash" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé. (Support donné pour famille Debian et Arch)
+GameScript devrait fonctionner sur "Windows bash" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé.  
 
 ## Projet communautaire :
 

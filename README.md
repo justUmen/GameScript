@@ -1,8 +1,13 @@
 # GameScript
 
-## Demo :
+## Demo Usage :
 
 <img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
+
+## Example unlock badges (here bash levels) on discord :
+
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord_1.png">
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord_2.png">
 
 ## Select your language :
 
