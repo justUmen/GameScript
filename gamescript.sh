@@ -474,7 +474,8 @@ if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; goodbye; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; goodbye; fi
 if [[ $MUTE == 0 ]]; then
 	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "Without the option -m, you need to install mplayer or mpg123..." >&2; exit 3; }
-	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
+	#~ command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -af volume=10" || SOUNDPLAYER="mpg123 --scale 100000"
+	command -v mplayer &> /dev/null && SOUNDPLAYER="mplayer -volume 100" || SOUNDPLAYER="mpg123"
 	# -af volume=10 ADD 10 decibels
 fi
 if [[ $VIDEO == 1 ]]; then
@@ -510,9 +511,10 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		mkdir -p ~/.GameScript/Sounds/default/Music 2> /dev/null
 		#~ stty intr undef
 		#~ (trap '' INT; mplayer /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &)
-		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume=35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
+		command -v mplayer &> /dev/null && SOUNDPLAYER_MUSIC="mplayer -volume 35" || SOUNDPLAYER_MUSIC="mpg123 --scale 11445"
 		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3" ];then
 			echo "Background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
+			#~ echo "$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
 			$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
 		else
 			echo "$TEXT_MUSIC_1"
