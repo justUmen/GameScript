@@ -1,5 +1,9 @@
 # GameScript
 
+## Demo :
+
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
+
 ## Select your language :
 
 |LANGUAGE|README|AVAILABLE CHAPTERS|
@@ -23,10 +27,6 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 ## Launch :
 
     gamescript
-
-## Demo :
-
-<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
 
 ## Dependencies :
 
