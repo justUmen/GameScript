@@ -49,7 +49,7 @@ Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
 
 ### Liste des cours disponibles en français :
 
-|SUJET|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
+|SUJET|NOM DU CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
 |---------|---------|:-----:|:-----:|:-----:|:-----:|
 |s96|bash 1|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
 |s96|bash 2|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|

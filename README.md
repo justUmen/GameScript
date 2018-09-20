@@ -56,7 +56,7 @@ Some chapters may have more dependencies to install. (see ALL below)
 
 ### Current list of the lectures available in english :
 
-|SUBJECT|CHAPTER|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
+|SUBJECT|CHAPTER NAME|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
 |--------|---------|:-----:|:-----:|:-----:|:-----:|
 |s96|bash 1|✓[Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
 |s96|bash 2|✓[Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
