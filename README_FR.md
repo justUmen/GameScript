@@ -68,7 +68,7 @@ Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
 |s16|i3wm 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
 |s16|i3wm 2|||||
 
-Liste des sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progression-de-mes-objectifs-%C3%A9ducatifs)
+Liste des futures sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progression-de-mes-objectifs-%C3%A9ducatifs)
 
 # Bash : Code et concepts par chapitre
 
