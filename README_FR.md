@@ -7,7 +7,7 @@ GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows wit
 
 Discord : (https://discord.gg/25eRgvD)  
 RocketChat avec compte Github : (https://rocket.bjornulf.org)  
-Installer RocketChat App sur Debian/Ubuntu/Mint :
+Par exemple, installer RocketChat 2.13.3 app sur Debian/Ubuntu/Mint 64 bits :
 
 	wget https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/2.13.3/rocketchat_2.13.3_amd64.deb; sudo dpkg -i rocketchat_2.13.3_amd64.deb
 
