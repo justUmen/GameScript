@@ -363,11 +363,14 @@ function unlock(){
 	case $LANGUAGE in
 		fr) echo -e "Pour débloquer '$1 $2' sur rocketchat (https://rocket.bjornulf.org), ouvrez une conversation privée avec '@boti' et copiez/collez :\n\t\e[97;42mpassword$PASS\e[0m"
 			echo -e "Pour débloquer '$1 $2' sur discord (https://discord.gg/25eRgvD), ouvrez le channel '#mots-de-passe-boti' et copiez/collez :\n\t\e[97;42mpassword$PASS\e[0m"
-				;;
+			command -v xclip &> /dev/null && echo "Ce mot de passe a été copié automatiquement avec xclip." || echo "Installer 'xclip' pour copier ce mot de passe automatiquement."
+			;;
 		en) #echo -e "To unlock '$1 $2' on rocketchat (https://rocket.bjornulf.org), open a private conversation with '@boti' and copy/paste :\n\t\e[97;42mpassword$PASS\e[0m"
 			echo -e "To unlock '$1 $2' on discord (https://discord.gg/Dj47Tpf), open the channel '#passwords-boti' and copy/paste :\n\t\e[97;42mpassword$PASS\e[0m"
-				;;
+			command -v xclip &> /dev/null && echo "This password was automaticaly copied with xclip." || echo "Install 'xclip' to copy this password automaticaly."
+			;;
 	esac
+	command -v xclip &> /dev/null && echo "$PASS" | xclip -i -selection clipboard
 	#AUTOMATICALLY DO THIS ?
 	touch "$HOME/.GameScript/good_$1$2" 2> /dev/null
 	mkdir $HOME/.GameScript/passwords/ 2> /dev/null

@@ -40,12 +40,12 @@ Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
 ### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...)
 
     pacman -S wget mplayer mpg123
-    pacman -S wget mplayer mpg123 i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+    pacman -S wget mplayer mpg123 xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ### Installer les dépendances minimales ou TOUTES sur Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer mpg123
-	apt-get install wget mplayer mpg123 i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+	apt-get install wget mplayer mpg123 xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ### Liste des cours disponibles en français :
 
