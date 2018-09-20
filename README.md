@@ -58,9 +58,9 @@ Some chapters may have more dependencies to install. (see ALL below)
 
 |SUBJECT|CHAPTER NAME|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
 |--------|---------|:-----:|:-----:|:-----:|:-----:|
-|s96|bash 1|✓ by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s96|bash 2|✓ by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s96|bash 3|✓ by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 1|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 2|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 3|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
 |s96|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
 |s96|bash 5|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
 |s96|bash 6|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
