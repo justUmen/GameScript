@@ -12,7 +12,14 @@ GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwi
 
 ## [ English ] Chat :
 
-Discord : (https://discord.gg/Dj47Tpf)  
+|CHAT|OUR CHAT|APPLICATION|
+|---------|---------|--------|
+|Discord|(https://discord.gg/Dj47Tpf))|https://discordapp.com/download|
+
+For example, to install the Discord app on Debian/Ubuntu/Mint 64 bits :
+
+	wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
+	sudo dpkg -i discord.deb
 
 ## Demo :
 
