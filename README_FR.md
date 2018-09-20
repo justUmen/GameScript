@@ -3,6 +3,8 @@
 GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique, avec enregistrements audio et musique de fond.  
 GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows with Cygwin" mais "Linux" est recommandé. (Natif ou virtuel : virtualbox, vmware...)  
 
+##Chat :
+
 Discord : (https://discord.gg/25eRgvD)  
 RocketChat avec compte Github : (https://rocket.bjornulf.org)  
 
