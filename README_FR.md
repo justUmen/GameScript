@@ -20,7 +20,7 @@ GameScript est un projet communautaire en constante évolution, si vous remarque
 
 ## Installation :
 
-Ajoutez un alias à `gamescript` à votre fichier .bashrc en copie/collant cete commande :
+Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette commande :
 
     echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
 
@@ -49,24 +49,24 @@ Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
 
 ### Liste des cours disponibles en français :
 
-|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
-|---------|:-----:|:-----:|:-----:|:-----:|
-|bash 1|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 2|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 3|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 4|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 5|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 6|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 7|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 8|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 9|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 10|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 11|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|bash 12|||||
-|sys 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|sys 2|||||
-|i3wm 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
-|i3wm 2|||||
+|SUJET|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
+|---------|---------|:-----:|:-----:|:-----:|:-----:|
+|s96|bash 1|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 2|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 3|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 4|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 5|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 6|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 7|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 8|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 9|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 10|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 11|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s96|bash 12|||||
+|s15|sys 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s15|sys 2|||||
+|s16|i3wm 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
+|s16|i3wm 2|||||
 
 # Bash : Code et concepts par chapitre
 
@@ -101,7 +101,7 @@ Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
      Bash 10 => Code : alias , $PAGER , tail , head , $? , source , less
 
      Bash 11 => Concepts : condition , test logique
-     Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt
+     Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt
 
 
 MON PATREON : https://www.patreon.com/justumen  

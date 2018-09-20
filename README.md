@@ -56,24 +56,24 @@ Some chapters may have more dependencies to install. (see ALL below)
 
 ### Current list of the lectures available in english :
 
-|CHAPTER|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
-|---------|:-----:|:-----:|:-----:|:-----:|
-|bash 1|✓[Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|bash 2|✓[Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|bash 3|✓[Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|bash 5|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|bash 6|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|bash 7|||||
-|bash 8|||||
-|bash 9|||||
-|bash 10|||||
-|bash 11|||||
-|bash 12|||||
-|sys 1|||||
-|sys 2|||||
-|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|i3wm 2|||||
+|SUBJECT|CHAPTER|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
+|--------|---------|:-----:|:-----:|:-----:|:-----:|
+|s96|bash 1|✓[Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 2|✓[Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 3|✓[Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 5|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 6|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s96|bash 7|||||
+|s96|bash 8|||||
+|s96|bash 9|||||
+|s96|bash 10|||||
+|s96|bash 11|||||
+|s96|bash 12|||||
+|s15|sys 1|||||
+|s15|sys 2|||||
+|s16|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
+|s16|i3wm 2|||||
 
 # Bash : Code and concepts by chapter
 
@@ -108,7 +108,7 @@ Some chapters may have more dependencies to install. (see ALL below)
     Bash 10 => Code : alias , $PAGER , tail , head , $? , source , less
 
     Bash 11 => Concepts : condition , logic test
-    Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt
+    Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt
 
 ## Types :
 
