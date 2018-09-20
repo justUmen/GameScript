@@ -230,11 +230,11 @@ function enter(){
 						"$CHAPTER 7 \e[0m : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()" \
 						"$CHAPTER 8 \e[0m : | , wc , sort , grep , uniq , - , |& , <" \
 						"$CHAPTER 9 \e[0m : \$ , \$PATH , type , printenv" 	\
-						"[NO SOUND] $CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , \$? , source , less" \
-						"[NO SOUND] $CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt"
+						"[PAS DE SON] $CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , \$? , source , less" \
+						"[PAS DE SON] $CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq - lt , -ne , -gt"
 						;;
-				i3wm) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-				sys)  show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+				i3wm) show_menu "$1" "[PAS DE SON] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+				sys)  show_menu "$1" "[PAS DE SON] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 				*) TITLE="" ;;
 			esac
 			;;
