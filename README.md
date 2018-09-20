@@ -39,25 +39,6 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 
     gamescript
 
-## Dependencies :
-
-* bash > version 4
-* wget
-* mplayer or mpg123 (mplayer is recommended !)
-* base64
-
-Some chapters may have more dependencies to install. (see ALL below)
-
-### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...)
-
-    pacman -S wget mplayer
-    pacman -S wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
-
-### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
-
-    apt-get install wget mplayer
-	apt-get install wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
-
 ### Current list of the lectures available in english :
 
 |SUBJECT|CHAPTER NAME|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
@@ -78,6 +59,25 @@ Some chapters may have more dependencies to install. (see ALL below)
 |s15|sys 2|||||
 |s16|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
 |s16|i3wm 2|||||
+
+## Dependencies :
+
+* bash > version 4
+* wget
+* mplayer or mpg123 (mplayer is recommended !)
+* base64
+
+Some chapters may have more dependencies to install. (see ALL below)
+
+### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...)
+
+    pacman -S wget mplayer
+    pacman -S wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+
+### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
+
+    apt-get install wget mplayer
+	apt-get install wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 # Bash : Code and concepts by chapter
 

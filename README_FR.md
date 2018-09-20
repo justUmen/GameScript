@@ -33,25 +33,6 @@ Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette co
 
     gamescript
 
-## Dépendances :
-
-* bash > version 4
-* wget
-* mplayer ou mpg123 (mplayer est recommendé !)
-* base64
-
-Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
-
-### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...)
-
-    pacman -S wget mplayer
-    pacman -S wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
-
-### Installer les dépendances minimales ou TOUTES sur Debian family (ubuntu, mint, ...)
-
-    apt-get install wget mplayer
-	apt-get install wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
-
 ### Liste des cours disponibles en français :
 
 |SUJET|NOM DU CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
@@ -74,6 +55,25 @@ Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
 |s16|i3wm 2|||||
 
 Liste des futures sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progression-de-mes-objectifs-%C3%A9ducatifs)
+
+## Dépendances :
+
+* bash > version 4
+* wget
+* mplayer ou mpg123 (mplayer est recommendé !)
+* base64
+
+Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
+
+### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...)
+
+    pacman -S wget mplayer
+    pacman -S wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+
+### Installer les dépendances minimales ou TOUTES sur Debian family (ubuntu, mint, ...)
+
+    apt-get install wget mplayer
+	apt-get install wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 # Bash : Code et concepts par chapitre
 
