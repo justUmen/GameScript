@@ -8,7 +8,7 @@
 |Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13/13|
 
 GameScript is an interactive script to learn about some computer related subjects with voice recordings and background music.  
-GameScript should work with "Windows bash" (Cygwin as well) and "macOS bash" but "Linux" is recommended.   
+GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwin" but "Linux" is recommended. (Native or virtual virtualbox, vmware...)   
 
 ## Demo :
 
@@ -46,13 +46,13 @@ Some chapters may have more dependencies to install. (see ALL below)
 
 ### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...)
 
-    pacman -S wget mplayer mpg123
-    pacman -S wget mplayer mpg123 xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+    pacman -S wget mplayer
+    pacman -S wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
 
-    apt-get install wget mplayer mpg123
-	apt-get install wget mplayer mpg123 xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+    apt-get install wget mplayer
+	apt-get install wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ### Current list of the lectures available in english :
 

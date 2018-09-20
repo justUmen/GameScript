@@ -1,7 +1,7 @@
 # GameScript
 
 GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique, avec enregistrements audio et musique de fond.  
-GameScript devrait fonctionner sur "Windows bash" (Cygwin aussi) et "macOS bash" mais "Linux" est recommandé.  
+GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows with Cygwin" mais "Linux" est recommandé. (Natif ou virtuel : virtualbox, vmware...)  
 
 ## Demo :
 
@@ -39,13 +39,13 @@ Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
 
 ### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...)
 
-    pacman -S wget mplayer mpg123
-    pacman -S wget mplayer mpg123 xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+    pacman -S wget mplayer
+    pacman -S wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ### Installer les dépendances minimales ou TOUTES sur Debian family (ubuntu, mint, ...)
 
-    apt-get install wget mplayer mpg123
-	apt-get install wget mplayer mpg123 xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+    apt-get install wget mplayer
+	apt-get install wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ### Liste des cours disponibles en français :
 
