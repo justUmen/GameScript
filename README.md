@@ -6,6 +6,8 @@
 |:-----:|:-----:|:-----:|
 |English|https://github.com/justUmen/GameScript/blob/master/README.md|7/13|
 |Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13/13|
+|Khmer|...|0/13|
+|Thai|...|0/13|
 
 GameScript is an interactive script to learn about some computer related subjects with voice recordings and background music.  
 GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwin" but "Linux" is recommended. (Native or virtual virtualbox, vmware...)   
