@@ -130,5 +130,5 @@ Some chapters may have more dependencies to install. (see ALL below)
 
 
 
-MY PATREON : https://www.patreon.com/justumen  
+MY PATREON : https://www.patreon.com/justumen (Bonus Patreon Badge)  
 MY PAYPAL : https://www.paypal.me/justumen  

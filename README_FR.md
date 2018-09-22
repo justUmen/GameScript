@@ -123,5 +123,5 @@ Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
      Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt
 
 
-MON PATREON : https://www.patreon.com/justumen  
+MON PATREON : https://www.patreon.com/justumen (Bonus Badge Patreon)  
 MON PAYPAL : https://www.paypal.me/justumen  
