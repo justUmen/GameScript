@@ -81,12 +81,12 @@ Some chapters may have more dependencies to install. (see ALL below)
 ### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...)
 
     pacman -S wget mplayer
-    pacman -S wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+    pacman -S wget mplayer youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer
-	apt-get install wget mplayer xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+	apt-get install wget mplayer youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 # Bash : Code and concepts by chapter
 
