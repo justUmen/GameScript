@@ -26,7 +26,7 @@ Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette co
 
 ## [ Français ] Chats :
 
-Au choix, utilisez la page internet ou l'application :  
+Au choix, utilisez la page internet ou l'application (ou ni l'un ni l'autre. :p) :  
 
 |CHAT|NOTRE CHAT|APPLICATION|
 |---------|---------|--------|

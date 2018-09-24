@@ -39,7 +39,7 @@ Up to you, use the web page or application :
 
 ## [ English ] Chat :
 
-Up to you, use the web page or application :  
+Your choice, use the web page or application (or nothing :p) :  
 
 |CHAT|OUR CHAT|APPLICATION|
 |---------|---------|--------|
