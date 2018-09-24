@@ -69,14 +69,14 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 |s16|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
 |s16|i3wm 2|||||
 
-## Dependencies :
+## Minimal dependencies :
 
 * bash > version 4
 * wget
-* mplayer or mpg123 (mplayer is recommended !)
-* base64
+* mplayer or mpg123 (mplayer is highly recommended !)
 
 Some chapters may have more dependencies to install. (see ALL below)
+Note : macOS users should manually install a bash version 4 or higher. (check current version with `bash --version`)
 
 ### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...)
 

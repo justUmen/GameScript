@@ -68,14 +68,14 @@ Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette co
 
 Liste des futures sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progression-de-mes-objectifs-%C3%A9ducatifs)
 
-## Dépendances :
+## Dépendances minimales :
 
 * bash > version 4
 * wget
-* mplayer ou mpg123 (mplayer est recommendé !)
-* base64
+* mplayer ou mpg123 (mplayer est très fortement recommendé !)
 
-Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)
+Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)  
+Note : Les utilisateurs de macOS doivent manuellement installer une version de bash supérieure à 4. (Vérifier votre version avec : `bash --version`)  
 
 ### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...)
 
