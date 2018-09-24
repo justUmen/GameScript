@@ -12,6 +12,31 @@
 GameScript is an interactive script to learn about some computer related subjects with voice recordings and background music.  
 GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwin" but "Linux" is recommended. (Native or virtual virtualbox, vmware...)   
 
+## Demo :
+
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
+
+## Installation :
+
+Add `gamescript` alias to your .bashrc file by copy/pasting this command in a bash terminal :
+
+    echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
+
+## Launch :
+
+    gamescript
+    
+## [ English ] Chat :
+
+Up to you, use the web page or application :  
+
+## Example unlock badges (here bash levels) on discord and rocketchat : (rocketchat only available in french for now, coming soon...)
+
+<p align="center">
+	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
+	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">
+</p>
+
 ## [ English ] Chat :
 
 Up to you, use the web page or application :  
@@ -25,30 +50,18 @@ For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bit
 	wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
 	sudo dpkg -i discord.deb
 
-## Demo :
-
-<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
-
-## Example unlock badges (here bash levels) on discord and rocketchat : (rocketchat only available in french for now, coming soon...)
-
-<p align="center">
-	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
-	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">
-</p>
-
 ## Community project :
 
 GameScript is a community project in constant evolution, if you see something that can be improved or if you wish to translate some of the content in another language, please contact us.
 
-## Installation :
+|CHAT|OUR CHAT|APPLICATION|
+|---------|---------|--------|
+|Discord|(https://discord.gg/Dj47Tpf))|https://discordapp.com/download|
 
-Add `gamescript` alias to your .bashrc file by copy/pasting this command in a bash terminal :
+For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bits :
 
-    echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
-
-## Launch :
-
-    gamescript
+	wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
+	sudo dpkg -i discord.deb
 
 ### Current list of the lectures available in english :
 

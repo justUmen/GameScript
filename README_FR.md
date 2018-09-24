@@ -3,6 +3,27 @@
 GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique, avec enregistrements audio et musique de fond.  
 GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows with Cygwin" mais "Linux" est recommandé. (Natif ou virtuel : virtualbox, vmware...)  
 
+## Demo :
+
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
+
+## Installation :
+
+Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette commande :
+
+    echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
+
+## Lancement :
+
+    gamescript
+
+## Exemple des badges (ici niveau en bash) sur discord et rocketchat :
+
+<p align="center">
+	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
+	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">
+</p>
+
 ## [ Français ] Chats :
 
 Au choix, utilisez la page internet ou l'application :  
@@ -22,30 +43,9 @@ Par exemple, si vous voulez installer Discord app sur Debian/Ubuntu/Mint 64 bits
 	wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
 	sudo dpkg -i discord.deb
 
-## Demo :
-
-<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
-
-## Exemple des badges (ici niveau en bash) sur discord et rocketchat :
-
-<p align="center">
-	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
-	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">
-</p>
-
 ## Projet communautaire :
 
 GameScript est un projet communautaire en constante évolution, si vous remarquez quelque chose qui pourrait être améliorée ou si vous désirez traduire son contenu dans une autre langue, merci de nous contacter.
-
-## Installation :
-
-Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette commande :
-
-    echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
-
-## Lancement :
-
-    gamescript
 
 ### Liste des cours disponibles en français :
 
