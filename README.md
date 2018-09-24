@@ -16,13 +16,13 @@ GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwi
 
 <img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
 
-## Installation :
+## Installation (from a terminal) :
 
 Add `gamescript` alias to your .bashrc file by copy/pasting this command in a bash terminal :
 
     echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
 
-## Launch :
+## Launch (from a terminal) :
 
     gamescript
     
