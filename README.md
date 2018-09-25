@@ -10,7 +10,7 @@
 |Thai|...|0/13|
 
 GameScript is an interactive script to learn about some computer related subjects with voice recordings and background music.  
-GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwin" but "Linux" is recommended. (Native or virtual virtualbox, vmware...)   
+GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwin" but "Linux" is recommended. (Native or virtual : virtualbox, vmware...)   
 
 ## Demo :
 
