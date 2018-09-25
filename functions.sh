@@ -236,7 +236,7 @@ function answer_text_fr(){
 				stop_quiz_music
 				#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
 				exit ;;
-			en) talk_not_press_key justumen "\\e[4;37mSorry answer wrong or too long. I recommend you to do / re-do the lecture :-)\nIf you think you already understand the content of the lecture, this question is probably a trap, read the question again carefully. :-)\nIf you feel stuck, ask for help in our chat : https://rocket.bjornulf.org or our discord : https://discord.gg/25eRgvD\\e[0m"
+			en) talk_not_press_key justumen "\\e[4;37mSorry answer wrong or too long. I recommend you to do / re-do the lecture :-)\nIf you think you already understand the content of the lecture, this question is probably a trap, read the question again carefully. :-)\nIf you feel stuck, ask for help on our discord : https://discord.gg/Dj47Tpf\\e[0m"
 				#enter_chapter $CHAPTER_NAME $CHAPTER_NUMBER
 				press_key
 				stop_quiz_music

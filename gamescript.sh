@@ -62,8 +62,8 @@ function talk_GAMESCRIPT_not_press(){
 function goodbye(){
 	echo ""
 	case $LANGUAGE in
-		fr) echo "Au revoir et bonne journée. :)" ;;
-		en) echo "Goodbye and have a nice day. :)" ;;
+		fr) echo -e "Au revoir et bonne journée. :)\nJustumen" ;;
+		en) echo -e "Goodbye and have a nice day. :)\nJustumen" ;;
 	esac
 	pkill mplayer
 	pkill mpg123
@@ -166,7 +166,6 @@ function stop_quiz_music(){
 function gamescript_available_arguments(){
 while [ true ]; do	
   #MENU - SUBJECT SELECTION
-  command -v toilet &> /dev/null && toilet -f mono12 GameScript -w 100
   echo ""
   case $1 in
     fr) echo -e "Menu principal : "
@@ -217,7 +216,8 @@ function enter(){
   case $2 in
     # 1) echo -e "\e[0;33m...\e[0m" ;&
     1) echo "" ;&
-  	2) echo -e "   \e[97;44m - $1, $TITLE \e[0m" ;&
+  	2) 	command -v toilet &> /dev/null && toilet -f mono9 "$1" -w 100
+		echo -e "   \e[97;44m - $1, $TITLE \e[0m" ;&
   	3)
 	  case $LANGUAGE in
 		fr) case $1 in
@@ -268,11 +268,13 @@ function enter(){
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
 			#~ mkdir -p $HOME/$LANGUAGE/classic/$1/ #??? what is this doing here ?
 			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
+			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $(expr $2 - 3)" -w 100
 			bash $HOME/.GameScript/standalone.sh MUTE
 			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s -- MUTE
 		else
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
 			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
+			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $(expr $2 - 3)" -w 100
 			if [[ $VIDEO == 0 ]];then
 				bash $HOME/.GameScript/standalone.sh
 			else
@@ -600,6 +602,8 @@ else #SIMPLE AUDIO
 	fi
 fi
 
+
+command -v toilet &> /dev/null && toilet -f mono12 GameScript -w 100
 #Store username in config instead ?
 if [ ! -f "$HOME/.GameScript/username" ]; then
   #STORE LOCAL PERSONAL PROGRESSION : hidden file like ~/.GameScript/bash_1 ...

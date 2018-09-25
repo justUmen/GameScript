@@ -43,7 +43,7 @@ Your choice, use the web page or application (or nothing :p) :
 
 |CHAT|OUR CHAT|APPLICATION|
 |---------|---------|--------|
-|Discord|(https://discord.gg/Dj47Tpf))|https://discordapp.com/download|
+|Discord|(https://discord.gg/Dj47Tpf)|https://discordapp.com/download|
 
 For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bits :
 
@@ -56,7 +56,7 @@ GameScript is a community project in constant evolution, if you see something th
 
 |CHAT|OUR CHAT|APPLICATION|
 |---------|---------|--------|
-|Discord|(https://discord.gg/Dj47Tpf))|https://discordapp.com/download|
+|Discord|(https://discord.gg/Dj47Tpf)|https://discordapp.com/download|
 
 For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bits :
 
