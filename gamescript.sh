@@ -171,7 +171,7 @@ while [ true ]; do
     fr) echo -e "Menu principal : "
 		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
 		#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
-		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ] \e[0m ( bash 2+ recommandé )"
+		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
 		echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system [ $CHAPTER 1 ] \e[0m (  )"
 		echo -e "\\e[0;100m h) \\e[0m Aide"
 		echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
@@ -180,7 +180,7 @@ while [ true ]; do
     en) echo -e "Main menu : "
 		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-6 ]\e[0m"
 		#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
-		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ]\e[0m ( bash 2+ recommanded )"
+		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ]\e[0m ( level bash 2+ recommanded )"
 		echo -e "\\e[0;100m h) \\e[0m Help"
 		echo -e "\\e[0;100m p) \\e[0m My passwords"
 		echo -e "\\e[0;100m e) \\e[0m Exit"
@@ -257,6 +257,12 @@ function enter(){
     # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
     *)
 		#MUTE=1 AND VOICE=0 IS DIFFERENT BUT SAME FOR STANDALONE BECAUSE MUSIC PLAYED IN GAMESCRIPT (WHAT ABOUT SOUND EFFECTS ?) ???
+		case $LANGUAGE in
+			fr)	echo "Downloading last version of this chapter..."
+				;;
+			en)	echo "Téléchargement de la dernière version de ce chapitre..."
+				;;
+		esac
 		if [[ $MUTE == 1 ]] || [[ $VOICE == 0 ]]; then
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
 			#~ mkdir -p $HOME/$LANGUAGE/classic/$1/ #??? what is this doing here ?
