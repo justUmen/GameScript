@@ -30,7 +30,7 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 
 Up to you, use the web page or application :  
 
-## Example unlock badges (here bash levels) on discord and rocketchat : (rocketchat only available in french for now, coming soon...)
+## Example unlock badges on discord and rocketchat : (rocketchat only available in french for now, coming soon...)
 
 <p align="center">
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">

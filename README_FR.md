@@ -17,7 +17,7 @@ Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette co
 
     gamescript
 
-## Exemple des badges (ici niveau en bash) sur discord et rocketchat :
+## Exemple des badges sur discord et rocketchat :
 
 <p align="center">
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
