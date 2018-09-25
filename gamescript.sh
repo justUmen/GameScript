@@ -259,9 +259,9 @@ function enter(){
     *)
 		#MUTE=1 AND VOICE=0 IS DIFFERENT BUT SAME FOR STANDALONE BECAUSE MUSIC PLAYED IN GAMESCRIPT (WHAT ABOUT SOUND EFFECTS ?) ???
 		case $LANGUAGE in
-			fr)	echo "Downloading last version of this chapter..."
+			en)	echo "Downloading last version of this chapter..."
 				;;
-			en)	echo "Téléchargement de la dernière version de ce chapitre..."
+			fr)	echo "Téléchargement de la dernière version de ce chapitre..."
 				;;
 		esac
 		if [[ $MUTE == 1 ]] || [[ $VOICE == 0 ]]; then
