@@ -172,7 +172,7 @@ while [ true ]; do
 		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
 		#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
 		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
-		echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system [ $CHAPTER 1 ] \e[0m (  )"
+		echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
 		echo -e "\\e[0;100m h) \\e[0m Aide"
 		echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
 		echo -e "\\e[0;100m e) \\e[0m Quitter"
@@ -417,7 +417,7 @@ command -v base64 >/dev/null 2>&1 || { echo "You need the command : base64." >&2
 
 #CONFIG FILE
 if [ -f ~/.GameScript/config ]; then
-	echo -e "Reading configuration file : ~/.GameScript/config\n"
+	echo -e "Configuration : ~/.GameScript/config\n"
 	source ~/.GameScript/config
 else
 	create_config
