@@ -14,7 +14,7 @@ GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwi
 
 ## Demo :
 
-<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage_2.svg">
 
 ## Installation (from a terminal) :
 

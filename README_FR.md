@@ -5,7 +5,7 @@ GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows wit
 
 ## Demo :
 
-<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage.svg">
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage_2.svg">
 
 ## Installation (dans un terminal) :
 
