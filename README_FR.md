@@ -79,15 +79,15 @@ Liste des futures sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progres
 Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)  
 Note : Les utilisateurs de macOS doivent manuellement installer une version de bash supérieure à 4. (Vérifier votre version avec : `bash --version`)  
 
-### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...) - `toilet` dans l'AUR
-
-    pacman -S wget mplayer
-    pacman -S wget mplayer youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
-
 ### Installer les dépendances minimales ou TOUTES sur Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer
 	apt-get install wget mplayer youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
+
+### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...) - `toilet` dans l'AUR
+
+    pacman -S wget mplayer
+    pacman -S wget mplayer youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 # Bash : Code et concepts par chapitre
 

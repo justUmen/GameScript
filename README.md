@@ -93,15 +93,15 @@ For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bit
 Some chapters may have more dependencies to install. (see ALL below)
 Note : macOS users should manually install a bash version 4 or higher. (check current version with `bash --version`)
 
-### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...) - `toilet` in AUR
-
-    pacman -S wget mplayer
-    pacman -S wget mplayer youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
-
 ### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer
 	apt-get install wget mplayer youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
+
+### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...) - `toilet` in AUR
+
+    pacman -S wget mplayer
+    pacman -S wget mplayer youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 # Bash : Code and concepts by chapter
 
