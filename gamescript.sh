@@ -166,7 +166,7 @@ function stop_quiz_music(){
 function gamescript_available_arguments(){
 while [ true ]; do	
   #MENU - SUBJECT SELECTION
-  command -v toilet &> /dev/null && 
+  command -v toilet &> /dev/null && toilet -f mono12 GameScript -w 100
   echo ""
   case $1 in
     fr) echo -e "Menu principal : "
