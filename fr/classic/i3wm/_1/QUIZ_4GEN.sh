@@ -39,7 +39,7 @@ CHAPTER_NUMBER="1"
 LANGUAGE="fr"
 SPEAKER="m1"
 
-LINES=249
+LINES=250
 #~ if [ "$1" == "VIDEO" ]; then
 	#~ prepare_video
 #~ else

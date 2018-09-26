@@ -604,7 +604,6 @@ fi
 
 
 command -v toilet &> /dev/null && toilet -f mono12 GameScript -w 100
-#Store username in config instead ?
 if [ ! -f "$HOME/.GameScript/username" ]; then
   #STORE LOCAL PERSONAL PROGRESSION : hidden file like ~/.GameScript/bash_1 ...
   #STORE USER : ~/.GameScript/username
