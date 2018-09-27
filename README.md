@@ -5,9 +5,9 @@
 |LANGUAGE|README|AVAILABLE CHAPTERS|
 |:-----:|:-----:|:-----:|
 |English|https://github.com/justUmen/GameScript/blob/master/README.md|7/13|
-|Français|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13/13|
-|Khmer|...|0/13|
-|Thai|...|0/13|
+|Français (French)|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13/13|
+|ខ្មែរ (Khmer)|...|0/13|
+|ไทย (Thai)|...|0/13|
 
 GameScript is an interactive script to learn about some computer related subjects with voice recordings and background music.  
 GameScript is written in `bash` and is able to teach you this language. Learning `bash` with GameScript will make you able to understand its source code !  
