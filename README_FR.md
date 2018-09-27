@@ -52,7 +52,7 @@ GameScript est un projet communautaire en constante évolution, si vous remarque
 
 |REF|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|WALLPAPER|
 |---------|---------|:-----:|:-----:|:-----:|:-----:|:-----:|
-|s96|bash 1|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|✓|
+|s96|bash 1|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/bash_1)|
 |s96|bash 2|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
 |s96|bash 3|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
 |s96|bash 4|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
@@ -64,9 +64,9 @@ GameScript est un projet communautaire en constante évolution, si vous remarque
 |s96|bash 10|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
 |s96|bash 11|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
 |s96|bash 12||||||
-|s15|sys 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|✓|
+|s15|sys 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
 |s15|sys 2||||||
-|s16|i3wm 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
+|s16|i3wm 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/i3wm_1)|
 |s16|i3wm 2||||||
 
 Liste des futures sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progression-de-mes-objectifs-%C3%A9ducatifs)
