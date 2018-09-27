@@ -55,15 +55,6 @@ For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bit
 
 GameScript is a community project in constant evolution, if you see something that can be improved or if you wish to translate some of the content in another language, please contact us.
 
-|CHAT|OUR CHAT|APPLICATION|
-|---------|---------|--------|
-|Discord|(https://discord.gg/Dj47Tpf)|https://discordapp.com/download|
-
-For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bits :
-
-	wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
-	sudo dpkg -i discord.deb
-
 ### Current list of the lectures available in english :
 
 |REF|CHAPTER|TEXT|SOUND|CHAT BADGE|CHAT LINK|WALLPAPER|
