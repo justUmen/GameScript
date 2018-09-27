@@ -26,10 +26,6 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 ## Launch (from a terminal) :
 
     gamescript
-    
-## [ English ] Chat :
-
-Up to you, use the web page or application :  
 
 ## Example unlock badges on discord and rocketchat : (rocketchat only available in french for now, coming soon...)
 
