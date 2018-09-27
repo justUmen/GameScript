@@ -66,24 +66,24 @@ For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bit
 
 ### Current list of the lectures available in english :
 
-|REF|CHAPTER|TEXT|SOUND|CHAT BADGE|CHAT LINK|
-|--------|---------|:-----:|:-----:|:-----:|:-----:|
-|s96|bash 1|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s96|bash 2|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s96|bash 3|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s96|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s96|bash 5|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s96|bash 6|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s96|bash 7|||||
-|s96|bash 8|||||
-|s96|bash 9|||||
-|s96|bash 10|||||
-|s96|bash 11|||||
-|s96|bash 12|||||
-|s15|sys 1|||||
-|s15|sys 2|||||
-|s16|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)|
-|s16|i3wm 2|||||
+|REF|CHAPTER|TEXT|SOUND|CHAT BADGE|CHAT LINK|WALLPAPER|
+|--------|---------|:-----:|:-----:|:-----:|:-----:|:-----:|
+|s96|bash 1|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|bash 2|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|bash 3|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|bash 5|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|bash 6|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|bash 7||||||
+|s96|bash 8||||||
+|s96|bash 9||||||
+|s96|bash 10||||||
+|s96|bash 11||||||
+|s96|bash 12||||||
+|s15|sys 1||||||
+|s15|sys 2||||||
+|s16|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s16|i3wm 2||||||
 
 ## Minimal dependencies :
 
