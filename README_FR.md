@@ -1,6 +1,7 @@
 # GameScript
 
 GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique, avec enregistrements audio et musique de fond.  
+GameScript est écrit en `bash` et peut vous aider à apprendre ce langage. Apprendre `bash` avec GameScript vous permettra donc de comprendre son code source !  
 GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows with Cygwin" mais "Linux" est recommandé. (Natif ou virtuel : virtualbox, vmware...)  
 
 ## Demo :
@@ -49,7 +50,7 @@ GameScript est un projet communautaire en constante évolution, si vous remarque
 
 ### Liste des cours disponibles en français :
 
-|SUJET|NOM DU CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
+|REF|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|
 |---------|---------|:-----:|:-----:|:-----:|:-----:|
 |s96|bash 1|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
 |s96|bash 2|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|
@@ -124,6 +125,15 @@ Note : Les utilisateurs de macOS doivent manuellement installer une version de b
      Bash 11 => Concepts : condition , test logique
      Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt
 
+## Types :
+
+A same chapter can have the same content but
+
+* "classic" = mode par défaut, uniquement contenu technique
+* "story" = apprendre avec des histoires [ aucun pour l'instant ]
+
+## Moi
 
 MON PATREON : https://www.patreon.com/justumen (Bonus Badge Patreon)  
 MON PAYPAL : https://www.paypal.me/justumen  
+MON TWITTER : https://twitter.com/justUmen  

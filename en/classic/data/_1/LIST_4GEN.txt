@@ -1,0 +1,207 @@
+Hello everyone, and welcome to the most boring subject ever.
+I'm pretty sure you are going to hate me right away, but i decided to give you what you need and not what want.
+A classic mistake would be to skip some basic ideas and concepts and jump into the exciting stuff.
+But what am im gonna talk about is very important and I dont think you know everything, even if you think you do.
+I have seen a lot of people neglicting this, and ended up regreting it. Myself included...
+During your long-term relationship with your computer, you will create a lot of 'them' together.
+I'm of course talking about : "FILES AND FOLDERS".
+So here we will learn how we can create and manage our files and folders.
+
+???In a segment i called "Best files and folders", or BFF for short.
+
+So there are two main types of elements that are handled by your computer. : files and folders.
+Files represent the core of pretty much everything, they store the actual information or data.
+It can be whatever you want : text, image, video, sound, program etc...
+On the other end. (which is this hand.) *sigh* You have folders.
+Folders are just elements that you can use to organize your files.
+You will sometimes see the word "directory" instead of "folder".
+But there are no difference between the two. Sometimes you will see one, sometimes the other.
+
+??? I have for you here a "real life" folder. Ladies and gentlement, this is the ancestor of the folders we have today.
+??? This is a replica i have made, real folders are of course extinct.
+
+So the idea is : we can actually open it and see inside. We can see now, our directory is empty.
+But we can put a file inside. Our file will be a text file.
+If you put this directory inside another directory. You will have to open you first directory, then your second directory, and you can access your file.
+This is very basic concept and that is what computers are using.
+But computers dont have the limitations of the real world.
+
+###Real world sucks.
+Jarvis... thank you.
+
+So on a computer, unlike the real world, you can have an incredible amount of directories.
+If you are NOT in control of what you are doing, it can get messy very very quickly.
+
+So, before creating a new element (a new file or new a directory). You need to find 2 things first :
+I- A good location
+II - A good name
+
+###Before creating a new element, i need to find a good : (computer / teacher / location / name )
+
+[EX]I will give you an example, and I will explain along the way all my decisions.
+In this example, I want to create and write a new shell script.
+If you dont know what a shell script is, its basicaly a simple text-based computer program.
+A text file that can do stuff.
+
+But before writing my script, i need to create it.
+So I need to find a good location first.
+
+##1.1.1 - "GOOD LOCATION"
+
+Like I said, on a computer, you can create an incredible amount of files and directories.
+So you really need to be careful and stay in control of them.
+You main goal is being able to find back your files, even after a long period of time, so you need to find a suitable place for them.
+If it is difficult for you to find something back in your own machine, you did it wrong.
+You have to choose a methodology and stick to it.
+If you already have some stuff, dont be afraid to delete, or to reorganise everything.
+But the best tip i can give you to avoid wasting a lot of time, is to do it well from the start.
+
+##Folder's name
+[1]		So first tip :
+This a naming system i am using every day, and i invite you to do it as well :
+When i create a new directory i always put a capital letter as the first letter.
+This is a very easy way to navigate and control your structure.
+
+Step 1 - I will go inside a directory called "Sync".
+This directory is the directory I am using to synchronize my files and directorys accross all my machines.
+If im downloading a big piece of data, a video for example. I dont want this video to be in the Sync directory.
+It would be a waste of space and bandwidth.
+But in this case i want to be able to use that new script on all my machines, so "Sync" directory it is.
+
+Step 2 - I will then go inside my "Script" directory.
+Here I want the next directory to represent the type of the the files.
+If you just have a few scripts, you can put it there.
+But if the directory is already crowded, you may have to organize your scripts by categories.
+It depends on how many files and directorys you already have.
+Some people will then organize them based on the programming language they used.
+So inside their script directory, they will have directorys like "Python", "Perl", "Bash" etc... but personaly im more interested about what the script is doing, rather than the language im using.
+
+So lets talk about what i want my script to do:
+lets say i want my script to make queries to all the main search engines out there.
+And return only the results that they all have in common.
+
+So this script will obviously have to crawl the web.
+If my computer is not connected to the internet, my script is useless.
+
+So i will go on in my "Web" directory.
+Once again, if you have a lot of stuff there. Create another directory.
+Here it is going to be search engine specific so "SearchEngine".
+
+You are not here because you want to be a basic computer user.
+So starting today : when you create a file or a directory, you dont want to use spaces.
+spaces are often used to separate elements from themselves.
+We will look at this later, but for now just remember : Spaces are not for you.
+So what should you use instead of spaces ?
+
+To solve this problem there is two main schools
+- some put a capital letter on the first letter of the next word. "SearchEngine".
+- some would rather replace the spaces by underscores.
+
+In this case it might be something like "search_engine".
+I personnaly use both. But i stick to the capital letters for directorys and underscores for files.
+
+In our example, the element i want to create is a directory so "SearchEngine" it is.
+
+###What is the worst name for a directory : "my directory", "my_directory", "mydirectory","Mydirectory"
+
+###What is the best name for a directory : "my directory", "my_directory", "mydirectory","Mydirectory"
+
+If i have few scripts here, i dont need more directorys, and i can create my script here.
+So this succession of directorys is called a path. 
+In my case : "Sync", "Script", "Web", "SearchEngine"
+
+###What is the general name that represent a succession of directorys like this one : "this/is/a/stupid/example"
+
+#1.1.2 - "GOOD NAME"
+
+The files and directorys are identified by their names.
+This means that two elements, located in the same place cant have exactly the same name.
+Note that on Linux, "example" and "eXample" are two different elements, a capital letter is just a different letter.
+We say that linux is case-sensitive.
+So if you read somehwere the sentence "the password is case-sensitive" it means that an uppercase A and lowercase a are considered to be different letters.
+
+Back to linux, remember : linux is case-sensitive.
+The operating system Windows for example is not case sensitive.
+
+###Is linux case sensitive ? (y / n)
+
+###Is windows case sensitive ? (y / n)
+
+So if you respect the rule ive talked about before, you can have a directory called "Example" and a file called "example" in the same place.
+
+###Can i create a file called "BOB.jpg" if i already have a file in the same directory called "bob.jpg" ?
+
+So what makes a name a good name ?
+If the name is short enough and can at the same time summarize the actual content of the file, this is awesome !
+If you need to open a file to understand whats inside. Your filename is bad. Or you path is bad. Or both.
+The worst thing you can do is just create a file called "file" in the first directory you see.
+Even for testing purposes, just please, find a suitable place for it, and create a "testing" directory
+Linux allow you to do whatever you want with your files and directorys names, you dont have any obligations.
+I gave you some good advices for directorys, but for files it is a good habit to use extensions
+If a file contains some raw text about "bob", you want to call this file "bob.txt" or "bob.text"
+For a jpeg picture of bob, you can use "bob.jpg" or "bob.jpeg".
+Once again, on linux you are free to do whatever you want. But try to avoid abusing this freedom to do stupid things !
+You could for example rename the picture "bob.jpeg" with "bob.txt", but it will still be an image of bob.
+
+###"bob.jpg" is always an image. (y/n)
+
+I hope this is clear for everyone, just the name changed, the data and the type of data inside didnt.
+\So i recommanded you, to use extensions that match their type. .html for hypertext markup language, .js for javascript, .css for cascading stylesheet, .sh for shell scripts, and so on...
+
+###What is the best name for a shell script (program) that will list all current users : "code.sh", "my_script.sh", "list_users.txt", "list_users.sh", "users.sh", "list_users", "ListUsers", "this_shell_script_will_list_all_the_users.sh"
+
+So lets go back to our example : The script i want to create.
+We already have a good path (or the sequence of directorys) so now we want a good name.
+In our example, based on what the script is supposed to do, a good name could be "common_results.sh".
+".sh" because it will be a shell script.
+"common_results" is not a good name by itself. But Because of the path we have chosen, it actually is.
+
+Lets see the final result. On linux you separate directorys from other elements using the symbol "/"
+So in Linux, it will be something like this :
+"Sync/Script/Web/SearchEngine/common_results.sh"
+This line is pretty much self explanatory.
+it is a shell script, it is available on all my machines,
+it needs internet access, it can give me the common results from the search engines
+
+So to summarize, there is often more than one good answer for a problem.
+I gave you some tips, but the way you create and manage everything is really up to you.
+The best thing to do is probably to imagine a third person going throw you stuff.
+This person should understand immediatly how your system is organized.
+
+I recently recovered some old files, from when I was stupid.
+most of which had names like "example", "test.txt", "image75.jpeg".
+Some programs were called "tmp.sh", or "program.c" and horrible things like that.
+And i had to open and read almost every file to understand what it was supposed to do.
+It was a huge waste of time and energy.
+
+So remember, this "third person", I was talking about might you from the future.
+So whatever you might end up doing, be smarter than me and dont underestimate organising your files and directorys.
+
+###Which filename is the best ? "MyFile", "Myfile" "my_file", "my file"
+###Which character is used to separate directorys with other elements ?
+
+
+
+
+/*
+
+
+					For example if you want to organize several people, lets say "bob", "roger" and "mike".
+						First you need to create a directory called "people"
+							If you have several file per user, it is recommanded to create a specific directory for this user.
+							In our situation we have a text file and an image.
+								So we will have to create 3 directorys, one for bob, one for roger and one for mike
+									We can then have their image file and their text file inside.
+									This is where things gets interesting. How should we call our files for lets say bob.
+										"bob.jpeg", "image.jpeg", "bob_in_underwear.jpeg".
+										Well it all depends on how you will use
+											these files. For example if you want bobs picture to be up to date, you can add
+											the date on it. "bob_2016.jpeg", or just "2016.jpeg", because it is in bob
+											directory anyway, you know its bob. You can but you dont need to repeat it.
+										If you are going to store several sizes for the pictures you can use :
+											"bob_small.jpeg", "bob_normal.jpeg", "bob_big.jpeg"
+										Once again you dont need to specify the name so :
+											"small.jpeg", "normal.jpeg", "big.jpeg"
+										If you have a lot of pictures of someone, you can of course create a new directory
+										called "pictures".
+*/

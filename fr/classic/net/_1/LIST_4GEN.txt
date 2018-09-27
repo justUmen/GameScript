@@ -1,3 +1,4 @@
 #[ -d "$HOME/House" ] && echo "Erreur innatendu, ${HOME}/House existe déjà sur votre système ! Supprimez ce dossier $HOME/House et relancer ce script." && exit
 #mkdir $HOME/.GameScript_net1 &> /dev/null
 #cd $HOME/.GameScript_net1
+

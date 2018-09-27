@@ -10,6 +10,7 @@
 |Thai|...|0/13|
 
 GameScript is an interactive script to learn about some computer related subjects with voice recordings and background music.  
+GameScript is written in `bash` and is able to teach you this language. Learning `bash` with GameScript will make you able to understand its source code !  
 GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwin" but "Linux" is recommended. (Native or virtual : virtualbox, vmware...)   
 
 ## Demo :
@@ -65,7 +66,7 @@ For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bit
 
 ### Current list of the lectures available in english :
 
-|SUBJECT|CHAPTER NAME|TEXT|SOUND|CHAT BADGE|UNLOCK CHAT LINK|
+|REF|CHAPTER|TEXT|SOUND|CHAT BADGE|CHAT LINK|
 |--------|---------|:-----:|:-----:|:-----:|:-----:|
 |s96|bash 1|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
 |s96|bash 2|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)|
@@ -143,7 +144,8 @@ Note : macOS users should manually install a bash version 4 or higher. (check cu
 * "classic" = default mode, technical content only
 * "story" = learning with stories [ none created for now ]
 
-
+## Me
 
 MY PATREON : https://www.patreon.com/justumen (Bonus Patreon Badge)  
 MY PAYPAL : https://www.paypal.me/justumen  
+MY TWITTER : https://twitter.com/justUmen  
