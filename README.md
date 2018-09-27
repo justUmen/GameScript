@@ -100,7 +100,7 @@ Note : macOS users should manually install a bash version 4 or higher. (check cu
     Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
 
     Bash 3 => Concepts : escape character , delimiters of argument
-    Bash 3 => Code : echo , \ , \n , > , >> , cat , "", ''
+    Bash 3 => Code : echo , \ , \n, \t , > , >> , cat , "", ''
 
     Bash 4 => Concepts : conditional success , conditional failure
     Bash 4 => Code : mv , cp , ; , && , ||

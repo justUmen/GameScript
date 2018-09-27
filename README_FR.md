@@ -99,7 +99,7 @@ Note : Les utilisateurs de macOS doivent manuellement installer une version de b
      Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
 
      Bash 3 => Concepts : caractère d'échappement , délimiteur d'argument
-     Bash 3 => Code : echo , \ , \n , > , >> , cat , "", ''
+     Bash 3 => Code : echo , \ , \n, \t , > , >> , cat , "", ''
 
      Bash 4 => Concepts : condition de succès , condition d'échec
      Bash 4 => Code : mv , cp , ; , && , ||

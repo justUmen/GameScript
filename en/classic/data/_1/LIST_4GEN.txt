@@ -1,11 +1,13 @@
 Hello everyone, and welcome to the most boring subject ever.
 I'm pretty sure you are going to hate me right away, but i decided to give you what you need and not what want.
-A classic mistake would be to skip some basic ideas and concepts and jump into the exciting stuff.
-But what am im gonna talk about is very important and I dont think you know everything, even if you think you do.
-I have seen a lot of people neglicting this, and ended up regreting it. Myself included...
+Skipping the basics and jumping into the exciting stuff would be a classic mistake.
+But what am im gonna talk about here is very important and I dont think you know everything.
+Even if you think you do.
+I have seen a lot of people neglicting this, and ended up regreting it.
+Myself included...
 During your long-term relationship with your computer, you will create a lot of 'them' together.
-I'm of course talking about : "FILES AND FOLDERS".
-So here we will learn how we can create and manage our files and folders.
+And to bring the suspend to an end, I'm talking about : ${voc}files${reset} and ${voc}folders${reset}.
+So here we will learn how we can create and manage them.
 
 ???In a segment i called "Best files and folders", or BFF for short.
 
