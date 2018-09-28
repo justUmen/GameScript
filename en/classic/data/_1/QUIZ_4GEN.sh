@@ -22,6 +22,18 @@ function start_quiz(){
   echo -e "Example : If the answer is 'ls'. The answers 'ls .', 'ls ./' and 'ls ././' won't work." 
 ###Creating and using files and folders is very trivial and you shouldn't waste your time learning about it. (true / false)
 ###A picture is a .... ? (directory / file)
+###Before creating a new element, i need to find a good : (computer / teacher / location / name )
+##Folder's name
+###What is the worst name for a directory : "my directory", "my_directory", "mydirectory","Mydirectory"
+###What is the best name for a directory : "my directory", "my_directory", "mydirectory","Mydirectory"
+###What is the name of a succession of directories like this one : "/this/is/a/stupid/example/for/a/"
+###Is linux case sensitive ? (y / n)
+###Is windows case sensitive ? (y / n)
+###If my OS is case sensitive, can i create a file called "BOB.jpg" if i already have a file in the same directory called "bob.jpg" ?
+###The file "bob.jpg" is always an image. (y/n)
+###What is the best name for a shell script (program) that will list all current users : "code.sh", "my_script.sh", "list_users.txt", "list_users.sh", "users.sh", "list_users", "ListUsers", "this_shell_script_will_list_all_the_users.sh"
+###Which filename is the best ? "MyFile", "Myfile" "my_file", "my file"
+###Which character is used to separate directorys with other elements ?
 
 }
 
