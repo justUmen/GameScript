@@ -135,9 +135,15 @@ function select_lecture_or_quiz(){
 	done
 	echo -e "   \e[0;100m e) \e[0m $TEXT_BACK"
 	selected=99
-	while [[ "$selected" != "1" ]] && [[ "$selected" != "2" ]] && [[ "$selected" != "3" ]] && [[ "$selected" != "4" ]] && [[ "$selected" != "5" ]] && [[ "$selected" != "6" ]] && [[ "$selected" != "7" ]] && [[ "$selected" != "8" ]] && [[ "$selected" != "9" ]] && [[ "$selected" != "10" ]] && [[ "$selected" != "11" ]] && [[ "$selected" != "12" ]] && [ "$selected" != "e" ]; do #Answer in menu
+	while :; do
 		echo -en "   \e[97;45m # \e[0m"
 		read selected < /dev/tty
+    case $selected in
+			"") ;;
+	    e) break ;;
+	    *[!0-9]*) ;;
+	    *) test "$selected" -lt "$MENU_SIZE" && break ;;
+    esac
 	done
 	if [ "$selected" != "e" ];then
 		# echo "launch_standalone classic $SUBJECT $selected"
@@ -290,10 +296,10 @@ Arguments pour changements temporaires :
 }
 
 function my_passwords(){
-	if [ ! -d "/$HOME/.GameScript/passwords/" ]; then #NOT EXIST
-		if [ "$(ls -A /$HOME/.GameScript/passwords/)" ];then #EMPTY
-			echo "$TEXT_NO_PASSWORD"
-		fi
+	if [ ! -d "$HOME/.GameScript/passwords/" ]; then #NOT EXIST
+		echo "$TEXT_NO_PASSWORD"
+	elif [ ! "$(ls -A $HOME/.GameScript/passwords/)" ]; then #EMPTY
+		echo "$TEXT_NO_PASSWORD"
 	else
 		echo ""
 		echo "$HOME/.GameScript/username : `cat ~/.GameScript/username`"
