@@ -19,16 +19,20 @@ function start_quiz(){
   answer_text_fr "Quel est le code à ajouter dans le fichier de configuration d'i3 pour lancer le script '/this/script.sh' avec la combinaison de touche Alt + o ?" "bindsym mod1+o exec /this/script.sh"
   answer_text_fr "Justumen aime bien i3. (vrai/faux)" "vrai"
   
-  wget "https://github.com/justUmen/WallpaperGenerator/raw/master/Wallpaper/fr/i3wm_1/`xrandr | grep ' connected' | sed 's/.*primary //' | sed 's/+.*//'`.jpg" -O ~/.GameScript/i3wm_1_wallpaper.jpg &>/dev/null
-  feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg
+  if [ -x "$(command -v feh)" ]; then
+	  wget "https://github.com/justUmen/WallpaperGenerator/raw/master/Wallpaper/fr/i3wm_1/`xrandr | grep ' connected' | sed 's/.*primary //' | sed 's/+.*//'`.jpg" -O ~/.GameScript/i3wm_1_wallpaper.jpg &>/dev/null
+	  feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg
 
-  echo -e "Je viens de changer votre fond d'écran avec un rappel de ce que vous venez d'apprendre dans ce chapitre. (Commande : 'feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg')"
-  echo -e "Vous pouvez donc désormais vous rendre sur un espace de travail vide pour un rappel rapide des combinaisons de touche de ce chapitre. :-)"
-  echo -e "Si vous désirez que ce fond d'écran soit utilisé a chaque redémarrage, rajoutez 'exec feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg' dans votre fichier de configuration."
+	  echo -e "Je viens de changer votre fond d'écran avec un rappel de ce que vous venez d'apprendre dans ce chapitre. (Commande : 'feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg')"
+	  echo -e "Vous pouvez donc désormais vous rendre sur un espace de travail vide pour un rappel rapide des combinaisons de touche de ce chapitre. :-)"
+	  echo -e "Si vous désirez que ce fond d'écran soit utilisé a chaque redémarrage, rajoutez 'exec feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg' dans votre fichier de configuration."
+	  echo -e "Si le fond d'écran ne s'affiche pas, c'est probablement parce la résolution de votre écran n'est pas supportée, veuillez me contacter pour que je puisse l'ajouter à la liste."
+	  echo -e "Pour voir les résolutions disponibles, vous pouvez visitez : https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/i3wm_1"
+	  echo -e "Pour connaitre la résolution de votre écran, vous pouvez utiliser la commande : 'xrandr'"
+  else
+	 echo -e "Pour voir les fond d'écran disponibles, vous pouvez visitez : https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/i3wm_1"
+  fi
 
-  echo -e "Si le fond d'écran ne s'affiche pas, c'est probablement parce la résolution de votre écran n'est pas supportée, veuillez me contacter pour que je puisse l'ajouter à la liste."
-  echo -e "Pour voir les résolutions disponibles, vous pouvez visitez : https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/i3wm_1"
-  echo -e "Pour connaitre la résolution de votre écran, vous pouvez utiliser la commande : 'xrandr'"
 
   unlock "i3wm" "1" "99ac" "871f"
  }

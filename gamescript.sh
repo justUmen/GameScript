@@ -76,26 +76,26 @@ function show_menu(){
   #TEST IF NUMBER, ALLOW ONLY NUMBERS ???
 	#~ while [ "$selected" != "e" ] && [ "$selected" -gt "$#" ]; do #Answer in menu
 	while [ "$selected" != "e" ] && [ "$selected" -gt "$#" ]; do #Answer in menu
-    # echo ""
-    argCMP=1
-    SUBJECT=$1
-    shift
-    for ARG in "$@"; do #For each arguments
-  		# echo -e "\\e[0;100m $argCMP) \\e[0m $ARG"
-      if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then #OLD (SUCCESS) GREEN IF QUIZ ANSWERED
-    	   echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG \e[0m"
-      else
-         echo -e "   \e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
-      fi
-      argCMP=`expr $argCMP + 1`
-    done
-    # echo ""
-    case $LANGUAGE in
-		fr) echo -e "   \e[0;100m e) \e[0m Retour" ;;
-		en) echo -e "   \e[0;100m e) \e[0m Back" ;;
-	esac
-  	#~ echo -e "\e[0;100m e) \e[0m Exit"
-    # echo ""
+		# echo ""
+		argCMP=1
+		SUBJECT=$1
+		shift
+		for ARG in "$@"; do #For each arguments
+			# echo -e "\\e[0;100m $argCMP) \\e[0m $ARG"
+		  if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then #OLD (SUCCESS) GREEN IF QUIZ ANSWERED
+			   echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG \e[0m"
+		  else
+			 echo -e "   \e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
+		  fi
+		  argCMP=`expr $argCMP + 1`
+		done
+		# echo ""
+		case $LANGUAGE in
+			fr) echo -e "   \e[0;100m e) \e[0m Retour" ;;
+			en) echo -e "   \e[0;100m e) \e[0m Back" ;;
+		esac
+		#~ echo -e "\e[0;100m e) \e[0m Exit"
+		# echo ""
 		echo -en "   \e[97;45m # \e[0m"
 		read selected < /dev/tty
 	done
@@ -144,11 +144,20 @@ Arguments pour changements temporaires :
 }
 
 function my_passwords(){
-	echo ""
-	echo "$HOME/.GameScript/username : `cat ~/.GameScript/username`"
-	for filename in $HOME/.GameScript/passwords/*; do
-		echo "$filename : password`cat $filename`"
-	done
+	if [ -d "/$HOME/.GameScript/passwords/" ]; then #NOT EXIST
+		if [ "$(ls -A /$HOME/.GameScript/passwords/)" ];then #EMPTY
+			case $LANGUAGE in
+				en) echo -e "You don't have any password. :)\n" ;;
+				fr) echo -e "Vous n'avez aucun mot de passe. :)\n" ;;
+			esac
+		fi
+	else
+		echo ""
+		echo "$HOME/.GameScript/username : `cat ~/.GameScript/username`"
+		for filename in $HOME/.GameScript/passwords/*; do
+			echo "$filename : password`cat $filename`"
+		done
+	fi
 }
 
 function unpause_music(){
@@ -164,7 +173,7 @@ function stop_quiz_music(){
 	fi
 }
 function gamescript_available_arguments(){
-while [ true ]; do	
+while [ true ]; do
   #MENU - SUBJECT SELECTION
   echo ""
   case $1 in
@@ -188,6 +197,10 @@ while [ true ]; do
   esac
   echo -en "\e[97;45m # \e[0m"
   read selected < /dev/tty
+  while [ "$selected" != "1" ] || [ "$selected" != "2" ] || [ "$selected" != "3" ] || [ "$selected" != "h" ] || [ "$selected" != "p" ] || [ "$selected" != "e" ]; do
+	echo -en "\e[97;45m # \e[0m"
+	read selected < /dev/tty
+  done
   case $selected in
     "1") launch_gamescript $LANGUAGE classic bash ;;
     "2") launch_gamescript $LANGUAGE classic i3wm ;;
@@ -380,6 +393,11 @@ function create_config(){
 	echo -e "\\e[0;100m e) \\e[0m exit"
 	echo -en "\e[97;45m # \e[0m"
 	read default_language < /dev/tty
+    while [ "$selected" != "1" ] || [ "$selected" != "2" ] || [ "$selected" != "e" ]; do
+    	echo -en "\e[97;45m # \e[0m"
+		read default_language < /dev/tty
+    done
+
 	case $default_language in
 		1) LANGUAGE="en" ;; 
 		2) LANGUAGE="fr" ;; 

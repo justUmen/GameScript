@@ -19,17 +19,21 @@ function start_quiz(){
   answer_text_fr "What is the code you need to add to have for the shortcut 'Alt + o' to execute the script '/this/script.sh' ?" "bindsym mod1+o exec /this/script"
   answer_text_fr "Justumen likes i3wm. (true/false)" "true"
   
-  wget "https://github.com/justUmen/WallpaperGenerator/raw/master/Wallpaper/en/i3wm_1/`xrandr | grep ' connected' | sed 's/.*primary //' | sed 's/+.*//'`.jpg" -O ~/.GameScript/i3wm_1_wallpaper.jpg &>/dev/null
-  feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg
+  if [ -x "$(command -v feh)" ]; then
+	  wget "https://github.com/justUmen/WallpaperGenerator/raw/master/Wallpaper/en/i3wm_1/`xrandr | grep ' connected' | sed 's/.*primary //' | sed 's/+.*//'`.jpg" -O ~/.GameScript/i3wm_1_wallpaper.jpg &>/dev/null
+	  feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg
 
-  echo -e "I just changed your wallpaper with a cheatsheet of what we've learned in this chapter. (Command : 'feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg')"
-  echo -e "You can now go on an empty workspace for a quick reminder. :-)"
-  echo -e "If you want this wallpaper to be used every time you start i3, add the line : 'exec feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg' to your configuration file."
+	  echo -e "I just changed your wallpaper with a cheatsheet of what we've learned in this chapter. (Command : 'feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg')"
+	  echo -e "You can now go on an empty workspace for a quick reminder. :-)"
+	  echo -e "If you want this wallpaper to be used every time you start i3, add the line : 'exec feh --bg-scale ~/.GameScript/i3wm_1_wallpaper.jpg' to your configuration file."
 
-  echo -e "If you can't see the wallpaper, it's probably because your screen resolution isn't supported, please contact me so I can add it to the list."
-  echo -e "To see the available resolutions, you can visit : https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/en/i3wm_1"
-  echo -e "To know you current screen resolution, you can use the command : 'xrandr'"
-
+	  echo -e "If you can't see the wallpaper, it's probably because your screen resolution isn't supported, please contact me so I can add it to the list."
+	  echo -e "To see the available resolutions, you can visit : https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/en/i3wm_1"
+	  echo -e "To know you current screen resolution, you can use the command : 'xrandr'"
+  else
+	  echo -e "To see the available wallpapers, you can visit : https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/en/i3wm_1"
+  fi
+  
   unlock "i3wm" "1" "99ac" "871f"
  }
 
