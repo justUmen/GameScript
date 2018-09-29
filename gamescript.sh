@@ -139,9 +139,8 @@ function select_lecture_or_quiz(){
 		echo -en "   \e[97;45m # \e[0m"
 		read selected < /dev/tty
     case $selected in
-			"") ;;
 	    e) break ;;
-	    *[!0-9]*) ;;
+	    *[!0-9]*|'') ;;
 	    *) test "$selected" -lt "$MENU_SIZE" && break ;;
     esac
 	done
