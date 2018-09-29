@@ -201,6 +201,7 @@ function talk_GAMESCRIPT(){
 		new_sound
 	fi
 	echo -e "\e[0;32m $1\e[0m - $2"
+	read -s -t 1 -n 10000 discard
 	press_key_GAMESCRIPT
 }
 function talk_GAMESCRIPT_not_press(){
