@@ -135,7 +135,7 @@ function select_lecture_or_quiz(){
 	done
 	echo -e "   \e[0;100m e) \e[0m $TEXT_BACK"
 	selected=99
-	while [ "$selected" != "e" ] && [ "$selected" != "1" ]&& [ "$selected" != "2" ]&& [ "$selected" != "3" ] && [ "$selected" != "4" ] && [ "$selected" != "5" ] && [ "$selected" != "6" ] && [ "$selected" != "7" ] && [ "$selected" != "8" ] && [ "$selected" != "9" ] && [ "$selected" != "10" ] && [ "$selected" != "11" ] && [ "$selected" != "12" ]; do #Answer in menu
+	while [[ "$selected" != "1" ]] && [[ "$selected" != "2" ]] && [[ "$selected" != "3" ]] && [[ "$selected" != "4" ]] && [[ "$selected" != "5" ]] && [[ "$selected" != "6" ]] && [[ "$selected" != "7" ]] && [[ "$selected" != "8" ]] && [[ "$selected" != "9" ]] && [[ "$selected" != "10" ]] && [[ "$selected" != "11" ]] && [[ "$selected" != "12" ]] && [ "$selected" != "e" ]; do #Answer in menu
 		echo -en "   \e[97;45m # \e[0m"
 		read selected < /dev/tty
 	done
@@ -152,7 +152,7 @@ function launch_standalone(){
 	TYPE=$1
 	SUBJECT=$2
 	CHAPTER_NUMBER=$3
-	#MUTE=1 AND VOICE=0 IS DIFFERENT BUT SAME FOR STANDALONE BECAUSE MUSIC PLAYED IN GAMESCRIPT (WHAT ABOUT SOUND EFFECTS ?) ???
+	#MUTE=1 AND VOICE=0 ARE DIFFERENT BUT SAME FOR STANDALONE BECAUSE MUSIC IS PLAYED IN gamescript.sh (WHAT ABOUT SOUND EFFECTS ?) ???
 	echo $TEXT_DOWNLOADING_CHAPTER
 	#TEST INTERNET
 	wget -q --spider http://google.com
@@ -193,7 +193,7 @@ function press_key_GAMESCRIPT(){
 	read -s -n1 key < /dev/tty
 	VOICE_PID=$(ps -f|grep "$SOUNDPLAYER"|grep -v grep|grep -v MUSIC|awk '{print $2}'|head -n 1)
 	if [[ "$VOICE_PID" != "" ]]; then
-		kill $VOICE_PID
+		kill $VOICE_PID &> /dev/null
 	fi
 }
 function talk_GAMESCRIPT(){
@@ -223,6 +223,7 @@ function goodbye(){
 }
 
 function create_config(){
+	mkdir ~/.GameScript/ 2> /dev/null
 	echo "Creation of the configuration file : ~/.GameScript/config"
 	echo ""
 	echo "Please select a default language :"
@@ -230,11 +231,10 @@ function create_config(){
 	echo -e "\\e[0;100m 2) \\e[0m Français"
 	echo -e "\\e[0;100m e) \\e[0m exit"
 	default_language="x"
-    while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "e" ]; do
-    	echo -en "\e[97;45m # \e[0m"
+  while [ "$default_language" != "1" ] && [ "$default_language" != "2" ] && [ "$default_language" != "e" ]; do
+  	echo -en "\e[97;45m # \e[0m"
 		read default_language < /dev/tty
-    done
-
+  done
 	case $default_language in
 		1) LANGUAGE="en" ;;
 		2) LANGUAGE="fr" ;;
