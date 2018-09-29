@@ -194,12 +194,14 @@ function answer_quiz(){
 				esac
 				if [ -f "$HOME/.GameScript/restore_$7$8" ];then
 					echo "$ANSWER_QUIZ_TEXT"
-					while [ "$choice" != "1" ] || [ "$choice" != "2" ] || [ "$choice" != "3" ]; do
-						echo -e "      \\e[0;100m 1) \\e[0m $TEXT_CONTINUE"
-						echo -e "      \\e[0;100m 2) \\e[0m $TEXT_RESTART"
-						echo -e "      \\e[0;100m e) \\e[0m $TEXT_BACK"
+					echo -e "      \\e[0;100m 1) \\e[0m $TEXT_CONTINUE"
+					echo -e "      \\e[0;100m 2) \\e[0m $TEXT_RESTART"
+					echo -e "      \\e[0;100m e) \\e[0m $TEXT_BACK"
+					choice="x"
+					while [ "$choice" != "1" ] && [ "$choice" != "2" ] && [ "$choice" != "3" ]; do
 						echo -en "      \\e[97;45m # \\e[0m"
 						read choice < /dev/tty
+					done
 						case $choice in
 							1)  cd `cat "$HOME/.GameScript/restore_pwd_$CHAPTER_NAME$CHAPTER_NUMBER"`
 								how_to_leave_chapter
@@ -213,7 +215,7 @@ function answer_quiz(){
 								;;
 							e) exit ;;
 						esac
-					done
+					#~ done
 				fi
 				start_lecture 1
 				start_quiz
