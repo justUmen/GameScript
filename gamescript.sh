@@ -195,8 +195,8 @@ while [ true ]; do
 		echo -e "\\e[0;100m e) \\e[0m Exit"
 		;;
   esac
-  echo -en "\e[97;45m # \e[0m"
-  read selected < /dev/tty
+	read selected < /dev/tty
+
   case $selected in
     "1") launch_gamescript $LANGUAGE classic bash ;;
     "2") launch_gamescript $LANGUAGE classic i3wm ;;
@@ -389,10 +389,6 @@ function create_config(){
 	echo -e "\\e[0;100m e) \\e[0m exit"
 	echo -en "\e[97;45m # \e[0m"
 	read default_language < /dev/tty
-    while [ "$selected" != "1" ] || [ "$selected" != "2" ] || [ "$selected" != "e" ]; do
-    	echo -en "\e[97;45m # \e[0m"
-		read default_language < /dev/tty
-    done
 
 	case $default_language in
 		1) LANGUAGE="en" ;; 
