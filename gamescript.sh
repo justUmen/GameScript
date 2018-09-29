@@ -134,7 +134,6 @@ function select_lecture_or_quiz(){
 	  argCMP=`expr $argCMP + 1`
 	done
 	echo -e "   \e[0;100m e) \e[0m $TEXT_BACK"
-	esac
 	selected=99
 	while [ "$selected" != "e" ] && [ "$selected" != "1" ]&& [ "$selected" != "2" ]&& [ "$selected" != "3" ]; do #Answer in menu
 		echo -en "   \e[97;45m # \e[0m"
@@ -157,7 +156,7 @@ function launch_standalone(){
 	echo $TEXT_DOWNLOADING_CHAPTER
 	#TEST INTERNET
 	wget -q --spider http://google.com
-	if [ $? -eq 0 ]; then
+	if [ $? -ne 0 ]; then
 		echo $TEXT_INTERNET_ERROR
 	else
 		if [[ $MUTE == 1 ]] || [[ $VOICE == 0 ]]; then
@@ -586,7 +585,7 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 			echo -e "$TEXT_MUSIC_COMMON"
 		fi
 		echo ""
-		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3" ];then
+		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3" ]; then
 			echo "Quiz music : /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3"
 		else
 			echo "$TEXT_MUSIC_1"
