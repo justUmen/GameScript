@@ -1,194 +1,5 @@
 #!/bin/bash
-
-
-#  ██████   █████  ███    ███ ███████ ███████  ██████ ██████  ██ ██████  ████████
-# ██       ██   ██ ████  ████ ██      ██      ██      ██   ██ ██ ██   ██    ██
-# ██   ███ ███████ ██ ████ ██ █████   ███████ ██      ██████  ██ ██████     ██
-# ██    ██ ██   ██ ██  ██  ██ ██           ██ ██      ██   ██ ██ ██         ██
-#  ██████  ██   ██ ██      ██ ███████ ███████  ██████ ██   ██ ██ ██         ██
-
-
-
-# ███    ███ ███████ ███    ██ ██    ██
-# ████  ████ ██      ████   ██ ██    ██
-# ██ ████ ██ █████   ██ ██  ██ ██    ██
-# ██  ██  ██ ██      ██  ██ ██ ██    ██
-# ██      ██ ███████ ██   ████  ██████
-
-
-
-#gamescript.sh
-#	--> select_subject
-#		--> select_chapter $SUBJECT 1
-#			--> select_lecture_or_quiz "$SUBJECT" "DETAILS CHAPTER 1" "DETAILS CHAPTER 2" ...
-#				--> launch_standalone $TYPE $SUBJECT $CHAPTER
-
-function select_subject(){
-	#Never leave this menu
-	while [ true ]; do
-		#MENU - SUBJECT SELECTION
-		echo ""
-		case $LANGUAGE in
-			fr) echo -e "Menu principal : "
-				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
-				#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
-				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
-				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
-				echo -e "\\e[0;100m h) \\e[0m Aide"
-				echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
-				echo -e "\\e[0;100m e) \\e[0m Quitter"
-				;;
-			en) echo -e "Main menu : "
-				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-6 ]\e[0m"
-				#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
-				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ]\e[0m ( level bash 2+ recommanded )"
-				echo -e "\\e[0;100m h) \\e[0m Help"
-				echo -e "\\e[0;100m p) \\e[0m My passwords"
-				echo -e "\\e[0;100m e) \\e[0m Exit"
-				;;
-		esac
-		selected="x"
-		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ] && [ "$selected" != "e" ]; do
-			echo -en "\e[97;45m # \e[0m"
-			read selected < /dev/tty
-		done
-		case $selected in
-			"1") select_chapter bash 1 ;;
-			"2") select_chapter i3wm 1 ;;
-			"3") select_chapter sys 1 ;;
-			h) gamescript_help ;;
-			p) my_passwords ;;
-			e) goodbye ;;
-			*) echo "Error"; goodbye ;;
-		esac
-	done
-}
-
-
-function select_chapter(){
-	SUBJECT=$1
-	#IF NEEDED THERE ??? (After fail quiz) doesnt bother too much
-	if [[ "$MUTE" == "0" ]] && [[ "$MUSIC" == "1" ]]; then
-		stop_quiz_music
-		unpause_music
-	fi
-	#USAGE : select_chapter bash 1
-	case $SUBJECT in
-	  bash) TITLE="Bourne Again SHell" ;;
-	  i3wm) TITLE="The i3 Window Manager" ;;
-	  sys) TITLE="Unix-like system" ;;
-	  *) TITLE="" ;;
-	esac
-	echo ""
-	command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT" -w 100
-	echo -e "   \e[97;44m - $SUBJECT, $TITLE \e[0m"
-	case $LANGUAGE in
-		fr) case $SUBJECT in
-					bash) select_lecture_or_quiz "$SUBJECT" \
-							"$CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
-							"$CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
-							"$CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
-							"$CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
-							"$CHAPTER 5 \e[0m : ls -l , chmod" \
-							"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod" \
-							"$CHAPTER 7 \e[0m : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()" \
-							"$CHAPTER 8 \e[0m : | , wc , sort , grep , uniq , - , |& , <" \
-							"$CHAPTER 9 \e[0m : \$ , \$PATH , type , printenv" 	\
-							"[PAS DE SON] $CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , \$? , source , less" \
-							"[PAS DE SON] $CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt"
-							;;
-					i3wm) select_lecture_or_quiz "$SUBJECT" "[PAS DE SON] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-					sys)  select_lecture_or_quiz "$SUBJECT" "[PAS DE SON] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
-					*) TITLE="" ;;
-				esac
-				;;
-		en) case $SUBJECT in
-					bash) select_lecture_or_quiz "$SUBJECT" \
-							"$CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
-							"$CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
-							"$CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
-							"$CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
-							"$CHAPTER 5 \e[0m : ls -l , chmod" \
-							"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
-							;;
-					i3wm) select_lecture_or_quiz "$SUBJECT" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-					#~ sys) select_lecture_or_quiz "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
-					*) TITLE="" ;;
-				esac
-				;;
-	esac
-}
-
-function select_lecture_or_quiz(){
-  #MENU 12 with menu = 11 chapters + exit
-  MENU_SIZE=`expr $# - 1`
-  argCMP=1
-	SUBJECT=$1
-	shift
-	for ARG in "$@"; do #For each arguments
-	  if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then #OLD (SUCCESS) GREEN IF QUIZ ANSWERED
-			echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG \e[0m"
-	  else
-			echo -e "   \e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
-	  fi
-	  argCMP=`expr $argCMP + 1`
-	done
-	echo -e "   \e[0;100m e) \e[0m $TEXT_BACK"
-	esac
-	selected=99
-	while [ "$selected" != "e" ] && [ "$selected" != "1" ]&& [ "$selected" != "2" ]&& [ "$selected" != "3" ]; do #Answer in menu
-		echo -en "   \e[97;45m # \e[0m"
-		read selected < /dev/tty
-	done
-	if [ "$selected" != "e" ];then
-		# echo "launch_standalone classic $SUBJECT $selected"
-		#??? USE $TYPE instead of classic
-		CHAPTER=$selected
-    launch_standalone classic $SUBJECT $CHAPTER
-  fi
-}
-
-function launch_standalone(){
-	#USAGE : launch_standalone classic bash 11
-	TYPE=$1
-	SUBJECT=$2
-	CHAPTER_NUMBER=$3
-	#MUTE=1 AND VOICE=0 IS DIFFERENT BUT SAME FOR STANDALONE BECAUSE MUSIC PLAYED IN GAMESCRIPT (WHAT ABOUT SOUND EFFECTS ?) ???
-	echo $TEXT_DOWNLOADING_CHAPTER
-	#TEST INTERNET
-	wget -q --spider http://google.com
-	if [ $? -eq 0 ]; then
-		echo $TEXT_INTERNET_ERROR
-	else
-		if [[ $MUTE == 1 ]] || [[ $VOICE == 0 ]]; then
-			rm $HOME/.GameScript/standalone.sh 2>/dev/null
-			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
-			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $CHAPTER_NUMBER" -w 100
-			bash $HOME/.GameScript/standalone.sh MUTE
-			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s -- MUTE
-		else
-			rm $HOME/.GameScript/standalone.sh 2>/dev/null
-			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
-			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $CHAPTER_NUMBER" -w 100
-			if [[ $VIDEO == 0 ]];then
-				bash $HOME/.GameScript/standalone.sh
-			else
-				bash $HOME/.GameScript/standalone.sh VIDEO
-			fi
-			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s
-		fi
-	fi
-}
-
-
-# ██ ███    ██ ████████ ███████ ██████   █████   ██████ ████████ ██ ██    ██ ███████
-# ██ ████   ██    ██    ██      ██   ██ ██   ██ ██         ██    ██ ██    ██ ██
-# ██ ██ ██  ██    ██    █████   ██████  ███████ ██         ██    ██ ██    ██ █████
-# ██ ██  ██ ██    ██    ██      ██   ██ ██   ██ ██         ██    ██  ██  ██  ██
-# ██ ██   ████    ██    ███████ ██   ██ ██   ██  ██████    ██    ██   ████   ███████
-
-
-
+###??? to change as well for subjects
 function press_key_GAMESCRIPT(){
 	echo -en "\e[0;33m...\e[0m"
 	read -s -n1 key < /dev/tty
@@ -197,6 +8,43 @@ function press_key_GAMESCRIPT(){
 		kill $VOICE_PID
 	fi
 }
+function new_sound(){
+	$SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" &> /dev/null &
+	AUDIOCMP=`expr $AUDIOCMP + 1`
+	#wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
+}
+function download_first_sound_INTRO(){
+	mkdir -p $AUDIO_LOCAL 2> /dev/null
+	wget -q $AUDIO_DL/1.mp3 -O $AUDIO_LOCAL/1.mp3
+}
+function download_all_sounds_INTRO(){
+	cd $AUDIO_LOCAL || exit
+	i=2
+	rm to_dl.wget 2> /dev/null
+	while [ $i -le 22 ]; do
+		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
+		echo "$AUDIO_DL/$i.mp3" >> to_dl.wget
+		i=`expr $i + 1`
+	done
+	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
+}
+
+function download_first_video_INTRO(){
+	mkdir -p $VIDEO_LOCAL 2> /dev/null
+	wget -q $VIDEO_DL/1.mp3 -O $VIDEO_LOCAL/1.mp3
+}
+function download_all_videos_INTRO(){
+	cd $VIDEO_LOCAL || exit
+	i=2
+	rm to_dl.wget 2> /dev/null
+	while [ $i -le 22 ]; do
+		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
+		echo "$VIDEO_DL/$i.mp3.mp4" >> to_dl.wget
+		i=`expr $i + 1`
+	done
+	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
+}
+
 function talk_GAMESCRIPT(){
 	if [[ $MUTE == 0 ]]; then
 		new_sound
@@ -205,7 +53,7 @@ function talk_GAMESCRIPT(){
 	press_key_GAMESCRIPT
 }
 function talk_GAMESCRIPT_not_press(){
-	if [[ $MUTE == 0 ]]; then
+	if [[ $MUTE == 0 ]]; then 
 		new_sound
 	fi
 	echo -e "\e[0;32m $1\e[0m - $2"
@@ -213,7 +61,6 @@ function talk_GAMESCRIPT_not_press(){
 
 function goodbye(){
 	echo ""
-	#NOT PUT IN VARIABLE FOR FUTURE RANDOM SENTENCES
 	case $LANGUAGE in
 		fr) echo -e "Au revoir et bonne journée. :)\nJustumen" ;;
 		en) echo -e "Goodbye and have a nice day. :)\nJustumen" ;;
@@ -222,45 +69,56 @@ function goodbye(){
 	pkill mpg123
 	exit 0
 }
-
-function create_config(){
-	echo "Creation of the configuration file : ~/.GameScript/config"
-	echo ""
-	echo "Please select a default language :"
-	echo -e "\\e[0;100m 1) \\e[0m English"
-	echo -e "\\e[0;100m 2) \\e[0m Français"
-	echo -e "\\e[0;100m e) \\e[0m exit"
-	default_language="x"
-    while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "e" ]; do
-    	echo -en "\e[97;45m # \e[0m"
-		read default_language < /dev/tty
-    done
-
-	case $default_language in
-		1) LANGUAGE="en" ;;
-		2) LANGUAGE="fr" ;;
-		e) exit ;;
-		*) echo "Unknown language. Exiting" && exit ;;
-	esac
-	echo ""
-	echo -e "LANGUAGE=$LANGUAGE\nMUTE=0\nVOICE=1\nMUSIC=1\nNOISE=1\nVIDEO=0\nSOUND_FAMILY=default\nSPEAKER=m1" > ~/.GameScript/config
+function show_menu(){
+  #MENU 12 with menu = 11 chapters + exit
+  MENU_SIZE=`expr $# - 1`
+  #~ echo "MENU_SIZE = $MENU_SIZE"
+  #Usage : show_menu bash "bash : chapitre 1" "bash : chapitre 2"
+  # echo "$#"
+  #TEST IF NUMBER, ALLOW ONLY NUMBERS ???
+	#~ while [ "$selected" != "e" ] && [ "$selected" -gt "$#" ]; do #Answer in menu
+		# echo ""
+		argCMP=1
+		SUBJECT=$1
+		shift
+		for ARG in "$@"; do #For each arguments
+			# echo -e "\\e[0;100m $argCMP) \\e[0m $ARG"
+		  if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then #OLD (SUCCESS) GREEN IF QUIZ ANSWERED
+			   echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG \e[0m"
+		  else
+			 echo -e "   \e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
+		  fi
+		  argCMP=`expr $argCMP + 1`
+		done
+		# echo ""
+		case $LANGUAGE in
+			fr) echo -e "   \e[0;100m e) \e[0m Retour" ;;
+			en) echo -e "   \e[0;100m e) \e[0m Back" ;;
+		esac
+		#~ echo -e "\e[0;100m e) \e[0m Exit"
+		# echo ""
+	# 
+	selected=99
+	while [ $selected -gt $MENU_SIZE ] && [ "$selected" != "e" ]; do #Answer in menu
+		echo -en "   \e[97;45m # \e[0m"
+		read selected < /dev/tty
+	done
+	#~ echo "$selected > $MENU_SIZE";
+	# echo -en "\n\e[0;33m...\e[0m"
+	if [ "$selected" != "e" ];then
+    enter bash `expr $selected + 3`
+  else
+    #~ goodbye $LANGUAGE
+    gamescript_available_arguments $LANGUAGE
+  fi
 }
-
-
-# ██████  ██ ███████ ██████  ██       █████  ██    ██
-# ██   ██ ██ ██      ██   ██ ██      ██   ██  ██  ██
-# ██   ██ ██ ███████ ██████  ██      ███████   ████
-# ██   ██ ██      ██ ██      ██      ██   ██    ██
-# ██████  ██ ███████ ██      ███████ ██   ██    ██
-
-
 
 function gamescript_help(){
   case $LANGUAGE in
     en) echo "===> HELP en
 Available arguments :
-\"--help\" or \"-h\" to display this help
-\"--passwords\" or \"-p\" to display your passwords
+\"--help\" ou \"-h\" pour afficher l'aide
+\"--passwords\" ou \"-p\" pour afficher vos mots de passe
 
 Arguments for temporary changes :
 \"--language XX\" ou \"-l XX\" to change the language
@@ -287,12 +145,16 @@ Arguments pour changements temporaires :
 ;;
     *) echo "unknown language"
   esac
+  #~ exit #exit after display help
 }
 
 function my_passwords(){
 	if [ ! -d "/$HOME/.GameScript/passwords/" ]; then #NOT EXIST
 		if [ "$(ls -A /$HOME/.GameScript/passwords/)" ];then #EMPTY
-			echo "$TEXT_NO_PASSWORD"
+			case $LANGUAGE in
+				en) echo -e "You don't have any password. :)\n" ;;
+				fr) echo -e "Vous n'avez aucun mot de passe. :)\n" ;;
+			esac
 		fi
 	else
 		echo ""
@@ -302,6 +164,164 @@ function my_passwords(){
 		done
 	fi
 }
+
+function unpause_music(){
+	MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
+	if [[ "$MUSIC_PID" != "" ]]; then
+		kill -SIGCONT $MUSIC_PID
+	fi
+}
+function stop_quiz_music(){
+	QUIZ_MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC_QUIZ"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
+	if [[ "$QUIZ_MUSIC_PID" != "" ]]; then
+		kill $QUIZ_MUSIC_PID
+	fi
+}
+function gamescript_available_arguments(){
+while [ true ]; do
+  #MENU - SUBJECT SELECTION
+  echo ""
+  case $1 in
+    fr) echo -e "Menu principal : "
+		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
+		#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
+		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
+		echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
+		echo -e "\\e[0;100m h) \\e[0m Aide"
+		echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
+		echo -e "\\e[0;100m e) \\e[0m Quitter"
+		;;
+    en) echo -e "Main menu : "
+		echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-6 ]\e[0m"
+		#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
+		echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ]\e[0m ( level bash 2+ recommanded )"
+		echo -e "\\e[0;100m h) \\e[0m Help"
+		echo -e "\\e[0;100m p) \\e[0m My passwords"
+		echo -e "\\e[0;100m e) \\e[0m Exit"
+		;;
+  esac
+  selected="x"
+  while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ] && [ "$selected" != "e" ]; do
+	echo -en "\e[97;45m # \e[0m"
+	read selected < /dev/tty
+  done
+  case $selected in
+    "1") launch_gamescript $LANGUAGE classic bash ;;
+    "2") launch_gamescript $LANGUAGE classic i3wm ;;
+    "3") launch_gamescript $LANGUAGE classic sys ;;
+	h) gamescript_help $LANGUAGE ;; 
+    p) my_passwords ;; 
+    e) goodbye ;;
+    *) echo "Error"; goodbye ;;
+  esac
+done
+}
+
+function enter(){
+	#IF NEEDED THERE ??? (After fail quiz) doesnt bother too much
+	if [[ "$MUTE" == "0" ]] && [[ "$MUSIC" == "1" ]]; then
+		stop_quiz_music
+		unpause_music
+	fi
+  #USAGE : enter bash 1
+  case $1 in
+    bash) TITLE="Bourne Again SHell" ;;
+    i3wm) TITLE="The i3 Window Manager" ;;
+    sys) TITLE="Unix-like system" ;;
+    *) TITLE="" ;;
+  esac
+  case $2 in
+    # 1) echo -e "\e[0;33m...\e[0m" ;&
+    1) echo "" ;&
+  	2) 	command -v toilet &> /dev/null && toilet -f mono9 "$1" -w 100
+		echo -e "   \e[97;44m - $1, $TITLE \e[0m" ;&
+  	3)
+	  case $LANGUAGE in
+		fr) case $1 in
+				bash) show_menu "$1" \
+						"$CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
+						"$CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
+						"$CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
+						"$CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
+						"$CHAPTER 5 \e[0m : ls -l , chmod" \
+						"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod" \
+						"$CHAPTER 7 \e[0m : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()" \
+						"$CHAPTER 8 \e[0m : | , wc , sort , grep , uniq , - , |& , <" \
+						"$CHAPTER 9 \e[0m : \$ , \$PATH , type , printenv" 	\
+						"[PAS DE SON] $CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , \$? , source , less" \
+						"[PAS DE SON] $CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt"
+						;;
+				i3wm) show_menu "$1" "[PAS DE SON] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+				sys)  show_menu "$1" "[PAS DE SON] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+				*) TITLE="" ;;
+			esac
+			;;
+		en) case $1 in
+				bash) show_menu "$1" \
+						"$CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
+						"$CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
+						"$CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
+						"$CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
+						"$CHAPTER 5 \e[0m : ls -l , chmod" \
+						"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
+						;;
+				i3wm) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+				#~ sys) show_menu "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+				*) TITLE="" ;;
+			esac
+			;;
+		esac
+	;;
+    # *) bash ../GameScript_standalone/$LANGUAGE/classic/$1/standalone_$(expr $2 - 3).sh ;;
+    *)
+		#MUTE=1 AND VOICE=0 IS DIFFERENT BUT SAME FOR STANDALONE BECAUSE MUSIC PLAYED IN GAMESCRIPT (WHAT ABOUT SOUND EFFECTS ?) ???
+		case $LANGUAGE in
+			en)	echo "Downloading last version of this chapter..."
+				;;
+			fr)	echo "Téléchargement de la dernière version de ce chapitre..."
+				;;
+		esac
+		if [[ $MUTE == 1 ]] || [[ $VOICE == 0 ]]; then
+			rm $HOME/.GameScript/standalone.sh 2>/dev/null
+			#~ mkdir -p $HOME/$LANGUAGE/classic/$1/ #??? what is this doing here ?
+			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
+			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $(expr $2 - 3)" -w 100
+			bash $HOME/.GameScript/standalone.sh MUTE
+			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s -- MUTE
+		else
+			rm $HOME/.GameScript/standalone.sh 2>/dev/null
+			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
+			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $(expr $2 - 3)" -w 100
+			if [[ $VIDEO == 0 ]];then
+				bash $HOME/.GameScript/standalone.sh
+			else
+				bash $HOME/.GameScript/standalone.sh VIDEO
+			fi
+			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s
+		fi
+		;;
+  esac
+  #This run after finishing a standalone ? :p ???
+  enter $SUBJECT 1 #go back in the subject menu
+  #~ gamescript_available_arguments $LANGUAGE #go back in the main menu
+}
+
+function launch_gamescript(){
+  # echo "LANGUAGE = $LANGUAGE"
+  TYPE=$2
+  # echo "TYPE = $TYPE"
+  SUBJECT=$3
+  # echo "SUBJECT = $SUBJECT"
+  #??? STUPID ???
+  if [ "$3" == "bash" ]; then
+	   enter bash 1
+  elif [ "$3" == "i3wm" ]; then
+	   enter i3wm 1
+  elif [ "$3" == "sys" ]; then
+	   enter sys 1
+  fi
+}
+
 
 function justumen_intro_fr(){
 	talk_GAMESCRIPT justumen "Bonjour et bienvenue sur GameScript.
@@ -367,67 +387,33 @@ talk_GAMESCRIPT justumen "You can confirm your knowledge with the passwords give
 	talk_GAMESCRIPT justumen "I wish you a good day and good luck !"
 }
 
+#??? TEST CONFIG
+function create_config(){
+	echo "Creation of the configuration file : ~/.GameScript/config"
+	echo ""
+	echo "Please select a default language :"
+	echo -e "\\e[0;100m 1) \\e[0m English"
+	echo -e "\\e[0;100m 2) \\e[0m Français"
+	echo -e "\\e[0;100m e) \\e[0m exit"
+	default_language="x"
+    while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "e" ]; do
+    	echo -en "\e[97;45m # \e[0m"
+		read default_language < /dev/tty
+    done
 
-# ███████  ██████  ██    ██ ███    ██ ██████  ███████
-# ██      ██    ██ ██    ██ ████   ██ ██   ██ ██
-# ███████ ██    ██ ██    ██ ██ ██  ██ ██   ██ ███████
-#      ██ ██    ██ ██    ██ ██  ██ ██ ██   ██      ██
-# ███████  ██████   ██████  ██   ████ ██████  ███████
-
-
-function unpause_music(){
-	MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
-	if [[ "$MUSIC_PID" != "" ]]; then
-		kill -SIGCONT $MUSIC_PID
-	fi
-}
-function stop_quiz_music(){
-	QUIZ_MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC_QUIZ"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
-	if [[ "$QUIZ_MUSIC_PID" != "" ]]; then
-		kill $QUIZ_MUSIC_PID
-	fi
-}
-function new_sound(){
-	$SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" &> /dev/null &
-	AUDIOCMP=`expr $AUDIOCMP + 1`
-	#wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
-}
-function download_first_sound_INTRO(){
-	mkdir -p $AUDIO_LOCAL 2> /dev/null
-	wget -q $AUDIO_DL/1.mp3 -O $AUDIO_LOCAL/1.mp3
-}
-function download_all_sounds_INTRO(){
-	cd $AUDIO_LOCAL || exit
-	i=2
-	rm to_dl.wget 2> /dev/null
-	while [ $i -le 22 ]; do
-		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
-		echo "$AUDIO_DL/$i.mp3" >> to_dl.wget
-		i=`expr $i + 1`
-	done
-	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
-}
-function download_first_video_INTRO(){
-	mkdir -p $VIDEO_LOCAL 2> /dev/null
-	wget -q $VIDEO_DL/1.mp3 -O $VIDEO_LOCAL/1.mp3
-}
-function download_all_videos_INTRO(){
-	cd $VIDEO_LOCAL || exit
-	i=2
-	rm to_dl.wget 2> /dev/null
-	while [ $i -le 22 ]; do
-		#~ ( wget -q $AUDIO_DL/$i.mp3 -O $AUDIO_LOCAL/$i.mp3 || rm $AUDIO_LOCAL/$i.mp3 ) &> /dev/null &
-		echo "$VIDEO_DL/$i.mp3.mp4" >> to_dl.wget
-		i=`expr $i + 1`
-	done
-	cat to_dl.wget | xargs -n 1 -P 4 wget -q &
+	case $default_language in
+		1) LANGUAGE="en" ;; 
+		2) LANGUAGE="fr" ;; 
+		e) exit ;; 
+		*) echo "Unknown language. Exiting" && exit ;;
+	esac
+	echo ""
+	echo -e "LANGUAGE=$LANGUAGE\nMUTE=0\nVOICE=1\nMUSIC=1\nNOISE=1\nVIDEO=0\nSOUND_FAMILY=default\nSPEAKER=m1" > ~/.GameScript/config
 }
 
-# ██       █████  ██    ██ ███    ██  ██████ ██   ██
-# ██      ██   ██ ██    ██ ████   ██ ██      ██   ██
-# ██      ███████ ██    ██ ██ ██  ██ ██      ███████
-# ██      ██   ██ ██    ██ ██  ██ ██ ██      ██   ██
-# ███████ ██   ██  ██████  ██   ████  ██████ ██   ██
+
+
+
 
 
 
@@ -516,7 +502,7 @@ if [ $# -ne 0 ]; then
 	#~ echo -e "\n\n"
 	echo -e "\n"
 fi
-if [[ $HELP == 1 ]]; then gamescript_help; goodbye; fi
+if [[ $HELP == 1 ]]; then gamescript_help $LANGUAGE; goodbye; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; goodbye; fi
 if [[ $MUTE == 0 ]]; then
 	( command -v mplayer || command -v mpg123 ) &>/dev/null || { echo -e "Without the option -m, you need to install mplayer or mpg123..." >&2; exit 3; }
@@ -531,16 +517,6 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 # echo LANGUAGE = "${LANGUAGE} (change with \"--language xx\" or \"-l xx\" where xx is the language)"
 
 
-
-
-# ██       █████  ███    ██  ██████  ██    ██  █████   ██████  ███████
-# ██      ██   ██ ████   ██ ██       ██    ██ ██   ██ ██       ██
-# ██      ███████ ██ ██  ██ ██   ███ ██    ██ ███████ ██   ███ █████
-# ██      ██   ██ ██  ██ ██ ██    ██ ██    ██ ██   ██ ██    ██ ██
-# ███████ ██   ██ ██   ████  ██████   ██████  ██   ██  ██████  ███████
-
-
-
 #PREPARE TEXT BASED ON LANGUAGE
 case $LANGUAGE in
 	en) CHAPTER="chapter"
@@ -549,10 +525,6 @@ case $LANGUAGE in
 		TEXT_MUSIC_COMMON="But you need to install 'ffmpeg' and 'youtube-dl' first, \e[30;48;5;82msudo apt-get install youtube-dl ffmpeg\e[0m on Debian/Ubuntu/Mint."
 		TEXT_MUSIC_QUIZ_1="No quiz music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3 doesn't exist"
 		TEXT_MUSIC_QUIZ_2="For example, to download one (mortal kombat) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.m4a https://www.youtube.com/watch\?v\=EAwWPadFsOA\e[0m"
-		TEXT_DOWNLOADING_CHAPTER="Downloading last version of this chapter..."
-		TEXT_INTERNET_ERROR="Error, no internet ?"
-		TEXT_BACK="Back"
-		TEXT_NO_PASSWORD="You don't have any password. :)"
 	;;
 	fr) CHAPTER="chapitre"
 		TEXT_MUSIC_1="Pas de musique de fond : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 n'existe pas encore."
@@ -560,10 +532,6 @@ case $LANGUAGE in
 		TEXT_MUSIC_COMMON="Mais vous devez d'abord installer 'ffmpeg' et 'youtube-dl', \e[30;48;5;82msudo apt-get install youtube-dl ffmpeg\e[0m sur Debian/Ubuntu/Mint."
 		TEXT_MUSIC_QUIZ_1="Pas de musique de quiz : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3 n'existe pas encore."
 		TEXT_MUSIC_QUIZ_2="Par exemple, pour en télécharger une (mortal kombat) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.m4a https://www.youtube.com/watch\?v\=EAwWPadFsOA\e[0m"
-		TEXT_DOWNLOADING_CHAPTER="Téléchargement de la dernière version de ce chapitre..."
-		TEXT_INTERNET_ERROR="Erreur, pas d'internet ?"
-		TEXT_BACK="Retour"
-		TEXT_NO_PASSWORD="Vous n'avez aucun mot de passe. :)"
 	;;
 	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; pkill mplayer; pkill mpg123; exit #pkill if -l with bad argument music not stop :P ???
 	;;
@@ -594,6 +562,12 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 			echo -e "$TEXT_MUSIC_COMMON"
 		fi
 		echo ""
+		#~ echo "$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
+		#~ stty intr ^C
+		#~ &
+		#~ bind -x '"\C-c": pkill leafpad'
+		#~ leafpad
+		#~ stty intr ^C
 	else
 		echo "Corrupted or obsolete ~/.GameScript/config file, please delete it and launch gamescript again. :)" && exit
 	fi
@@ -621,6 +595,10 @@ if [[ $VIDEO == 1 ]]; then
 		if [ ! -f "$HOME/.GameScript/10FPS_idle.mp4" ]; then
 			wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/10FPS_idle.mp4 -O $HOME/.GameScript/10FPS_idle.mp4
 		fi
+		#Inside standalone now :)
+		#~ rm /tmp/southpark
+		#~ mpv --no-config --loop --include=~/.GameScript/mpv_config --really-quiet --input-ipc-server=/tmp/southpark ~/.GameScript/10FPS_idle.mp4 &
+
 		if [ ! -f "$VIDEO_LOCAL/1.mp3.mp4" ]; then
 			wget -q --spider http://google.com
 			if [ $? -eq 0 ]; then
@@ -648,14 +626,17 @@ fi
 
 command -v toilet &> /dev/null && toilet -f mono12 GameScript -w 100
 if [ ! -f "$HOME/.GameScript/username" ]; then
+  #STORE LOCAL PERSONAL PROGRESSION : hidden file like ~/.GameScript/bash_1 ...
+  #STORE USER : ~/.GameScript/username
+  # mkdir ~/.GameScript/Audio/ 2> /dev/null ???
   mkdir ~/.GameScript/ 2> /dev/null
   if [ "$LANGUAGE" == "fr" ]; then
-		justumen_intro_fr
+	justumen_intro_fr
   elif [ "$LANGUAGE" == "en" ]; then
-		justumen_intro_en
+	justumen_intro_en
   fi
   echo -n "$PSEUDO" > ~/.GameScript/username
-  select_subject
+  gamescript_available_arguments $LANGUAGE
 else
   #Random welcome back ???
   if [ "$LANGUAGE" == "fr" ]; then
@@ -664,5 +645,5 @@ else
   elif [ "$LANGUAGE" == "en" ]; then
     echo -e "Good to see you again $(cat ~/.GameScript/username) !"
   fi
-  select_subject
+  gamescript_available_arguments $LANGUAGE
 fi
