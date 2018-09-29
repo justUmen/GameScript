@@ -30,18 +30,18 @@ function select_subject(){
 		echo ""
 		case $LANGUAGE in
 			fr) echo -e "Menu principal : "
-				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-11 ] \e[0m"
+				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $TEXT_CHAPTER 1-11 ] \e[0m"
 				#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
-				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
-				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system [ $CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
+				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $TEXT_CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
+				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system [ $TEXT_CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
 				echo -e "\\e[0;100m h) \\e[0m Aide"
 				echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
 				echo -e "\\e[0;100m e) \\e[0m Quitter"
 				;;
 			en) echo -e "Main menu : "
-				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $CHAPTER 1-6 ]\e[0m"
+				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $TEXT_CHAPTER 1-6 ]\e[0m"
 				#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
-				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $CHAPTER 1 ]\e[0m ( level bash 2+ recommanded )"
+				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $TEXT_CHAPTER 1 ]\e[0m ( level bash 2+ recommanded )"
 				echo -e "\\e[0;100m h) \\e[0m Help"
 				echo -e "\\e[0;100m p) \\e[0m My passwords"
 				echo -e "\\e[0;100m e) \\e[0m Exit"
@@ -85,34 +85,34 @@ function select_chapter(){
 	case $LANGUAGE in
 		fr) case $SUBJECT in
 					bash) select_lecture_or_quiz "$SUBJECT" \
-							"$CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
-							"$CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
-							"$CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
-							"$CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
-							"$CHAPTER 5 \e[0m : ls -l , chmod" \
-							"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod" \
-							"$CHAPTER 7 \e[0m : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()" \
-							"$CHAPTER 8 \e[0m : | , wc , sort , grep , uniq , - , |& , <" \
-							"$CHAPTER 9 \e[0m : \$ , \$PATH , type , printenv" 	\
-							"[PAS DE SON] $CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , \$? , source , less" \
-							"[PAS DE SON] $CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt"
+							"$TEXT_CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
+							"$TEXT_CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
+							"$TEXT_CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
+							"$TEXT_CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
+							"$TEXT_CHAPTER 5 \e[0m : ls -l , chmod" \
+							"$TEXT_CHAPTER 6 \e[0m : * , ? , touch , chown , chmod" \
+							"$TEXT_CHAPTER 7 \e[0m : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()" \
+							"$TEXT_CHAPTER 8 \e[0m : | , wc , sort , grep , uniq , - , |& , <" \
+							"$TEXT_CHAPTER 9 \e[0m : \$ , \$PATH , type , printenv" 	\
+							"[PAS DE SON] $TEXT_CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , \$? , source , less" \
+							"[PAS DE SON] $TEXT_CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt"
 							;;
-					i3wm) select_lecture_or_quiz "$SUBJECT" "[PAS DE SON] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-					sys)  select_lecture_or_quiz "$SUBJECT" "[PAS DE SON] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+					i3wm) select_lecture_or_quiz "$SUBJECT" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+					sys)  select_lecture_or_quiz "$SUBJECT" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 					*) TITLE="" ;;
 				esac
 				;;
 		en) case $SUBJECT in
 					bash) select_lecture_or_quiz "$SUBJECT" \
-							"$CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
-							"$CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
-							"$CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
-							"$CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
-							"$CHAPTER 5 \e[0m : ls -l , chmod" \
-							"$CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
+							"$TEXT_CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
+							"$TEXT_CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
+							"$TEXT_CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
+							"$TEXT_CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
+							"$TEXT_CHAPTER 5 \e[0m : ls -l , chmod" \
+							"$TEXT_CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
 							;;
-					i3wm) select_lecture_or_quiz "$SUBJECT" "[NO SOUND] $CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-					#~ sys) select_lecture_or_quiz "$1" "[NO SOUND] $CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+					i3wm) select_lecture_or_quiz "$SUBJECT" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+					#~ sys) select_lecture_or_quiz "$1" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 					*) TITLE="" ;;
 				esac
 				;;
@@ -542,7 +542,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 #PREPARE TEXT BASED ON LANGUAGE
 case $LANGUAGE in
-	en) CHAPTER="chapter"
+	en) TEXT_CHAPTER="chapter"
 		TEXT_MUSIC_1="No background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 doesn't exist yet"
 		TEXT_MUSIC_2="For example, to download one (1h of medieval music) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a https://www.youtube.com/watch\?v\=DEeAN471boQ\e[0m"
 		TEXT_MUSIC_COMMON="But you need to install 'ffmpeg' and 'youtube-dl' first, \e[30;48;5;82msudo apt-get install youtube-dl ffmpeg\e[0m on Debian/Ubuntu/Mint."
@@ -553,7 +553,7 @@ case $LANGUAGE in
 		TEXT_BACK="Back"
 		TEXT_NO_PASSWORD="You don't have any password. :)"
 	;;
-	fr) CHAPTER="chapitre"
+	fr) TEXT_CHAPTER="chapitre"
 		TEXT_MUSIC_1="Pas de musique de fond : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 n'existe pas encore."
 		TEXT_MUSIC_2="Par exemple, pour en télécharger une (1h de musique mediévale) : \e[30;48;5;82myoutube-dl --extract-audio --audio-format mp3 -o ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.m4a https://www.youtube.com/watch\?v\=DEeAN471boQ\e[0m"
 		TEXT_MUSIC_COMMON="Mais vous devez d'abord installer 'ffmpeg' et 'youtube-dl', \e[30;48;5;82msudo apt-get install youtube-dl ffmpeg\e[0m sur Debian/Ubuntu/Mint."
