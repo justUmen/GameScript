@@ -48,7 +48,7 @@ function select_subject(){
 				;;
 		esac
 		selected="x"
-		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "4" ] && [ "$selected" != "5" ] && [ "$selected" != "6" ] && [ "$selected" != "7" ] && [ "$selected" != "8" ] && [ "$selected" != "9" ] && [ "$selected" != "10" ] && [ "$selected" != "11" ] && [ "$selected" != "12" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ] && [ "$selected" != "e" ]; do
+		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "e" ]; do
 			echo -en "\e[97;45m # \e[0m"
 			read selected < /dev/tty
 		done
@@ -135,7 +135,7 @@ function select_lecture_or_quiz(){
 	done
 	echo -e "   \e[0;100m e) \e[0m $TEXT_BACK"
 	selected=99
-	while [ "$selected" != "e" ] && [ "$selected" != "1" ]&& [ "$selected" != "2" ]&& [ "$selected" != "3" ]; do #Answer in menu
+	while [ "$selected" != "e" ] && [ "$selected" != "1" ]&& [ "$selected" != "2" ]&& [ "$selected" != "3" ] && [ "$selected" != "4" ] && [ "$selected" != "5" ] && [ "$selected" != "6" ] && [ "$selected" != "7" ] && [ "$selected" != "8" ] && [ "$selected" != "9" ] && [ "$selected" != "10" ] && [ "$selected" != "11" ] && [ "$selected" != "12" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ]; do #Answer in menu
 		echo -en "   \e[97;45m # \e[0m"
 		read selected < /dev/tty
 	done
