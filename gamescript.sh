@@ -540,7 +540,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 
 
-#PREPARE TEXT BASED ON LANGUAGE
+#PREPARE TEXT VARIABLES BASED ON THE SELECTED LANGUAGE
 case $LANGUAGE in
 	en) TEXT_CHAPTER="chapter"
 		TEXT_MUSIC_1="No background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 doesn't exist yet"
