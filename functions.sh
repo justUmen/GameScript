@@ -168,15 +168,16 @@ function how_to_leave_chapter(){
 function answer_quiz(){
 	#$7 = bash, from enter_chapter
 	# echo " ---> $7 <--- "
+	echo -e "      \\e[0;100m 1) \\e[0m $1"
+	echo -e "      \\e[0;100m 2) \\e[0m $2"
+	echo -e "      \\e[0;100m e) \\e[0m $3"
 	key="9"
-	while [ "$key" != "1" ] || [ "$key" != "2" ] || [ "$key" != "e" ]; do
+	while [ "$key" != "1" ] && [ "$key" != "2" ] && [ "$key" != "e" ]; do
+		echo -en "      \\e[97;45m # \\e[0m"	
+		read key < /dev/tty
+	done
 		# echo ""
 		#~ echo -e "\\e[0;100m 0) \\e[0m Télécharger audio en avance"
-		echo -e "      \\e[0;100m 1) \\e[0m $1"
-		echo -e "      \\e[0;100m 2) \\e[0m $2"
-		echo -e "      \\e[0;100m e) \\e[0m $3"
-		echo -en "      \\e[97;45m # \\e[0m"
-		read key < /dev/tty
 		case $key in
 			0) 	if [[ $VIDEO == 0 ]]; then download_all_sounds; else download_all_videos; fi ;;
 			1) 	case $LANGUAGE in
@@ -220,7 +221,7 @@ function answer_quiz(){
 			2) 	start_quiz ;;
 			e) exit ;;
 		esac
-	done
+	#~ done
 }
 
 QUIZ_NUMBER=1
