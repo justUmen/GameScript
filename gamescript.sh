@@ -390,8 +390,7 @@ function create_config(){
 	echo -e "\\e[0;100m 1) \\e[0m English"
 	echo -e "\\e[0;100m 2) \\e[0m Français"
 	echo -e "\\e[0;100m e) \\e[0m exit"
-	echo -en "\e[97;45m # \e[0m"
-	read default_language < /dev/tty
+	default_language="x"
     while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "e" ]; do
     	echo -en "\e[97;45m # \e[0m"
 		read default_language < /dev/tty
