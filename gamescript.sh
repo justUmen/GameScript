@@ -197,10 +197,6 @@ while [ true ]; do
   esac
   echo -en "\e[97;45m # \e[0m"
   read selected < /dev/tty
-  while [ "$selected" != "1" ] || [ "$selected" != "2" ] || [ "$selected" != "3" ] || [ "$selected" != "h" ] || [ "$selected" != "p" ] || [ "$selected" != "e" ]; do
-	echo -en "\e[97;45m # \e[0m"
-	read selected < /dev/tty
-  done
   case $selected in
     "1") launch_gamescript $LANGUAGE classic bash ;;
     "2") launch_gamescript $LANGUAGE classic i3wm ;;
