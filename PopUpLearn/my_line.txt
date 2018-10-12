@@ -1,0 +1,1 @@
+0:bash_1:Déplacer le terminal dans le dossier /var:cd /var:fr:fr

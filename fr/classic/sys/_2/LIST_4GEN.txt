@@ -6,3 +6,11 @@
 systemd :
 systemctl
 systemctl status ...
+
+/proc/PID/status
+man proc
+
+https://unix.stackexchange.com/questions/224015/memory-usage-of-a-given-process-using-linux-proc-filesystem#224016
+
+
+tmpfs /tmp tmpfs mode=1777,nosuid,nodev 0 0

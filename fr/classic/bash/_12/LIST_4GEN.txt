@@ -108,6 +108,13 @@ $((expression)) arithmetic
 SUBSHELLS
 	subshells and variables : x=2;echo $x;(echo $x;x=1;echo $x);echo $x
 
+Regroup with subshells (notice ; is needed)
+exec 6<>/dev/tcp/127.0.0.1/9999 \
+	&& echo "Server available on port 9999" \
+	|| { echo "Please run the server with : php -S 127.0.0.1:9999 -t /home/umen/SyNc/Projects/GameScript/PopUpLearn" && exec 6>&- && exec 6<&- && exit; }
+
+
+
 CODE PLANNING BEFORE CODING
 
 
@@ -126,6 +133,9 @@ type source ---> built-in ----> man bash
 
 
 case esac
+
+
+
 
 
 

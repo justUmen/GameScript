@@ -138,11 +138,11 @@ function select_lecture_or_quiz(){
 	while :; do
 		echo -en "   \e[97;45m # \e[0m"
 		read selected < /dev/tty
-    case $selected in
-	    e) break ;;
-	    *[!0-9]*|'') ;;
-	    *) test "$selected" -lt "$MENU_SIZE" && break ;;
-    esac
+		case $selected in
+			e) break ;;
+			*[!0-9]*|'') ;;
+			*) test "$selected" -le "$MENU_SIZE" && break ;;
+		esac
 	done
 	if [ "$selected" != "e" ];then
 		# echo "launch_standalone classic $SUBJECT $selected"

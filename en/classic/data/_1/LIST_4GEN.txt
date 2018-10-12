@@ -2,38 +2,38 @@ Hello everyone, and welcome to the most boring subject ever.
 I'm pretty sure you are going to hate me right away, but i decided to give you what you need and not what want.
 Skipping the basics and jumping into the exciting stuff would be a classic mistake.
 But what am im gonna talk about here is very important and I dont think you know everything.
-Even if you think you do.
+Even if you think you do...
 I have seen a lot of people neglicting this, and ended up regreting it.
 Myself included...
 During your long-term relationship with your computer, you will create and control a lot of 'them' together.
 And to bring the suspend to an end, I'm talking about : ${voc}files${reset} and ${voc}folders${reset}.
 So here we will learn how we can create and manage them all.
 In a segment i want to call "Best Files and Folders", or BFF for short.
-So there are two main types of elements that are handled by your computer. : files and folders.
-Files represent the core of pretty much everything, they store the actual information or data.
+So to summarize : There are two main types of elements that are stored and handled on your computer. : files and folders.
+Files represent the core of pretty much everything, they store the actual information or 'data'.
 It can be whatever you want : text, image, video, pron, sound, program etc...
-On the other end. (which is this hand.) *sigh* You have folders.
+And on the other end you have folders.
 Folders are just elements that you can use to organize your files.
-You will sometimes see the word "directory" instead of "folder".
+You will sometimes see or hear the word "directory" instead of "folder".
 But there are no difference between the two. Sometimes you will see one, sometimes the other.
 The name 'folder' come from a very antique IRL object people were using to store multiple papers together.
-A 'paper' is a dead tree version of what you are seeing nowadays on your screen.
-It's dificult to think about it, but our ancestors used to murder trees to write on them.
-But that was a long time ago, well before decency became common sense.
-It is called a 'folder' because you can litteraly 'fold' it and it can contains several papers inside.
+I'm very old so I know what a 'paper' is , but if you nver heard about this before, a 'paper' is the dead tree version of what you are seeing nowadays on your screen.
+It's dificult to think about it, but our ancestors used to murder trees, make them into thin flat sheets jut for the purpose of writing on them.
+But that was a long time ago, well before being banned for being too barbaric.
+It is called a 'folder' because being roughly double the size of a file, you can litteraly 'fold' it and you can put several papers inside.
+The files inside will go where the folder is going.
 Believe it or not, these papers with written text on them were called 'files'.
-#ICON FOLDER
-I can't show you a real folder because they are of course extinct, but I can show you this.
-So the idea is : we can actually open this folder and look inside.
-But we can also put a file inside.
-But this folder can also store another smaller folder. Like a russian folder where the folder is smaller and smaller.
-If you put this directory with a file in it inside another directory...
-... you will have to open you first directory, then your second directory, and you can finally access your file.
-This is very basic concept and that is exactly what computers are using.
-But computers dont have the limitations of the real world.
-###Real world sucks.
-Thank you, Jarvis.
-So on a computer, unlike the real world, you can have an incredible amount of directories.
+Yes exactly like the ones you have on your computer today.
+#folder_unfold
+I can't show you a real folder because they are of course extinct, but I can show you this so you can visualize the concept. Here you can clearly see the fold.
+#folder_front
+But from the side it will look like this, the part going above the rest is used for a label : the name of the folder commonly.
+The complexity of our ancestors organisation of files can get even worse than this !
+In this folder, you can also store another smaller folder, and in this folder you can store another folder.
+Like a russian folder system where the folders are getting smaller and smaller.
+Your computer is using the same concept !
+But computers dont have the limitations of the real world, because as we all know : the real world sucks and is for suckers.
+So on a computer, unlike the real world, you can have an unlimited amount of directories inside each other.
 If you are NOT in control of what you are doing, it can get messy very very quickly.
 On a computer, ${voc}before${reset} creating a new file or a new directory, you need to think about 2 things :
 1 - A good location.
@@ -41,192 +41,124 @@ On a computer, ${voc}before${reset} creating a new file or a new directory, you 
 I will give you an example, and I will explain along the way all my decisions.
 Like I said, on a computer, you can create an infinite amount of files and directories.
 So you really need to be careful and stay in control of them.
-You main goal is being able to find back your files, even after a long period of time, so you need to find a suitable place for them.
-If it is difficult for you to find something back in your own machine, you did it wrong. (aka : You suck.)
+Your main goal is being able to find back your files, even after a long period of time... So it's very important to find a suitable place for them.
+If it is difficult for you to find something back in your own computer, you did it wrong. (aka : You suck.)
 You have to choose a methodology and stick to it.
-If you already have some files and folder, dont be afraid to delete, or to reorganise everything.
-But the best tip i can give you to avoid wasting a lot of time, is to do it well from the start.
-
-This a naming system i am using every day, and i invite you to do it as well :
-When i create a new directory i always put a capital letter as the first letter.
-This is a very easy way to navigate and control your structure.
-
-In this example, I want to create and write a new shell script.
+If you already have some files and folder, dont be afraid to delete, or to reorganise them.
+But the best tip i can give you to avoid wasting a lot of time, is to do it well from the start !
+Im gonna give you the system that I'm using every day, and I invite you to use it as well... if you don't have something better.
+In this example, I want to create and write a new shell script !
 If you dont know what a shell script is, its basicaly a simple text-based computer program !
 A text file that can do stuff if you give it to a shell like bash.
-GameScript is a shell script and yes it's just a text file being digested by bash.
-Anyway, before writing my script, i need to create it !
-So first, I need to find a good location.
-
+GameScript is itself a shell script, and yes it's just a text file being digested by bash.
+Anyway, before writing our new script, we need to create it !
+So first, we need to find a good location.
 Let's start on my user's directory. ( /home/justumen/ )
-
-But don't stop there and create the file '/home/justumen/script', it's the worst thing you can do !
+But don't stop there and create the file '/home/justumen/script' ! It's the worst thing you can do.
 And that's exactly what I don't want you to do.
-
-This is what I will do : I will go inside a directory called "Sync". ( /home/justumen/Sync/ )
+This is what we will do : We will go inside a directory called "Sync". ( /home/justumen/Sync/ )
 This directory is the directory I am using to synchronize my files and directories accross all my machines.
 If I'm downloading a big piece of data, a video for example, I dont want it to be in the Sync directory !
-It would be a waste of space and bandwidth, I'll put in "/home/justumen/Videos" or whatever.
-But in this case, let's say that i want to be able to use that new script on all my machines, so into "Sync" directory I go.
-
-This file will be a script, I will therefore go inside my "Script" directory. ( /home/justumen/Sync/Script/ )
+It would be a waste of space and bandwidth, I'll put in "/home/justumen/Videos" or whatever else.
+But in this case, let's say that we want to be able to use that new script on all our machines, so into the folder "Sync" we go.
+This file will be a script, we will therefore go inside the "Script" directory. ( /home/justumen/Sync/Script/ )
 Now I want the next directory to represent the type of the script.
-If you just have a few scripts, you can just create it right here.
-But if the directory is already crowded, like mine is, you may have to organize your scripts by categories.
-It depends on your taste and on how many files and directories you already have.
+If you just have a few scripts, I guess you can just create it right here.
+But if the directory is already crowded, like mine currently is, you may have to organize your scripts by categories.
+It depends on your taste and on how many files and directories you already have in there.
 Some people will organize them based on the programming language they are written in.
 So inside their 'Script' directory, they will have directories like 'Python', 'Perl', 'Bash' etc...
 But personaly I'm more interested about what the script is doing, rather than the language I'm using to do it.
-It's all about taste, there is no right or wrong way to do it.. but people organising them like this are stupid.
-
-So lets talk about first what i want my script to do, otherwise what I'm saying makes absolutely no sense.
-Lets say I want my script to make several queries to all the main search engines and return only the results that they all have in common.
-
-This script will obviously have to crawl the web... like a spider.
-So if my computer is not connected to the internet, my script is totally useless.
-
-And because I'm smart, I already have a folder called "Web" ready for me to use. ( /home/justumen/Sync/Script/Web )
-If a script is in this folder, I know it will work only online.
-
+It's all about taste, there is no right or wrong way to do it.. but people organising them by languages are stupid because they are different.
+So lets talk first about what i want our script to do, otherwise what I will say won't make any sense.
+Lets say, we want the script to make several queries to all the main search engines and return only the results that they all have in common.
+This script will obviously have to crawl the web like a spider... on a web.
+So if my computer is not connected to the internet, our script is totally useless.
+And because we are smart, we already have a folder called "Web" ready for us to use. ( /home/justumen/Sync/Script/Web )
+If a script is in this folder, we know that it will not work offline.
 Once again... if you have a lot of stuff there : Create another directory.
 This script is going to be 'search engine' related, so I'll go inside my "SearchEngine" folder. ( /home/justumen/Sync/Script/Web/SearchEngine )
-
 And that's it for the first step, I have finaly selected a good location for my file.
-
 And because you are very smart, you probably noticed that I used some capital letters.
 Yes ! I recommend you to always use an uppercase letter for the first letter of a folder.
-It Makes It Very Easy To see That It Is Indeed Not A File.
-
-Note that on real Operating System, "example" and "eXample" are two different elements, a capital letter is just a different letter.
-We say that linux is case-sensitive.
-So if you read somehwere the sentence "the password is case-sensitive" it means that an uppercase A and lowercase a are considered to be different letters.
+It Makes It Very Easy To see That 'Web' Is Indeed A Folder And Not A File.
+Note that on real Operating System, 'example' and 'Example' are two different names, a capital letter is just considered as a different letter.
+When it is the case, the Operating System is called case-sensitive.
+So if you read somehwere the sentence "the password is case-sensitive" it means that an uppercase 'A' and lowercase 'a' are considered to be different letters.
 Linux is a real Operating System, so remember : linux is case-sensitive.
-The lame Windaube is for example a not real / not case sensitive Operating System made for your grand mother to read her emails.
-
-But you can also notice that this name 'SearchEngine' contains two words but doesn't contain any spaces.
-
+The lame Broken Windows is for example a not real / not case-sensitive Operating System made for your grand mother to read her emails.
+But you can also notice that this name I chose 'SearchEngine' contains two words but doesn't contain any spaces.
 If you are using GameScript, you obviously don't want to be a basic computer user !
-And you are soon going to be a h4x0r, so you'll need to prepare to be admired for your l33t skillz.
-
+And you are soon going to be a h4x0r one day, so you'll need to prepare to be admired for your l33t skillz.
 So starting today, here is my advice : when you create a file or a directory, don't use any spaces in its name.
 Just never use spaces when naming or renaming a file.
-You shall not use spaces in your file's name.
-
+Of course, you shall not use spaces in your file's name.
+And of course, putting spaces in names should be rewarded with a slap on the back of the head.
 In many standards, shell included, spaces are already used to separate elements from each other.
 If you use spaces in filenames, all the l33t commands you learned will dramaticaly fail and it will likely make you cry.
 We will look at this later, but for now just remember : Spaces are not for you !
-
 So what should you use instead of spaces ?
-Sometimes you need to separate two different words in your filename, and to solve this problem there is two main schools.
-Some put a capital letter on the first letter of the next word : 'SearchEngine'.
+Sometimes you need to separate two different words in your filename... And to solve this problem there is two methods.
+Some put a capital letter on the first letter of the next word, like I did with : 'SearchEngine'.
 Others would rather replace the spaces by underscores : 'Search_engine'.
-
-I personnaly use the first option, a capital letter for directories.
-
+I personnaly use the first option, a capital letter for directories : 'SearchEngine'.
 But I use the second strategy for spaces in files : 'this_is_a_file'.
-
-In our example, the element i want to create is a directory. So "SearchEngine" is what I'm using.
-
+In our example, the element i want to create is a directory. So "SearchEngine" is what we will be using.
 I currently only have a few scripts here, so I dont need more nested directories.
 '/home/justumen/Sync/Script/Web/SearchEngine' : This succession of directories is called a ${voc}path${reset}.
-So, before creating a new file, you need to find a good ${voc}path${reset} for it !
-
-And now we can focus on the second step, finding a good name for it.
-
-The worst name is easy to find, something like 'file', 'this_file' or 'my_script' are indeed very stupid choices.
-
+So, to say what I said differently : before creating a new file, we need to find a folder with a good ${voc}path${reset} for it !
+And now we can finally focus on the second step, finding a good name for our file !
+The worst name is easy to find, something like 'file', 'this_file' or 'my_script' are indeed all very stupid choices.
 A files and directories are uniquely identified by the combinaison of their name and their path.
-This means that two elements located in the same place can't have exactly the same name !
-
-So if you respect the rule I've talked about before, you can have a directory called "Example" and a file called "example" in the same folder.
-
-
+Remember, this means that two elements located in the same place can't have exactly the same name !
+So if you respect the rule I've talked about before and are on Linux, you can have a directory called "Example" and a file called "example" in the same place.
 So what makes a name good ?
 The name need to be as short as possible but at the same time summarize the actual content of the file.
-
-The name of the file should already give you an understanding of what the file contains.
-For example, if you need to open a script to understand what's inside : Your filename is bad.
-Or you path is bad.
-Or both.
-
-Even for testing purposes, just please, find a suitable place for it, and create a "Testing" directory.
+You should be able to understand what the file do or contains just by looking at the path of its folder and its name.
+For example, if you need to open a script to understand what's inside : Its name is bad.
+Or its folder's path is bad.
+Or both...
 Linux allow you to do whatever you want with your names, you dont have any obligations.
 But you need to create your own limitations to stay effective in the long term.
-
-For files you also have another trick that you can use : using extensions !
+For files you also have another trick that you can use : extensions !
 If a file contains some raw text about "bob", you want to call this file "bob.txt" or "bob.text"
 For a jpeg picture of bob, you can use "bob.jpg" or "bob.jpeg".
 For a script you can for example use "bob.sh" or "bob.shell" or "bob.bash".
 Once again, on linux you are free to do whatever you want. But don't abuse this freedom to do stupid things !
-You could for example rename the picture "bob.jpeg" into "bob.txt", but it will still be an image of bob.
-It won't "transform" into a text file, it's just the same picture with a stupid name.
+You could for example rename the picture "bob.jpeg" into "bob.txt", but it will still be an image of bob...
+It will NOT 'transform' the file into a text file, it's just the same jpeg image with a stupid name.
 Like having a folder called "file.txt", it would just be very confusing.
-
 I hope this is clear for everyone, just the name changed, the data and the type of data inside ${voc}doesn't${reset}.
-So i recommanded you, to use extensions that match their type. .html for hypertext markup language, .js for javascript, .css for cascading stylesheet, .sh for shell scripts, and so on...
-
-So lets go back to our example : The script i want to create.
+So i recommend you to use extensions that match their type. .html for hypertext markup language, .js for javascript, .css for cascading stylesheet, .sh for shell scripts, and so on...
+So lets go back to our example : The script we want to create.
 We already have a good path so now we want a good name.
 In our example, based on what the script is supposed to do, a good name could be "common_results.sh".
 ".sh" because it will be a shell script.
-"common_results" is not a good name by itself. But Because of the path we have chosen, it actually is.
-
+"common_results" is not a good name by itself !!
+But Because of the path we have chosen, it actually is.
 Let's see the final result : "/home/justumen/Sync/Script/Web/SearchEngine/common_results.sh"
 This line is pretty much self explanatory.
 It will be available on all my machines, it is a script, it needs internet access, and it can give me the common results from the search engines.
-
+That's it, we now need to write the script.
+Something we won't do...
 So to summarize, there is often more than one good answer for a problem.
 I gave you some tips, but the way you create and manage everything is really up to you.
 As long as you don't mind being called stupid of course.
-But sometimes there is not only one correct answer.
-
-Let's take an example, imagine you want to use 3 differents pictures of 3 different users inside a script.
-A small picture, a normal picture and a big picture for rick, jerry and morty.
-After having a good path and a good name for this script, you now need to think how you want to store the images.
-We can say that using an 'Image' folder inside our script directory is a good idea !
-From there you have a choice, do you want to store them this way : './Image/Rick/big.jpeg' or this way : './Image/Big/rick.jpeg'.
-There is no real good answer, but it might depends on how you will use your images in your script.
-
-The best thing to do is probably to imagine a third person going through you stuff.
-This person should understand immediatly how your files and folders are organized.
-
+But sometimes there is more than one good answer.
+Let's take an example : imagine you want to use 3 differents pictures of 3 different users inside a script.
+A small picture, a normal picture and a big picture for let's say : rick, jerry and morty.
+After having a good path and a good name for this script, you now need to think about how you want to store these images.
+We can say that creating an 'Image' folder inside our script directory is a good idea !
+From there we have a choice, do we want to store them this way : './Image/Rick/big.jpeg' or this way : './Image/Big/rick.jpeg'.
+There is no better answer, but it might depends on how you will use your images in your script.
+When you organise you files and folders, the best thing to do is probably to imagine a third person going through you stuff.
+This person should understand immediately how your system is organized.
 I recently recovered some old files, from way back, when I was stupid.
 Most of them had names like 'example', 'lol', 'test.txt', 'image75.jpeg' and stuff like this.
-Some programs were called 'script.sh', or 'program.c' in a folder 'TMP' and horrible things like that.
-And i had to open and read almost every file to understand what it was supposed to do.
+Some programs were called 'script.sh', or 'program.c' in a folder 'TMP' and similar horrible things.
+And i had to open and read almost every file to understand what they were supposed to do.
 It was a huge waste of time and energy !
-
 This "third person" that I was talking about, might you from the future. * mindblowing *
-So whatever you might end up doing, be smarter than me and dont underestimate organising your files and directories.
-
+So whatever you might end up doing, be smarter than me and dont underestimate organising your files and directories !
 Congratulation for lasting until the end of this chapter.
-Now go try the annoying quiz.
-
-
-/*
-
-
-					For example if you want to organize several people, lets say "bob", "roger" and "mike".
-						First you need to create a directory called "people"
-							If you have several file per user, it is recommanded to create a specific directory for this user.
-							In our situation we have a text file and an image.
-								So we will have to create 3 directorys, one for bob, one for roger and one for mike
-									We can then have their image file and their text file inside.
-									This is where things gets interesting. How should we call our files for lets say bob.
-										"bob.jpeg", "image.jpeg", "bob_in_underwear.jpeg".
-										Well it all depends on how you will use
-											these files. For example if you want bobs picture to be up to date, you can add
-											the date on it. "bob_2016.jpeg", or just "2016.jpeg", because it is in bob
-											directory anyway, you know its bob. You can but you dont need to repeat it.
-										If you are going to store several sizes for the pictures you can use :
-											"bob_small.jpeg", "bob_normal.jpeg", "bob_big.jpeg"
-										Once again you dont need to specify the name so :
-											"small.jpeg", "normal.jpeg", "big.jpeg"
-										If you have a lot of pictures of someone, you can of course create a new directory
-										called "pictures".
-*/
-
-
-play ran_out_of_time.mp3 overdrive 10 echo 0.8 0.8 5 0.7 \
-echo 0.8 0.7 6 0.7 echo 0.8 0.7 10 0.7 echo 0.8 0.7 12 0.7 \
-echo 0.8 0.88 12 0.7 echo 0.8 0.88 30 0.7 echo 0.6 0.6 60 0.7
+But even if I'm already very proud of you for just being there, I can't give you any rewards before the quiz...
