@@ -121,7 +121,7 @@ function select_chapter(){
 
 function select_lecture_or_quiz(){
   #MENU 12 with menu = 11 chapters + exit
-  MENU_SIZE=`expr $# - 1`
+  MENU_SIZE=$#
   argCMP=1
 	SUBJECT=$1
 	shift
@@ -141,7 +141,7 @@ function select_lecture_or_quiz(){
 		case $selected in
 			e) break ;;
 			*[!0-9]*|'') ;;
-			*) test "$selected" -le "$MENU_SIZE" && break ;;
+			*) test "$selected" -lt "$MENU_SIZE" && break ;;
 		esac
 	done
 	if [ "$selected" != "e" ];then
