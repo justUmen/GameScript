@@ -2,17 +2,17 @@
 #This generator create standalone files that are used by GameScript
 #??? create folder manually for now (all types of folders) "i3wm" for example ???
 for L in "fr" "en"; do #ADD languages
-	cd $L || { echo ERR $L not exist; exit; }
+	cd $L && echo "===> $L" || { echo ERR $L not exist; exit; }
 	for T in "classic" "fun"; do #ADD types, like story
-		cd $T || { echo ERR $L/$T not exist; exit; }
-		for S in "bash" "i3wm" "sys"; do #ADD subjects, like php
+		cd $T && echo "=====> $L/$T" || { echo ERR $L/$T not exist; exit; }
+		for S in "bash" "i3wm" "sys" "data"; do #ADD subjects, like php
 			cd $S || { echo ERR $L/$T/$S not exist; exit; }
 			for D in `find . -type d -name "_*"`; do
 NUMB=`echo "${D:2}"|sed 's/_//'`
-				echo "Folder ===>$D"
+				#~ echo "Folder ===>$D"
 				[ -d "../../../../GameScript_standalone/$L/$T/$S/" ] || exit
 				FILENAME="../../../../GameScript_standalone/$L/$T/$S/standalone${D:2}.sh"
-				echo "$FILENAME"
+				#~ echo "$FILENAME"
 				echo "#!/bin/bash" > "$FILENAME"
 				cat ../../../functions.sh >> "$FILENAME"
 				echo "function start_lecture(){" >> "$FILENAME"
@@ -52,9 +52,10 @@ echo "; restore=\$(expr \$restore + 1) ;&" >> "$FILENAME"
 				done < "$D/LIST_4GEN.txt"
 echo "esac" >> "$FILENAME"
 				echo "}" >> "$FILENAME"
-				cat "$D/SPECIFIC_4GEN.sh"  >> "$FILENAME"
+				cat "$D/SPECIFIC_4GEN.sh" >> "$FILENAME" 2> /dev/null
 				cat "$D/QUIZ_4GEN.sh"  >> "$FILENAME"
-				echo "SUCCESS : $FILENAME"
+				#~ echo "SUCCESS : $FILENAME"
+				echo "GameScript_standalone/$L/$T/$S/standalone${D:2}.sh [DONE]"
 			done
 			cd ..
 		done
