@@ -60,7 +60,7 @@ function select_subject(){
 			"1") select_chapter bash 1 ;;
 			"2") select_chapter i3wm 1 ;;
 			"3") select_chapter sys 1 ;;
-			"3") select_chapter data 1 ;;
+			"4") select_chapter data 1 ;;
 			h) gamescript_help ;;
 			p) my_passwords ;;
 			e) goodbye ;;
