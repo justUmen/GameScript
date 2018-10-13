@@ -34,6 +34,7 @@ function select_subject(){
 				#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
 				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm ( $TEXT_CHAPTER 1 ) \e[0m - niveau bash 2+ recommandé - [classic]"
 				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system ( $TEXT_CHAPTER 1 ) \e[0m - niveau bash 2+ recommandé - [classic]"
+				#~ echo -e "\\e[0;100m 4) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - niveau bash 2+ recommandé - [fun]"
 				echo -e "\\e[0;100m h) \\e[0m Aide"
 				echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
 				echo -e "\\e[0;100m e) \\e[0m Quitter"
@@ -42,7 +43,8 @@ function select_subject(){
 				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash ( $TEXT_CHAPTER 1-6 )\e[0m [classic]"
 				#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
 				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [classic]"
-				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [fun]"
+				#~ echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system ( $TEXT_CHAPTER 1 ) \e[0m - level bash 2+ recommanded - [classic]"
+				echo -e "\\e[0;100m 4) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [fun]"
 				echo -e "\\e[0;100m h) \\e[0m Help"
 				echo -e "\\e[0;100m p) \\e[0m My passwords"
 				echo -e "\\e[0;100m e) \\e[0m Exit"
@@ -50,15 +52,15 @@ function select_subject(){
 		esac
 		selected="x"
 		#?? PUT WHILE LOOP BASED ON MENU SIZE :P SAME THE OTHER ONE, OR FIND BETTER
-		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "e" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ]; do
+		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "4" ] && [ "$selected" != "e" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ]; do
 			echo -en "\e[97;45m # \e[0m"
 			read selected < /dev/tty
 		done
-		#??? Tmp solution, argument classic / fun / story before better system (Menu test ? selection ?)
 		case $selected in
 			"1") select_chapter bash 1 ;;
 			"2") select_chapter i3wm 1 ;;
 			"3") select_chapter sys 1 ;;
+			"3") select_chapter data 1 ;;
 			h) gamescript_help ;;
 			p) my_passwords ;;
 			e) goodbye ;;
@@ -85,6 +87,7 @@ function select_chapter(){
 	echo ""
 	command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT" -w 100
 	echo -e "   \e[97;44m - $SUBJECT, $TITLE \e[0m"
+	#?? TODO : GIve array for multiple type -> Trigger another menu to select type of lecture (classic + fun)
 	case $LANGUAGE in
 		fr) case $SUBJECT in
 					bash) select_lecture_or_quiz "$SUBJECT" "classic" \
@@ -115,6 +118,7 @@ function select_chapter(){
 							"$TEXT_CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
 							;;
 					i3wm) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+					data) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m ???" ;;
 					#~ sys) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 					*) TITLE="" ;;
 				esac
