@@ -1,6 +1,6 @@
 #!/bin/bash
-#This generator create standalone files
-#??? create folder manually for now "i3wm" for example ???
+#This generator create standalone files that are used by GameScript
+#??? create folder manually for now (all types of folders) "i3wm" for example ???
 for L in "fr" "en"; do #ADD languages
 	cd $L || { echo ERR $L not exist; exit; }
 	for T in "classic" "fun"; do #ADD types, like story
