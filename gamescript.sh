@@ -82,6 +82,7 @@ function select_chapter(){
 	  bash) TITLE="Bourne Again SHell" ;;
 	  i3wm) TITLE="The i3 Window Manager" ;;
 	  sys) TITLE="Unix-like system" ;;
+	  sys) TITLE="Data & Metadata" ;;
 	  *) TITLE="" ;;
 	esac
 	echo ""
@@ -118,7 +119,7 @@ function select_chapter(){
 							"$TEXT_CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
 							;;
 					i3wm) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-					data) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m ???" ;;
+					data) select_lecture_or_quiz "$SUBJECT" "fun" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m ???" ;;
 					#~ sys) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 					*) TITLE="" ;;
 				esac
