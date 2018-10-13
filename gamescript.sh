@@ -30,18 +30,19 @@ function select_subject(){
 		echo ""
 		case $LANGUAGE in
 			fr) echo -e "Menu principal : "
-				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $TEXT_CHAPTER 1-11 ] \e[0m"
+				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash ( $TEXT_CHAPTER 1-11 ) \e[0m [classic]"
 				#~ echo -e "Cette série porte le nom \e[97;44m bash \e[0m, elle regroupera cependant toutes les bases de la ligne de commande, comme par exemple les commandes GNU et l'organisation des fichiers et de leurs permissions dans un système d'exploitation de type Unix."
-				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $TEXT_CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
-				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system [ $TEXT_CHAPTER 1 ] \e[0m ( niveau bash 2+ recommandé )"
+				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm ( $TEXT_CHAPTER 1 ) \e[0m - niveau bash 2+ recommandé - [classic]"
+				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system ( $TEXT_CHAPTER 1 ) \e[0m - niveau bash 2+ recommandé - [classic]"
 				echo -e "\\e[0;100m h) \\e[0m Aide"
 				echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
 				echo -e "\\e[0;100m e) \\e[0m Quitter"
 				;;
 			en) echo -e "Main menu : "
-				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash [ $TEXT_CHAPTER 1-6 ]\e[0m"
+				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash ( $TEXT_CHAPTER 1-6 )\e[0m [classic]"
 				#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
-				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm [ $TEXT_CHAPTER 1 ]\e[0m ( level bash 2+ recommanded )"
+				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [classic]"
+				echo -e "\\e[0;100m 4) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [fun]"
 				echo -e "\\e[0;100m h) \\e[0m Help"
 				echo -e "\\e[0;100m p) \\e[0m My passwords"
 				echo -e "\\e[0;100m e) \\e[0m Exit"
@@ -52,6 +53,7 @@ function select_subject(){
 			echo -en "\e[97;45m # \e[0m"
 			read selected < /dev/tty
 		done
+		#??? Tmp solution, argument classic / fun / story before better system (Menu test ? selection ?)
 		case $selected in
 			"1") select_chapter bash 1 ;;
 			"2") select_chapter i3wm 1 ;;
@@ -84,7 +86,7 @@ function select_chapter(){
 	echo -e "   \e[97;44m - $SUBJECT, $TITLE \e[0m"
 	case $LANGUAGE in
 		fr) case $SUBJECT in
-					bash) select_lecture_or_quiz "$SUBJECT" \
+					bash) select_lecture_or_quiz "$SUBJECT" "classic" \
 							"$TEXT_CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
 							"$TEXT_CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
 							"$TEXT_CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
@@ -97,13 +99,13 @@ function select_chapter(){
 							"[PAS DE SON] $TEXT_CHAPTER 10 \e[0m : alias , \$PAGER , tail , head , \$? , source , less" \
 							"[PAS DE SON] $TEXT_CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt"
 							;;
-					i3wm) select_lecture_or_quiz "$SUBJECT" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-					sys)  select_lecture_or_quiz "$SUBJECT" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+					i3wm) select_lecture_or_quiz "$SUBJECT" "classic" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+					sys)  select_lecture_or_quiz "$SUBJECT" "classic" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 					*) TITLE="" ;;
 				esac
 				;;
 		en) case $SUBJECT in
-					bash) select_lecture_or_quiz "$SUBJECT" \
+					bash) select_lecture_or_quiz "$SUBJECT" "classic" \
 							"$TEXT_CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
 							"$TEXT_CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
 							"$TEXT_CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
@@ -111,8 +113,8 @@ function select_chapter(){
 							"$TEXT_CHAPTER 5 \e[0m : ls -l , chmod" \
 							"$TEXT_CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
 							;;
-					i3wm) select_lecture_or_quiz "$SUBJECT" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-					#~ sys) select_lecture_or_quiz "$1" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+					i3wm) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
+					#~ sys) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
 					*) TITLE="" ;;
 				esac
 				;;
@@ -120,12 +122,14 @@ function select_chapter(){
 }
 
 function select_lecture_or_quiz(){
-  #MENU 12 with menu = 11 chapters + exit
-  MENU_SIZE=$#
-  argCMP=1
+	MENU_SIZE=`expr $# - 2` # -2 : SUBJECT AND TYPE
+	TYPE=$2
 	SUBJECT=$1
+	argCMP=1
+	#Remove SUBJECT and TYPE
 	shift
-	for ARG in "$@"; do #For each arguments
+	shift
+	for ARG in "$@"; do #For each arguments (Chapters)
 	  if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then #OLD (SUCCESS) GREEN IF QUIZ ANSWERED
 			echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG \e[0m"
 	  else
@@ -141,14 +145,14 @@ function select_lecture_or_quiz(){
 		case $selected in
 			e) break ;;
 			*[!0-9]*|'') ;;
-			*) test "$selected" -lt "$MENU_SIZE" && break ;;
+			*) test "$selected" -le "$MENU_SIZE" && break ;;
 		esac
 	done
 	if [ "$selected" != "e" ];then
 		# echo "launch_standalone classic $SUBJECT $selected"
 		#??? USE $TYPE instead of classic
 		CHAPTER=$selected
-    launch_standalone classic $SUBJECT $CHAPTER
+    launch_standalone classic $SUBJECT $CHAPTER $TYPE
   fi
 }
 
