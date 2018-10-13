@@ -2,11 +2,11 @@
 #This generator create standalone files
 #??? create folder manually for now "i3wm" for example ???
 for L in "fr" "en"; do #ADD languages
-	cd $L || exit
-	for T in "classic"; do #ADD types, like story
-		cd $T || exit
+	cd $L || { echo ERR $L not exist; exit; }
+	for T in "classic" "fun"; do #ADD types, like story
+		cd $T || { echo ERR $L/$T not exist; exit; }
 		for S in "bash" "i3wm" "sys"; do #ADD subjects, like php
-			cd $S || exit
+			cd $S || { echo ERR $L/$T/$S not exist; exit; }
 			for D in `find . -type d -name "_*"`; do
 NUMB=`echo "${D:2}"|sed 's/_//'`
 				echo "Folder ===>$D"

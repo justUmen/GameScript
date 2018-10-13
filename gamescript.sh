@@ -42,13 +42,14 @@ function select_subject(){
 				echo -e "\\e[0;100m 1) \\e[0m\e[97;44m bash ( $TEXT_CHAPTER 1-6 )\e[0m [classic]"
 				#~ echo -e "This series have the name \e[97;44m bash \e[0m, but it will also cover all the basics of the linux command line, like for example GNU Core Utilities commands, as well as Unix-like operating system file organization and permissions."
 				echo -e "\\e[0;100m 2) \\e[0m\e[97;44m i3wm ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [classic]"
-				echo -e "\\e[0;100m 4) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [fun]"
+				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [fun]"
 				echo -e "\\e[0;100m h) \\e[0m Help"
 				echo -e "\\e[0;100m p) \\e[0m My passwords"
 				echo -e "\\e[0;100m e) \\e[0m Exit"
 				;;
 		esac
 		selected="x"
+		#?? PUT WHILE LOOP BASED ON MENU SIZE :P SAME THE OTHER ONE, OR FIND BETTER
 		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "e" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ]; do
 			echo -en "\e[97;45m # \e[0m"
 			read selected < /dev/tty
