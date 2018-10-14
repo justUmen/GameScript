@@ -7,7 +7,7 @@ I have seen a lot of people neglicting this, and ended up regreting it.
 Myself included...
 During your long-term relationship with your computer, you will create and control a lot of 'them' together.
 And to bring the suspend to an end, I'm talking about : ${voc}files${reset} and ${voc}folders${reset}.
-So here we will learn how we can create and manage them all.
+So in this chapter we will learn how we can create and manage them all.
 In a segment i want to call "Best Files and Folders", or BFF for short.
 So to summarize : There are two main types of elements that are stored and handled on your computer. : files and folders.
 Files represent the core of pretty much everything, they store the actual information or 'data'.
