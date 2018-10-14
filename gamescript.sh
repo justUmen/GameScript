@@ -605,8 +605,8 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3" ]; then
 			echo "Quiz music : /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/quiz_1.mp3"
 		else
-			echo "$TEXT_MUSIC_1"
-			echo -e "$TEXT_MUSIC_2"
+			echo "$TEXT_MUSIC_QUIZ_1"
+			echo -e "$TEXT_MUSIC_QUIZ_2"
 			command -v ffmpeg &> /dev/null || echo -e "$TEXT_MUSIC_QUIZ_COMMON"
 			command -v youtube-dl &> /dev/null || echo -e "$TEXT_MUSIC_QUIZ_COMMON"
 		fi
