@@ -607,8 +607,8 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		else
 			echo "$TEXT_MUSIC_1"
 			echo -e "$TEXT_MUSIC_2"
-			command -v ffmpeg &> /dev/null || echo -e "$TEXT_MUSIC_COMMON"
-			command -v youtube-dl &> /dev/null || echo -e "$TEXT_MUSIC_COMMON"
+			command -v ffmpeg &> /dev/null || echo -e "$TEXT_MUSIC_QUIZ_COMMON"
+			command -v youtube-dl &> /dev/null || echo -e "$TEXT_MUSIC_QUIZ_COMMON"
 		fi
 		echo ""
 	else
