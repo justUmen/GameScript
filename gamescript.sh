@@ -158,7 +158,9 @@ function select_lecture_or_quiz(){
 		# echo "launch_standalone classic $SUBJECT $selected"
 		#??? USE $TYPE instead of classic
 		CHAPTER=$selected
-    launch_standalone $TYPE $SUBJECT $CHAPTER
+		launch_standalone $TYPE $SUBJECT $CHAPTER
+		#AFTER STANDALONE STAY IN SUBJECT MENU
+		select_chapter $SUBJECT 1
   fi
 }
 
