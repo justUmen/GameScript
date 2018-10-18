@@ -8,41 +8,39 @@ Myself included...
 During your long-term relationship with your computer, you will create and control a lot of 'them' together.
 And to bring the suspend to an end, I'm talking about : ${voc}files${reset} and ${voc}folders${reset}.
 So in this chapter we will learn how we can create and manage them all.
-In a segment i want to call "Best Files and Folders", or BFF for short.
-So to summarize : There are two main types of elements that are stored and handled on your computer. : files and folders.
+So to summarize : There are two main types of elements that are stored and handled by your computer. : files and folders.
 Files represent the core of pretty much everything, they store the actual information or 'data'.
 It can be whatever you want : text, image, video, pron, sound, program etc...
 And on the other end you have folders.
 Folders are just elements that you can use to organize your files.
 You will sometimes see or hear the word "directory" instead of "folder".
-But there are no difference between the two. Sometimes you will see one, sometimes the other.
+But there are no difference between these two words. Sometimes you will see one, sometimes the other.
 The name 'folder' come from a very antique IRL object people were using to store multiple papers together.
-I'm very old so I know what a 'paper' is , but if you nver heard about this before, a 'paper' is the dead tree version of what you are seeing nowadays on your screen.
-It's dificult to think about it, but our ancestors used to murder trees, make them into thin flat sheets jut for the purpose of writing on them.
-But that was a long time ago, well before being banned for being too barbaric.
-It is called a 'folder' because being roughly double the size of a file, you can litteraly 'fold' it and you can put several papers inside.
-The files inside will go where the folder is going.
+Before the screen was invented, text, like the sentence you are reading right now, was stored on a very thin piece of a dead tree.
+This flattened body part was called 'paper'.
+It's hard to imagine, but our ancestors used to murder trees, transform them into these thin flat sheets just for the purpose of storing words on the surface.
+But that was a long time ago, well before being considered primitive and barbaric.
 Believe it or not, these papers with written text on them were called 'files'.
-Yes exactly like the ones you have on your computer today.
+Yes, exactly like the ones you have on your computer today.
+So back to the folder. It is called a 'folder' because this paper being roughly double the size of a normal paper, you can litteraly 'fold' it and you can put several papers inside.
+The files inside will go where the folder is going, and because of the fold at the bottom they won't fall off.
 #folder_unfold
-I can't show you a real folder because they are of course extinct, but I can show you this so you can visualize the concept. Here you can clearly see the fold.
+I can't show you a real folder because they are of course all extinct, but I can show you this so you can visualize the concept. Here you can clearly see the fold.
 #folder_front
-But from the side it will look like this, the part going above the rest is used for a label : the name of the folder commonly.
+But from the side it will look like this, the part going above the rest is used for a label : the name of the folder for example.
 The complexity of our ancestors organisation of files can get even worse than this !
 In this folder, you can also store another smaller folder, and in this folder you can store another folder.
 Like a russian folder system where the folders are getting smaller and smaller.
 Your computer is using the same concept !
-But computers dont have the limitations of the real world, because as we all know : the real world sucks and is for suckers.
-So on a computer, unlike the real world, you can have an unlimited amount of directories inside each other.
-If you are NOT in control of what you are doing, it can get messy very very quickly.
+But computers dont have the limitations of the real world, because as we all know : the real world sucks and was made for suckers.
+On a computer, unlike the real world, you can have an unlimited amount of directories inside each other.
+So if you are NOT in control of what you are doing, it can get messy very quickly.
 On a computer, ${voc}before${reset} creating a new file or a new directory, you need to think about 2 things :
 1 - A good location.
 2 - A good name.
-I will give you an example, and I will explain along the way all my decisions.
-Like I said, on a computer, you can create an infinite amount of files and directories.
-So you really need to be careful and stay in control of them.
+I will give you an example, and I will explain along the way all my decisions
 Your main goal is being able to find back your files, even after a long period of time... So it's very important to find a suitable place for them.
-If it is difficult for you to find something back in your own computer, you did it wrong. (aka : You suck.)
+If it is difficult for you to find something back on your own computer, you did it wrong. (aka : You suck.)
 You have to choose a methodology and stick to it.
 If you already have some files and folder, dont be afraid to delete, or to reorganise them.
 But the best tip i can give you to avoid wasting a lot of time, is to do it well from the start !

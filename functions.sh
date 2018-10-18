@@ -198,7 +198,7 @@ function answer_quiz(){
 					echo -e "      \\e[0;100m 2) \\e[0m $TEXT_RESTART"
 					echo -e "      \\e[0;100m e) \\e[0m $TEXT_BACK"
 					choice="x"
-					while [ "$choice" != "1" ] && [ "$choice" != "2" ] && [ "$choice" != "3" ]; do
+					while [ "$choice" != "1" ] && [ "$choice" != "2" ] && [ "$choice" != "e" ]; do
 						echo -en "      \\e[97;45m # \\e[0m"
 						read choice < /dev/tty
 					done

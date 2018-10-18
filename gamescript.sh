@@ -105,7 +105,7 @@ function select_chapter(){
 							"[PAS DE SON] $TEXT_CHAPTER 11 \e[0m : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt"
 							;;
 					i3wm) select_lecture_or_quiz "$SUBJECT" "classic" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
-					sys)  select_lecture_or_quiz "$SUBJECT" "classic" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+					sys)  select_lecture_or_quiz "$SUBJECT" "classic" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGSTOP , SIGTERM , SIGKILL" ;;
 					*) TITLE="" ;;
 				esac
 				;;
@@ -120,7 +120,7 @@ function select_chapter(){
 							;;
 					i3wm) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
 					data) select_lecture_or_quiz "$SUBJECT" "fun" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m ???" ;;
-					#~ sys) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL" ;;
+					#~ sys)  select_lecture_or_quiz "$SUBJECT" "classic" "[PAS DE SON] $TEXT_CHAPTER 1 \e[0m : ^C+c , ^C+z , & , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGSTOP , SIGTERM , SIGKILL" ;;
 					*) TITLE="" ;;
 				esac
 				;;
@@ -180,16 +180,35 @@ function launch_standalone(){
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
 			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
 			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $CHAPTER_NUMBER" -w 100
-			bash $HOME/.GameScript/standalone.sh MUTE
+			if [[ "$SUBJECT" == "sys" ]] && [[ "$CHAPTER_NUMBER" == "1" ]]; then
+				echo "set-option -g default-shell /bin/bash" > $HOME/.GameScript/tmux.conf
+				tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/standalone.sh MUTE; tmux kill-session -t 'gs_sys_1'" C-m \;
+			else
+				bash $HOME/.GameScript/standalone.sh MUTE
+			fi
 			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s -- MUTE
 		else
 			rm $HOME/.GameScript/standalone.sh 2>/dev/null
 			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
 			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $CHAPTER_NUMBER" -w 100
 			if [[ $VIDEO == 0 ]];then
-				bash $HOME/.GameScript/standalone.sh
+				if [[ "$SUBJECT" == "sys" ]] && [[ "$CHAPTER_NUMBER" == "1" ]]; then
+					echo "set-option -g default-shell /bin/bash" > $HOME/.GameScript/tmux.conf
+					tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/standalone.sh; tmux kill-session -t 'gs_sys_1'" C-m \;
+					#LOCAL TESTS
+					#~ tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash /home/umen/SyNc/Projects/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_${CHAPTER_NUMBER}.sh; tmux kill-session -t 'gs_sys_1'" C-m \;
+				else
+					bash $HOME/.GameScript/standalone.sh
+					#LOCAL TESTS
+					#~ /home/umen/SyNc/Projects/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_${CHAPTER_NUMBER}.sh
+				fi
 			else
-				bash $HOME/.GameScript/standalone.sh VIDEO
+				if [[ "$SUBJECT" == "sys" ]] && [[ "$CHAPTER_NUMBER" == "1" ]]; then
+					echo "set-option -g default-shell /bin/bash" > $HOME/.GameScript/tmux.conf
+					tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/standalone.sh VIDEO; tmux kill-session -t 'gs_sys_1'" C-m \;
+				else
+					bash $HOME/.GameScript/standalone.sh VIDEO
+				fi
 			fi
 			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s
 		fi

@@ -10,7 +10,7 @@ function start_quiz(){
   echo -e "\e[15;44m System : Questionnaire du chapitre 1 \e[0m"
   echo -e "- La réponse doit être la plus courte possible, une commande valide mais ajoutant des caractères inutiles ne fonctionnera pas."
   echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
-#^C+c , ^C+z , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGKILL
+#^C+c , ^C+z , jobs , fg , bg , kill , disown , PID , PPID , SIGCONT , SIGINT , SIGTSTP , SIGSTOP , SIGKILL
   answer_text_fr "Quelle est la commande qui affiche la liste de vos 'jobs' ?" "jobs"
   answer_text_fr "Comment lancer le gestionnaire de fichier 'pcmanfm' en arrière plan à partir d'un terminal ?" "pcmanfm&"
   answer_text_fr "Si votre job est 'Stopped', quel signal devez vous envoyer pour le rendre utilisable ? (Votre réponse doit commencer par SIG)" "SIGCONT"

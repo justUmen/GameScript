@@ -14,3 +14,9 @@ https://unix.stackexchange.com/questions/224015/memory-usage-of-a-given-process-
 
 
 tmpfs /tmp tmpfs mode=1777,nosuid,nodev 0 0
+
+
+https://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without-killing-the-command-running-in-it
+galculator&! (galculator&; disown)
+setsid galculator
+
