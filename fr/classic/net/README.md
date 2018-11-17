@@ -3,6 +3,7 @@ INTERNET :
 - IP
 - PORT
 - DNS
+- DOMAINS
 LOCAL :
 - MAC
 - ARP
@@ -22,6 +23,11 @@ Active commands :
 AND scapy !!!
 
 
+
+
+
+
+nslookup + /etc/resolv.conf
 
 
 

@@ -20,3 +20,20 @@ https://unix.stackexchange.com/questions/4004/how-can-i-close-a-terminal-without
 galculator&! (galculator&; disown)
 setsid galculator
 
+
+
+
+
+xsessions
+https://www.linuxquestions.org/questions/linux-desktop-74/usr-share-xsessions-4175614506/
+
+
+
+
+distro ?
+https://www.binarytides.com/enable-testing-repo-debian/
+
+
+echo "1" > /proc/sys/kernel/sysrq
+/etc/sysctl.conf (kernel.sysrq=1) : https://www.kernel.org/doc/Documentation/sysrq.txt
+	echo b > /proc/sysrq-trigger
