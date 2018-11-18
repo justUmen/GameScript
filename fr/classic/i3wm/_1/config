@@ -1,4 +1,4 @@
-exec xterm -e "bash ~/.GameScript/standalone.sh;bash"
+exec mate-terminal -e "bash ~/.GameScript/standalone.sh;bash"
 exec i3-msg 'workspace 1, layout tabbed'
 
 assign [class="Leafpad"] workspace 2
