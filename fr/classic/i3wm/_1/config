@@ -8,7 +8,7 @@ assign [class="Pcmanfm"] workspace 4
 font pango:monospace 8
 
 floating_modifier mod4
-bindsym mod4+Return exec lxterminal
+bindsym mod4+Return exec xterm
 
 bindsym mod4+Shift+q kill
 
