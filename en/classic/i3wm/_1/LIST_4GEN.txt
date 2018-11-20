@@ -1,21 +1,21 @@
-#command -v lxterminal >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v i3 >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v i3status >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v qutebrowser >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v mousepad  >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v leafpad >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v pcmanfm >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v jq >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v feh >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v wmctrl >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
-#command -v galculator >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator" >&2; exit 3; }
+#command -v xterm >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v i3 >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v i3status >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v surf >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v mousepad  >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v leafpad >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v pcmanfm >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v jq >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v feh >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v wmctrl >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
+#command -v galculator >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install i3 i3status surf mousepad leafpad pcmanfm jq feh wmctrl xdotool xterm galculator" >&2; rm $HOME/.GameScript/restore_i3wm1; exit 3; }
 #mkdir ~/.config 2>/dev/null
 #mkdir ~/.config/i3 2>/dev/null
 #[ -f "$HOME/.config/i3/config_GS_backup" ] && [ ! -f "$HOME/.GameScript/i3wm_1_installed" ] && echo "$HOME/.config/i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
 #[ -f "$HOME/.i3/config_GS_backup" ] && [ ! -f "$HOME/.GameScript/i3wm_1_installed" ] && echo "$HOME/.i3/config_GS_backup existe déjà sur votre système, veuillez le renommer ou le supprimer pour continuer." && exit
 #if [ -f "$HOME/.config/i3/config" ] || [ -f "$HOME/.i3/config" ]; then read -p "GameScript is using a personnalised configuration file, your current i3 configuration file will be renamed "config_GS_backup", do you want to continue ? [Y]es/[N]o : " -n 1 -r ; echo ; if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit ; fi ; fi
-#if [ ! -f "$HOME/.GameScript/i3wm_1_installed" ]; then [ -f "$HOME/.config/i3/config" ] && mv $HOME/.config/i3/config $HOME/.config/i3/config_GS_backup && echo "Your configuration file $HOME/.config/i3/config wast renamed into $HOME/.config/i3/config_GS_backup"; [ -f "$HOME/.i3/config" ] && mv $HOME/.i3/config $HOME/.i3/config_GS_backup && echo "Your configuration file $HOME/.i3/config was renamed into $HOME/.i3/config_GS_backup"; touch $HOME/.GameScript/i3wm_1_installed;wget https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/i3wm/_1/config -O ~/.config/i3/config &> /dev/null; rm $HOME/.GameScript/restore_i3wm1; echo "INSTALLATION SUCCESSFULL : Please close your current window manager and launch i3 normally : Disconnect and select i3 in your DIsplay Manager (lightdm, gdm, xdm...) GameScript will be there to welcome you. :-)"; exit; fi
+#if [ ! -f "$HOME/.GameScript/i3wm_1_installed" ]; then [ -f "$HOME/.config/i3/config" ] && mv $HOME/.config/i3/config $HOME/.config/i3/config_GS_backup && echo "Your configuration file $HOME/.config/i3/config wast renamed into $HOME/.config/i3/config_GS_backup"; [ -f "$HOME/.i3/config" ] && mv $HOME/.i3/config $HOME/.i3/config_GS_backup && echo "Your configuration file $HOME/.i3/config was renamed into $HOME/.i3/config_GS_backup"; touch $HOME/.GameScript/i3wm_1_installed;wget https://raw.githubusercontent.com/justUmen/GameScript/master/fr/classic/i3wm/_1/config -O ~/.config/i3/config &> /dev/null; rm $HOME/.GameScript/restore_i3wm1; echo "INSTALLATION SUCCESSFULL : Please close your current window manager and launch i3 normally : Disconnect and select i3 in your DIsplay Manager (lightdm, gdm, xdm...) GameScript will be there to welcome you. :-)"; pkill -f gamescript.sh; exit; fi
 #mkdir $HOME/.GameScript_i3wm_1 &> /dev/null
 #cd $HOME/.GameScript_i3wm_1
 #gamescript_window=$(xdotool getwindowfocus)
@@ -51,7 +51,7 @@ You can also use your mouse et click on the name of workspace you want to go to.
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
 Look now the blue bar on top of your screen : it contains the title of the window where GameScript is running.
 Of course, it is possible to have several windows on the same workspace.
-#i3-msg 'exec lxterminal' &>/dev/null; while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done; i3-msg focus left
+#i3-msg 'exec xterm' &>/dev/null; while [ `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done; i3-msg focus left
 I've just opened a new terminal in your workspace, you should now see two different tabs on the top of your screen.
 Each tab represents a window, the one on the left is the title of the GameScript window.
 The windows are displayed in these tabs from left to right, from the oldest to the more recent.
@@ -123,7 +123,7 @@ Organizing your windows by theme enables you to find them back very quickly, eve
 #echo -e "<html>\\\\n\\\\t<head>\\\\n\\\\t\\\\t<link rel="stylesheet" href="style.css">\\\\n\\\\t</head>\\\\n\\\\t<body>\\\\n\\\\t\\\\t<h1>GameScript</h1>\\\\n\\\\t\\\\t<div>good morning</div>\\\\n\\\\t</body>\\\\n</html>" > ~/.GameScript_i3wm_1/index.html
 #echo -e "h1{color:red;}" > ~/.GameScript_i3wm_1/style.css
 #i3-msg exec leafpad ~/.GameScript_i3wm_1/index.html &>/dev/null
-#i3-msg exec qutebrowser ~/.GameScript_i3wm_1/index.html &>/dev/null
+#i3-msg exec surf ~/.GameScript_i3wm_1/index.html &>/dev/null
 #i3-msg exec pcmanfm ~/.GameScript_i3wm_1/ &>/dev/null
 I've just prepared for you a full example, with a single window per workspace.
 This example is using my owns configurations, but you will be free to have your own later on, depending on which programs you use often.
@@ -131,7 +131,7 @@ This example is using my owns configurations, but you will be free to have your 
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
-+Workspace 3 has the same html file opened in a web browser (qutebrowser), visit this workspace and come back to GameScript.
++Workspace 3 has the same html file opened in a web browser (surf), visit this workspace and come back to GameScript.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
 #while [ ! `xdotool getwindowfocus` = $gamescript_window ];do sleep .5; done
