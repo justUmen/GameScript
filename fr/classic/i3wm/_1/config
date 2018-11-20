@@ -1,4 +1,4 @@
-exec xterm -xrm "xterm*background: #000000" -xrm "xterm*foreground: #cccccc" -xrm "xterm*faceName: Fixed" -xrm "XTerm*faceSize: 11" -e "bash ~/.GameScript/standalone.sh;bash"
+exec xterm -xrm "xterm*background: #000000" -xrm "xterm*foreground: #cccccc" -xrm "xterm*faceName: Fixed" -xrm "XTerm*faceSize: 11" -e "bash ~/.GameScript/standalone.sh 1;bash"
 exec i3-msg 'workspace 1, layout tabbed'
 
 assign [class="Leafpad"] workspace 2
