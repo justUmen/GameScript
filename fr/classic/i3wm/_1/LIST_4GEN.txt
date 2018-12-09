@@ -144,7 +144,7 @@ Donc au lieu d'avoir 4 fenêtres différentes, vous avez ici 4 espaces de travai
 +Modifiez le mot 'bonjour' du fichier html par le mot 'bonsoir' dans l'espace de travail 2, sauvegardez le fichier, puis revenez sur GameScript.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
-+Affichez maintenant le changement en actualisant votre navigateur web dans l'espace de travail 3, puis revenez sur GameScript. (Touche F5)
++Affichez maintenant le changement en actualisant votre navigateur web dans l'espace de travail 3, puis revenez sur GameScript. (Ctrl + 'r')
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done
 +Allez maintenant sur l'espace de travail 4 et ouvrez le fichier 'style.css' avec leafpad en faisant clic droit sur le fichier, ouvrir avec, Leafpad, puis revenez sur GameScript.
@@ -154,7 +154,7 @@ Vous avez surement remarqué que leafpad ne s'est pas ouvert dans l'espace de tr
 C'est en fait parce que j'ai configuré votre i3 pour que cela soit le cas.
 Votre espace de travail 2 devrait d'ailleurs être en ce moment de couleur rouge dans la liste des espaces de travail.
 Ce rouge veut dire qu'une nouvelle fenêtre vient de s'ouvrir dans cet espace de travail, et cette couleur restera rouge tant que cette fenêtre n'aura pas recu de focus.
-+Modifiez donc ce fichier 'style.css' en changeant 'red' par 'blue', enregistrez les modifications, verifiez l'effet de vos changements dans l'espace de travail 3 avec F5 et revenez sur GameScript.
++Modifiez donc ce fichier 'style.css' en changeant 'red' par 'blue', enregistrez les modifications, verifiez l'effet de vos changements dans l'espace de travail 3 avec Ctrl + 'r' et revenez sur GameScript.
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 2 ]; do sleep .5; done
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 3 ]; do sleep .5; done
 #while [ `i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].name'` != 1 ]; do sleep .5; done

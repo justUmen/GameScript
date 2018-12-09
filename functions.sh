@@ -373,7 +373,7 @@ function unlock(){
 			command -v xclip &> /dev/null && echo "This password was automaticaly copied with 'xclip'." || echo "[ Install 'xclip' to copy this password automaticaly after a quiz. ]"
 			;;
 	esac
-	command -v xclip &> /dev/null && echo "$PASS" | xclip -i -selection clipboard
+	command -v xclip &> /dev/null && echo "password$PASS" | xclip -i -selection clipboard
 	#AUTOMATICALLY DO THIS ?
 	touch "$HOME/.GameScript/good_$1$2" 2> /dev/null
 	mkdir $HOME/.GameScript/passwords/ 2> /dev/null
