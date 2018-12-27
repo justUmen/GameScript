@@ -711,6 +711,13 @@ else
 			read -r PSEUDO < /dev/tty
 		done
 		echo ""
+	  #Random welcome back ???
+	  if [ "$LANGUAGE" == "fr" ]; then
+	    echo -e "Content de vous voir $(cat ~/.GameScript/username) !"
+	    # echo "Quel sujet vous intéresse aujourd'hui ?"
+	  elif [ "$LANGUAGE" == "en" ]; then
+	    echo -e "Good to see you $(cat ~/.GameScript/username) !"
+	  fi
 		select_subject GUEST
 	else
 		#DOWNLOAD OR UPDATE STANDALONE
