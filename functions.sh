@@ -120,8 +120,8 @@ function new_video(){
 }
 
 function talk(){
-	if [[ $VIDEO == 0 ]]; then 
-		if [[ $MUTE == 0 ]]; then 
+	if [[ $VIDEO == 0 ]]; then
+		if [[ $MUTE == 0 ]]; then
 			new_sound
 		fi
 	else
@@ -134,15 +134,15 @@ function talk(){
 
 	#~ sleep 1
 	#~ while read -r -t 0; do read -r; done
-	
+
 	#~ sleep 0.5
 	#~ read -s -e -t 0.1 #flush stdin ?
 
 	press_key
 }
 function talk_not_press_key(){
-	if [[ $VIDEO == 0 ]]; then 
-		if [[ $MUTE == 0 ]]; then 
+	if [[ $VIDEO == 0 ]]; then
+		if [[ $MUTE == 0 ]]; then
 			new_sound
 		fi
 	else
@@ -173,7 +173,7 @@ function answer_quiz(){
 	echo -e "      \\e[0;100m e) \\e[0m $3"
 	key="9"
 	while [ "$key" != "1" ] && [ "$key" != "2" ] && [ "$key" != "e" ]; do
-		echo -en "      \\e[97;45m # \\e[0m"	
+		echo -en "      \\e[97;45m # \\e[0m"
 		read key < /dev/tty
 	done
 		# echo ""
@@ -217,6 +217,7 @@ function answer_quiz(){
 						esac
 					#~ done
 				fi
+				how_to_leave_chapter
 				start_lecture 1
 				start_quiz
 				;;
@@ -446,15 +447,14 @@ function WAIT_FOR_USER(){
 #~ LOOP_ON #play idle
 #~ while true; do
 	#~ WAIT_FOR_USER
-	
+
 	#~ PLAYLIST_NEXT #play next video
 	#~ echo "PLAY VIDEO"
 	#~ LOOP_OFF
-	
+
 	#~ UNTIL_IDLE_IS_BACK
 	#~ echo "BACK"
-	
+
 	#~ echo "PLAY IDLE"
 	#~ LOOP_ON
 #~ done
-

@@ -170,26 +170,28 @@ function launch_standalone(){
 	SUBJECT=$2
 	CHAPTER_NUMBER=$3
 	#MUTE=1 AND VOICE=0 ARE DIFFERENT BUT SAME FOR STANDALONE BECAUSE MUSIC IS PLAYED IN gamescript.sh (WHAT ABOUT SOUND EFFECTS ?) ???
-	echo $TEXT_DOWNLOADING_CHAPTER
+	# echo $TEXT_DOWNLOADING_CHAPTER
 	#TEST INTERNET
-	wget -q --spider http://google.com
-	if [ $? -ne 0 ]; then
-		echo $TEXT_INTERNET_ERROR
-	else
+	# wget -q --spider http://google.com
+	# if [ $? -ne 0 ]; then
+	# 	echo $TEXT_INTERNET_ERROR
+	# else
 		if [[ $MUTE == 1 ]] || [[ $VOICE == 0 ]]; then
-			rm $HOME/.GameScript/standalone.sh 2>/dev/null
-			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
+
+			# rm $HOME/.GameScript/standalone.sh 2>/dev/null
+			# wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
 			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $CHAPTER_NUMBER" -w 100
 			if [[ "$SUBJECT" == "sys" ]] && [[ "$CHAPTER_NUMBER" == "1" ]]; then
 				echo "set-option -g default-shell /bin/bash" > $HOME/.GameScript/tmux.conf
 				tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/standalone.sh MUTE; tmux kill-session -t 'gs_sys_1'" C-m \;
 			else
-				bash $HOME/.GameScript/standalone.sh MUTE
+				bash $HOME/.GameScript/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh MUTE
+				# bash $HOME/.GameScript/standalone.sh MUTE
 			fi
 			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s -- MUTE
 		else
-			rm $HOME/.GameScript/standalone.sh 2>/dev/null
-			wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
+			# rm $HOME/.GameScript/standalone.sh 2>/dev/null
+			# wget -q "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh" -O $HOME/.GameScript/standalone.sh 2>/dev/null
 			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $CHAPTER_NUMBER" -w 100
 			if [[ $VIDEO == 0 ]];then
 				if [[ "$SUBJECT" == "sys" ]] && [[ "$CHAPTER_NUMBER" == "1" ]]; then
@@ -198,21 +200,23 @@ function launch_standalone(){
 					#LOCAL TESTS
 					#~ tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash /home/umen/SyNc/Projects/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_${CHAPTER_NUMBER}.sh; tmux kill-session -t 'gs_sys_1'" C-m \;
 				else
-					bash $HOME/.GameScript/standalone.sh
+					bash $HOME/.GameScript/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh
+					# bash $HOME/.GameScript/standalone.sh
 					#LOCAL TESTS
 					#~ /home/umen/SyNc/Projects/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_${CHAPTER_NUMBER}.sh
 				fi
 			else
 				if [[ "$SUBJECT" == "sys" ]] && [[ "$CHAPTER_NUMBER" == "1" ]]; then
 					echo "set-option -g default-shell /bin/bash" > $HOME/.GameScript/tmux.conf
-					tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/standalone.sh VIDEO; tmux kill-session -t 'gs_sys_1'" C-m \;
+					tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh VIDEO; tmux kill-session -t 'gs_sys_1'" C-m \;
 				else
-					bash $HOME/.GameScript/standalone.sh VIDEO
+					bash $HOME/.GameScript/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh VIDEO
+					# bash $HOME/.GameScript/standalone.sh VIDEO
 				fi
 			fi
 			#~ wget --no-cache -q -O - "https://raw.githubusercontent.com/justUmen/GameScript_standalone/master/$LANGUAGE/$TYPE/$SUBJECT/standalone_$(expr $2 - 3).sh" | bash -s
 		fi
-	fi
+	# fi
 }
 
 
@@ -568,7 +572,6 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 
 
-
 # ██       █████  ███    ██  ██████  ██    ██  █████   ██████  ███████
 # ██      ██   ██ ████   ██ ██       ██    ██ ██   ██ ██       ██
 # ██      ███████ ██ ██  ██ ██   ███ ██    ██ ███████ ██   ███ █████
@@ -638,6 +641,15 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 fi
 
 
+
+#DOWNLOAD OR UPDATE STANDALONE
+if [ -d "$HOME/.GameScript/GameScript_standalone" ]; then
+	git clone --depth 1 https://github.com/justUmen/GameScript_standalone $HOME/.GameScript/GameScript_standalone
+else
+	cd $HOME/.GameScript/GameScript_standalone/ && git pull --depth 1 https://github.com/justUmen/GameScript_standalone && cd -
+fi
+
+
 reset='\e[0m'
 #~ voc='\e[1m'
 voc='\e[4;37m'
@@ -684,7 +696,7 @@ else #SIMPLE AUDIO
 fi
 
 
-command -v toilet &> /dev/null && toilet -f mono12 GameScript -w 100
+command -v toilet &> /dev/null && toilet -f mono9 GameScript -w 100
 if [ ! -f "$HOME/.GameScript/username" ]; then
   mkdir ~/.GameScript/ 2> /dev/null
   if [ "$LANGUAGE" == "fr" ]; then
@@ -695,12 +707,24 @@ if [ ! -f "$HOME/.GameScript/username" ]; then
   echo -n "$PSEUDO" > ~/.GameScript/username
   select_subject
 else
-  #Random welcome back ???
-  if [ "$LANGUAGE" == "fr" ]; then
-    echo -e "Content de vous revoir $(cat ~/.GameScript/username) !"
-    # echo "Quel sujet vous intéresse aujourd'hui ?"
-  elif [ "$LANGUAGE" == "en" ]; then
-    echo -e "Good to see you again $(cat ~/.GameScript/username) !"
-  fi
-  select_subject
+	if [[ "$PSEUDO" == "guest" ]]; then
+		#SMALL INTRO MESSAGE ???
+		talk_GAMESCRIPT justumen "GameScript pseudo :"
+		PSEUDO=""
+		while [[ $PSEUDO = "" ]]; do
+			echo -en "\e[97;45m # \e[0m"
+			read -r PSEUDO < /dev/tty
+		done
+		echo ""
+		select_subject GUEST
+	else
+	  #Random welcome back ???
+	  if [ "$LANGUAGE" == "fr" ]; then
+	    echo -e "Content de vous revoir $(cat ~/.GameScript/username) !"
+	    # echo "Quel sujet vous intéresse aujourd'hui ?"
+	  elif [ "$LANGUAGE" == "en" ]; then
+	    echo -e "Good to see you again $(cat ~/.GameScript/username) !"
+	  fi
+	  select_subject
+	fi
 fi

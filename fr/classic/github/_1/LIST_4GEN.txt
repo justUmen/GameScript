@@ -2,3 +2,35 @@
 #command -v xdotool >/dev/null 2>&1 || { echo "Veuillez installer les dépendances requises. Faites en tant qu'administrateur : apt-get install xdotool" >&2; exit 3; }
 #mkdir $HOME/.GameScript_github1 2> /dev/null
 #cd $HOME/.GameScript_github1
+
+
+GIT + GITHUB
+
+//https://www.tutorialspoint.com/git/git_basic_concepts.htm
+
+SCM (Source Code Management)
+VCS (Version Control System)
+
+function of VCS
+	Allows developers to work simultaneously.
+	Does not allow overwriting each other’s changes.
+	Maintains a history of every version.
+
+2 types of VCS
+	Centralized version control system (CVCS).
+	Distributed/Decentralized version control system (DVCS). ----- GIT IS THIS TYPE
+
+3 places :
+	a - WORKING
+	b - STAGING
+	c - REPOSITORY
+
+a -> b (git add) : git add file.txt
+b -> c (git commit) : git commit -m "file.txt added"
+
+BLOB : Binary Large Object
+	Each version of a file is represented by blob. Blob contains data but no metadata.
+"It is a binary file, and in Git database, it is named as SHA1 hash of that file. In Git, files are not addressed by names. Everything is content-addressed."
+
+
+
