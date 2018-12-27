@@ -22,9 +22,9 @@ CMP=0 #START AT 1
 				while read line; do
 CMP=`expr $CMP + 1`
 echo -n "$CMP) " >> "$FILENAME"
-echo -n "echo -n $CMP > \$HOME/.GameScript/restore_$S$NUMB 2>/dev/null ; " >> "$FILENAME"
+echo -n "{ echo -n $CMP > \$HOME/.GameScript/restore_$S$NUMB } 2>/dev/null ; " >> "$FILENAME"
 #~ echo -n "echo -n $CMP > \$HOME/.GameScript/restore_$S$NUMB; sleep 0.3; read -e -t 0.1; " >> "$FILENAME"
-echo -n "echo -n \$(pwd) > \$HOME/.GameScript/restore_pwd_$S$NUMB 2>/dev/null ; " >> "$FILENAME"
+echo -n "{ echo -n \$(pwd) > \$HOME/.GameScript/restore_pwd_$S$NUMB } 2>/dev/null ; " >> "$FILENAME"
 				  if [[ ${line:0:1} == '#' ]]; then
 					#CODE : just run it
 					echo -n "${line:1}" >> "$FILENAME"
