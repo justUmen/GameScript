@@ -715,11 +715,10 @@ else
 	else
 		#DOWNLOAD OR UPDATE STANDALONE
 		if [ ! -d "$HOME/.GameScript/GameScript_standalone" ]; then
-			echo "A"
 			git clone --depth 1 https://github.com/justUmen/GameScript_standalone $HOME/.GameScript/GameScript_standalone
 		else
-			echo "B"
-			cd $HOME/.GameScript/GameScript_standalone/ && git pull --depth 1 https://github.com/justUmen/GameScript_standalone && cd -
+			cd $HOME/.GameScript/GameScript_standalone/ && git pull --depth 1 https://github.com/justUmen/GameScript_standalone 2>/dev/null && cd -
+			echo
 		fi
 	  #Random welcome back ???
 	  if [ "$LANGUAGE" == "fr" ]; then
