@@ -704,12 +704,13 @@ if [ ! -f "$HOME/.GameScript/username" ]; then
   elif [ "$LANGUAGE" == "en" ]; then
 		justumen_intro_en
   fi
-  echo -n "$PSEUDO" > ~/.GameScript/username
+  echo -n "$PSEUDO" > $HOME/.GameScript/username
   select_subject
 else
+	PSEUDO=`cat $HOME/.GameScript/username`
 	if [[ "$PSEUDO" == "guest" ]]; then
 		#SMALL INTRO MESSAGE ???
-		talk_GAMESCRIPT justumen "GameScript pseudo :"
+		echo "GameScript pseudo :"
 		PSEUDO=""
 		while [[ $PSEUDO = "" ]]; do
 			echo -en "\e[97;45m # \e[0m"
