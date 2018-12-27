@@ -722,10 +722,10 @@ else
 		fi
 	  #Random welcome back ???
 	  if [ "$LANGUAGE" == "fr" ]; then
-	    echo -e "Content de vous revoir $(cat ~/.GameScript/username) !"
+	    echo -e "Content de vous voir $(cat ~/.GameScript/username) !"
 	    # echo "Quel sujet vous intéresse aujourd'hui ?"
 	  elif [ "$LANGUAGE" == "en" ]; then
-	    echo -e "Good to see you again $(cat ~/.GameScript/username) !"
+	    echo -e "Good to see you $(cat ~/.GameScript/username) !"
 	  fi
 	  select_subject
 	fi
