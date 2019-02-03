@@ -183,7 +183,7 @@ function launch_standalone(){
 			command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT $CHAPTER_NUMBER" -w 100
 			if [[ "$SUBJECT" == "sys" ]] && [[ "$CHAPTER_NUMBER" == "1" ]]; then
 				echo "set-option -g default-shell /bin/bash" > $HOME/.GameScript/tmux.conf
-				tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/standalone.sh MUTE; tmux kill-session -t 'gs_sys_1'" C-m \;
+				tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh MUTE; tmux kill-session -t 'gs_sys_1'" C-m \;
 			else
 				bash $HOME/.GameScript/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh MUTE
 				# bash $HOME/.GameScript/standalone.sh MUTE
@@ -196,7 +196,7 @@ function launch_standalone(){
 			if [[ $VIDEO == 0 ]];then
 				if [[ "$SUBJECT" == "sys" ]] && [[ "$CHAPTER_NUMBER" == "1" ]]; then
 					echo "set-option -g default-shell /bin/bash" > $HOME/.GameScript/tmux.conf
-					tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/standalone.sh; tmux kill-session -t 'gs_sys_1'" C-m \;
+					tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash $HOME/.GameScript/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_$CHAPTER_NUMBER.sh; tmux kill-session -t 'gs_sys_1'" C-m \;
 					#LOCAL TESTS
 					#~ tmux -L GameScript -f $HOME/.GameScript/tmux.conf new-session -s "gs_sys_1" \; send-keys "bash /home/umen/SyNc/Projects/GameScript_standalone/$LANGUAGE/$TYPE/$SUBJECT/standalone_${CHAPTER_NUMBER}.sh; tmux kill-session -t 'gs_sys_1'" C-m \;
 				else
