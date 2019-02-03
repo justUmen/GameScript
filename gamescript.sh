@@ -489,6 +489,8 @@ if ((BASH_VERSINFO[0] < 4)); then
 fi
 #QUIT if no base64 for password
 command -v base64 >/dev/null 2>&1 || { echo "You need the command : base64." >&2; exit 3; }
+#QUIT if no git
+command -v git >/dev/null 2>&1 || { echo "You need the command : git." >&2; exit 3; }
 
 #CONFIG FILE
 if [ -f ~/.GameScript/config ]; then
