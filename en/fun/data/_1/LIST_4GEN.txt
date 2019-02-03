@@ -38,7 +38,7 @@ So if you are NOT in control of what you are doing, it can get messy very quickl
 On a computer, ${voc}before${reset} creating a new file or a new directory, you need to think about 2 things :
 1 - A good location.
 2 - A good name.
-I will give you an example, and I will explain along the way all my decisions
+I will give you an example, and I will explain along the way all my decisions.
 Your main goal is being able to find back your files, even after a long period of time... So it's very important to find a suitable place for them.
 If it is difficult for you to find something back on your own computer, you did it wrong. (aka : You suck.)
 You have to choose a methodology and stick to it.

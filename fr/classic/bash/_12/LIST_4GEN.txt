@@ -137,6 +137,12 @@ case esac
 
 
 
+https://www.gnu.org/software/bash/manual/html_node/Word-Designators.html
+
+
+https://www.gnu.org/software/bash/manual/html_node/History-Interaction.html#History-Interaction
+
+
 
 
 ê
