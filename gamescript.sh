@@ -471,11 +471,6 @@ function download_all_videos_INTRO(){
 
 
 
-#QUIT if launched as root
-if [ "$(id -u)" == "0" ]; then
-	echo "Launching something as root is very dangerous, don't do it !" 1>&2
-	exit 1
-fi
 #QUIT IF $HOME IS EMPTY
 if [ "$HOME" == "" ]; then
 	echo "\$HOME doesn't exist !"
@@ -502,6 +497,7 @@ else
 fi
 
 HELP=0
+ROOT_DOCKER=0
 #~ MUTE=0
 #~ VIDEO=0
 if [ $# -ne 0 ]; then
@@ -544,6 +540,11 @@ if [ $# -ne 0 ]; then
 			echo -n "MUSIC=0 "
 			shift # past argument
 		  ;;
+		  --root-docker)
+			ROOT_DOCKER=1
+			echo -n "ROOT_DOCKER=1 "
+			shift # past argument
+		  ;;
 		  -R|--no-sound-effect)
 			SOUND_EFFECT=0
 			echo -n "SOUND_EFFECT=0 "
@@ -558,6 +559,14 @@ if [ $# -ne 0 ]; then
 	#~ echo -e "\n\n"
 	echo -e "\n"
 fi
+
+#QUIT if launched as root
+if [ "$(id -u)" == "0" ] && [ "$ROOT_DOCKER" == "0" ]; then
+	echo "Launching something as root is very dangerous, don't do it !" 1>&2
+	exit 1
+fi
+
+
 if [[ $HELP == 1 ]]; then gamescript_help; goodbye; fi
 if [[ $PASSWORD == 1 ]]; then my_passwords; goodbye; fi
 if [[ $MUTE == 0 ]]; then

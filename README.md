@@ -17,6 +17,25 @@ GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwi
 
 <img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage_2.svg">
 
+## Minimal dependencies :
+
+* bash > version 4
+* wget
+* mplayer or mpg123 (mplayer is highly recommended !)
+
+Some chapters may have more dependencies to install. (see ALL below)
+Note : macOS users should manually install a bash version 4 or higher. (check current version with `bash --version`)
+
+### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
+
+    apt-get install wget mplayer git
+	apt-get install wget mplayer git youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
+
+### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...) - `toilet` in AUR
+
+    pacman -S wget mplayer git
+    pacman -S wget mplayer git youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+
 ## Installation (from a terminal) :
 
 Add `gamescript` alias to your .bashrc file by copy/pasting this command in a bash terminal :
@@ -71,25 +90,6 @@ GameScript is a community project in constant evolution, if you see something th
 |s15|sys 2||||||
 |s16|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
 |s16|i3wm 2||||||
-
-## Minimal dependencies :
-
-* bash > version 4
-* wget
-* mplayer or mpg123 (mplayer is highly recommended !)
-
-Some chapters may have more dependencies to install. (see ALL below)
-Note : macOS users should manually install a bash version 4 or higher. (check current version with `bash --version`)
-
-### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
-
-    apt-get install wget mplayer git
-	apt-get install wget mplayer git youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
-
-### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...) - `toilet` in AUR
-
-    pacman -S wget mplayer git
-    pacman -S wget mplayer git youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 # Bash : Code and concepts by chapter
 
