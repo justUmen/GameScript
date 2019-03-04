@@ -20,12 +20,12 @@ Note : Les utilisateurs de macOS doivent manuellement installer une version de b
 ### Installer les dépendances minimales ou TOUTES sur Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer git
-	apt-get install wget mplayer git youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
+	apt-get install wget mplayer git tmux youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
 
 ### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...) - `toilet` dans l'AUR
 
     pacman -S wget mplayer git
-    pacman -S wget mplayer git youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+    pacman -S wget mplayer git tmux youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ## Installation (dans un terminal) :
 

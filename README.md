@@ -29,12 +29,12 @@ Note : macOS users should manually install a bash version 4 or higher. (check cu
 ### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer git
-	apt-get install wget mplayer git youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
+	apt-get install wget mplayer git tmux youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
 
 ### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...) - `toilet` in AUR
 
     pacman -S wget mplayer git
-    pacman -S wget mplayer git youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
+    pacman -S wget mplayer git tmux youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
 ## Installation (from a terminal) :
 

@@ -11,7 +11,7 @@ function start_quiz_music(){
 		if [[ "$MUSIC_PID" != "" ]]; then
 			pause_music $MUSIC_PID
 		fi
-		$SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3 &>/dev/null &
+		sudo --non-interactive $SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3 || $SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3 &>/dev/null &
 	fi
 }
 function stop_quiz_music(){
