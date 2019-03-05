@@ -629,7 +629,7 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3" ];then
 			echo "Background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
 			#~ echo "$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
-			$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+			sudo --non-interactive $SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 || $SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
 		else
 			echo "$TEXT_MUSIC_1"
 			echo -e "$TEXT_MUSIC_2"
