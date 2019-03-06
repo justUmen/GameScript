@@ -428,7 +428,7 @@ function stop_quiz_music(){
 	fi
 }
 function new_sound(){
-	$SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" &> /dev/null &
+	{ sudo --non-interactive $SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" || $SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3"; } &> /dev/null &
 	AUDIOCMP=`expr $AUDIOCMP + 1`
 	#wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 }
