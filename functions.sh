@@ -4,7 +4,7 @@ shopt -s expand_aliases
 source ~/.bashrc
 
 function pause_music(){
-	kill -SIGTSTP $1
+	{ sudo kill -SIGTSTP $1 || kill -SIGTSTP $1; } &> /dev/null
 }
 function start_quiz_music(){
 	if [[ "$MUTE" == "0" ]]; then
@@ -19,7 +19,7 @@ function stop_quiz_music(){
 	if [[ "$MUTE" == "0" ]]; then
 		MUSIC_QUIZ_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC_QUIZ"|grep quiz|awk '{print $2}'|head -n 1)
 		if [[ "$MUSIC_QUIZ_PID" != "" ]]; then
-			kill $MUSIC_QUIZ_PID
+			{ sudo kill $MUSIC_QUIZ_PID || kill $MUSIC_QUIZ_PID; } &> /dev/null
 		fi
 	fi
 }
