@@ -258,8 +258,8 @@ function goodbye(){
 		fr) echo -e "Au revoir et bonne journée. :)\nJustumen" ;;
 		en) echo -e "Goodbye and have a nice day. :)\nJustumen" ;;
 	esac
-	pkill mplayer
-	pkill mpg123
+	sudo --non-interactive pkill mplayer || pkill mplayer
+	sudo --non-interactive pkill mpg123 || pkill mpg123
 	exit 0
 }
 
@@ -615,7 +615,7 @@ case $LANGUAGE in
 		TEXT_BACK="Retour"
 		TEXT_NO_PASSWORD="Vous n'avez aucun mot de passe. :)"
 	;;
-	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; pkill mplayer; pkill mpg123; exit #pkill if -l with bad argument music not stop :P ???
+	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; sudo --non-interactive pkill mplayer || pkill mplayer; sudo --non-interactive pkill mpg123 || pkill mpg123; exit #pkill if -l with bad argument music not stop :P ???
 	;;
 esac
 
