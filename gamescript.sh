@@ -233,7 +233,7 @@ function press_key_GAMESCRIPT(){
 	read -s -n1 key < /dev/tty
 	VOICE_PID=$(ps -f|grep "$SOUNDPLAYER"|grep -v grep|grep -v MUSIC|awk '{print $2}'|head -n 1)
 	if [[ "$VOICE_PID" != "" ]]; then
-		kill $VOICE_PID &> /dev/null
+		{ sudo kill $VOICE_PID || kill $VOICE_PID; } &> /dev/null
 	fi
 }
 function talk_GAMESCRIPT(){
@@ -418,13 +418,13 @@ talk_GAMESCRIPT justumen "You can confirm your knowledge with the passwords give
 function unpause_music(){
 	MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
 	if [[ "$MUSIC_PID" != "" ]]; then
-		kill -SIGCONT $MUSIC_PID
+		{ sudo kill -SIGCONT $MUSIC_PID || kill -SIGCONT $MUSIC_PID; } &> /dev/null
 	fi
 }
 function stop_quiz_music(){
 	QUIZ_MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC_QUIZ"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
 	if [[ "$QUIZ_MUSIC_PID" != "" ]]; then
-		kill $QUIZ_MUSIC_PID
+		{ sudo kill $QUIZ_MUSIC_PID || kill $QUIZ_MUSIC_PID; } &> /dev/null
 	fi
 }
 function new_sound(){
