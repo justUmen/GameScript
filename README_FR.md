@@ -12,7 +12,8 @@ GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows wit
 
 * bash > version 4
 * wget
-* mplayer ou mpg123 (mplayer est très fortement recommendé !)
+* git
+* mplayer ou mpg123 (mplayer est très fortement recommandé !)
 
 Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)  
 Note : Les utilisateurs de macOS doivent manuellement installer une version de bash supérieure à 4. (Vérifier votre version avec : `bash --version`)  
@@ -27,13 +28,13 @@ Note : Les utilisateurs de macOS doivent manuellement installer une version de b
     pacman -S wget mplayer git
     pacman -S wget mplayer git tmux youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
-## Installation (dans un terminal) :
+## Installation de GameScript (dans un terminal) :
 
 Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette commande :
 
     echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
 
-## Lancement (dans un terminal) :
+## Lancement de GameScript (dans un terminal) :
 
     gamescript
 

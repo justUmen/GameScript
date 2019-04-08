@@ -233,7 +233,7 @@ function press_key_GAMESCRIPT(){
 	read -s -n1 key < /dev/tty
 	VOICE_PID=$(ps -f|grep "$SOUNDPLAYER"|grep -v grep|grep -v MUSIC|awk '{print $2}'|head -n 1)
 	if [[ "$VOICE_PID" != "" ]]; then
-		kill $VOICE_PID &> /dev/null
+		{ sudo kill $VOICE_PID || kill $VOICE_PID; } &> /dev/null
 	fi
 }
 function talk_GAMESCRIPT(){
@@ -258,8 +258,8 @@ function goodbye(){
 		fr) echo -e "Au revoir et bonne journée. :)\nJustumen" ;;
 		en) echo -e "Goodbye and have a nice day. :)\nJustumen" ;;
 	esac
-	pkill mplayer
-	pkill mpg123
+	sudo --non-interactive pkill mplayer || pkill mplayer
+	sudo --non-interactive pkill mpg123 || pkill mpg123
 	exit 0
 }
 
@@ -418,17 +418,17 @@ talk_GAMESCRIPT justumen "You can confirm your knowledge with the passwords give
 function unpause_music(){
 	MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC"|grep Music|grep -v quiz|awk '{print $2}'|head -n 1)
 	if [[ "$MUSIC_PID" != "" ]]; then
-		kill -SIGCONT $MUSIC_PID &> /dev/null
+		{ sudo kill -SIGCONT $MUSIC_PID || kill -SIGCONT $MUSIC_PID; } &> /dev/null
 	fi
 }
 function stop_quiz_music(){
 	QUIZ_MUSIC_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC_QUIZ"|grep Music|grep quiz|awk '{print $2}'|head -n 1)
 	if [[ "$QUIZ_MUSIC_PID" != "" ]]; then
-		kill $QUIZ_MUSIC_PID &> /dev/null
+		{ sudo kill $QUIZ_MUSIC_PID || kill $QUIZ_MUSIC_PID; } &> /dev/null
 	fi
 }
 function new_sound(){
-	$SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" &> /dev/null &
+	{ sudo --non-interactive $SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3" || $SOUNDPLAYER "$AUDIO_LOCAL/$AUDIOCMP.mp3"; } &> /dev/null &
 	AUDIOCMP=`expr $AUDIOCMP + 1`
 	#wget -nc $AUDIO_DL/$AUDIOCMP.mp3 -O $AUDIO_LOCAL/$AUDIOCMP.mp3 > /dev/null 2>&1 & #download next one
 }
@@ -615,7 +615,7 @@ case $LANGUAGE in
 		TEXT_BACK="Retour"
 		TEXT_NO_PASSWORD="Vous n'avez aucun mot de passe. :)"
 	;;
-	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; pkill mplayer; pkill mpg123; exit #pkill if -l with bad argument music not stop :P ???
+	*) echo -e "Unknown language, exiting... Use for example : gamescript -l en"; sudo --non-interactive pkill mplayer || pkill mplayer; sudo --non-interactive pkill mpg123 || pkill mpg123; exit #pkill if -l with bad argument music not stop :P ???
 	;;
 esac
 
@@ -629,7 +629,7 @@ if [[ $MUTE == 0 ]] && [[ $MUSIC == 1 ]]; then
 		if [ -f "/home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3" ];then
 			echo "Background music : ~/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
 			#~ echo "$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3"
-			$SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 &>/dev/null &
+			{ sudo --non-interactive $SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3 || $SOUNDPLAYER_MUSIC /home/umen/.GameScript/Sounds/$SOUND_FAMILY/Music/1.mp3; } &>/dev/null &
 		else
 			echo "$TEXT_MUSIC_1"
 			echo -e "$TEXT_MUSIC_2"
