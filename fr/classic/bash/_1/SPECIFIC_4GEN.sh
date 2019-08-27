@@ -73,7 +73,7 @@ echo -e "$basic
                    ,           ,                :;%  %;${CLREOL}
                     :         ;                   :;%;'     .,${CLREOL}
            ,.        %;     %;            ;        %;'    ,;${CLREOL}
-             ;       ;%;  %%;        ,     %;    ;%;    ,%'${CLREOL}
+             ;       ;%;  %%;        ,     %;    ;%;    ,%'      $codeFile /home/user/Images/linux.jpeg $reset$basic${CLREOL}
               %;       %;%;      ,  ;       %;  ;%;   ,%;'%;%;;,.$code /home/user/Images/ $reset$basic${CLREOL}
                ;%;      %;        ;%;        % ;%;  ,%;'${CLREOL}
                 '%;.     ;%;     %;'         ';%%;.%;'${CLREOL}

@@ -3,10 +3,12 @@
 #mkdir $HOME/.GameScript_github1 2> /dev/null
 #cd $HOME/.GameScript_github1
 
+Author != commiter (not always, you write patch but core member commit it, author but not commiter!)
 
 GIT + GITHUB
 
 //https://www.tutorialspoint.com/git/git_basic_concepts.htm
+//pdf "git pro"
 
 SCM (Source Code Management)
 VCS (Version Control System)
@@ -23,14 +25,151 @@ function of VCS
 3 places :
 	a - WORKING
 	b - STAGING
-	c - REPOSITORY
+	c - REPOSITORY (.git) - store metadata
 
 a -> b (git add) : git add file.txt
 b -> c (git commit) : git commit -m "file.txt added"
+
+
+"git add" / "commit" are local changes (imagine if you don't have internet to send to github)
+
+git is checksuming SHA-1 every files (git not use filenames but hash values of its content)
+
+git only adds data to a repo (almost never delete so you can spam git :P)
 
 BLOB : Binary Large Object
 	Each version of a file is represented by blob. Blob contains data but no metadata.
 "It is a binary file, and in Git database, it is named as SHA1 hash of that file. In Git, files are not addressed by names. Everything is content-addressed."
 
+GUI - git-cola
 
+config GIT : (priority low to high)
+	1 /etc/gitconfig (with --system option)
+	2 ~/.gitconfig (with --global option)
+	3 ./.git/config (--local) - from directory DEFAULT (but need to be in a git repo ofc)
+Display all config : git config --list --show-origin
 
+create GIT identity : (username / email)
+	git config --global user.name "umen"
+	git config --global user.email umen@justumen.org
+default GIT editor :
+	git config --global core.editor geany
+
+Display value config :
+	git config user.name
+To know where it comes from :
+	git config --show-origin user.name
+
+HELP !!!!
+	git help ...
+	git help config
+TOO MUCH HELP, smaller help please
+	git ... -h
+	git config -h
+
+1 - Initialize new GIT repo
+	git init (creates the .git folder)
+	git add *.c
+	git commit -m 'initial commit'
+2 - Take repo online (to contribute)
+	git clone ...
+
+GIT can use several transfert protocols : https://, git://, ssh (with user@server:path/to/repo.git)
+
+see LIFE CYCLE page 27 - progit pdf
+	voc : tracked, modified, commited, staged...
+
+Diplay info about your files :
+	git status
+	git status --short
+
+"git add" is multipurpose (track new file, stage file, marking merge-conflicted files as resolved.)
+here "stage" = “add precisely this content to the next commit” (current file version)
+
+Ignore files :
+	.gitignore
+		*.[oa]
+		!lib.a
+	here track lib.a even if in previous regex
+
+View changes : (staged and unstaged) - compare your working directory with what is in your staging area
+	git diff
+
+To see what you staged, what will be in the next commit (This command compares your staged changes to your last commit)
+	git diff --staged (--cached same)
+
+GUI or external diff
+	git difftool
+what is available :
+	git difftool --tool-help
+
+commit without -m open an editor where you can type message (use -v for more verbose)
+
+IF you don't need to use the staging area (not need to do "git add")
+	git commit -a -m 'added new benchmarks'
+
+Remove file from repo (force removal with -f : can't be recovered)
+	git rm ...
+
+#GIT doesn't really track moving files (but have mv command)
+	git mv README.md README
+	#Real Equivalent :
+	mv README.md README
+	git rm README.md
+	git add README
+
+#Display the commit history (this is why you need to add comments to commits...)
+	git log
+#Display the difference (patch output) (patch for each commit) (same as diff ???)
+	git log --patch (-p)
+#Display the last 3 commits
+	git log -3
+#Display the difference between the last 2 commits
+	git log -p -2
+#Display summary
+	git log --stats
+#Make output beautiful :
+	git log --pretty=oneline (oneline, short, full, fuller)
+#Special format
+	git log --pretty=format:"%h - %an, %ar : %s"
+#ASCII graph nice output (best with format and oneline)
+	git log --pretty=format:"%h %s" --graph -1
+#Time variables : (--until) "2008-01-15", "2 years 1 day 3 minutes ago"
+	git log --since=2.weeks
+#Others :
+	--author, --grep (can use several)
+	--all-match (for --grep)
+	--no-merges (not display merge commits, if result is flooded)
+#Search for string (called "pickaxe" option) - not similar to grep, grep is only matching messages of commits (-S for code)
+	git log -S function_name 
+
+#Undo things, amend commit ???
+	git commit --amend (This command takes your staging area and uses it for the commit.) ???
+#unstage (reset can be dangerous, especially with --hard)
+	git reset HEAD CONTRIBUTING.md
+#unmodifying a modified file
+	git checkout -- CONTRIBUTING.md
+	If you would like to keep the changes you’ve made to that file but still need to get it out of the way for now, we’ll go over stashing and branching 
+
+#Working with remotes (online, to share with others) - can be "remote" on the same machine
+#Display remotes
+	git remote
+		#origin is default name
+	git remote -v (Add urls stored by GIT)
+#Adding remote ("git clone" command implicitly adds the origin remote for you)
+	#add explicitly a remote (here "pb" for example)
+	git remote add pb https://github.com/paulboone/ticgit
+		#Now you can use the string pb on the command line instead of the whole URL, for example : git fetch pb
+		#master branch is now accessible locally as pb/master ???
+		#you can merge it into one of your branches, or you can check out a local branch at that point if you want to inspect it. 
+#Get data from your remote projects
+	git fetch <remote>
+		#So, git fetch origin fetches any new work that has been pushed to that server since you cloned it (or last fetched from)
+		#only downloads, do not merge automatically !
+		#If your current branch is set up to track a remote branch you can use the git pull command to automatically fetch and then merge that remote branch into your current branch
+		#the git clone command automatically sets up your local master branch to track the remote master branch (or whatever the default branch is called) on the server you cloned from
+		#Running "git pull" generally fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on.
+		....
+		PAGE 52 - 62 ???
+		
+#GIT branching

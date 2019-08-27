@@ -45,19 +45,21 @@ Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette co
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">
 </p>
 
-## [ Français ] Chats :
+## [ Français ] Chat :
 
-Au choix, utilisez la page internet ou l'application (ou ni l'un ni l'autre. :p) :  
+Utilisez la page internet ou l'application Discord (ou ni l'un ni l'autre. :p) :  
 
 |CHAT|NOTRE CHAT|APPLICATION|
 |---------|---------|--------|
 |Discord|(https://discord.gg/25eRgvD)|https://discordapp.com/download|
-|RocketChat|(https://rocket.bjornulf.org)|https://github.com/RocketChat/Rocket.Chat.Electron/releases|
 
-Par exemple, si vous voulez installer RocketChat 2.13.3 app sur Debian/Ubuntu/Mint 64 bits :
+<!--|RocketChat|(https://rocket.bjornulf.org)|https://github.com/RocketChat/Rocket.Chat.Electron/releases|-->
+
+<!--Par exemple, si vous voulez installer RocketChat 2.13.3 app sur Debian/Ubuntu/Mint 64 bits :
 
 	wget https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/2.13.3/rocketchat_2.13.3_amd64.deb
 	sudo dpkg -i rocketchat_2.13.3_amd64.deb
+-->
 
 Par exemple, si vous voulez installer Discord app sur Debian/Ubuntu/Mint 64 bits :
 
@@ -70,23 +72,24 @@ GameScript est un projet communautaire en constante évolution, si vous remarque
 
 ### Liste des cours disponibles en français :
 
+<!--[Rocket+GitHub](https://rocket.bsjornulf.org) ou -->
 |REF|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|WALLPAPER|
 |---------|---------|:-----:|:-----:|:-----:|:-----:|:-----:|
-|s96|bash 1|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/bash_1)|
-|s96|bash 2|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 3|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 4|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 5|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 6|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 7|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 8|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 9|✓|✓|✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 10|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
-|s96|bash 11|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
+|s96|bash 1|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/bash_1)|
+|s96|bash 2|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 3|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 4|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 5|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 6|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 7|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 8|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 9|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 10|✓||✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 11|✓||✓|[Discord](https://discord.gg/25eRgvD)||
 |s96|bash 12||||||
-|s15|sys 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)||
+|s15|sys 1|✓||✓|[Discord](https://discord.gg/25eRgvD)||
 |s15|sys 2||||||
-|s16|i3wm 1|✓||✓|[Rocket+GitHub](https://rocket.bjornulf.org) ou [Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/i3wm_1)|
+|s16|i3wm 1|✓||✓|[Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/i3wm_1)|
 |s16|i3wm 2||||||
 
 Liste des futures sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progression-de-mes-objectifs-%C3%A9ducatifs)

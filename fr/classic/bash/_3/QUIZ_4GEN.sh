@@ -13,7 +13,7 @@ function start_quiz(){
   echo -e "Exemple : si la réponse est 'ls'. Les réponses 'ls .', 'ls ./' et 'ls ././' seront considérées comme fausses."
   answer_text_fr "Quel est la version abrégée de 'ls -a -l' ?" "ls -al"
   answer_text_fr "Comment ajouter le mot 'non' à la fin du fichier texte 'oui' ?" "echo non>>oui"
-  answer_text_fr "Comment remplacer le contenu du fichier 'test' par 'exemple' ?" "echo exemple>test"
+  answer_text_fr "Comment remplacer le contenu du fichier 'test' par le mot 'exemple' ?" "echo exemple>test"
   answer_text_fr "Comment afficher le contenu du fichier 'test' ?" "cat test"
   answer_text_fr "Sur bash, quel est le caractère d'échappement ?" "\\"
   answer_text_fr "Comment afficher dans le terminal : a>b" "echo a\>b"
