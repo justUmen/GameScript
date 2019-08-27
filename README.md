@@ -51,7 +51,7 @@ Add `gamescript` alias to your .bashrc file by copy/pasting this command in a ba
 
 <p align="center">
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
-	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">
+	<!--<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">-->
 </p>
 
 ## [ English ] Chat :
