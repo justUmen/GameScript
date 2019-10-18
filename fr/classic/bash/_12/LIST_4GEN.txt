@@ -22,7 +22,9 @@ elif [ $X -gt 5 ];then
 	echo entre 5 et 10
 fi
 
-elif est particulierement utile pour
+elif est particulierement utile pour ...
+
+Si les conditions s'impriquent simplement, comme cet exemple :
 
 if [ $X -ge 5 ];then
 	if [ $X -le 10 ];then
@@ -30,10 +32,19 @@ if [ $X -ge 5 ];then
 	fi
 fi
 
+Vous pouvez utiliser le && que nous avons deja vu.
+
 if [ $X -ge 5 ] && [ $X -le 10 ];then
 	echo La valeur de X est entre 5 et 10.
 fi
 
+Ou encore le || :
+if [ $X -lt 5 ] || [ $X -lt 10 ];then
+	echo La valeur de X est inferieur 5 ou superieur a 10.
+fi
+
+Dans l'exemple ci-dessus, en utilisant ||, l'argument de if devient "true" si au moins l'une des deux conditions renvoit "true".
+Si les deux conditions renvoient "true", le resultat sera egalement "true".
 
 
 $V1=true

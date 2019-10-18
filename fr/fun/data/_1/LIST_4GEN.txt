@@ -1,0 +1,163 @@
+Bonjour à tous et bienvenue dans le sujet le plus ennuyeux de tous les temps.
+Je suis sûr que vous allez me haïr tout de suite, mais j'ai décidé de vous parler de ce dont vous avez besoin et non de ce que vous voulez entendre.
+Sauter les bases fondamentales et se lancer dans des sujets passionnants est une erreur classique pour les débutants.
+Mais ce dont je vais vous parler ici est très important et je ne pense pas que vous savez tout sur le sujet.
+Même si vous pensez que c'est déjà le cas...
+J'ai vu beaucoup de personnes négliger certaines bases et ont fini par le regretter.
+Moi-même inclus ...
+Au cours de votre relation à long terme avec votre ordinateur, vous créerez et contrôlerez un grand nombre d’entre eux.
+Et pour mettre fin au suspense, je parle de vos ${voc}fichiers${reset} et ${voc}dossiers${reset}.
+Dans ce chapitre, nous verrons quelques règles pour les créer et les organiser.
+Donc, pour résumer, il existe deux principaux types d’éléments qui sont stockés et gérés par votre ordinateur : des fichiers et des dossiers.
+Les fichiers représentent le coeur de pratiquement tout : ils stockent les informations réelles ou «données».
+Cela peut être ce que vous voulez: texte, image, vidéo, pron, son, programme, etc.
+Et d'un autre coté, vous avez les dossiers.
+Les dossiers sont des éléments que vous pouvez utiliser pour organiser vos fichiers.
+Vous verrez ou entendez parfois le mot "répertoire" au lieu de "dossier".
+Mais il n'y a absolument aucune différence entre les deux. Parfois, vous verrez l'un, parfois l'autre.
+Le nom 'dossier' vient d'un objet très ancien que les gens utilisaient pour stocker plusieurs éléments ensemble.
+Avant que l'écran ne soit inventé, le texte, comme la phrase que vous lisez actuellement, était stocké sur un fin morceau d'arbre mort.
+Cette partie du corps de l'arbre aplatie a été appelée «papier».
+
+C'est difficile à imaginer, mais nos ancêtres assassinaient des arbres, les transformaient en ces feuilles minces et plates dans le seul but de stocker des mots sur leur surface.
+Mais c'était il y a longtemps, bien avant que cela ne soit considéré comme primitif et barbare.
+Croyez-le ou non, ces papiers sur lesquels étaient écrits des textes s'appelaient des «fichiers».
+Oui, exactement comme ceux que vous avez sur votre ordinateur aujourd'hui.
+Revenons donc au dossier. Cela s'appelait un "classeur" parce que ce papier était deux fois plus grand qu'un papier normal, vous pouviez littéralement le "plier" et vous pouvez y mettre plusieurs papiers.
+Les fichiers à l'intérieur iront là où se trouve le dossier et, à cause du pli en bas, ils ne tomberont pas.
+#folder_unfold
+Je ne peux pas vous montrer un vrai dossier car ils sont bien sûr tous éteints, mais je peux vous le montrer afin que vous puissiez visualiser le concept. Ici vous pouvez clairement voir le pli.
+#folder_front
+Mais du côté ça va ressembler à ça, la partie au dessus du reste est utilisée pour une étiquette: le nom du dossier.
+La complexité de l'organisation des fichiers de nos ancêtres peut être encore pire!
+Dans ce dossier, vous pouvez également stocker un autre dossier plus petit, et dans ce dossier, vous pouvez stocker un autre dossier.
+Comme un système de dossiers russe où les dossiers deviennent de plus en plus petits.
+Votre ordinateur utilise le même concept!
+Mais les ordinateurs n’ont pas les limites du monde réel, car comme nous le savons tous: le monde réel est nul et a été créé pour les personnes âgées.
+Sur un ordinateur, contrairement au monde réel, vous pouvez avoir une quantité illimitée de dossiers les uns dans les autres.
+Donc, si vous ne contrôlez PAS ce que vous faites, cela peut devenir très rapidement compliqué.
+Sur un ordinateur, $ {voc} avant $ {reset} créant un nouveau fichier ou un nouveau répertoire, vous devez penser à 2 choses:
+1 - Un bon emplacement.
+2 - Un bon nom.
+Je vais vous donner un exemple et expliquer toutes mes décisions en cours de route.
+Votre objectif principal est de pouvoir retrouver vos fichiers, même après une longue période de temps ... Il est donc très important de leur trouver un endroit approprié.
+S'il vous est difficile de trouver quelque chose sur votre propre ordinateur, c'est que vous vous êtes trompé. (aka: tu crains.)
+Vous devez choisir une méthodologie et vous y tenir.
+Si vous avez déjà des fichiers et des dossiers, n’ayez pas peur de les supprimer ou de les réorganiser.
+Mais le meilleur conseil que je puisse vous donner pour éviter de perdre beaucoup de temps, est de bien le faire dès le début!
+Je vais vous donner le système que j'utilise tous les jours et je vous invite à l'utiliser aussi ... si vous n'avez pas déjà quelque chose de mieux.
+Dans cet exemple, je veux créer et écrire un nouveau script shell!
+Si vous ne savez pas ce qu’est un script shell: c’est un programme informatique simple basé sur du texte!
+Un fichier texte qui peut faire des choses si vous le donnez à un shell comme bash.
+GameScript est lui-même un script shell, et oui, il ne s'agit que d'un fichier texte digéré par bash.
+Quoi qu'il en soit, avant d'écrire notre nouveau script, nous devons le créer!
+Alors d’abord, comme je l’ai dit, nous devons trouver un bon emplacement.
+Commençons notre voyage sur le répertoire de mon utilisateur. (/ home / justumen /)
+Mais ne vous arrêtez pas là et créez le fichier '/ home / justumen / script'! C'est la pire chose que vous puissiez faire.
+Et c'est exactement ce que je ne veux pas que vous fassiez.
+Voici ce que nous allons faire: Nous allons entrer dans un répertoire appelé "Sync". (/ home / justumen / Sync /)
+Ce répertoire est le répertoire que j'utilise pour synchroniser mes fichiers et répertoires sur toutes mes machines.
+Si je télécharge un gros morceau de données, une vidéo par exemple, je ne veux pas que ce soit dans le répertoire Sync!
+Ce serait un gaspillage d'espace et de bande passante, je le mettrai dans "/ home / justumen / Videos" ou autre chose.
+Mais dans ce cas, disons que nous voulons pouvoir utiliser ce nouveau script sur toutes nos machines, alors dans le dossier "Sync", nous allons.
+Ce fichier sera un script, nous allons donc aller dans le répertoire "Script". (/ home / justumen / Sync / Script /)
+Maintenant, je veux que le prochain répertoire représente le type du script.
+Si vous avez seulement quelques scripts, je suppose que vous pouvez simplement le créer ici.
+Mais si le répertoire est déjà encombré, comme le mien, vous devrez peut-être organiser vos scripts par catégories.
+Cela dépend de vos goûts et du nombre de fichiers et de répertoires que vous possédez déjà.
+Certaines personnes les organiseront en fonction du langage de programmation dans lequel ils sont écrits.
+Ainsi, dans leur répertoire "Script", ils auront des répertoires tels que "Python", "Perl", "Bash", etc.
+Mais personnellement, je suis plus intéressé par le travail du script que par le langage que j'utilise pour le faire.
+Tout est une question de goût, il n'y a pas de bonne ou de mauvaise façon de le faire .. mais les gens qui les organisent en fonction des langues sont stupides.
+Alors parlons d'abord de ce que je veux que notre script fasse, sinon ce que je dirai n'aura aucun sens.
+Disons que nous voulons que notre nouveau script fasse plusieurs requêtes à tous les principaux moteurs de recherche et ne renvoie que les résultats qu'ils ont tous en commun.
+Ce script devra évidemment explorer le Web comme une araignée ... sur le Web.
+Donc, si mon ordinateur n'est pas connecté à Internet, notre script est totalement inutile.
+Et comme nous sommes intelligents, nous avons déjà un dossier appelé "Web" prêt à être utilisé. (/ home / justumen / Sync / Script / Web)
+Si un script se trouve dans ce dossier, nous savons qu'il ne fonctionnera pas correctement si l'ordinateur est hors ligne.
+Encore une fois ... si vous avez beaucoup de choses là-bas: Créez un autre répertoire!
+Ce script va être lié au moteur de recherche, je vais donc aller dans mon dossier "SearchEngine". (/ home / justumen / Sync / Script / Web / SearchEngine)
+Et c'est tout pour la première étape, nous avons finalement choisi un bon emplacement pour notre nouveau fichier !!
+Et comme vous êtes très intelligent, vous avez probablement remarqué que j’avais utilisé des lettres majuscules.
+Oui ! Je vous recommande de toujours utiliser une lettre majuscule pour la première lettre d'un dossier.
+Il est très facile de voir que "Web" est en fait un dossier et non un fichier.
+Notez que sur tous les systèmes d'exploitation réels, «exemple» et «exemple» sont deux noms différents, une lettre majuscule est simplement considérée comme une lettre totalement différente.
+Lorsque c'est le cas, le système d'exploitation est appelé sensible à la casse.
+Ainsi, si vous lisez quelque part la phrase "le mot de passe est sensible à la casse", cela signifie qu'un "A" majuscule et un minuscule "a" sont considérés comme des lettres différentes.
+Linux est un vrai système d'exploitation, alors souvenez-vous: Linux est sensible à la casse.
+Broken Windows Broken est par exemple un système d’exploitation non réel / sensible à la casse, conçu pour permettre à votre grand-mère de lire ses emails.
+Mais vous pouvez également remarquer que ce nom que j'ai choisi, "SearchEngine", contient deux mots mais ne contient aucun espace.
+Si vous utilisez GameScript, vous ne voulez évidemment pas être un utilisateur informatique de base!
+Et vous allez bientôt être un h4x0r un jour, alors vous aurez besoin de vous préparer à être admiré pour vos compétences.
+Donc, à compter d’aujourd’hui, voici mon conseil: lorsque vous créez un fichier ou un répertoire, n’utilisez pas d’espace dans son nom.
+N'utilisez jamais d'espaces pour nommer ou renommer un fichier!
+Bien entendu, vous ne devez pas utiliser d'espaces dans le nom de votre fichier.
+Et bien sûr, mettre des espaces dans les noms devrait être récompensé par une gifle à l'arrière de la tête.
+Dans de nombreux cas, shell inclus, les espaces sont déjà utilisés pour séparer les éléments les uns des autres.
+Si vous utilisez des espaces dans les noms de fichiers, toutes les commandes l33t que vous avez apprises échoueront dramatiquement et vous feront probablement pleurer.
+Nous y reviendrons plus tard, mais pour l’instant, rappelez-vous: les espaces ne sont pas destinés aux noms de fichiers!
+Alors, que devriez-vous utiliser à la place des espaces?
+Parfois, vous devez séparer deux mots différents dans votre nom de fichier ... Et pour résoudre ce problème, il existe deux méthodes.
+Certains ont mis une lettre majuscule sur la première lettre du mot suivant, comme je l’ai fait avec «SearchEngine».
+D'autres préfèrent remplacer les espaces par des tirets bas: 'Search_engine'.
+J'utilise personnellement la première option, une majuscule pour les annuaires: 'SearchEngine'.
+Mais j'utilise la deuxième stratégie pour les espaces dans les fichiers: 'this_is_a_file'.
+Dans notre exemple, l'élément que je veux créer est un répertoire. Donc, "SearchEngine" est ce que nous allons utiliser ici.
+Je n'ai actuellement que quelques scripts ici, donc je n'ai pas besoin de plus de répertoires imbriqués.
+'/ home / justumen / Sync / Script / Web / SearchEngine': Cette succession de répertoires est appelée $ {voc} chemin $ {reset}.
+Donc, pour dire ce que j'ai dit différemment: avant de créer un nouveau fichier, nous devons trouver un dossier avec un bon $ {voc} path $ {reset} pour le trouver!
+Et nous pouvons enfin nous concentrer sur la deuxième étape, trouver un bon nom pour notre fichier!
+Le pire nom est facile à trouver, quelque chose comme «fichier», «ce_fichier» ou «mon_script» est en effet un très mauvais choix.
+Les fichiers et les répertoires sont uniquement identifiés par la combinaison de leur nom et de leur chemin.
+Rappelez-vous que cela signifie que deux éléments situés au même endroit ne peuvent pas avoir exactement le même nom!
+Donc, si vous respectez la règle dont j'ai parlé précédemment et utilisez un vrai système d'exploitation, vous pouvez avoir un répertoire appelé "Exemple" et un fichier appelé "exemple" au même endroit.
+Alors, qu'est-ce qui fait qu'un nom est bon?
+Le nom doit être aussi court que possible mais en même temps, résumer le contenu réel du fichier.
+Vous devriez être capable de comprendre ce que le fichier contient en regardant simplement le chemin de son dossier et son nom.
+Par exemple, si vous devez ouvrir un script pour comprendre ce qu’il contient: Son nom est mauvais.
+Ou le chemin de son dossier est mauvais.
+Ou les deux...
+Linux vous permet de faire ce que vous voulez avec vos noms, vous n’avez aucune obligation.
+Mais vous devez créer vos propres limites pour rester efficace à long terme.
+Pour les fichiers, vous avez également une autre astuce que vous pouvez utiliser: les extensions!
+Si un fichier contient du texte brut sur "bob", vous souhaitez appeler ce fichier "bob.txt" ou "bob.text".
+Pour une image jpeg de bob, vous pouvez utiliser "bob.jpg" ou "bob.jpeg".
+Pour un script, vous pouvez par exemple utiliser "bob.sh" ou "bob.shell" ou "bob.bash".
+Encore une fois, sur linux, vous êtes libre de faire ce que vous voulez. Mais n'abusez pas de cette liberté pour faire des bêtises!
+Vous pouvez par exemple renommer l'image "bob.jpeg" en "bob.txt", mais il s'agira toujours d'une image de bob ...
+Cela ne transformera PAS le fichier en un fichier texte, c'est juste la même image JPEG avec un nom stupide.
+Comme si vous aviez un dossier appelé "fichier.txt", cela serait très déroutant.
+J'espère que cela est clair pour tout le monde, seulement le nom a changé, les données et le type de données à l'intérieur de $ {voc} ne sont pas $ {reset}.
+Je vous recommande donc d'utiliser des extensions qui correspondent à leur type. .html pour le langage de balisage hypertexte, .js pour javascript, .css pour la feuille de style en cascade, .sh pour les scripts shell, etc.
+Revenons donc à notre exemple: Le script que nous voulons créer.
+Nous avons déjà un bon chemin, nous avons donc besoin d’un bon nom.
+Dans notre exemple, basé sur ce que le script est supposé faire, un bon nom pourrait être "common_results.sh".
+".sh" car ce sera un script shell.
+"common_results" n'est certainement pas un bon nom en soi !!
+Mais à cause du chemin que nous avons choisi, c'est en fait.
+Voyons le résultat final: "/home/justumen/Sync/Script/Web/SearchEngine/common_results.sh"
+Cette ligne est assez explicite.
+Il sera disponible sur toutes mes machines, il s’agit d’un script, il a besoin d’un accès à Internet et il peut me donner les résultats communs des moteurs de recherche.
+Ça y est, nous devons maintenant écrire le script.
+Quelque chose que nous ne ferons pas ici, car ce n'est pas le sujet de ce chapitre ...
+Donc, pour résumer, il y a souvent plus d'une bonne réponse à un problème.
+Je vous ai donné quelques conseils, mais la manière dont vous créez et gérez tout dépend vraiment de vous.
+Tant que ça ne vous dérange pas d'être appelé stupide, bien sûr.
+Mais parfois, il y a plus d'une bonne réponse.
+Prenons un exemple: imaginons que vous souhaitiez utiliser 3 images différentes de 3 utilisateurs différents dans un script.
+Une petite image, une image de taille normale et une grande image pour disons: Rick, Jerry et Morty.
+Après avoir eu un bon chemin et un bon nom pour ce script, vous devez maintenant réfléchir à la façon dont vous voulez stocker ces images.
+Nous pouvons dire que la création d'un dossier 'Image' dans notre répertoire de script est une bonne idée!
+À partir de là, nous avons le choix: souhaitons-nous les stocker de la manière suivante: './Image/Rick/big.jpeg' ou de cette manière: './Image/Big/rick.jpeg'.
+Il n'y a pas de meilleure réponse, mais cela dépend peut-être de la manière dont vous utiliserez vos images dans votre script.
+Lorsque vous organisez vos fichiers et vos dossiers, la meilleure chose à faire est probablement d'imaginer une troisième personne en train de vous lire.
+Cette personne doit immédiatement comprendre comment votre système est organisé.
+J'ai récemment récupéré d'anciens fichiers lorsque j'étais stupide.
+La plupart d'entre eux portaient des noms tels que "exemple", "lol", "test.txt", "image75.jpeg" et ainsi de suite.
+Certains programmes s'appelaient 'script.sh', ou 'program.c' dans un dossier 'TMP' et des choses horribles similaires.
+Et je devais ouvrir et lire presque tous les fichiers pour comprendre ce qu’ils étaient censés faire.
+C'était une énorme perte de temps et d'énergie!
+Cette "troisième personne" dont je parlais pourrait être vous du futur !!!
+Donc, quoi que vous fassiez, soyez plus intelligent que moi et ne sous-estimez pas l’organisation de vos fichiers et répertoires.
+Félicitations pour durer jusqu'à la fin de ce chapitre.
+Mais même si je suis déjà très impressionné par votre présence, je ne peux vous donner aucune récompense avant le quiz ...

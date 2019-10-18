@@ -7,7 +7,7 @@ In this chapter we return to the command ${code}ls${reset}, one of the most impo
 And here we'll talk about its most important option: ${code}-l${reset}
 +You can type: ${learn}ls -l${reset}
 !ls -l£No
-With this option, ${code}ls${reset} gives us more informations about the elements of the current directory.
+With this option, ${code}ls${reset} gives us more information about the elements of the current directory.
 At the beginning you have a string consisting of ${code}-${reset} and letters to the left of the first space of each line.
 The first character represents the type of the element.
 If it's a ${code}-${reset}, this item is a file, if it's a ${code}d${reset}, it's a folder.

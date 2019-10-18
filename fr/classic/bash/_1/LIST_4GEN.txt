@@ -119,7 +119,7 @@ Lorsque vous avez tapé ${learn}rm virus0${reset}, vous avez demandé la suppres
 +Affichez le contenu de votre ${voc}répertoire courant${reset}.
 !ls£Non
 Le fichier 'virus1', existe toujours dans le répertoire 'Room', mais étant donné votre ${voc}répertoire courant${reset}, vous ne pouvez pas lancer ${learn}rm virus1${reset}.
-Heureusement, vous connaissez le ${voc}chemin absolu${reset} du fichier 'virus1' : ${learn}$HOME/House/Room/virus1${Reset}
+Heureusement, vous connaissez le ${voc}chemin absolu${reset} du fichier 'virus1' : ${learn}$HOME/House/Room/virus1${reset}
 Vous pouvez utiliser son ${voc}chemin absolu${reset} comme ${voc}argument${reset}. Cette commande marchera donc quel que soit votre ${voc}répertoire courant${reset} !
 +Supprimez le avec cette commande : ${learn}rm $HOME/House/Room/virus1${reset}.
 !rm $HOME/House/Room/virus1£Non
@@ -169,8 +169,8 @@ C'est le vocabulaire que nous employons pour parler de cette arborescence, ce so
 Par exemple pour ${learn}/home/user/test/${reset}, le dossier parent de test est user. Le dossier parent de user est home.
 Et bien évidemment test est un enfant de user, et user est un enfant de home.
 Cibler les enfants en ${voc}argument${reset} avec un ${voc}chemin relatif${reset} est très simple, il suffit d'écrire le nom de leurs parents successifs.
-Comme par exemple avec la commande de tout a l'heure : ${learn}cd House/Room/${reet}
-Pour cibler les parents, c'est un peu plus compliqué. Il faut utiliser ${learn}..${reset}.
+Comme par exemple avec la commande de tout a l'heure : ${learn}cd House/Room/${reset}
+Pour cibler les parents, c'est un peu plus compliqué. Il faut utiliser ${learn}..${reset}
 +Affichez donc le chemin absolu de votre ${voc}répertoire courant${reset}.
 !pwd£Non
 Vous connaissez aussi la commande pour changer de répertoire courant : ${learn}cd${reset}.
