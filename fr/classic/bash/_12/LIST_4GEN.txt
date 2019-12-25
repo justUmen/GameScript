@@ -147,6 +147,16 @@ case esac
 
 
 
+DIFFERENCE BETWEEN
+if false
+if [ false ]
+if 1
+if [ 1 ]
+
+
+
+
+
 
 https://www.gnu.org/software/bash/manual/html_node/Word-Designators.html
 

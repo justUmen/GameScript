@@ -1,7 +1,7 @@
 #[ -d "$HOME/House" ] && echo "Unexpected error, ${HOME}/House already exists on your system! Delete this $HOME/House folder and restart this script." && exit
 #mkdir $HOME/.GameScript_bash1 &> /dev/null
 #cd $HOME/
-Hello everyone and welcome to the first chapter named 'bash'.
+Hello everyone and welcome to the first chapter about 'bash'.
 Before learning about our first command, we need to understand the logic behind the organisation of files and folders in Unix-like operating systems, like Linux.
 Let's start to talk about 'directories', also known as 'folders'.
 #real_tree_1
@@ -119,7 +119,7 @@ When you did ${learn}rm virus0${reset}, you've asked for the deletion of the fil
 +Display the content of your ${voc}current directory${reset}.
 !ls£Non
 The file 'virus1' still exists in the folder 'Room', but with your ${voc}current directory${reset}, you can't do ${learn}rm virus1${reset}.
-Hopefully, you know the ${voc}absolute path${reset} of the file 'virus1' : ${learn}$HOME/House/Room/virus1${Reset}
+Hopefully, you know the ${voc}absolute path${reset} of the file 'virus1' : ${learn}$HOME/House/Room/virus1${reset}
 You can use its ${voc}absolute path${reset} as an argument. And this command will work regardless of your ${voc}current directory${reset} !
 +Delete 'virus1' with : ${learn}rm $HOME/House/Room/virus1${reset}.
 !rm $HOME/House/Room/virus1£Non
@@ -132,7 +132,7 @@ We can also use the ${voc}absolute path${reset} of the folder 'Room' to display 
 You already know the command ${learn}ls${reset}, to display the content of your ${voc}current directory${reset}.
 Without ${voc}argument${reset}, with a simple ${learn}ls${reset}, the target folder will be the ${voc}current directory${reset}.
 But it is also possible to give an ${voc}argument${reset} to ${learn}ls${reset}.
-This ${voc}argument${reset} is the targetted folder, for example ${learn}ls /${reset} will display the content of the ${voc}root directory${reset}.
+This ${voc}argument${reset} is the targeted folder, for example ${learn}ls /${reset} will display the content of the ${voc}root directory${reset}.
 +We can display the content of the folder 'Room' without having to move in this directory first, with : ${learn}ls $HOME/House/Room/${reset}.
 !ls $HOME/House/Room/£Non
 Excellent, the file 'virus1' no longer exists.
@@ -156,7 +156,7 @@ You want to move in ${learn}$HOME/House/Room/${reset} and you already are in ${l
 !cd House/Room/£Non
 +Display the elements of your ${voc}working directory${reset}.
 !ls£Non
-+Here you can still se some 'virus' files. delete the file 'virus2' with its ${voc}relative path${reset}.
++Here you can still see some 'virus' files. Delete the file 'virus2' using its ${voc}relative path${reset}.
 !rm virus2£Non
 Excellent!
 In the last example, we saw that ${learn}cd House/Room/${reset} is using a ${voc}relative path${reset}, but this path still contains several '/'.
@@ -169,7 +169,7 @@ It is the vocabulary we will use to talk about this tree, they have child / pare
 For example, for ${learn}/home/user/test/${reset}, the parent folder of 'test' is 'user' and the parent of 'user' is 'home'.
 And of course 'test' is a child of 'user', and 'user' is a child of 'home'.
 Targetting children in ${voc}argument${reset} with their ${voc}relative path${reset} is very simple, you just have to write the names of their successive parents.
-Like for example with the command we used before : ${learn}cd House/Room/${reet}
+Like for example with the command we used before : ${learn}cd House/Room/${reset}
 To target parents, it's a little more complicated. We have to use these ${learn}..${reset}.
 +Display the absolute path of you current directory.
 !pwd£Non

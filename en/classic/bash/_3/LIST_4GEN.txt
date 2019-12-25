@@ -79,19 +79,19 @@ It can work with any command !.
 !cat test£No
 This is the ${voc}result${reset} of the command that will be redirected. Here ${learn}ls${reset} gives as result: 'test', because 'test' is the only element of the current directory.
 If you want to add text, you will have to use ${code}>>${reset} in combination with the ${code}echo${reset} command.
-If you want to add the word 'pwd' at the end of the file it will be necessary to use: ${learn}echo pwd >> test${reset}
+If you want to add the word 'pwd' at the end of the file it will be necessary to use: ${learn}echo pwd>>test${reset}
 +Add these three letters 'pwd' at the end of the 'test' file.
-!echo pwd >> test£No
-So be careful not to confuse ${learn}pwd >> test${reset} with ${learn}echo pwd >> test${reset}.
+!echo pwd>>test£No
+So be careful not to confuse ${learn}pwd>>test${reset} with ${learn}echo pwd>>test${reset}.
 +Now let's add the ${voc}result${reset} of ${code}pwd${reset} at the end of the 'test' file.
-!pwd >>£No test
+!pwd>>test£No test
 +And display the file 'test'.
 !cat test£No
 Very good ! I hope the result does not surprise you.
 Now let's go back to the ${code}echo${reset} command.
 Some special characters are not easy to display.
-+Try to display the letter 'a' and the letter 'b', separated by two spaces with: ${learn}echo a b${reset}
-!echo a b£No
++Try to display the letter 'a' and the letter 'b', separated by two spaces with: ${learn}echo a  b${reset}
+!echo a  b£No
 The result is not what was expected ... There is only one space between a and b.
 Here, ${code}echo${reset} considers that there are two arguments, the first argument 'a' and the second argument 'b'.
 It therefore displays the two arguments separated by a space.
@@ -105,46 +105,46 @@ In our case, to represent a space with the command ${code}echo${reset} we can us
 !echo a \\ b£No
 This time there are two spaces between 'a' and 'b', however there are always two arguments, the first is 'a' and the second is 'b'.
 To have a single argument, delete this space after the 'a'.
-+Try with one argument: ${learn}echo a \\\\ b${reset}
-!echo a \\ b£No
++Try with one argument: ${learn}echo a\\\\ b${reset}
+!echo a\\ b£No
 +Now, try to display a second space between a and b.
-!echo a \\ \\ b£No
+!echo a\\ \\ b£No
 This escape character is very useful for displaying characters that wouldn't show up otherwise.
 For example, the ${learn}>${reset} symbol, which as you know, is also interpreted by your terminal as a special character.
 +Test this command: ${learn}echo x\\\\>y${reset}
 !echo x\\>y£No
-Here, you can understand the ${} Voice huge reset} ${difference there is between ${learn}echo \\ x> y {reset} $ and ${learn}echo x> y${reset} .
-${learn}echo x> y${reset} will create a new 'y' file with the content 'x'!
-${learn}echo x \\\\> y${reset} simply displays text in the terminal.
+Here, you can understand the ${voc} huge ${reset} difference between ${learn}echo x\\>y${reset} and ${learn}echo x>y${reset} .
+${learn}echo x>y${reset} will create a new 'y' file with the content 'x'!
+${learn}echo x\\\\>y${reset} simply displays text in the terminal.
 To display the symbol ${code}\\${reset} with echo, just add it just before your escape character.
 +For example, try to display in your terminal: ${code}\\\\exit${reset}.
 !echo \\\\\\\\exit£No
-In ${code} \\\\\\\\\\\\exit ${reset}, the first ${code}\\${reset} is the escape character, but the second one is just the character that must be interpreted literally by your terminal.
-To avoid having to use this ${code}\\${reset} for each space, you can also use ${code}\\ "${reset}.
+In ${code} \\\\\\\\\\\\exit ${reset}, the first ${code} \\ ${reset} is the escape character, but the second one is just the character that must be interpreted literally by your terminal.
+To avoid having to use this ${code} \\ ${reset} for each space, you can also use ${code}\\ "${reset}.
 Two ${code}\\"${reset} can act as a ${code}delimiter${reset} of arguments.
 That is, ${learn}echo x\\>y${reset} can be replaced by ${learn}echo \\"x>y\\"${reset}.
-The content between the first ${code}\\ "${reset} and the second ${code}\\"${reset} will be considered as a single argument to the command ${code}echo${reset}.
+The content between the first ${code}\\"${reset} and the second ${code}\\"${reset} will be considered as a single argument to the command ${code}echo${reset}.
 As part of the argument, spaces will be treated and displayed as such.
-+Try doing: ${learn}echo \\"X X\\"${reset}
-!echo \\"X X\\"£No
++Try doing: ${learn}echo \\"X  X\\"${reset}
+!echo \\"X  X\\"£No
 Here, the spaces are displayed correctly.
-+You can also replace the ${code}\\"${reset} by ${code}'${reset}. Do so with the ${learn}echo 'X X'${reset}
-!echo 'X X'£No
++You can also replace the ${code}\\"${reset} by ${code}'${reset}. Do so with the ${learn}echo 'X   X'${reset}
+!echo 'X   X'£No
 If you have many ${code}'${reset} to display, I advise you to use the ${code}\\"${reset} as the delimiter, and if you have lots of ${code}\\"${reset} to display, I advise you to use ${code}'${reset} as the delimiter.
 For example, even if the display is equivalent, ${learn}echo '\\"Peter\\" and \\"Mary\\"'${reset} is more readable than ${learn}echo \\"\\\\\\\"Peter\\\\\\\" et \\\\\\\"Mary\\\\\\\"\\"${reset}
-The ${voc}escape character${reset} ${code}\\${reset} can also be used to display other special characters, such as line breaks or tabs.
+The ${voc}escape character${reset} ${code} \\ ${reset} can also be used to display other special characters, such as line breaks or tabs.
 +Quickly look at this list in the command manual ${code}echo${reset}.
 !man echo£No
 If you have read the manual correctly, you understand that it will only work if the ${code}-e${reset} option is present.
-The letter 'n' is used with ${code}\\${reset} to represent a new line, 'n' as ${code}n${reset} new line.
+The letter 'n' is used with ${code} \\ ${reset} to represent a new line, 'n' as ${code}n${reset} new line.
 +Display the letter 'a' then the letter 'b' on a new line using the ${code}'${reset} as delimiters.
-!echo -e 'a \\ nb'£No
+!echo -e 'a\\nb'£No
 +Find the syntax of a ${var}${reset} tab ${} tab in the ${code}echo${reset} command manual.
 !man echo£No
 +Using the ${code}'${reset}, display the letter 'a', followed by a tab, and then the letter' b '.
-!echo -e 'a \\ tb'£No
+!echo -e 'a\\tb'£No
 +Now instead of displaying the result in the terminal, put it in a file with named 'tab'.
-!echo -e 'a \\ tb'> tab£No
+!echo -e 'a\\tb'>tab£No
 +Display the contents of the 'tab' file.
 !cat tab£No
 +Now display the 'test' file with the 'tab' file in one command.
