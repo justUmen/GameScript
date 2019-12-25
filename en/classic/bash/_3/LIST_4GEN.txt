@@ -37,9 +37,9 @@ Just imagine that you can use the command ${code}echo${reset}!
 When you use the ${code}echo${reset} command, the result will be displayed on your device.
 But it is also possible to ${voc}redirect${reset} this result elsewhere, for example to a text file.
 You will need to use the ${code}>${reset} symbol. It represents a ${voc}redirection${reset} of the result.
-+Create the text file 'test' with the command: ${code}echo hello> test${reset}
-!echo hello> test£No
-When you use ${learn}echo hello> test${reset}, if the file 'test' does not exist, it will be created.
++Create the text file 'test' with the command: ${code}echo hello>test${reset}
+!echo hello>test£No
+When you use ${learn}echo hello>test${reset}, if the file 'test' does not exist, it will be created.
 +Display the elements of your working directory.
 !ls£No
 Here you have not only created the text file 'test', but you also gave it a content.
@@ -56,8 +56,8 @@ It is also possible to use the same file several times.
 ${reset} cat test test${reset} simply displays the contents of the 'test' file twice.
 Again: when you use ${code}>${reset}, if the file does not exist it will be created.
 However, if the file already exists the content will be replaced.
-+Let's test the command: ${learn}echo goodbye> test${reset}
-!echo goodbye> test£No
++Let's test the command: ${learn}echo goodbye>test${reset}
+!echo goodbye>test£No
 +Now display the contents of the 'test' file.
 !cat test£No
 Here the content has been replaced! The word 'hello' no longer exists.
@@ -65,8 +65,8 @@ Be mindful of ${code}>${reset}, because it can delete the contents of your files
 If you want ${voc}to add${reset} of new content to a file, you will need to use ${code}>>${reset}.
 Likewise, if you use ${code}>>${reset}, if the file does not exist it will be created.
 But if the file already exists, the new content will be added to the end of the file.
-+Test with: ${learn}echo hello >> test${reset}
-!echo hello >> test£No
++Test with: ${learn}echo hello>>test${reset}
+!echo hello>>test£No
 +Then display the contents of the 'test' file.
 !cat test£No
 Here the word 'hello' has been added at the end of the text file.
