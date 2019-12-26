@@ -54,7 +54,7 @@ function select_subject(){
 		esac
 		selected="x"
 		#?? PUT WHILE LOOP BASED ON MENU SIZE :P SAME THE OTHER ONE, OR FIND BETTER
-		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "4" ] && [ "$selected" != "e" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ]; do
+		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "4" ] && [ "$selected" != "e" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ] && [ "$selected" != "u" ]; do
 			echo -en "\e[97;45m # \e[0m"
 			read selected < /dev/tty
 		done
