@@ -73,7 +73,7 @@ function select_subject(){
 }
 
 function update_gamescript_standalone(){
-	
+	echo "update"
 }
 
 function select_chapter(){
