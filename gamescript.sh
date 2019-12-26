@@ -93,7 +93,6 @@ function select_chapter(){
 	  *) TITLE="" ;;
 	esac
 	echo ""
-	echo "version : $GS_VERSION"
 	command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT" -w 100
 	echo -e "   \e[97;44m - $SUBJECT, $TITLE \e[0m"
 	#?? TODO : GIve array for multiple type -> Trigger another menu to select type of lecture (classic + fun)
@@ -708,7 +707,7 @@ else #SIMPLE AUDIO
 	fi
 fi
 
-
+echo "version : $GS_VERSION"
 command -v toilet &> /dev/null && toilet -f mono9 GameScript -w 100
 if [ ! -f "$HOME/.GameScript/username" ]; then
   mkdir ~/.GameScript/ 2> /dev/null
