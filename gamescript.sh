@@ -1,5 +1,5 @@
 #!/bin/bash
-
+GS_VERSION="0.01"
 
 #  ██████   █████  ███    ███ ███████ ███████  ██████ ██████  ██ ██████  ████████
 # ██       ██   ██ ████  ████ ██      ██      ██      ██   ██ ██ ██   ██    ██
@@ -73,7 +73,7 @@ function select_subject(){
 }
 
 function update_gamescript_standalone(){
-	echo "update"
+	echo "update (not yet functional)"
 }
 
 function select_chapter(){
@@ -92,6 +92,7 @@ function select_chapter(){
 	  *) TITLE="" ;;
 	esac
 	echo ""
+	echo "version : $GS_VERSION"
 	command -v toilet &> /dev/null && toilet -f mono9 "$SUBJECT" -w 100
 	echo -e "   \e[97;44m - $SUBJECT, $TITLE \e[0m"
 	#?? TODO : GIve array for multiple type -> Trigger another menu to select type of lecture (classic + fun)
