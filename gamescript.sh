@@ -718,6 +718,7 @@ if [ ! -f "$HOME/.GameScript/username" ]; then
   fi
   echo -n "$PSEUDO" > $HOME/.GameScript/username
   #DOWNLOAD STANDALONE
+  echo "Update GameScript_standalone..."
   git clone --depth 1 https://github.com/justUmen/GameScript_standalone $HOME/.GameScript/GameScript_standalone
   select_subject
 else
