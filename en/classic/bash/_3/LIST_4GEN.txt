@@ -139,7 +139,7 @@ If you have read the manual correctly, you understand that it will only work if 
 The letter 'n' is used with ${code} \\ ${reset} to represent a new line, 'n' as ${code}n${reset} new line.
 +Display the letter 'a' then the letter 'b' on a new line using the ${code}'${reset} as delimiters.
 !echo -e 'a\\nb'£No
-+Find the syntax of a ${var}${reset} tab ${} tab in the ${code}echo${reset} command manual.
++Find the syntax for a tabulation in the ${code}echo${reset} command manual.
 !man echo£No
 +Using the ${code}'${reset}, display the letter 'a', followed by a tab, and then the letter' b '.
 !echo -e 'a\\tb'£No

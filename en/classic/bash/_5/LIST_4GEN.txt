@@ -104,7 +104,7 @@ But what about this ${voc}execution permission${reset} ?
 !ls -l£No
 Here we have a folder with the permissions of reading and writing.
 +Let's go back into this folder.
-!cd File£No
+!cd Folder£No
 Here, despite having the right to read this folder, we can not move in it.
 For a text file, the ${codeFile}x${reset} permission doesn't have any effect ...
 But here with a ${voc}folder${reset}, the ${codeFile}x${reset} plays an important role !

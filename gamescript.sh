@@ -36,6 +36,7 @@ function select_subject(){
 				echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system ( $TEXT_CHAPTER 1 )\e[0m - niveau bash 2+ recommandé - [classic]"
 				#~ echo -e "\\e[0;100m 4) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - niveau bash 2+ recommandé - [fun]"
 				echo -e "\\e[0;100m h) \\e[0m Aide"
+				echo -e "\\e[0;100m u) \\e[0m Forcer mise à jour (GameScript_standalone)"
 				echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
 				echo -e "\\e[0;100m e) \\e[0m Quitter"
 				;;
@@ -46,6 +47,7 @@ function select_subject(){
 				#~ echo -e "\\e[0;100m 3) \\e[0m\e[97;44m system ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [classic]"
 				#~ echo -e "\\e[0;100m 4) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [fun]"
 				echo -e "\\e[0;100m h) \\e[0m Help"
+				echo -e "\\e[0;100m u) \\e[0m Force update (GameScript_standalone)"
 				echo -e "\\e[0;100m p) \\e[0m My passwords"
 				echo -e "\\e[0;100m e) \\e[0m Exit"
 				;;
@@ -63,12 +65,16 @@ function select_subject(){
 			"4") select_chapter data 1 ;;
 			h) gamescript_help ;;
 			p) my_passwords ;;
+			u) update_gamescript_standalone ;;
 			e) goodbye ;;
 			*) echo "Error"; goodbye ;;
 		esac
 	done
 }
 
+function update_gamescript_standalone(){
+	
+}
 
 function select_chapter(){
 	SUBJECT=$1

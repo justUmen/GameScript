@@ -4,11 +4,11 @@
 In the previous chapter, we saw together how to create and edit text files.
 Here we will continue with other types of controls.
 +Let's start by creating a new file 'test' with as content the word 'hello'.
-!echo hello> test£No
+!echo hello>test£No
 +Create a new folder named 'DIR'.
 !mkdir DIR£No
 +Display the elements of the current directory.
-!Ls£No
+!ls£No
 To move a file you will have to use the command ${code}mv${reset}.
 As a reminder : 'm' and 'v' are the consonants of the word 'move'.
 +Move this 'test' file to the DIR folder with the command: ${learn}mv test DIR${reset}
@@ -107,7 +107,7 @@ If you want the second command to run only if the first command was successful, 
 +First remove this NEW folder, which we mistakenly created in the wrong directory.
 !rmdir NEW£No
 +Now, to create a NEW folder in DOS, try: ${learn}cd DOS&&mkdir NEW${reset}
-!cd DOS && mkdir NEW£No
+!cd DOS&&mkdir NEW£No
 +List the items in your current directory.
 !ls£No
 Because the command ${learn}cd DOS${reset} returned an error, ${code}&&${reset} has blocked the execution of the next command.

@@ -122,7 +122,7 @@ Or rather, it takes several commands to have the same effect.
 It will first reset all the permissions to 0 with ${learn}chmod ugo-rwx ??${reset}.
 Then ${learn}chmod ugo+r${reset} to do the equivalent of ${learn}chmod 444 ??${reset}.
 Then you have to transform ${code}444${reset} into ${code}644${reset} with ${learn}chmod u+w${reset}.
-However the opposite is not possible at all. FOr example, ${code}u+w${reset} has no numerical equivalent, because the result will depend on the previous permissions.
+However the opposite is not possible at all. For example, ${code}u+w${reset} has no numerical equivalent, because the result will depend on the previous permissions.
 The two methods are therefore not doing the same thing!
 It will be up to you to choose which method you want to use, depending on your situation.
 And to finish with the basics on permissions, let's see how to change ownership and group.
