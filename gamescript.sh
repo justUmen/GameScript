@@ -1,4 +1,5 @@
 #!/bin/bash
+#CHANGE GS_VERSION EVERYTIME THERE IS A CHANGE IN THE CODE
 GS_VERSION="0.01"
 
 #  ██████   █████  ███    ███ ███████ ███████  ██████ ██████  ██ ██████  ████████
