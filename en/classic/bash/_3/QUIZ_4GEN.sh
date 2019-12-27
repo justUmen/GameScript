@@ -13,7 +13,7 @@ function start_quiz(){
   echo -e "Example : If the answer is 'ls'. The answers 'ls .', 'ls ./' and 'ls ././' won't work."
   answer_text_fr "What is the short version of 'ls -a -l' ?" "ls -al"
   answer_text_fr "How to add the word 'no' at the end of the file 'yes' ?" "echo no>>yes"
-  answer_text_fr "How to replace the content of the file 'test' by 'example' ?" "echo example>test"
+  answer_text_fr "How to replace the content of the file 'test' by the word 'example' ?" "echo example>test"
   answer_text_fr "How to display the content of the file 'test' ?" "cat test"
   answer_text_fr "On bash, what is the escape character ?" "\\"
   answer_text_fr "How to display in a terminal : a>b" "echo a\>b"

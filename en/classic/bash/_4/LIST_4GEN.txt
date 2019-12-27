@@ -46,11 +46,11 @@ If the first argument is a folder, and the second one does not exist, then ${cod
 !ls£No
 So be careful with the command ${code}mv${reset}, it can have two different roles : move and rename.
 ${code}mv${reset} can also do both in one command !
-+Move 'test2' to the 'DOS2' folder and rename it to 'test3' with : ${learn}mv test2 DOS2 / test3${reset}
++Move 'test2' to the 'DOS2' folder and rename it to 'test3' with : ${learn}mv test2 DOS2/1test3${reset}
 !mv test2 DOS2/test3£No
 +Display the elements of the DOS2 directory.
 !ls DOS2£No
-The file 'test2' has been moved to DOS2 and renamed to 'test3'.
+The file 'test2' has been moved to DOS2 ${voc}and${reset} renamed to 'test3'.
 +Display the content of this 'test3' file.
 !cat DOS2/test3£No
 The content is obviously still the same.
@@ -59,8 +59,8 @@ Because when you use ${code}echo${reset}, it will automaticaly add a new empty l
 If you do not want this new empty line, you will have to use the ${learn}-n${reset} option of the ${code}echo${reset} command.
 +Replace the contents of the file 'test3' with 'hello', but without this new empty line.
 !echo -n hello>DOS2/test3£No
-+Now add the text 'everyone' to this file 'test3', using ${learn}\\"${reset}.
-!echo \\"everyone\\">>DOS2/test3£No
++Now add the text ' everyone' to this file 'test3', using ${learn}\\"${reset}.
+!echo \\" everyone\\">>DOS2/test3£No
 +And finally, display the content of 'test3'.
 !cat DOS2/test3£No
 And here it is : hello everyone!
@@ -95,7 +95,7 @@ Here the ${learn}cp command DOS2/test3 .new${reset} is identical to ${learn}cp D
 It is also possible to have several commands on a single line, you just have to separate them by ${code};${reset}.
 +Try showing 'a', then another line 'b'. With two commands and a ${code};${reset}.
 !echo a;echo b£No
-+Now, try to move to the DOS folder and create a NEW folder inside.
++Now, try to move to the DOS folder and create a new folder inside called 'NEW'.
 !cd DOS;mkdir NEW£No
 +List the items in your current directory.
 !ls£No
@@ -111,12 +111,12 @@ If you want the second command to run only if the first command was successful, 
 +List the items in your current directory.
 !ls£No
 Because the command ${learn}cd DOS${reset} returned an error, ${code}&&${reset} has blocked the execution of the next command.
-This technique is especially important if you use destructive ${voc}commands${reset}, like ${code}rm${reset}, or ${code}echo${reset} with ${code}>${ reset}.
+This technique is especially important if you use destructive ${voc}commands${reset}, like ${code}rm${reset}, or ${code}echo${reset} with ${code}>${reset}.
 If you do not take precautions, you may accidentally delete an important file !
 You can use ${code};${reset} and ${code}&&${reset} with all the commands you already know.
 But there is another syntax : ${code}||${reset}, which is the opposite of ${code}&&${reset}.
 That is, the next command will only start if the previous command fails.
-+Try with a typo the command: ${learn}lss||echo test${reset}
++Try with a typo in the command: ${learn}lss||echo test${reset}
 !lss||echo test£No
 +Try the same command, this time with ${code}&&${reset}: ${learn}lss&&echo test${reset}
 !lss&&echo test£No
@@ -124,7 +124,7 @@ But it is also possible to have both conditions on one line.
 +Try this command: ${learn}cd DOS&&echo SUCCESS||echo ERROR${reset}
 !cd DOS&&echo SUCCESS||echo ERROR£No
 If you already know how to program, this command can be seen as an if/else programming condition.
-+Here the folder 'DOS' does not exist, so use DOS2 with this command: ${learn}cd DOS2&&ls||pwd${reset}
++Here the folder 'DOS' does not exist, so use DOS2 instead with this command: ${learn}cd DOS2&&ls||pwd${reset}
 !cd DOS2&&ls||pwd£No
 Because the 'DOS2' folder exists, the ${learn}pwd${reset} command will not be executed.
 You are ready for the questionnaire!

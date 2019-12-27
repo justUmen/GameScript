@@ -116,7 +116,7 @@ For example, the ${learn}>${reset} symbol, which as you know, is also interprete
 Here, you can understand the ${voc} huge ${reset} difference between ${learn}echo x\\>y${reset} and ${learn}echo x>y${reset} .
 ${learn}echo x>y${reset} will create a new 'y' file with the content 'x'!
 ${learn}echo x\\\\>y${reset} simply displays text in the terminal.
-To display the symbol ${code} \\ ${reset} with echo, just add it just before your escape character.
+To display the symbol ${code} \\ ${reset} with echo, just add it just after your escape character.
 +For example, try to display in your terminal: ${code}\\\\hello${reset}.
 !echo \\\\\\\\hello£No
 In ${code} \\\\\\\\\\\\hello ${reset}, the first ${code} \\ ${reset} is the escape character, but the second one is just the character that must be interpreted literally by your terminal.
@@ -141,7 +141,7 @@ The letter 'n' is used with ${code} \\ ${reset} to represent a new line, 'n' as 
 !echo -e 'a\\nb'£No
 +Find the syntax for a tabulation in the ${code}echo${reset} command manual.
 !man echo£No
-+Using the ${code}'${reset}, display the letter 'a', followed by a tab, and then the letter' b '.
++Using the ${code}'${reset}, display the letter 'a', followed by a tab, and then the letter 'b'.
 !echo -e 'a\\tb'£No
 +Now instead of displaying the result in the terminal, put it in a file with named 'tab'.
 !echo -e 'a\\tb'>tab£No
