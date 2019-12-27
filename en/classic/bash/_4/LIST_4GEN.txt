@@ -46,7 +46,7 @@ If the first argument is a folder, and the second one does not exist, then ${cod
 !ls£No
 So be careful with the command ${code}mv${reset}, it can have two different roles : move and rename.
 ${code}mv${reset} can also do both in one command !
-+Move 'test2' to the 'DOS2' folder and rename it to 'test3' with : ${learn}mv test2 DOS2/1test3${reset}
++Move 'test2' to the 'DOS2' folder and rename it to 'test3' with : ${learn}mv test2 DOS2/test3${reset}
 !mv test2 DOS2/test3£No
 +Display the elements of the DOS2 directory.
 !ls DOS2£No
@@ -91,7 +91,7 @@ ${code}.new${reset} is obviously a hidden file, because it starts with a dot.
 +List the hidden files in the current directory to find it.
 !ls -a£No
 If you want to copy the file 'test3' and rename this copy to 'new' in the current directory, the command would be: ${learn}cp DOS2/test3 ./new${reset}.
-Here the ${learn}cp command DOS2/test3 .new${reset} is identical to ${learn}cp DOS2/test3 ./.new${reset}.
+Here the command ${learn}cp DOS2/test3 .new${reset} is identical to ${learn}cp DOS2/test3 ./.new${reset}.
 It is also possible to have several commands on a single line, you just have to separate them by ${code};${reset}.
 +Try showing 'a', then another line 'b'. With two commands and a ${code};${reset}.
 !echo a;echo b£No

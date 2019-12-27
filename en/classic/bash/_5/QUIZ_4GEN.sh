@@ -27,7 +27,7 @@ function start_quiz(){
   answer_text_fr "Which letter represents the permission to execute in the result of 'ls -l' ?" "x"
   answer_text_fr "Which command is able to change the file's permissions ?" "chmod"
   answer_text_fr "Which letter represents the owner for the command 'chmod' ?" "u"
-  answer_text_fr "How to remove the permission to write for the owner on the file 'test' ?" "chmod u-r test"
+  answer_text_fr "How to remove the permission to read for the owner on the file 'test' ?" "chmod u-r test"
   answer_text_fr "How to add the permission to execute on the file 'test' to all users except for the owner ?" "chmod go+x test"
   unlock "bash" "5" "28ab" "3d4e"
 }

@@ -1,7 +1,7 @@
 #[ -d "$HOME/.GameScript_bash6" ] && echo "Unexpected error, ${HOME}/.GameScript_bash6 already exists on your system! Delete this $HOME/.GameScript_bash6 folder and restart this script." && exit
 #mkdir $HOME/.GameScript_bash6 2> /dev/null
 #cd $HOME/.GameScript_bash6
-#echo "xxxxxx">intruder;echo "content f">f;chmod 222 f;echo "content f1">f1;chmod 000 f1;echo "content f10">f10;chmod 010 f10;echo "content f2">f2;chmod 444 f2;echo "content f3">f3;chmod 400 f3;echo "content f4">f4;chmod 455 f4;echo "content f50">f50;chmod 111 f50
+#echo "xxxxxx">intruders;echo "content f">f;chmod 222 f;echo "content f1">f1;chmod 000 f1;echo "content f10">f10;chmod 010 f10;echo "content f2">f2;chmod 444 f2;echo "content f3">f3;chmod 400 f3;echo "content f4">f4;chmod 455 f4;echo "content f50">f50;chmod 111 f50
 +Let's start by evaluating our situation with a : ${learn}ls -l${reset}
 !ls -l£No
 We have here some problems of permission to solve...
@@ -33,16 +33,16 @@ If it is used alone, it represents all the files that have any name...
 But it is also possible to limit what it represents by adding characters to it.
 +For example, you can display all items in the current directory that start with an 'f' with: ${learn}ls f*${reset}
 !ls f*£No
-Here the 'intruder' file is not present because its name does not start with an 'f'.
+Here the 'intruders' file is not present because its name does not start with an 'f'.
 +Display all the elements of the current directory that end with a 0 with: ${learn}ls *0${reset}
 !ls *0£No
 The command ${code}ls${reset} also accepts several arguments, so you can use severals syntaxes.
 +For example, try listing the permissions of all items in the current directory that end with either 0 or s.
 !ls -l *0 *s£No
-+Now list all the permissions of items in the current directory that begin with an 'i' and end with an 'r'.
-!ls -l i*r£No
-With ${code}i*r${reset}, only the 'intruder' file fits the criteria.
-In the case of this 'intruder' file, ${code}*${reset} will replace the string 'ntrude'.
++Now list all the permissions of items in the current directory that begin with an 'i' and end with an 's'.
+!ls -l i*s£No
+With ${code}i*s${reset}, only the 'intruders' file fits the criteria.
+In the case of this 'intruders' file, ${code}*${reset} will replace the string 'ntruder'.
 If you need finer targeting, you can use another ${void}wildcard${reset} character : ${code}?${reset}.
 ${code}?${reset} only replaces ${voc}a single${reset} character!
 +Try this command: ${learn}ls -l f?${reset}
@@ -95,10 +95,10 @@ The modification time of 'f' is indeed now the most recent.
 +To display the current date just run the command: ${learn}date${reset}
 !date£No
 The command ${code}touch${reset} has had its effect on the last modification time.
-+Now display the contents of the 'intruder' file.
-!cat intruder£No
-+And finally run : ${learn}ls -l intruder${reset}
-!ls -l intruder£No
++Now display the contents of the 'intruders' file.
+!cat intruders£No
++And finally run : ${learn}ls -l intruders${reset}
+!ls -l intruders£No
 The date here has not changed, despite the ${code}cat${reset} command being used on this file.
 Without further options, ${learn}ls -l${reset} displays the last time it was ${voc}changed${reset}, not the last time it was ${reset}read${voc}.
 And of course, ${code}cat${reset} only displays the file without modifying it, so the time here does not change.
