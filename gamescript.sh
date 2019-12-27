@@ -38,6 +38,7 @@ function select_subject(){
 				#~ echo -e "\\e[0;100m 4) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - niveau bash 2+ recommandé - [fun]"
 				echo -e "\\e[0;100m h) \\e[0m Aide"
 				echo -e "\\e[0;100m u) \\e[0m Mise à jour (GameScript_standalone)"
+				echo -e "\\e[0;100m c) \\e[0m Changer de nom d'utilisateur (Les mots de passe seront supprimé !)"
 				echo -e "\\e[0;100m p) \\e[0m Mes mots de passe"
 				echo -e "\\e[0;100m e) \\e[0m Quitter"
 				;;
@@ -49,13 +50,14 @@ function select_subject(){
 				#~ echo -e "\\e[0;100m 4) \\e[0m\e[97;44m data ( $TEXT_CHAPTER 1 )\e[0m - level bash 2+ recommanded - [fun]"
 				echo -e "\\e[0;100m h) \\e[0m Help"
 				echo -e "\\e[0;100m u) \\e[0m Update (GameScript_standalone)"
+				echo -e "\\e[0;100m c) \\e[0m Change username (All passwords will be deleted !)"
 				echo -e "\\e[0;100m p) \\e[0m My passwords"
 				echo -e "\\e[0;100m e) \\e[0m Exit"
 				;;
 		esac
 		selected="x"
 		#?? PUT WHILE LOOP BASED ON MENU SIZE :P SAME THE OTHER ONE, OR FIND BETTER
-		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "4" ] && [ "$selected" != "e" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ] && [ "$selected" != "u" ]; do
+		while [ "$selected" != "1" ] && [ "$selected" != "2" ] && [ "$selected" != "3" ] && [ "$selected" != "4" ] && [ "$selected" != "e" ] && [ "$selected" != "h" ] && [ "$selected" != "p" ] && [ "$selected" != "u" ] && [ "$selected" != "c" ]; do
 			echo -en "\e[97;45m # \e[0m"
 			read selected < /dev/tty
 		done
@@ -67,10 +69,26 @@ function select_subject(){
 			h) gamescript_help ;;
 			p) my_passwords ;;
 			u) update_gamescript_standalone ;;
+			c) change_username ;;
 			e) goodbye ;;
 			*) echo "Error"; goodbye ;;
 		esac
 	done
+}
+
+function change_username(){
+	case $LANGUAGE in
+		fr) echo "Quel est votre nouveau nom d'utilisateur ? : " ;;
+		en) echo "What is your new nickname ? : " ;;
+		*) echo "Error"; goodbye ;;
+	esac
+	read NICKNAME
+	#MANUAL REMOVAL ??? Don't forget to add stuff, just to be safe not remove all
+	rm $HOME/GameScript/passwords/bash* 2>/dev/null
+	rm $HOME/GameScript/passwords/sys* 2>/dev/null
+	rm $HOME/GameScript/passwords/i3wm* 2>/dev/null
+	rm $HOME/GameScript/passwords/data* 2>/dev/null
+	echo -n "$NICKNAME">$HOME/.GameScript/username
 }
 
 function update_gamescript_standalone(){
@@ -93,7 +111,7 @@ function select_chapter(){
 	  bash) TITLE="Bourne Again SHell" ;;
 	  i3wm) TITLE="The i3 Window Manager" ;;
 	  sys) TITLE="Unix-like system" ;;
-	  sys) TITLE="Data & Metadata" ;;
+	  data) TITLE="Data & Metadata" ;;
 	  *) TITLE="" ;;
 	esac
 	echo ""
