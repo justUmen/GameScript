@@ -34,7 +34,7 @@ Easy as pie !
 We've already seen that ${code}mkdir${reset} is used to create new folders.
 But how do we create new files?
 Just imagine that you can use the command ${code}echo${reset}!
-When you use the ${code}echo${reset} command, the result will be displayed on your device.
+When you use the ${code}echo${reset} command, the result will be displayed by default on your computer screen.
 But it is also possible to ${voc}redirect${reset} this result elsewhere, for example to a text file.
 You will need to use the ${code}>${reset} symbol. It represents a ${voc}redirection${reset} of the result.
 +Create the text file 'test' with the command: ${code}echo hello>test${reset}
@@ -43,7 +43,7 @@ When you use ${learn}echo hello>test${reset}, if the file 'test' does not exist,
 +Display the elements of your working directory.
 !ls£No
 Here you have not only created the text file 'test', but you also gave it a content.
-This content will be the result of the command to the left of the ${code}>${reset} symbol.
+In this case, the content will be the result of the command to the left of the ${code}>${reset} symbol.
 To display the contents of this file, you will need to use the command ${code}cat${reset}.
 Again, just give ${code}cat${reset} the argument to the name of the file, just as you would for ${code}rm${reset}.
 +Display the contents of the 'test' file with: ${learn}cat test${reset}
@@ -53,7 +53,7 @@ To concatenate, just put the files in argument one after the other.
 It is also possible to use the same file several times.
 +Test the command: ${learn}cat test test${reset}
 !cat test test£No
-${reset} cat test test${reset} simply displays the contents of the 'test' file twice.
+${code}cat test test${reset} simply displays the contents of the 'test' file twice.
 Again: when you use ${code}>${reset}, if the file does not exist it will be created.
 However, if the file already exists the content will be replaced.
 +Let's test the command: ${learn}echo goodbye>test${reset}
@@ -72,7 +72,7 @@ But if the file already exists, the new content will be added to the end of the 
 Here the word 'hello' has been added at the end of the text file.
 You can continue to use ${code}>>${reset} to add new content in the file.
 But the redirects (${code}>${reset} and ${code}>>${reset}) are not limited to the command ${code}echo${reset}.
-It can work with any command !.
+It can work with any command !
 +For example, put the result of the ${learn}ls${reset} command at the end the 'test' file!
 !ls>>test£No test
 +And display the file 'test'.
@@ -98,12 +98,12 @@ It therefore displays the two arguments separated by a space.
 It is therefore sometimes useful to limit the number of arguments to one!
 But how to display this space so that the sequel is not considered as a new argument?
 It will be necessary to use what one calls in computer an ${voc}escape character${reset}.
-Here it is the character ${code}\\${reset}.
+Here it is the character ${code} \\ ${reset}.
 This escape character will affect ${voc}only${reset} the next character.
-In our case, to represent a space with the command ${code}echo${reset} we can use ${code}\\\\${reset}.
-+Try with this escape character: ${learn}echo a \\\\ b${reset}
+In our case, to represent a space with the command ${code}echo${reset} we can use ${code}\\\\ ${reset}.
++Try this, with the escape character: ${learn}echo a \\\\ b${reset}
 !echo a \\ b£No
-This time there are two spaces between 'a' and 'b', however there are always two arguments, the first is 'a' and the second is 'b'.
+This time there are two spaces between 'a' and 'b', however there are always two arguments, the first is 'a' and the second is ' b'.
 To have a single argument, delete this space after the 'a'.
 +Try with one argument: ${learn}echo a\\\\ b${reset}
 !echo a\\ b£No
@@ -116,19 +116,19 @@ For example, the ${learn}>${reset} symbol, which as you know, is also interprete
 Here, you can understand the ${voc} huge ${reset} difference between ${learn}echo x\\>y${reset} and ${learn}echo x>y${reset} .
 ${learn}echo x>y${reset} will create a new 'y' file with the content 'x'!
 ${learn}echo x\\\\>y${reset} simply displays text in the terminal.
-To display the symbol ${code}\\${reset} with echo, just add it just before your escape character.
-+For example, try to display in your terminal: ${code}\\\\exit${reset}.
-!echo \\\\\\\\exit£No
-In ${code} \\\\\\\\\\\\exit ${reset}, the first ${code} \\ ${reset} is the escape character, but the second one is just the character that must be interpreted literally by your terminal.
-To avoid having to use this ${code} \\ ${reset} for each space, you can also use ${code}\\"${reset}.
+To display the symbol ${code} \\ ${reset} with echo, just add it just before your escape character.
++For example, try to display in your terminal: ${code}\\\\hello${reset}.
+!echo \\\\\\\\hello£No
+In ${code} \\\\\\\\\\\\hello ${reset}, the first ${code} \\ ${reset} is the escape character, but the second one is just the character that must be interpreted literally by your terminal.
+To avoid having to use this ${code} \\ ${reset} for each space or special characters, you can also use ${code}\\"${reset}.
 Two ${code}\\"${reset} can act as a ${code}delimiter${reset} of arguments.
 That is, ${learn}echo x\\>y${reset} can be replaced by ${learn}echo \\"x>y\\"${reset}.
-The content between the first ${code}\\"${reset} and the second ${code}\\"${reset} will be considered as a single argument to the command ${code}echo${reset}.
+The content between the first ${code}\\"${reset} and the second ${code}\\"${reset} will be considered as a ${voc}single argument${reset} to the command ${code}echo${reset}.
 As part of the argument, spaces will be treated and displayed as such.
 +Try doing: ${learn}echo \\"X  X\\"${reset}
 !echo \\"X  X\\"£No
-Here, the spaces are displayed correctly.
-+You can also replace the ${code}\\"${reset} by ${code}'${reset}. Do so with the ${learn}echo 'X   X'${reset}
+Here, the two spaces are displayed correctly.
++You can also replace the ${code}\\"${reset} by ${code}'${reset}. Do so with three spaces : ${learn}echo 'X   X'${reset}
 !echo 'X   X'£No
 If you have many ${code}'${reset} to display, I advise you to use the ${code}\\"${reset} as the delimiter, and if you have lots of ${code}\\"${reset} to display, I advise you to use ${code}'${reset} as the delimiter.
 For example, even if the display is equivalent, ${learn}echo '\\"Peter\\" and \\"Mary\\"'${reset} is more readable than ${learn}echo \\"\\\\\\\"Peter\\\\\\\" et \\\\\\\"Mary\\\\\\\"\\"${reset}

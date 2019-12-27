@@ -4,7 +4,8 @@ shopt -s expand_aliases
 source ~/.bashrc
 
 function pause_music(){
-	{ sudo kill -SIGTSTP $1 || kill -SIGTSTP $1; } &> /dev/null
+	#~ { sudo kill -SIGTSTP $1 || kill -SIGTSTP $1; } &> /dev/null
+	kill -SIGTSTP $1 &> /dev/null
 }
 function start_quiz_music(){
 	if [[ "$MUTE" == "0" ]]; then
@@ -12,14 +13,16 @@ function start_quiz_music(){
 		if [[ "$MUSIC_PID" != "" ]]; then
 			pause_music $MUSIC_PID
 		fi
-		{ sudo --non-interactive $SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3 || $SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3; } &>/dev/null &
+		#~ { sudo --non-interactive $SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3 || $SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3; } &>/dev/null &
+		$SOUNDPLAYER_MUSIC_QUIZ /home/umen/.GameScript/Sounds/default/Music/quiz_1.mp3 &>/dev/null &
 	fi
 }
 function stop_quiz_music(){
 	if [[ "$MUTE" == "0" ]]; then
 		MUSIC_QUIZ_PID=$(ps -ef|grep "$SOUNDPLAYER_MUSIC_QUIZ"|grep quiz|awk '{print $2}'|head -n 1)
 		if [[ "$MUSIC_QUIZ_PID" != "" ]]; then
-			{ sudo kill $MUSIC_QUIZ_PID || kill $MUSIC_QUIZ_PID; } &> /dev/null
+			#~ { sudo kill $MUSIC_QUIZ_PID || kill $MUSIC_QUIZ_PID; } &> /dev/null
+			kill $MUSIC_QUIZ_PID &> /dev/null
 		fi
 	fi
 }
@@ -93,7 +96,8 @@ function new_sound(){
 		kill $VOICE_PID
 	fi
 	#~ $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
-	{ sudo --non-interactive $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" || $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3"; } &> /dev/null &
+	#~ { sudo --non-interactive $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" || $SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3"; } &> /dev/null &
+	$SOUNDPLAYER "$AUDIO_LOCAL/$restore.mp3" &> /dev/null &
 }
 
 function new_video(){

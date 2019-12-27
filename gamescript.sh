@@ -718,7 +718,7 @@ if [ ! -f "$HOME/.GameScript/username" ]; then
   fi
   echo -n "$PSEUDO" > $HOME/.GameScript/username
   #DOWNLOAD STANDALONE
-  echo "Update GameScript_standalone..."
+  echo "Download GameScript_standalone from github..."
   git clone --depth 1 https://github.com/justUmen/GameScript_standalone $HOME/.GameScript/GameScript_standalone
   select_subject
 else
@@ -743,8 +743,10 @@ else
 	else
 		#DOWNLOAD OR UPDATE STANDALONE
 		if [ ! -d "$HOME/.GameScript/GameScript_standalone" ]; then
+			echo "Download GameScript_standalone from github..."
 			git clone --depth 1 https://github.com/justUmen/GameScript_standalone $HOME/.GameScript/GameScript_standalone
 		else
+			echo "Update GameScript_standalone from github..."
 			cd $HOME/.GameScript/GameScript_standalone/ && git pull --depth 1 https://github.com/justUmen/GameScript_standalone 2>/dev/null && cd -
 			echo
 		fi

@@ -11,7 +11,7 @@ It is possible to put several filenames one after the other with only one ${code
 !chmod u+rw f1 f2&&ls -l£No
 Typing all the filenames is especially boring, especially if you have a large number of files to change.
 In this chapter we will add some new special characters to our arsenal!
-The first one we will see is: ${code}*${reset}
+The first one we will see is : ${code}*${reset}
 ${code}*${reset} is a very powerful symbol, it's called a ${voc}wildcard${reset}.
 ${code}*${reset} can be used to replace all items in a directory.
 That is, instead of having to type all the names one after the other, you just have to put a ${code}*${reset} instead.
