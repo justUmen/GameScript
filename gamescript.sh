@@ -1,6 +1,8 @@
 #!/bin/bash
 #CHANGE GS_VERSION EVERYTIME THERE IS A CHANGE IN THE CODE
 GS_VERSION="0.01"
+#PATCH NOTE
+#0.02 - Add option to change username
 
 #  ██████   █████  ███    ███ ███████ ███████  ██████ ██████  ██ ██████  ████████
 # ██       ██   ██ ████  ████ ██      ██      ██      ██   ██ ██ ██   ██    ██
@@ -84,10 +86,10 @@ function change_username(){
 	esac
 	read NICKNAME
 	#MANUAL REMOVAL ??? Don't forget to add stuff, just to be safe not remove all
-	rm $HOME/GameScript/passwords/bash* 2>/dev/null
-	rm $HOME/GameScript/passwords/sys* 2>/dev/null
-	rm $HOME/GameScript/passwords/i3wm* 2>/dev/null
-	rm $HOME/GameScript/passwords/data* 2>/dev/null
+	rm $HOME/.GameScript/passwords/bash* 2>/dev/null
+	rm $HOME/.GameScript/passwords/sys* 2>/dev/null
+	rm $HOME/.GameScript/passwords/i3wm* 2>/dev/null
+	rm $HOME/.GameScript/passwords/data* 2>/dev/null
 	echo -n "$NICKNAME">$HOME/.GameScript/username
 }
 
