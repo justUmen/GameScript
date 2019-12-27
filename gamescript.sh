@@ -1,8 +1,9 @@
 #!/bin/bash
 #CHANGE GS_VERSION EVERYTIME THERE IS A CHANGE IN THE CODE
-GS_VERSION="0.01"
+GS_VERSION="0.02"
 #PATCH NOTE
-#0.02 - Add option to change username
+# 0.01 - start
+# 0.02 - Add option to change username
 
 #  ██████   █████  ███    ███ ███████ ███████  ██████ ██████  ██ ██████  ████████
 # ██       ██   ██ ████  ████ ██      ██      ██      ██   ██ ██ ██   ██    ██
