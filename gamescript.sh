@@ -78,8 +78,8 @@ function select_subject(){
 
 function change_username(){
 	case $LANGUAGE in
-		fr) echo "Quel est votre nouveau nom d'utilisateur ? : " ;;
-		en) echo "What is your new nickname ? : " ;;
+		fr) echo -n "Quel est votre nouveau nom d'utilisateur ? : " ;;
+		en) echo -n "What is your new nickname ? : " ;;
 		*) echo "Error"; goodbye ;;
 	esac
 	read NICKNAME
