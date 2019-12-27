@@ -1,9 +1,10 @@
 #!/bin/bash
 #CHANGE GS_VERSION EVERYTIME THERE IS A CHANGE IN THE CODE
-GS_VERSION="0.02"
+GS_VERSION="0.03"
 #PATCH NOTE
 # 0.01 - start
 # 0.02 - Add option to change username
+# 0.03 - change good_$SUBJECT$argCMP for greeen color : use the presence of password files instead
 
 #  ██████   █████  ███    ███ ███████ ███████  ██████ ██████  ██ ██████  ████████
 # ██       ██   ██ ████  ████ ██      ██      ██      ██   ██ ██ ██   ██    ██
@@ -143,12 +144,12 @@ function select_chapter(){
 				;;
 		en) case $SUBJECT in
 					bash) select_lecture_or_quiz "$SUBJECT" "classic" \
-							"$TEXT_CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
-							"$TEXT_CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
-							"$TEXT_CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
-							"$TEXT_CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
-							"$TEXT_CHAPTER 5 \e[0m : ls -l , chmod" \
-							"$TEXT_CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
+							"[NO SOUND] $TEXT_CHAPTER 1 \e[0m : pwd , ls , cd , .. , mkdir , rm , rmdir" \
+							"[NO SOUND] $TEXT_CHAPTER 2 \e[0m : ~ , . , ../ , ../.. , ../../ , - , --, man" \
+							"[NO SOUND] $TEXT_CHAPTER 3 \e[0m : echo , \ , \\\n , > , >> , cat , \"\", ''" \
+							"[NO SOUND] $TEXT_CHAPTER 4 \e[0m : mv , cp , ; , && , ||" \
+							"[NO SOUND] $TEXT_CHAPTER 5 \e[0m : ls -l , chmod" \
+							"[NO SOUND] $TEXT_CHAPTER 6 \e[0m : * , ? , touch , chown , chmod"
 							;;
 					i3wm) select_lecture_or_quiz "$SUBJECT" "classic" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m : exec , bindsym , assign , for_window , xprop , floating , sticky , class , WMCLASS , ~/.config/i3/config" ;;
 					data) select_lecture_or_quiz "$SUBJECT" "fun" "[NO SOUND] $TEXT_CHAPTER 1 \e[0m ???" ;;
@@ -168,7 +169,8 @@ function select_lecture_or_quiz(){
 	shift
 	shift
 	for ARG in "$@"; do #For each arguments (Chapters)
-	  if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then #OLD (SUCCESS) GREEN IF QUIZ ANSWERED
+	  #~ if [ -f "$HOME/.GameScript/good_$SUBJECT$argCMP" ]; then #OLD (SUCCESS) GREEN IF QUIZ ANSWERED
+	  if [ -f "$HOME/.GameScript/passwords/$SUBJECT$argCMP" ]; then #USE PRESENCE OF PASSWORD INSTEAD
 			echo -e "   \e[0;100m $argCMP) \e[97;42m $ARG \e[0m"
 	  else
 			echo -e "   \e[0;100m $argCMP) \e[97;44m $ARG \e[0m"
