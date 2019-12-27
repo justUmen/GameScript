@@ -82,8 +82,8 @@ But we will return to this number in another chapter, ignore it for the moment.
 Reminder: a byte is equal to 8 bits. And a bit can only have two values, 0 or 1.
 This file of 10 bytes is therefore 80 bits!
 For information, the content of our 'f' file is equal in binary to this: 01100011 01101111 01101110 01110100 01100101 01101110 01110101 00100000 01100110 00001010
--rw ------- 1 umen team $ 10 {codeFile}Feb 20 16: 16${reset} f: The sixth column is the date when the file was last modified.
--rw ------- 1 umen team 10 Feb 20 16:16${codeFile} f${reset}: And the last column is just the name of the file.
+-rw ------- 1 umen team 10 ${codeFile}Feb 20 16: 16${reset} f: The sixth column is the date when the file was last modified.
+-rw ------- 1 umen team 10 Feb 20 16:16 ${codeFile}f${reset}: And the last column is just the name of the file.
 In the previous chapter, you already used the ${code}touch${reset} command to create a file.
 Indeed, with ${code}touch${reset}, if the file given as an argument does not exist, it will be created.
 But the primary purpose of this command is to change this last-modified metadata. -rw------- 1 umen team $ 10 {codeFile}Feb 20 16: 16${reset} f
@@ -106,7 +106,7 @@ Now let's get back to permissions, especially on the ${code}chmod${reset} comman
 We have already seen how to use ${code}chmod${reset} with letters: r, w, x, u, g, o.
 But it is also possible to use ${code}chmod${reset} with 3 digits!
 Each letter has a numeric value, the letter 'r' will be 4, 'w' will be 2 and 'x' will be 1.
-It will then be necessary to add the permissions, 'rw-' will be 4 + 2 = ${voc}6${reset}, 'r-x' will be 4 + 1 = ${voc}5${reset}, 'r--' will be ${voc}4${reset}, 'rwx' will be 4 + 2 + 1 = ${voc}7${reset}, '---'will of course be ${voc}0${reset }, etc ...
+It will then be necessary to add the permissions, 'rw-' will be 4 + 2 = ${voc}6${reset}, 'r-x' will be 4 + 1 = ${voc}5${reset}, 'r--' will be ${voc}4${reset}, 'rwx' will be 4 + 2 + 1 = ${voc}7${reset}, '---'will of course be ${voc}0${reset}, etc ...
 You must use three of these sums respectively for the owner, the group, and the others.
 For example, on the file 'test', to give all permissions to the owner but none to the rest, the code will be ${learn}chmod 700 test${reset}
 ${codeFile}7${reset}00 gives all the permissions to the owner: ${codeFile}rwx${reset}
