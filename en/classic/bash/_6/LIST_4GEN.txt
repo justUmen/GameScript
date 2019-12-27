@@ -106,22 +106,22 @@ Now let's get back to permissions, especially on the ${code}chmod${reset} comman
 We have already seen how to use ${code}chmod${reset} with letters: r, w, x, u, g, o.
 But it is also possible to use ${code}chmod${reset} with 3 digits!
 Each letter has a numeric value, the letter 'r' will be 4, 'w' will be 2 and 'x' will be 1.
-It will then be necessary to add the permissions, 'rw-' will be 4 + 2 = ${voc}6${reset}, 'r-x' will be 4 + 1 = ${voc}5${reset}, 'r--' will be ${voc}4${reset}, 'rwx' will be 4 + 2 + 1 = ${voc}7${reset}, '---'will of course be ${voc}0${reset}, etc ...
+It will then be necessary to add the permissions, 'rw-' will be 4 + 2 = ${voc}6${reset}, 'r-x' will be 4 + 1 = ${voc}5${reset}, 'r--' will be ${voc}4${reset}, 'rwx' will be 4 + 2 + 1 = ${voc}7${reset}, '---' will of course be ${voc}0${reset}, etc ...
 You must use three of these sums respectively for the owner, the group, and the others.
 For example, on the file 'test', to give all permissions to the owner but none to the rest, the code will be ${learn}chmod 700 test${reset}
 ${codeFile}7${reset}00 gives all the permissions to the owner: ${codeFile}rwx${reset}
-7${codeFile}0${reset} 0 gives no permission to the group: ${codeFile}---${reset}
+7${codeFile}0${reset}0 gives no permission to the group: ${codeFile}---${reset}
 70${codeFile}0${reset} gives no permission to others: ${codeFile}---${reset}
-${codeFile}700${reset} is equivalent to ${codeFile} rwx------${reset}.
-+Give the rights rw-r--r-- to all elements of two letters in the current directory, using chmod and its digits.
+${codeFile}700${reset} is equivalent to ${codeFile}rwx------${reset}.
++Give the rights rw-r--r-- to all elements with a name of two letters in the current directory, using chmod and its digits.
 !chmod 644 ??£No
 +Let's see the result with: ${learn}ls -l${reset}
 !ls -l£No
 You may have noticed that the command ${learn}chmod 644 ??${reset} has no equivalent with letters.
 Or rather, it takes several commands to have the same effect.
 It will first reset all the permissions to 0 with ${learn}chmod ugo-rwx ??${reset}.
-Then ${learn}chmod ugo+r${reset} to do the equivalent of ${learn}chmod 444 ??${reset}.
-Then you have to transform ${code}444${reset} into ${code}644${reset} with ${learn}chmod u+w${reset}.
+Then ${learn}chmod ugo+r ??${reset} to do the equivalent of ${learn}chmod 444 ??${reset}.
+Then you have to transform ${code}444${reset} into ${code}644${reset} with ${learn}chmod u+w ??${reset}.
 However the opposite is not possible at all. For example, ${code}u+w${reset} has no numerical equivalent, because the result will depend on the previous permissions.
 The two methods are therefore not doing the same thing!
 It will be up to you to choose which method you want to use, depending on your situation.
