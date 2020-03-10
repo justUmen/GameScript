@@ -19,7 +19,7 @@ function start_quiz(){
   echo -e "\e[15;44m Bash 'Bourne Again SHell' : Quiz Chapter 5 \e[0m"
   echo -e "- The answer should be as short as possible, a good answer adding uneeded characters will be considered as wrong."
   echo -e "Example : If the answer is 'ls'. The answers 'ls .', 'ls ./' and 'ls ././' won't work."
-  answer_text_fr "How to display the permissions of all the elements in your user's home directory ?" "ls -l ~"
+  answer_text_fr "How to display the permissions of the elements in your user's home directory ?" "ls -l ~"
   answer_text_fr "Which letter represents a folder in the result of : 'ls -l' ?" "d"
   answer_text_fr "Which symbol represents a file in the result of 'ls -l' ?" "-"
   answer_text_fr "Which letter represents the permission to write in the result of 'ls -l' ?" "w"

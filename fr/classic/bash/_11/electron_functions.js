@@ -13,7 +13,7 @@ GS_text.innerHTML += `<hr>
 function funcjs_29_cat_if1(){
 GS_text.innerHTML += `<hr>
 <hr>`;}
-function funcjs_46_[_1__eq_2_]_echo____(){
+function funcjs_46___1__eq_2___echo____(){
 GS_text.innerHTML += `<hr>
 <hr>`;}
 function funcjs_55_if_ls_then_echo_GOOD_fi(){
