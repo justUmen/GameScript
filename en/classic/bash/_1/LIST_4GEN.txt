@@ -104,7 +104,7 @@ Just like ${learn}mkdir${reset}, you need to give it in ${voc}argument${reset} t
 +Display again the elements of the ${voc}current directory${reset}, to see if 'virus0' is still there.
 !ls£Non
 Awesome, 'virus0' doesn't exist anymore.
-But be careful with ${learn}rm${reset}, it is a very dangerous command and shouldn't take it lightly.
+But be careful with ${learn}rm${reset}, it is a very dangerous command and you shouldn't take it lightly.
 The files are deleted, they won't go in a recyclebin, so be careful.
 A mistake using command line can be unforgiving.
 A mispell or an unwanted ${voc}current directory${reset} can have severe consequences.

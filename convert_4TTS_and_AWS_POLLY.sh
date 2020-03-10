@@ -2,6 +2,7 @@
 # THIS CONVERT IN ENGLISH ONY FOR NOW
 line_number=1
 while read LINE; do
+	echo "line_number = $line_number"
 	COMMENT=`echo "$LINE" | grep "^#"`
 	if [[ "$COMMENT" == "" ]]; then
 		QUIZ=`echo "$LINE" | grep "^!"`
@@ -9,8 +10,7 @@ while read LINE; do
 			QUESTION=`echo "$LINE" | grep "^+"`
 			if [[ "$QUESTION" == "" ]]; then
 				TTS_LINE=`echo $LINE | sed 's#/# SLASH #g' | sed 's#\${learn}##g' | sed 's#\${voc}##g' | sed 's#\${reset}##g' | sed 's#^+##g'`
-				echo "$line_number - $TTS_LINE"
-				line_number=`expr $line_number + 1`
+				echo " ===> $TTS_LINE"
 				if [ ! -f "AWS_POLLY/$line_number.mp3" ]; then
 					#AWS POLLY NEEDS TO BE CONFIGURED OFC
 					aws polly synthesize-speech \
@@ -21,8 +21,8 @@ while read LINE; do
 						--text "$TTS_LINE" \
 					AWS_POLLY/$line_number.mp3 > /dev/null
 					echo "AWS_POLLY/$line_number.mp3 WAS CREATED :-)"
-					echo
-					sleep 5
+					#~ echo
+					#~ sleep 5
 				else
 					echo "AWS_POLLY/$line_number.mp3 ALREADY EXISTS :-)"
 					echo
@@ -30,6 +30,10 @@ while read LINE; do
 			fi
 		fi
 	fi
+	if [ ! -f "AWS_POLLY/$line_number.mp3" ]; then
+		touch "AWS_POLLY/$line_number.mp3"
+	fi
+	line_number=`expr $line_number + 1`
 done < /home/umen/SyNc/Projects/GameScript/en/classic/bash/_1/LIST_4GEN.txt
 
 
