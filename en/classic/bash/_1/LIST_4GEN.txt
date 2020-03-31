@@ -20,7 +20,7 @@ But be careful, having a '/' at the end of the last folder isn't mandatory.
 It means that ${learn}/home/user/${reset} is equivalent to ${learn}/home/user${reset}.
 Also, ${learn}/home/${reset} and ${learn}/home${reset} are equivalent.
 #real_tree_3
-Now let's talk about the files, here in my tree they are in green. In my example, files are 'leaves'. They are connected to a branch, or even sometimes to the trunk itsef.
+Now let's talk about the files, here in my tree they are in green. In my example, files are 'leaves'. They are connected to a branch, or even sometimes to the trunk itself.
 These files belong to a folder. But here, we have some problems: in red, we can see files that can't exist...
 ${codeError}file1${reset} can't exist because there is already a file with the same name ${codeFile}file1${reset} in the same directory. Here the root directory (/file1)
 But above it, the other file named ${codeFile}file1${reset} can exist because even if their name is the same, they are not directly in the same folder.
