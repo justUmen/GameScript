@@ -13,7 +13,7 @@ It is a special folder that will contain ALL the other folders of the system.
 In this tree, everytime you see a new branch, it represents a new folder.
 This passage to another branch can also be seen in their names with the appearance of an additional symbol '/'.
 For example, ${code}/home/${reset} represent the folder 'home' in the ${voc}root directory${reset}.
-${code}/home/user/${reset} represent the directory 'user', which is in the directory 'home', which is himself in the ${voc}root directory${reset}.
+${code}/home/user/${reset} represent the directory 'user', which is in the directory 'home', which is itself in the ${voc}root directory${reset}.
 And so on, like for example : ${code}/home/user/Images/${reset}
 In this case, 'Images' is in 'user', 'user' is in 'home' and 'home' is in '/'.
 But be careful, having a '/' at the end of the last folder isn't mandatory.
