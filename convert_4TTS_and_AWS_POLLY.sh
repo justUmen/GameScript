@@ -41,7 +41,7 @@ for L in "en"; do #ADD languages
 							
 							# | sed 's#$HOME/House/Room/virus1 ????? CHANGE $HOME for electron :(
 							#~ if [[ "$QUESTION" == "" ]]; then
-								TTS_LINE=`echo $LINE | sed 's#$(pwd)#/home/example/House#' | sed 's#$HOME#/home/example#' | sed 's#mkdir#M K D I R#g' | sed 's#rmdir#R M D I R#g' | sed "s#'/'# SLASH #g" | sed "s#SLASH \.#SLASH.#g" | sed 's#/# SLASH #g' | sed 's#\${learn}##g' | sed 's#\${voc}##g' | sed 's#\${reset}##g' | sed 's#\${codeFile}##g' | sed 's#\${codeError}##g' | sed 's#\${code}##g' | sed 's#^+##g'`
+								TTS_LINE=`echo $LINE | sed 's#$(pwd)#/home/example/House#' | sed 's#$HOME#/home/example#' | sed 's#mkdir#M.K.D.I.R.#g' | sed 's#rmdir#R.M.D.I.R.#g' | sed "s#'/'# SLASH #g" | sed "s#SLASH \.#SLASH.#g" | sed 's#/# SLASH #g' | sed 's#\${learn}##g' | sed 's#\${voc}##g' | sed 's#\${reset}##g' | sed 's#\${codeFile}##g' | sed 's#\${codeError}##g' | sed 's#\${code}##g' | sed 's#^+##g'`
 								echo " ===> $TTS_LINE"
 								if [ ! -f "$line_number.mp3" ]; then
 									#AWS POLLY NEEDS TO BE CONFIGURED OFC

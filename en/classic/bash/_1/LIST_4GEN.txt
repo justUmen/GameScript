@@ -90,11 +90,11 @@ You just have to separate them with spaces.
 !mkdir bed closet desk£Non
 +Display the elements of the ${voc}current directory${reset}.
 !ls£Non
-+Now to delete these folders, you can do : ${learn}rmdir bed closet desk${reset}. (rmdir comes from ${learn}e${reset}e${learn}m${reset}ove ${learn}dir${reset}ectory)
++Now to delete these folders, you can do : ${learn}rmdir bed closet desk${reset}. (rmdir comes from ${learn}r${reset}e${learn}m${reset}ove ${learn}dir${reset}ectory)
 !rmdir bed closet desk£Non
 ${learn}rmdir${reset} is a rather innoffensive command, because it will refuse to delete a folder if it isn't empty.
 That can prevent accidents. If for example, you did ${learn}rmdir /home${reset} by mistake.
-${learn}rm${reset} is the command to delete files. (rm comes from the word ${learn}e${reset}e${learn}m${reset}ove)
+${learn}rm${reset} is the command to delete files. (rm comes from the word ${learn}r${reset}e${learn}m${reset}ove)
 #touch virus0 virus1 virus2 virus3 virus4
 Just like ${learn}mkdir${reset}, you need to give it in ${voc}argument${reset} the name of the file you want to target, for example : ${learn}rm test${reset}.
 +Something strange just happened... Display the content of your ${voc}working directory${reset}.
