@@ -22,57 +22,57 @@ Also, ${learn}/home/${reset} and ${learn}/home${reset} are equivalent.
 #real_tree_3
 Now let's talk about the files, here in my tree they are in green. In my example, files are 'leaves'. They are connected to a branch, or even sometimes to the trunk itself.
 These files belong to a folder. But here, we have some problems: in red, we can see files that can't exist...
-${codeError}file1${reset} can't exist because there is already a file with the same name ${codeFile}file1${reset} in the same directory. Here the root directory (/file1)
-But above it, the other file named ${codeFile}file1${reset} can exist because even if their name is the same, they are not directly in the same folder.
+${codeError}file1${reset} can't exist because there is already a file with the same name in the same directory. Here the root directory : ${learn}/file1${reset}
+But above it, the other file ${codeFile}/home/file1${reset} can exist, because even if their name is the same, they are not directly in the same folder.
 The elements in a Unix-like operating system should have a unique reference : here ${learn}/file1${reset} and ${learn}/home/file1${reset} are not in conflit.
-The file ${codeError}/home${reset} can't exist either, because there is already a folder ${code}/home/${reset} using the same name in the same place.
+The file ${codeError}/home${reset} can't exist either, because there is already a folder ${code}/home/${reset}, that is using the same name in the same place.
 For these files to exist, we must give them different names.
 #real_tree_4
-Here we just have to call the second file 'file2'.
-For ${codeError}home${reset}, we need to give another name that won't be a problem like 'Home'.
+Here we just have to call the second file : 'file2'.
+For ${codeError}home${reset}, we need to give another name that won't be a problem : like for example 'Home'.
 Yes ! On Unix, uppercase letters are important. 'Home' and 'home' are two different names.
 When the uppercase letters are considered different from the lowercase letters, we say that the computer system is ${voc}case sensitive${reset}.
 Indeed, Unix-like Operating Systems are ${voc}case sensitive${reset}. It means that 'home', 'Home', 'hOme', 'hoMe', 'homE', 'HoMe', 'hOmE', 'HOme', 'hoME', 'HomE', 'hOMe', 'HOME', etc... are all different and valid names !
 #tree_1
-It is also possible to represent the folders we already saw together this way.
+It is also possible to represent the same folders this way.
 #tree_2
-And here is the same example with files. Identical to the tree we saw.
+And here is the same example with files. Identical to the tree we saw earlier.
 #tree_3
 But the structure can also be understood without the tree-like format.
 If all of this isn't obvious for you now, don't worry.
-Now that you understand the logic, with time and repetition it will soon be easy for you.
-This kind of line, which start with the ${voc}root directory${reset} '/' is called the ${voc}absolute path${reset} of a folder or a file.
-It represents with precision the targeted file or folder.
+Now that you understand the logic, with time and repetition, it will soon be easy for you.
+This kind of line, which start with the ${voc}root directory${reset} '/', is called the ${voc}absolute path${reset} of a folder or file.
+It represents with precision, the targeted file or folder.
 Here, it is impossible to have two identical lines.
 This ${voc}absolute path${reset} is the most important concept of the command line.
 Now we can see our first command !
 Let's start by creating a new folder with the command ${learn}mkdir${reset} (This command's name comes from the sentence : ${learn}m${reset}a${learn}k${reset}e ${learn}dir${reset}ectory).
 You just have to type 'mkdir', followed by a space and a name for your folder.
-+Now let's create the folder 'House' with : ${learn}mkdir House${reset} and confirm the command by pressing the Return key.
++Now let's create the folder 'House', with : ${learn}mkdir House${reset}, and confirm the command by pressing the Return key.
 !mkdir House£Non
-+Let's now display the folders and files with a simple ${learn}ls${reset} (ls comes from the word : ${learn}l${reset}i${learn}s${reset}t).
++Let's now display the folders and files, with a simple ${learn}ls${reset} (ls comes from the word : ${learn}l${reset}i${learn}s${reset}t).
 !ls£Non
 You should see the folder you've created.
 Now we can go inside that folder with the command ${learn}cd${reset} (cd comes from ${learn}c${reset}hange ${learn}d${reset}irectory).
-+To do that, we just have to do ${code}cd${reset}, followed by the name of folder, in our case : ${learn}cd House${reset}.
++To do that, we just have to do ${code}cd${reset}, followed by the name of the folder, in our case : ${learn}cd House${reset}.
 !cd House£Non
-+Now let's display the files and folders again with a simple : ${learn}ls${reset}.
++Now, let's display the files and folders again with a simple ${learn}ls${reset}.
 !ls£Non
-Here the directory 'House' is empty, it's normal since you've just created it.
-But what about the ${voc}absolute path${reset} I talked about before ?
+Here the directory 'House' is empty, it's normal, because you've just created it.
+But, what about the ${voc}absolute path${reset} I talked about before ?
 In fact, a terminal is always running in a folder, and can 'move' in the system tree.
 It's exactly what you did with the command ${learn}cd House${reset}, you moved the terminal in the folder 'House'.
 +To know in which directory your terminal is right now, you just have to type ${learn}pwd${reset} (pwd comes from ${learn}P${reset}rint ${learn}W${reset}orking ${learn}D${reset}irectory).
 !pwd£Non
 The result you see here is the ${voc}absolute path${reset} of the folder you are currently in.
-This folder where you are has a special name : it's your ${voc}working directory${reset}, also called ${voc}current directory${reset}.
-Like I said before, it is not mandatory to put a '/' for the last folder, that's why you can see here ${learn}$(pwd)${reset} without a '/' at the end.
+This folder, where you are right now, has a special name : it's your ${voc}working directory${reset}, also called ${voc}current directory${reset}.
+Like I said before, it is not mandatory to put a '/' for the last folder, that's why you can see here, ${learn}$(pwd)${reset}, without a '/' at the end.
 So here you have 4 fundamental Unix commands : ${learn}pwd${reset}, ${learn}ls${reset}, ${learn}cd${reset} and ${learn}mkdir${reset}.
 ${learn}pwd${reset} and ${learn}ls${reset} are very safe to use, because they just display informations.
 So don't hesitate to use them extensively, as soon as you are in a terminal.
 ${learn}pwd${reset}, to know what is your ${voc}current directory${reset}.
 And ${learn}ls${reset}, to display the content of your ${voc}current directory${reset}.
-+Now let's create a new folder 'Room' in our ${voc}current directory${reset} with : ${learn}mkdir Room${reset}
++Now let's create a new folder, called 'Room', in our ${voc}current directory${reset}, with : ${learn}mkdir Room${reset}
 !mkdir Room£Non
 +Change your ${voc}current directory${reset} with : ${learn}cd Room${reset}
 !cd Room£Non
@@ -96,15 +96,15 @@ ${learn}rmdir${reset} is a rather innoffensive command, because it will refuse t
 That can prevent accidents. If for example, you did ${learn}rmdir /home${reset} by mistake.
 ${learn}rm${reset} is the command to delete files. (rm comes from the word ${learn}r${reset}e${learn}m${reset}ove)
 #touch virus0 virus1 virus2 virus3 virus4
-Just like ${learn}mkdir${reset}, you need to give it in ${voc}argument${reset} the name of the file you want to target, for example : ${learn}rm test${reset}.
+Just like ${learn}mkdir${reset}, you need to give it an ${voc}argument${reset} : the name of the file you want to target, for example : ${learn}rm test${reset}.
 +Something strange just happened... Display the content of your ${voc}working directory${reset}.
 !ls£Non
-+${code}rmdir${reset} deleted the folders successfully. But these files have nothing to do here, delete the file 'virus1' with ${learn}rm virus0${reset}
++${code}rmdir${reset} deleted the folders successfully. But these files have nothing to do here ! Delete the file 'virus1' with : ${learn}rm virus0${reset}
 !rm virus0£Non
 +Display again the elements of the ${voc}current directory${reset}, to see if 'virus0' is still there.
 !ls£Non
 Awesome, 'virus0' doesn't exist anymore.
-But be careful with ${learn}rm${reset}, it is a very dangerous command and you shouldn't take it lightly.
+But be careful with ${learn}rm${reset}, it is a very dangerous command, and you shouldn't take it lightly !
 The files are deleted, they won't go in a recyclebin, so be careful.
 A mistake using command line can be unforgiving.
 A mispell or a wrong ${voc}current directory${reset} can have severe consequences.
@@ -127,13 +127,13 @@ Now, how can we check if the file was deleted ?
 When a command doesn't go as planned, it will display an error.
 +Try to delete the file 'virus1' again with its ${voc}absolute path${reset}.
 !rm $HOME/House/Room/virus1£Non
-Here the command ${learn}rm${reset} is displaying an error because the file you want to delete doesn't exist.
+Here the command ${learn}rm${reset} is displaying an error, because the file you want to delete doesn't exist.
 We can also use the ${voc}absolute path${reset} of the folder 'Room' to display its content.
 You already know the command ${learn}ls${reset}, to display the content of your ${voc}current directory${reset}.
-Without ${voc}argument${reset}, with a simple ${learn}ls${reset}, the target folder will be the ${voc}current directory${reset}.
+Without ${voc}argument${reset}, with a simple ${learn}ls${reset}, the targetted folder will be the ${voc}current directory${reset}.
 But it is also possible to give an ${voc}argument${reset} to ${learn}ls${reset}.
-This ${voc}argument${reset} is the targeted folder, for example ${learn}ls /${reset} will display the content of the ${voc}root directory${reset}.
-+We can display the content of the folder 'Room' without having to move in this directory first, with : ${learn}ls $HOME/House/Room/${reset}.
+This ${voc}argument${reset} is the targeted folder, for example ${learn}ls /${reset}, will display the content of the ${voc}root directory${reset}.
++We can display the content of the folder 'Room', without having to move in this directory first, with : ${learn}ls $HOME/House/Room/${reset}.
 !ls $HOME/House/Room/£Non
 Excellent, the file 'virus1' no longer exists.
 Once again, I want to remind you that in an ${voc}absolute path${reset}, if the last character is '/', it's not mandatory.
@@ -142,17 +142,17 @@ Once again, I want to remind you that in an ${voc}absolute path${reset}, if the 
 No problem there, the result is identical for both commands : ${learn}ls $HOME/House/Room/${reset} and ${learn}ls $HOME/House/Room${reset}.
 When you did ${learn}rm virus0${reset} for the first deletion, you used what's called the ${voc}relative path${reset}.
 We say that this path is 'relative' because it depends on your ${voc}working directory${reset}.
-Let's imagine two 'virus' files with ${voc}absolute path${reset} : ${learn}/virus${reset} and ${learn}/bin/virus${reset}.
+Let's imagine two 'virus' files : with their ${voc}absolute path${reset} being : ${learn}/virus${reset} and ${learn}/bin/virus${reset}.
 If ${learn}pwd${reset} is displaying ${learn}$HOME${reset}. A ${learn}rm virus${reset} won't delete any of them, but would try to remove the file ${learn}$HOME/virus${reset}.
 #cd "$HOME"
-This is why this ${voc}absolute path${reset} is very important. You can do ${learn}rm /virus${reset} or ${learn}rm /bin/virus${reset} and it will work whatever is your ${voc}current directory${reset}.
+This is why this ${voc}absolute path${reset} is very important. You can do ${learn}rm /virus${reset}, or ${learn}rm /bin/virus${reset}, and it will work whatever your ${voc}current directory${reset} is.
 +I just changed your ${voc}current directory${reset}, display it.
 !pwd£Non
 To change your ${voc}current directory${reset}, you can use the command ${learn}cd${reset}.
 To go back in the folder 'Room', you can use its ${voc}absolute path${reset} : ${learn}cd $HOME/House/Room/${reset}
 But you can also do the same thing using its ${voc}relative path${reset}.
-You want to move in ${learn}$HOME/House/Room/${reset} and you already are in ${learn}$HOME${reset}.
-+It is therefore possible to move from where you are now with : ${learn}cd House/Room/${reset}. Go ahead, try it.
+You want to move in ${learn}$HOME/House/Room/${reset}, and you already are in ${learn}$HOME${reset}.
++It is therefore possible to move from where you are now, with : ${learn}cd House/Room/${reset}. Go ahead, try it.
 !cd House/Room/£Non
 +Display the elements of your ${voc}working directory${reset}.
 !ls£Non
@@ -163,11 +163,11 @@ In the last example, we saw that ${learn}cd House/Room/${reset} is using a ${voc
 So how can we know if a path is an ${voc}absolute path${reset} or a ${voc}relative path${reset} ?
 The ${voc}absolute path${reset} is in fact very easy to recognize !
 It always starts at the root directory, it means that the first character of an ${voc}absolute path${reset} is always a '/'.
-There is also a very useful syntax for the ${voc}relative path${reset} : ${learn}..${reset}
-${learn}..${reset} represents in the tree the parent of your ${voc}current directory${reset}.
+There is also a very useful syntax you can use with the ${voc}relative path${reset} : ${learn}..${reset}
+${learn}..${reset} represents the parent folder of your ${voc}current directory${reset}.
 It is the vocabulary we will use to talk about this tree, they have child / parent relationships.
-For example, for ${learn}/home/user/test/${reset}, the parent folder of 'test' is 'user' and the parent of 'user' is 'home'.
-And of course 'test' is a child of 'user', and 'user' is a child of 'home'.
+For example, for ${learn}/home/user/test/${reset}, the parent folder of 'test' is 'user', and the parent of 'user' is 'home'.
+And of course, 'test' is a child of 'user', and 'user' is a child of 'home'.
 Targetting children in ${voc}argument${reset} with their ${voc}relative path${reset} is very simple, you just have to write the names of their successive parents.
 Like for example with the command we used before : ${learn}cd House/Room/${reset}
 To target parents, it's a little more complicated. We have to use these ${learn}..${reset}.
