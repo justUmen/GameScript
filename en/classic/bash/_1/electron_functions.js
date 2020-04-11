@@ -81,7 +81,7 @@ GS_text.innerHTML += `<hr>
                  ':;%.    ;%%. %@;        %; ;@%;%'`+code+` /home/user/ `+reset+`
                     ':%;.  :;bd%;          %;@%;'
                       '@%:.  :;%.         ;@@%;'
-                        '@%.  ';@%.      ;@@%;`+codeFile+` /home/fichier1 `+reset+`
+                        '@%.  ';@%.      ;@@%;`+codeFile+` /home/file1 `+reset+`
                           '@%%. `+code+` /var/ `+reset+`  ;@@%;
                             ;@%. :@%%  %@@%;
                        `+code+` /bin/ `+reset+`%@bd%%%bd%%:;`+code+` /home/ `+reset+`
@@ -91,8 +91,8 @@ GS_text.innerHTML += `<hr>
                                 %@@@o%@@(.,'
                             '.. %@@@o%@@;
                                ')@@@o%@@;`+codeError+` /home `+reset+`
-                                %@@(o)@@;`+codeFile+` /fichier1 `+reset+`
-                               .%@@@@%@@;`+codeError+` /fichier1 `+reset+`
+                                %@@(o)@@;`+codeFile+` /file1 `+reset+`
+                               .%@@@@%@@;`+codeError+` /file1 `+reset+`
                                ;%@@@@%@@;.
                               ;%@@@`+code+` / `+reset+`@@@;.
                          ...;%@@@@@@@@@@@@%..</pre><hr>`;
@@ -112,7 +112,7 @@ GS_text.innerHTML += `<hr>
                  ':;%.    ;%%. %@;        %; ;@%;%'`+code+` /home/user/ `+reset+`
                     ':%;.  :;bd%;          %;@%;'
                       '@%:.  :;%.         ;@@%;'
-                        '@%.  ';@%.      ;@@%;`+codeFile+` /home/fichier1 `+reset+`
+                        '@%.  ';@%.      ;@@%;`+codeFile+` /home/file1 `+reset+`
                           '@%%. `+code+` /var/ `+reset+`  ;@@%;
                             ;@%. :@%%  %@@%;
                        `+code+` /bin/ `+reset+`%@bd%%%bd%%:;`+code+` /home/ `+reset+`
@@ -122,8 +122,8 @@ GS_text.innerHTML += `<hr>
                                 %@@@o%@@(.,'
                             '.. %@@@o%@@;
                                ')@@@o%@@;`+codeFile+` /Home `+reset+`
-                                %@@(o)@@;`+codeFile+` /fichier1 `+reset+`
-                               .%@@@@%@@;`+codeFile+` /fichier2 `+reset+`
+                                %@@(o)@@;`+codeFile+` /file1 `+reset+`
+                               .%@@@@%@@;`+codeFile+` /file2 `+reset+`
                                ;%@@@@%@@;.
                               ;%@@@`+code+` / `+reset+`@@@;.
                          ...;%@@@@@@@@@@@@%..</pre><hr>`;
@@ -148,12 +148,12 @@ GS_text.innerHTML += `<hr>
 |   |-- `+code+` /home/user/ `+reset+`
 |   |   |-- `+code+` /home/user/Pictures/ `+reset+`
 |   |   |   |-- `+codeFile+` /home/user/Pictures/linux.jpeg `+reset+`
-|   |-- `+codeFile+` /home/fichier1 `+reset+`
-|   |-- `+codeFile+` /home/fichier2 `+reset+`
+|   |-- `+codeFile+` /home/file1 `+reset+`
+|   |-- `+codeFile+` /home/file2 `+reset+`
 |-- `+code+` /bin/ `+reset+`
 |-- `+code+` /var/ `+reset+`
-|-- `+codeFile+` /fichier1 `+reset+`
-|-- `+codeFile+` /fichier2 `+reset+`
+|-- `+codeFile+` /file1 `+reset+`
+|-- `+codeFile+` /file2 `+reset+`
 |-- `+codeFile+` /Home </pre><hr>`;
 }
 
@@ -165,12 +165,12 @@ GS_text.innerHTML += `<hr>
 `+code+` /home/user/ `+reset+`
 `+code+` /home/user/Pictures/ `+reset+`
 `+codeFile+` /home/user/Pictures/linux.jpeg `+reset+`
-`+codeFile+` /home/fichier1 `+reset+`
-`+codeFile+` /home/fichier2 `+reset+`
+`+codeFile+` /home/file1 `+reset+`
+`+codeFile+` /home/file2 `+reset+`
 `+code+` /bin/ `+reset+`
 `+code+` /var/ `+reset+`
-`+codeFile+` /fichier1 `+reset+`
-`+codeFile+` /fichier2 `+reset+`
+`+codeFile+` /file1 `+reset+`
+`+codeFile+` /file2 `+reset+`
 `+codeFile+` /Home </pre><hr>`;
 }
 
