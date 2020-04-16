@@ -1,4 +1,4 @@
-
+//~ ??? NEED TO GO FROM FRENCH TO ENGLISH :P 
 
 function real_tree_1(){
 GS_text.innerHTML += `<hr>
@@ -81,7 +81,7 @@ GS_text.innerHTML += `<hr>
                  ':;%.    ;%%. %@;        %; ;@%;%'`+code+` /home/user/ `+reset+`
                     ':%;.  :;bd%;          %;@%;'
                       '@%:.  :;%.         ;@@%;'
-                        '@%.  ';@%.      ;@@%;`+codeFile+` /home/fichier1 `+reset+`
+                        '@%.  ';@%.      ;@@%;`+codeFile+` /home/file1 `+reset+`
                           '@%%. `+code+` /var/ `+reset+`  ;@@%;
                             ;@%. :@%%  %@@%;
                        `+code+` /bin/ `+reset+`%@bd%%%bd%%:;`+code+` /home/ `+reset+`
@@ -91,8 +91,8 @@ GS_text.innerHTML += `<hr>
                                 %@@@o%@@(.,'
                             '.. %@@@o%@@;
                                ')@@@o%@@;`+codeError+` /home `+reset+`
-                                %@@(o)@@;`+codeFile+` /fichier1 `+reset+`
-                               .%@@@@%@@;`+codeError+` /fichier1 `+reset+`
+                                %@@(o)@@;`+codeFile+` /file1 `+reset+`
+                               .%@@@@%@@;`+codeError+` /file1 `+reset+`
                                ;%@@@@%@@;.
                               ;%@@@`+code+` / `+reset+`@@@;.
                          ...;%@@@@@@@@@@@@%..</pre><hr>`;
@@ -112,7 +112,7 @@ GS_text.innerHTML += `<hr>
                  ':;%.    ;%%. %@;        %; ;@%;%'`+code+` /home/user/ `+reset+`
                     ':%;.  :;bd%;          %;@%;'
                       '@%:.  :;%.         ;@@%;'
-                        '@%.  ';@%.      ;@@%;`+codeFile+` /home/fichier1 `+reset+`
+                        '@%.  ';@%.      ;@@%;`+codeFile+` /home/file1 `+reset+`
                           '@%%. `+code+` /var/ `+reset+`  ;@@%;
                             ;@%. :@%%  %@@%;
                        `+code+` /bin/ `+reset+`%@bd%%%bd%%:;`+code+` /home/ `+reset+`
@@ -122,8 +122,8 @@ GS_text.innerHTML += `<hr>
                                 %@@@o%@@(.,'
                             '.. %@@@o%@@;
                                ')@@@o%@@;`+codeFile+` /Home `+reset+`
-                                %@@(o)@@;`+codeFile+` /fichier1 `+reset+`
-                               .%@@@@%@@;`+codeFile+` /fichier2 `+reset+`
+                                %@@(o)@@;`+codeFile+` /file1 `+reset+`
+                               .%@@@@%@@;`+codeFile+` /file2 `+reset+`
                                ;%@@@@%@@;.
                               ;%@@@`+code+` / `+reset+`@@@;.
                          ...;%@@@@@@@@@@@@%..</pre><hr>`;
@@ -148,12 +148,12 @@ GS_text.innerHTML += `<hr>
 |   |-- `+code+` /home/user/ `+reset+`
 |   |   |-- `+code+` /home/user/Pictures/ `+reset+`
 |   |   |   |-- `+codeFile+` /home/user/Pictures/linux.jpeg `+reset+`
-|   |-- `+codeFile+` /home/fichier1 `+reset+`
-|   |-- `+codeFile+` /home/fichier2 `+reset+`
+|   |-- `+codeFile+` /home/file1 `+reset+`
+|   |-- `+codeFile+` /home/file2 `+reset+`
 |-- `+code+` /bin/ `+reset+`
 |-- `+code+` /var/ `+reset+`
-|-- `+codeFile+` /fichier1 `+reset+`
-|-- `+codeFile+` /fichier2 `+reset+`
+|-- `+codeFile+` /file1 `+reset+`
+|-- `+codeFile+` /file2 `+reset+`
 |-- `+codeFile+` /Home </pre><hr>`;
 }
 
@@ -165,12 +165,12 @@ GS_text.innerHTML += `<hr>
 `+code+` /home/user/ `+reset+`
 `+code+` /home/user/Pictures/ `+reset+`
 `+codeFile+` /home/user/Pictures/linux.jpeg `+reset+`
-`+codeFile+` /home/fichier1 `+reset+`
-`+codeFile+` /home/fichier2 `+reset+`
+`+codeFile+` /home/file1 `+reset+`
+`+codeFile+` /home/file2 `+reset+`
 `+code+` /bin/ `+reset+`
 `+code+` /var/ `+reset+`
-`+codeFile+` /fichier1 `+reset+`
-`+codeFile+` /fichier2 `+reset+`
+`+codeFile+` /file1 `+reset+`
+`+codeFile+` /file2 `+reset+`
 `+codeFile+` /Home </pre><hr>`;
 }
 
@@ -180,7 +180,12 @@ GS_text.innerHTML += `<hr>
 }
 function funcjs_54_ls(){
 GS_text.innerHTML += `<hr>
-Desktop  Documents  Downloads  House  Music  Videos
+Desktop
+Documents
+Downloads
+House
+Music
+Videos
 <hr>`;
 }
 function funcjs_58_cd_House(){
@@ -247,7 +252,12 @@ GS_text.innerHTML += `<hr>
 }
 function funcjs_120_ls(){
 GS_text.innerHTML += `<hr>
-Desktop  Documents  Downloads  House  Music  Videos
+Desktop
+Documents
+Downloads
+House
+Music
+Videos
 <hr>`;
 }
 function funcjs_125_rm__HOME_House_Room_virus1(){
@@ -289,7 +299,7 @@ GS_text.innerHTML += `<hr>
 }
 function funcjs_175_pwd(){
 GS_text.innerHTML += `<hr>
-/home/exemple/House/Room
+/home/umen/House/Room
 <hr>`;
 }
 function funcjs_179_cd___(){
@@ -298,7 +308,7 @@ GS_text.innerHTML += `<hr>
 }
 function funcjs_181_pwd(){
 GS_text.innerHTML += `<hr>
-/home/exemple/House
+/home/umen/House
 <hr>`;
 }
 function funcjs_184_rm_Room_virus3(){
