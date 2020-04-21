@@ -1,15 +1,14 @@
 function funcjs_14_ls(){
-funcjs_110_man_ls;
 GS_text.innerHTML += `<hr>
 bOb
 <hr>`;}
 function funcjs_16_ls___(){
 GS_text.innerHTML += `<hr>
-Desktop  Documents  Downloads  Music  Videos
+Bureau  Documents  Téléchargements  Musique  Vidéos
 <hr>`;}
 function funcjs_19_ls____(){
 GS_text.innerHTML += `<hr>
-Desktop  Documents  Downloads  Music  Videos
+Bureau  Documents  Téléchargements  Musique  Vidéos
 <hr>`;}
 function funcjs_28_ls__(){
 GS_text.innerHTML += `<hr>
@@ -44,15 +43,15 @@ GS_text.innerHTML += `<hr>
 <hr>`;}
 function funcjs_52_pwd(){
 GS_text.innerHTML += `<hr>
-/home/example/.GameScript_bash2
+/home/example
 <hr>`;}
 function funcjs_56_ls(){
 GS_text.innerHTML += `<hr>
-Desktop  Documents  Downloads  Music  Videos
+Bureau  Documents  Téléchargements  Musique  Vidéos
 <hr>`;}
 function funcjs_63_ls__a(){
 GS_text.innerHTML += `<hr>
-.bashrc  Desktop  Documents  Downloads  .config  .GameScript_bash2  Music  .profile  Videos  .Xresources
+.bashrc  Bureau  Documents  Téléchargements  .config  .GameScript_bash2  Musique  .profile  Vidéos  .Xresources
 <hr>`;}
 function funcjs_70_cd____GameScript_bash2(){
 GS_text.innerHTML += `<hr>
@@ -83,273 +82,347 @@ GS_text.innerHTML += `<hr>
 <hr>`;}
 function funcjs_103_ls___all__HOME(){
 GS_text.innerHTML += `<hr>
-.bashrc  Desktop  Documents  Downloads  .config  .GameScript_bash2  Music  .profile  Videos  .Xresources
+.bashrc  Bureau  Documents  Téléchargements  .config  .GameScript_bash2  Musique  .profile  Vidéos  .Xresources
 <hr>`;}
 function funcjs_110_man_ls(){
-document.getElementById('GS_man').innerHTML = `
-LS(1)                           User Commands                          LS(1)
-NAME         top
-       ls - list directory contents
-SYNOPSIS         top
-       ls [OPTION]... [FILE]...
-DESCRIPTION         top
-       List information about the FILEs (the current directory by default).
-       Sort entries alphabetically if none of -cftuvSUX nor --sort is
-       specified.
+document.getElementById('GS_man').innerHTML = `<pre>
+LS(1)                                  Commandes                                  LS(1)
 
-       Mandatory arguments to long options are mandatory for short options
-       too.
+NOM
+       ls - Afficher le contenu de répertoires
+
+SYNOPSIS
+       ls [OPTION] ... [FICHIER] ...
+
+DESCRIPTION
+       Afficher  les  informations des FICHIERs (du répertoire courant par défaut). Les
+       entrées sont triées alphabétiquement si aucune des options -cftuvSUX  ou  --sort
+       n'est indiquée.
+
+       Les  paramètres obligatoires pour les options de forme longue le sont aussi pour
+       les options de forme courte.
 
        -a, --all
-              do not ignore entries starting with .
+              inclure les entrées débutant par « . »
 
        -A, --almost-all
-              do not list implied . and ..
+              omettre les fichiers « . » et « .. »
 
        --author
-              with -l, print the author of each file
+              avec -l, afficher l'auteur de chaque fichier
 
        -b, --escape
-              print C-style escapes for nongraphic characters
+              afficher les caractères non graphiques sous la forme C déspécifiée
 
-       --block-size=SIZE
-              with -l, scale sizes by SIZE when printing them; e.g.,
-              '--block-size=M'; see SIZE format below
+       --block-size=TAILLE
+              utiliser  cette  TAILLE   de   bloc   pour   l'affichage.   Par   exemple
+              « --block-size=M »  affichera  les volumes en unités de 1 048 576 octets.
+              Consultez le format de TAILLE ci-dessous
 
        -B, --ignore-backups
-              do not list implied entries ending with ~
+              omettre les entrées se terminant par « ~ »
 
-       -c     with -lt: sort by, and show, ctime (time of last modification
-              of file status information); with -l: show ctime and sort by
-              name; otherwise: sort by ctime, newest first
+       -c     avec -lt, trier selon la date de modification « ctime » en  l'affichant ;
+              avec  -l, trier selon le nom et afficher la date de modification ; sinon,
+              trier selon la date de  modification,  de  la  plus  récente  à  la  plus
+              ancienne
 
-       -C     list entries by columns
+       -C     afficher en colonnes
 
-       --color[=WHEN]
-              colorize the output; WHEN can be 'always' (default if
-              omitted), 'auto', or 'never'; more info below
+       --color[=PARAMÈTRE]
+              colorer  la  sortie.  PARAMÈTRE  peut  être  « never » (jamais), « auto »
+              (automatique) ou « always » (toujours, valeur par défaut) ;  des  rensei‐
+              gnements complémentaires suivent ci-dessous
 
        -d, --directory
-              list directories themselves, not their contents
+              afficher les noms de répertoires eux-mêmes, pas leur contenu
 
        -D, --dired
-              generate output designed for Emacs' dired mode
+              créer une sortie adaptée au mode « dired » d'Emacs
 
-       -f     do not sort, enable -aU, disable -ls --color
+       -f     ne  pas  trier,  activer  les  options  -aU et désactiver les options -ls
+              --color
 
        -F, --classify
-              append indicator (one of */=>@|) to entries
+              ajouter un caractère (parmi « */=>@| ») à chaque entrée
 
        --file-type
-              likewise, except do not append '*'
+              similaire, mais sans ajouter « * »
 
-       --format=WORD
-              across -x, commas -m, horizontal -x, long -l, single-column
-              -1, verbose -l, vertical -C
+       --format=MODE
+              afficher selon le MODE across -x, commas  -m,  horizontal  -x,  long  -l,
+              single-column -1, verbose -l ou vertical -C
 
        --full-time
-              like -l --time-style=full-iso
+              identique à -l --time-style=full-iso
 
-       -g     like -l, but do not list owner
+       -g     identique à -l mais sans afficher le propriétaire
 
        --group-directories-first
-              group directories before files;
+              regrouper les répertoires avant les fichiers ;
 
-              can be augmented with a --sort option, but any use of
-              --sort=none (-U) disables grouping
+              peut   être   renforcé   avec  l'option  --sort,  mais  l'utilisation  de
+              --sort=none (-U) désactive le regroupement
 
        -G, --no-group
-              in a long listing, don't print group names
+              ne pas afficher le nom des groupes dans un format d'affichage long
 
        -h, --human-readable
-              with -l and -s, print sizes like 1K 234M 2G etc.
+              avec -l ou -s, afficher les tailles en format lisible  (par  exemple  1K,
+              234M ou 2G)
 
-       --si   likewise, but use powers of 1000 not 1024
+       --si   équivalent, en utilisant des puissances de 1000 et non de 1024
 
        -H, --dereference-command-line
-              follow symbolic links listed on the command line
+              suivre les liens symboliques de la ligne de commande
 
        --dereference-command-line-symlink-to-dir
-              follow each command line symbolic link
+              suivre tous les liens symboliques en ligne de commande
 
-              that points to a directory
+              qui pointent vers un répertoire
 
-       --hide=PATTERN
-              do not list implied entries matching shell PATTERN (overridden
-              by -a or -A)
+       --hide=MOTIF
+              ne pas afficher les entrées implicites correspondant au MOTIF de l'inter‐
+              préteur de commandes (écrasé par -a ou -A)
 
-       --hyperlink[=WHEN]
-              hyperlink file names; WHEN can be 'always' (default if
-              omitted), 'auto', or 'never'
-
-       --indicator-style=WORD
-              append indicator with style WORD to entry names: none
-              (default), slash (-p), file-type (--file-type), classify (-F)
+       --indicator-style=STYLE
+              ajouter au nom des entrées  l'indicateur  de  STYLE :  none  (aucun,  par
+              défaut), slash (-p), file-type (--file-type) ou classify (-F)
 
        -i, --inode
-              print the index number of each file
+              afficher le numéro d'index de chaque fichier
 
-       -I, --ignore=PATTERN
-              do not list implied entries matching shell PATTERN
+       -I, --ignore=MOTIF
+              ne pas afficher les entrées implicites correspondant au MOTIF de l'inter‐
+              préteur de commandes
 
        -k, --kibibytes
-              default to 1024-byte blocks for disk usage; used only with -s
-              and per directory totals
+              blocs de 1024 octets par défaut pour l’occupation d’espace disque
 
-       -l     use a long listing format
+       -l     utiliser un format d'affichage long
 
        -L, --dereference
-              when showing file information for a symbolic link, show
-              information for the file the link references rather than for
-              the link itself
+              lors de l'affichage des entrées pointées par des liens symboliques, affi‐
+              cher  les informations du fichier pointé par le lien plutôt que celles du
+              lien lui-même
 
-       -m     fill width with a comma separated list of entries
+       -m     remplir la largeur par une liste d'entrées séparée par des virgules
 
        -n, --numeric-uid-gid
-              like -l, but list numeric user and group IDs
+              identique à -l mais en affichant les valeurs numériques des  identifiants
+              du propriétaire (UID) et du groupe (GID)
 
        -N, --literal
-              print entry names without quoting
+              afficher  les  noms  bruts  des  entrées  (par exemple, ne pas traiter de
+              manière particulière les caractères de contrôle)
 
-       -o     like -l, but do not list group information
+       -o     identique à -l, mais sans afficher l'information de groupe
 
        -p, --indicator-style=slash
-              append / indicator to directories
+              ajouter l'indicateur « / » aux répertoires
 
        -q, --hide-control-chars
-              print ? instead of nongraphic characters
+              afficher « ? » à la place des caractères non graphiques
 
        --show-control-chars
-              show nongraphic characters as-is (the default, unless program
-              is 'ls' and output is a terminal)
+              afficher les caractères  non  graphiques  tels  quels  (comportement  par
+              défaut, à moins que le programme ne soit « ls » et la sortie un terminal)
 
        -Q, --quote-name
-              enclose entry names in double quotes
+              mettre les noms d'entrées entre guillemets
 
-       --quoting-style=WORD
-              use quoting style WORD for entry names: literal, locale,
-              shell, shell-always, shell-escape, shell-escape-always, c,
-              escape (overrides QUOTING_STYLE environment variable)
+       --quoting-style=MOT_CLÉ
+              utiliser  le  style  d'encapsulation  selon  le  MOT_CLÉ literal, locale,
+              shell, shell-always, c ou escape
 
        -r, --reverse
-              reverse order while sorting
+              inverser l'ordre du tri
 
        -R, --recursive
-              list subdirectories recursively
+              afficher récursivement les sous-répertoires
 
        -s, --size
-              print the allocated size of each file, in blocks
+              afficher la taille allouée de chaque fichier en nombre de blocs
 
-       -S     sort by file size, largest first
+       -S     trier selon la taille des fichiers
 
-       --sort=WORD
-              sort by WORD instead of name: none (-U), size (-S), time (-t),
-              version (-v), extension (-X)
+       --sort=MODE
+              trier selon le MODE plutôt que selon le  nom :  none  (aucun,  -U),  size
+              (taille, -S),  time (heure, -t), version (-v), extension (-X)
 
-       --time=WORD
-              change the default of using modification times; access time
-              (-u): atime, access, use; change time (-c): ctime, status;
-              birth time: birth, creation;
+       --time=MODE
+              avec  -l,  afficher la date selon le MODE au lieu de la date de modifica‐
+              tion par défaut : atime, access, use (-u), ctime,  ou  status  (-c),  tel
+              qu'indiqué dans la clé de tri --sort=time
 
-              with -l, WORD determines which time to show; with --sort=time,
-              sort by WORD (newest first)
+       --time-style=STYLE
+              avec  -l,  afficher les dates selon le STYLE désiré : full-iso, long-iso,
+              iso, locale ou +FORMAT ; le FORMAT est interprété comme  dans  « date » ;
+              si   FORMAT  vaut  FORMAT1<changement  de  ligne>FORMAT2,  alors  FORMAT1
+              s'applique aux fichiers anciens et  FORMAT2  aux  fichiers  récents ;  si
+              STYLE  est  préfixé  par « posix- », STYLE ne prend effet qu'en dehors de
+              des paramètres régionaux POSIX.
 
-       --time-style=TIME_STYLE
-              time/date format with -l; see TIME_STYLE below
+       -t     trier selon la date de  modification,  de  la  plus  récente  à  la  plus
+              ancienne
 
-       -t     sort by time, newest first; see --time
+       -T, --tabsize=COLONNES
+              définir l'espacement des tabulations à COLONNES plutôt qu'à 8
 
-       -T, --tabsize=COLS
-              assume tab stops at each COLS instead of 8
+       -u     avec  -lt,  trier  et  afficher selon la date de dernier accès ; avec -l,
+              afficher la date de dernier d'accès et trier par nom ;  dans  les  autres
+              cas, trier selon la date de dernier accès
 
-       -u     with -lt: sort by, and show, access time; with -l: show access
-              time and sort by name; otherwise: sort by access time, newest
-              first
+       -U     ne pas trier, afficher selon l'ordre original des entrées du répertoire
 
-       -U     do not sort; list entries in directory order
+       -v     tri naturel des numéros (de version) dans le texte
 
-       -v     natural sort of (version) numbers within text
+       -w, --width=COLONNES
+              fixer la largeur de l'écran à COLONNES
 
-       -w, --width=COLS
-              set output width to COLS.  0 means no limit
+       -x     afficher les entrées par ligne plutôt que par colonne
 
-       -x     list entries by lines instead of by columns
-
-       -X     sort alphabetically by entry extension
+       -X     trier alphabétiquement selon l'extension des entrées
 
        -Z, --context
-              print any security context of each file
+              afficher tout contexte de sécurité de chaque fichier
 
-       -1     list one file per line.  Avoid '\n' with -q or -b
+       -1     afficher un fichier par ligne
 
-       --help display this help and exit
+       --help Afficher l'aide-mémoire et quitter
 
        --version
-              output version information and exit
+              Afficher le nom et la version du logiciel et quitter
 
-       The SIZE argument is an integer and optional unit (example: 10K is
-       10*1024).  Units are K,M,G,T,P,E,Z,Y (powers of 1024) or KB,MB,...
-       (powers of 1000).  Binary prefixes can be used, too: KiB=K, MiB=M,
-       and so on.
+       L’argument  TAILLE est un entier suivi d'une unité facultative (10k pour 10×1024
+       par exemple). Les unités sont K, M, G, T, P, E, Z et Y (puissances de  1024)  ou
+       KB, MB, etc. (puissances de 1000).
 
-       The TIME_STYLE argument can be full-iso, long-iso, iso, locale, or
-       +FORMAT.  FORMAT is interpreted like in date(1).  If FORMAT is
-       FORMAT1<newline>FORMAT2, then FORMAT1 applies to non-recent files and
-       FORMAT2 to recent files.  TIME_STYLE prefixed with 'posix-' takes
-       effect only outside the POSIX locale.  Also the TIME_STYLE
-       environment variable sets the default style to use.
+       La  couleur  n'est pas utilisée pour distinguer les différents types de fichiers
+       par défaut ou avec l'option --color=never. Avec l'option --color=auto, ls n'uti‐
+       lise  des  codes  couleur que si la sortie standard est reliée à un terminal. La
+       variable d'environnement LS_COLORS peut avoir un impact  sur  la  configuration.
+       Utilisez la commande dircolors pour la définir.
 
-       Using color to distinguish file types is disabled both by default and
-       with --color=never.  With --color=auto, ls emits color codes only
-       when standard output is connected to a terminal.  The LS_COLORS
-       environment variable can change the settings.  Use the dircolors
-       command to set it.
+   État de fin d'exécution :
+       0      si OK,
 
-   Exit status:
-       0      if OK,
+       1      si  problèmes mineurs (par exemple, impossible d'accéder à un sous-réper‐
+              toire),
 
-       1      if minor problems (e.g., cannot access subdirectory),
+       2      si erreur grave (par exemple, impossible d'accéder aux paramètres  de  la
+              ligne de commande).
 
-       2      if serious trouble (e.g., cannot access command-line
-              argument).
-AUTHOR         top
-       Written by Richard M. Stallman and David MacKenzie.
-REPORTING BUGS         top
-       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
-       Report any translation bugs to <https://translationproject.org/team/>
-COPYRIGHT         top
-       Copyright © 2020 Free Software Foundation, Inc.  License GPLv3+: GNU
-       GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
-       This is free software: you are free to change and redistribute it.
-       There is NO WARRANTY, to the extent permitted by law.
-SEE ALSO         top
-       Full documentation <https://www.gnu.org/software/coreutils/ls>
-       or available locally via: info '(coreutils) ls invocation'
-COLOPHON         top
-       This page is part of the coreutils (basic file, shell and text
-       manipulation utilities) project.  Information about the project can
-       be found at ⟨http://www.gnu.org/software/coreutils/⟩.  If you have a
-       bug report for this manual page, see
-       ⟨http://www.gnu.org/software/coreutils/⟩.  This page was obtained
-       from the tarball coreutils-8.32.tar.xz fetched from
-       ⟨http://www.gnutls.org/download.html⟩ on 2020-04-11.  If you discover
-       any rendering problems in this HTML version of the page, or you
-       believe there is a better or more up-to-date source for the page, or
-       you have corrections or improvements to the information in this
-       COLOPHON (which is not part of the original manual page), send a mail
-       to man-pages@man7.org
+AUTEUR
+       Écrit par Richard M. Stallman et David MacKenzie.
 
-GNU coreutils 8.32               March 2020                            LS(1)
+SIGNALER DES BOGUES
+       Aide en ligne de GNU coreutils : <http://www.gnu.org/software/coreutils/>
+       Signaler   toute   erreur   de   traduction   de  ls  à  <http://translationpro‐
+       ject.org/team/>
+
+COPYRIGHT
+       Copyright © 2014 Free Software Foundation, Inc. Licence GPLv3+ :  GNU  GPL  ver‐
+       sion 3 ou supérieures <http://gnu.org/licenses/gpl.html>
+       Ce  programme est un logiciel libre. Vous pouvez le modifier et le redistribuer.
+       Il n'y a AUCUNE GARANTIE dans la mesure autorisée par la loi.
+
+VOIR AUSSI
+       Documentation complète : <http://www.gnu.org/software/coreutils/ls>
+       aussi disponible localement à l’aide de la commande : info '(coreutils) ls invo‐
+       cation'
+
+TRADUCTION
+       Cette  page  de manuel a été traduite par Michel Robitaille <robitail AT iro DOT
+       umontreal DOT ca> et mise  à  jour  pour  Debian  par  Jean-Luc  Coulon  (f5ibh)
+       <jean-luc   DOT   coulon  AT  wanadoo  DOT  fr>  et  les  membres  de  la  liste
+       <debian-l10n-french AT lists DOT debian DOT org>. Veuillez signaler toute erreur
+       de traduction par un rapport de bogue sur le paquet manpages-fr-extra.
+
+GNU coreutils 8.23                     mars 2015                                  LS(1)
+</pre>
 `;
-document.getElementById('GS_man').style.display="inline-block";
+document.getElementById('GS_man_status').innerHTML = `Manual page ls(1) (press q to quit)`;
+document.getElementById('GS_man').style.display="block";
+document.getElementById('GS_man_status').style.display="block";
 document.addEventListener('keyup', (event) => {
     if (event.key == 'q') {
         document.getElementById('GS_man').style.display = "none";
+        document.getElementById('GS_man_status').style.display = "none";
     }
 });
 GS_text.innerHTML += `<hr>
 <hr>`;}
 function funcjs_117_man_rmdir(){
+document.getElementById('GS_man').innerHTML = `<pre>
+RMDIR(1)                               Commandes                               RMDIR(1)
+
+NOM
+       rmdir - Supprimer des répertoires vides
+
+SYNOPSIS
+       rmdir [OPTION] ... RÉPERTOIRE ...
+
+DESCRIPTION
+       Supprimer les RÉPERTOIREs, s'ils sont vides.
+
+       --ignore-fail-on-non-empty
+
+              ignorer  les échecs qui ne sont causés que par la non-vacuité d'un réper‐
+              toire
+
+       -p, --parents
+              effacer le RÉPERTOIRE et les répertoires parents. Par exemple, « rmdir -p
+              a/b/c » est identique à « rmdir a/b/c a/b a ».
+
+       -v, --verbose
+              afficher un diagnostic pour chaque répertoire traité
+
+       --help Afficher l'aide-mémoire et quitter
+
+       --version
+              Afficher le nom et la version du logiciel et quitter
+
+AUTEUR
+       Écrit par David MacKenzie.
+
+SIGNALER DES BOGUES
+       Aide en ligne de GNU coreutils : <http://www.gnu.org/software/coreutils/>
+       Signaler   toute   erreur  de  traduction  de  rmdir  à  <http://translationpro‐
+       ject.org/team/>
+
+COPYRIGHT
+       Copyright © 2014 Free Software Foundation, Inc. Licence GPLv3+ :  GNU  GPL  ver‐
+       sion 3 ou supérieures <http://gnu.org/licenses/gpl.html>
+       Ce  programme est un logiciel libre. Vous pouvez le modifier et le redistribuer.
+       Il n'y a AUCUNE GARANTIE dans la mesure autorisée par la loi.
+
+VOIR AUSSI
+       rmdir(2)
+
+       Documentation complète : <http://www.gnu.org/software/coreutils/rmdir>
+       aussi disponible localement à l’aide de la commande :  info  '(coreutils)  rmdir
+       invocation'
+
+TRADUCTION
+       Cette  page  de manuel a été traduite par Michel Robitaille <robitail AT iro DOT
+       umontreal DOT ca> et mise à jour pour Debian par Luc Froidefond <luc DOT froide‐
+       fond AT free DOT fr> et les membres de la liste <debian-l10n-french AT lists DOT
+       debian DOT org>. Veuillez signaler toute erreur de traduction par un rapport  de
+       bogue sur le paquet manpages-fr-extra.
+
+GNU coreutils 8.23                     mars 2015                               RMDIR(1)
+</pre>
+`;
+document.getElementById('GS_man_status').innerHTML = `Manual page rmdir(1) (press q to quit)`;
+document.getElementById('GS_man').style.display="block";
+document.getElementById('GS_man_status').style.display="block";
+document.addEventListener('keyup', (event) => {
+    if (event.key == 'q') {
+        document.getElementById('GS_man').style.display = "none";
+        document.getElementById('GS_man_status').style.display = "none";
+    }
+});
 GS_text.innerHTML += `<hr>
 <hr>`;}
 function funcjs_120_rmdir___help(){
@@ -378,11 +451,277 @@ GS_text.innerHTML += `<hr>
 bin  boot  dev  etc  home  initrd.img  lib  media  mnt  opt  proc  root  run  sbin  tmp  usr  var  vmlinuz
 <hr>`;}
 function funcjs_129_man_ls(){
+document.getElementById('GS_man').innerHTML = `<pre>
+LS(1)                                  Commandes                                  LS(1)
+
+NOM
+       ls - Afficher le contenu de répertoires
+
+SYNOPSIS
+       ls [OPTION] ... [FICHIER] ...
+
+DESCRIPTION
+       Afficher  les  informations des FICHIERs (du répertoire courant par défaut). Les
+       entrées sont triées alphabétiquement si aucune des options -cftuvSUX  ou  --sort
+       n'est indiquée.
+
+       Les  paramètres obligatoires pour les options de forme longue le sont aussi pour
+       les options de forme courte.
+
+       -a, --all
+              inclure les entrées débutant par « . »
+
+       -A, --almost-all
+              omettre les fichiers « . » et « .. »
+
+       --author
+              avec -l, afficher l'auteur de chaque fichier
+
+       -b, --escape
+              afficher les caractères non graphiques sous la forme C déspécifiée
+
+       --block-size=TAILLE
+              utiliser  cette  TAILLE   de   bloc   pour   l'affichage.   Par   exemple
+              « --block-size=M »  affichera  les volumes en unités de 1 048 576 octets.
+              Consultez le format de TAILLE ci-dessous
+
+       -B, --ignore-backups
+              omettre les entrées se terminant par « ~ »
+
+       -c     avec -lt, trier selon la date de modification « ctime » en  l'affichant ;
+              avec  -l, trier selon le nom et afficher la date de modification ; sinon,
+              trier selon la date de  modification,  de  la  plus  récente  à  la  plus
+              ancienne
+
+       -C     afficher en colonnes
+
+       --color[=PARAMÈTRE]
+              colorer  la  sortie.  PARAMÈTRE  peut  être  « never » (jamais), « auto »
+              (automatique) ou « always » (toujours, valeur par défaut) ;  des  rensei‐
+              gnements complémentaires suivent ci-dessous
+
+       -d, --directory
+              afficher les noms de répertoires eux-mêmes, pas leur contenu
+
+       -D, --dired
+              créer une sortie adaptée au mode « dired » d'Emacs
+
+       -f     ne  pas  trier,  activer  les  options  -aU et désactiver les options -ls
+              --color
+
+       -F, --classify
+              ajouter un caractère (parmi « */=>@| ») à chaque entrée
+
+       --file-type
+              similaire, mais sans ajouter « * »
+
+       --format=MODE
+              afficher selon le MODE across -x, commas  -m,  horizontal  -x,  long  -l,
+              single-column -1, verbose -l ou vertical -C
+
+       --full-time
+              identique à -l --time-style=full-iso
+
+       -g     identique à -l mais sans afficher le propriétaire
+
+       --group-directories-first
+              regrouper les répertoires avant les fichiers ;
+
+              peut   être   renforcé   avec  l'option  --sort,  mais  l'utilisation  de
+              --sort=none (-U) désactive le regroupement
+
+       -G, --no-group
+              ne pas afficher le nom des groupes dans un format d'affichage long
+
+       -h, --human-readable
+              avec -l ou -s, afficher les tailles en format lisible  (par  exemple  1K,
+              234M ou 2G)
+
+       --si   équivalent, en utilisant des puissances de 1000 et non de 1024
+
+       -H, --dereference-command-line
+              suivre les liens symboliques de la ligne de commande
+
+       --dereference-command-line-symlink-to-dir
+              suivre tous les liens symboliques en ligne de commande
+
+              qui pointent vers un répertoire
+
+       --hide=MOTIF
+              ne pas afficher les entrées implicites correspondant au MOTIF de l'inter‐
+              préteur de commandes (écrasé par -a ou -A)
+
+       --indicator-style=STYLE
+              ajouter au nom des entrées  l'indicateur  de  STYLE :  none  (aucun,  par
+              défaut), slash (-p), file-type (--file-type) ou classify (-F)
+
+       -i, --inode
+              afficher le numéro d'index de chaque fichier
+
+       -I, --ignore=MOTIF
+              ne pas afficher les entrées implicites correspondant au MOTIF de l'inter‐
+              préteur de commandes
+
+       -k, --kibibytes
+              blocs de 1024 octets par défaut pour l’occupation d’espace disque
+
+       -l     utiliser un format d'affichage long
+
+       -L, --dereference
+              lors de l'affichage des entrées pointées par des liens symboliques, affi‐
+              cher  les informations du fichier pointé par le lien plutôt que celles du
+              lien lui-même
+
+       -m     remplir la largeur par une liste d'entrées séparée par des virgules
+
+       -n, --numeric-uid-gid
+              identique à -l mais en affichant les valeurs numériques des  identifiants
+              du propriétaire (UID) et du groupe (GID)
+
+       -N, --literal
+              afficher  les  noms  bruts  des  entrées  (par exemple, ne pas traiter de
+              manière particulière les caractères de contrôle)
+
+       -o     identique à -l, mais sans afficher l'information de groupe
+
+       -p, --indicator-style=slash
+              ajouter l'indicateur « / » aux répertoires
+
+       -q, --hide-control-chars
+              afficher « ? » à la place des caractères non graphiques
+
+       --show-control-chars
+              afficher les caractères  non  graphiques  tels  quels  (comportement  par
+              défaut, à moins que le programme ne soit « ls » et la sortie un terminal)
+
+       -Q, --quote-name
+              mettre les noms d'entrées entre guillemets
+
+       --quoting-style=MOT_CLÉ
+              utiliser  le  style  d'encapsulation  selon  le  MOT_CLÉ literal, locale,
+              shell, shell-always, c ou escape
+
+       -r, --reverse
+              inverser l'ordre du tri
+
+       -R, --recursive
+              afficher récursivement les sous-répertoires
+
+       -s, --size
+              afficher la taille allouée de chaque fichier en nombre de blocs
+
+       -S     trier selon la taille des fichiers
+
+       --sort=MODE
+              trier selon le MODE plutôt que selon le  nom :  none  (aucun,  -U),  size
+              (taille, -S),  time (heure, -t), version (-v), extension (-X)
+
+       --time=MODE
+              avec  -l,  afficher la date selon le MODE au lieu de la date de modifica‐
+              tion par défaut : atime, access, use (-u), ctime,  ou  status  (-c),  tel
+              qu'indiqué dans la clé de tri --sort=time
+
+       --time-style=STYLE
+              avec  -l,  afficher les dates selon le STYLE désiré : full-iso, long-iso,
+              iso, locale ou +FORMAT ; le FORMAT est interprété comme  dans  « date » ;
+              si   FORMAT  vaut  FORMAT1<changement  de  ligne>FORMAT2,  alors  FORMAT1
+              s'applique aux fichiers anciens et  FORMAT2  aux  fichiers  récents ;  si
+              STYLE  est  préfixé  par « posix- », STYLE ne prend effet qu'en dehors de
+              des paramètres régionaux POSIX.
+
+       -t     trier selon la date de  modification,  de  la  plus  récente  à  la  plus
+              ancienne
+
+       -T, --tabsize=COLONNES
+              définir l'espacement des tabulations à COLONNES plutôt qu'à 8
+
+       -u     avec  -lt,  trier  et  afficher selon la date de dernier accès ; avec -l,
+              afficher la date de dernier d'accès et trier par nom ;  dans  les  autres
+              cas, trier selon la date de dernier accès
+
+       -U     ne pas trier, afficher selon l'ordre original des entrées du répertoire
+
+       -v     tri naturel des numéros (de version) dans le texte
+
+       -w, --width=COLONNES
+              fixer la largeur de l'écran à COLONNES
+
+       -x     afficher les entrées par ligne plutôt que par colonne
+
+       -X     trier alphabétiquement selon l'extension des entrées
+
+       -Z, --context
+              afficher tout contexte de sécurité de chaque fichier
+
+       -1     afficher un fichier par ligne
+
+       --help Afficher l'aide-mémoire et quitter
+
+       --version
+              Afficher le nom et la version du logiciel et quitter
+
+       L’argument  TAILLE est un entier suivi d'une unité facultative (10k pour 10×1024
+       par exemple). Les unités sont K, M, G, T, P, E, Z et Y (puissances de  1024)  ou
+       KB, MB, etc. (puissances de 1000).
+
+       La  couleur  n'est pas utilisée pour distinguer les différents types de fichiers
+       par défaut ou avec l'option --color=never. Avec l'option --color=auto, ls n'uti‐
+       lise  des  codes  couleur que si la sortie standard est reliée à un terminal. La
+       variable d'environnement LS_COLORS peut avoir un impact  sur  la  configuration.
+       Utilisez la commande dircolors pour la définir.
+
+   État de fin d'exécution :
+       0      si OK,
+
+       1      si  problèmes mineurs (par exemple, impossible d'accéder à un sous-réper‐
+              toire),
+
+       2      si erreur grave (par exemple, impossible d'accéder aux paramètres  de  la
+              ligne de commande).
+
+AUTEUR
+       Écrit par Richard M. Stallman et David MacKenzie.
+
+SIGNALER DES BOGUES
+       Aide en ligne de GNU coreutils : <http://www.gnu.org/software/coreutils/>
+       Signaler   toute   erreur   de   traduction   de  ls  à  <http://translationpro‐
+       ject.org/team/>
+
+COPYRIGHT
+       Copyright © 2014 Free Software Foundation, Inc. Licence GPLv3+ :  GNU  GPL  ver‐
+       sion 3 ou supérieures <http://gnu.org/licenses/gpl.html>
+       Ce  programme est un logiciel libre. Vous pouvez le modifier et le redistribuer.
+       Il n'y a AUCUNE GARANTIE dans la mesure autorisée par la loi.
+
+VOIR AUSSI
+       Documentation complète : <http://www.gnu.org/software/coreutils/ls>
+       aussi disponible localement à l’aide de la commande : info '(coreutils) ls invo‐
+       cation'
+
+TRADUCTION
+       Cette  page  de manuel a été traduite par Michel Robitaille <robitail AT iro DOT
+       umontreal DOT ca> et mise  à  jour  pour  Debian  par  Jean-Luc  Coulon  (f5ibh)
+       <jean-luc   DOT   coulon  AT  wanadoo  DOT  fr>  et  les  membres  de  la  liste
+       <debian-l10n-french AT lists DOT debian DOT org>. Veuillez signaler toute erreur
+       de traduction par un rapport de bogue sur le paquet manpages-fr-extra.
+
+GNU coreutils 8.23                     mars 2015                                  LS(1)
+</pre>
+`;
+document.getElementById('GS_man_status').innerHTML = `Manual page ls(1) (press q to quit)`;
+document.getElementById('GS_man').style.display="block";
+document.getElementById('GS_man_status').style.display="block";
+document.addEventListener('keyup', (event) => {
+    if (event.key == 'q') {
+        document.getElementById('GS_man').style.display = "none";
+        document.getElementById('GS_man_status').style.display = "none";
+    }
+});
 GS_text.innerHTML += `<hr>
 <hr>`;}
 function funcjs_134_ls__w_1(){
 GS_text.innerHTML += `<hr>
-bin
+<pre>bin
 boot
 dev
 etc
@@ -399,17 +738,17 @@ sbin
 tmp
 usr
 var
-vmlinuz
+vmlinuz</pre>
 <hr>`;}
 function funcjs_136_ls__w_100(){
 GS_text.innerHTML += `<hr>
-bin  boot  dev  etc  home  initrd.img  lib
+<pre>bin  boot  dev  etc  home  initrd.img  lib
 media  mnt  opt  proc  root  run  sbin  tmp
-usr  var  vmlinuz
+usr  var  vmlinuz</pre>
 <hr>`;}
 function funcjs_139_ls___width_100(){
 GS_text.innerHTML += `<hr>
-bin  boot  dev  etc  home  initrd.img  lib
+<pre>bin  boot  dev  etc  home  initrd.img  lib
 media  mnt  opt  proc  root  run  sbin  tmp
-usr  var  vmlinuz
+usr  var  vmlinuz</pre>
 <hr>`;}

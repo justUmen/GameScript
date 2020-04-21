@@ -422,7 +422,7 @@ function justumen_intro_en(){
 	talk_GAMESCRIPT justumen "  At the start you will have to choose between 'access the lecture' or 'access the quiz'."
 	talk_GAMESCRIPT justumen "If you think that you don't need the lecture, you can go straight to the quiz."
 	talk_GAMESCRIPT justumen "If you can answer ${voc}perfectly${reset} to the chapter's quiz, you can then go to the next chapter without having to follow the lecture."
-	talk_GAMESCRIPT justumen "But if you need to follow, the quiz will come back at the it of it and will have to answer it perfectly to move on."
+	talk_GAMESCRIPT justumen "But if you need to follow the lecture, the quiz will come back at the end and you will have to answer it perfectly to move on."
 	talk_GAMESCRIPT justumen "Do not hesitate to do the lecture or the quiz more than one time if needed."
 	talk_GAMESCRIPT justumen "Do not go too fast on the next chapter if your comprehension of the preceding lecture isn't well understood."
 	talk_GAMESCRIPT justumen "Even if I don't recommend you to quit a lecture in the middle, you can still do it with Ctrl + c"
