@@ -75,7 +75,7 @@ GameScript is a community project in constant evolution, if you see something th
 
 |REF|CREATOR|CHAPTER|TEXT|SOUND|CHAT BADGE|CHAT LINK|WALLPAPER|
 |--------|--------|---------|:-----:|:-----:|:-----:|:-----:|:-----:|
-|s96|[justumen](https://github.com/justUmen)/www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|[justumen](https://github.com/justUmen)|bash 1|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
 |s96|[justumen](https://github.com/justUmen)|bash 2|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
 |s96|[justumen](https://github.com/justUmen)|bash 3|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
 |s96|[justumen](https://github.com/justUmen)|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
