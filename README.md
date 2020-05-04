@@ -75,22 +75,22 @@ GameScript is a community project in constant evolution, if you see something th
 
 |REF|CREATOR|CHAPTER|TEXT|SOUND|CHAT BADGE|CHAT LINK|WALLPAPER|
 |--------|--------|---------|:-----:|:-----:|:-----:|:-----:|:-----:|
-|s96|justumen|bash 1|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|justumen|bash 2|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|justumen|bash 3|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|justumen|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|justumen|bash 5|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|justumen|bash 6|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|justumen|bash 7||||||
-|s96|justumen|bash 8||||||
-|s96|justumen|bash 9||||||
-|s96|justumen|bash 10||||||
-|s96|justumen|bash 11||||||
-|s96|justumen|bash 12||||||
-|s15|justumen|sys 1||||||
-|s15|justumen|sys 2||||||
-|s16|justumen|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s16|justumen|i3wm 2||||||
+|s96|[justumen](https://github.com/justUmen)/www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|[justumen](https://github.com/justUmen)|bash 2|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|[justumen](https://github.com/justUmen)|bash 3|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|[justumen](https://github.com/justUmen)|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|[justumen](https://github.com/justUmen)|bash 5|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|[justumen](https://github.com/justUmen)|bash 6|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s96|[justumen](https://github.com/justUmen)|bash 7||||||
+|s96|[justumen](https://github.com/justUmen)|bash 8||||||
+|s96|[justumen](https://github.com/justUmen)|bash 9||||||
+|s96|[justumen](https://github.com/justUmen)|bash 10||||||
+|s96|[justumen](https://github.com/justUmen)|bash 11||||||
+|s96|[justumen](https://github.com/justUmen)|bash 12||||||
+|s15|[justumen](https://github.com/justUmen)|sys 1||||||
+|s15|[justumen](https://github.com/justUmen)|sys 2||||||
+|s16|[justumen](https://github.com/justUmen)|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
+|s16|[justumen](https://github.com/justUmen)|i3wm 2||||||
 
 # Bash : Code and concepts by chapter
 
