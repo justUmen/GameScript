@@ -1,8 +1,0 @@
-Quel est le symbole qui représente le répertoire de travail de l'utilisateur ?:~
-Par quel symbole commence un fichier caché ?:.
-Par quel symbole commence un dossier caché ?:.
-Comment se déplacer dans le répertoire grand parent ?:cd ../..
-Quel est le symbole qui représente le répertoire courant ?:.
-Comment afficher le manuel de la commande rm:man rm
-Par quel symbole commence les options courtes de commande données en argument ?:-
-Par quel symboles commencent les options longues de commande donnée en argument ?:--
