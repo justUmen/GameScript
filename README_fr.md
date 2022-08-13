@@ -4,6 +4,10 @@ GameScript est un script interactif pour apprendre le contenu de mes cours d'inf
 GameScript est écrit en `bash` et peut vous aider à apprendre ce langage. Apprendre `bash` avec GameScript vous permettra donc de comprendre son code source !  
 GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows with Cygwin" mais "Linux" est recommandé. (Natif ou virtuel : virtualbox, vmware...)  
 
+## Demo :
+
+<img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage_2.svg">
+
 ## Dépendances minimales :
 
 * bash > version 4
@@ -65,6 +69,71 @@ Par exemple, si vous voulez installer Discord app sur Debian/Ubuntu/Mint 64 bits
 ## Projet communautaire :
 
 GameScript est un projet communautaire en constante évolution, si vous remarquez quelque chose qui pourrait être améliorée ou si vous désirez traduire son contenu dans une autre langue, merci de nous contacter.
+
+### Liste des cours disponibles en français :
+
+<!--[Rocket+GitHub](https://rocket.bsjornulf.org) ou -->
+|REF|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|WALLPAPER|
+|---------|---------|:-----:|:-----:|:-----:|:-----:|:-----:|
+|s96|bash 1|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/bash_1)|
+|s96|bash 2|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 3|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 4|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 5|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 6|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 7|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 8|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 9|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 10|✓||✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 11|✓||✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 12||||||
+|s15|sys 1|✓||✓|[Discord](https://discord.gg/25eRgvD)||
+|s15|sys 2||||||
+|s16|i3wm 1|✓||✓|[Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/i3wm_1)|
+|s16|i3wm 2||||||
+
+Liste des futures sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progression-de-mes-objectifs-%C3%A9ducatifs)
+
+# Bash : Code et concepts par chapitre
+
+     Bash 1 => Concepts : commande , argument , chemin relatif , chemin absolu , dossier parent/enfant , répertoire courant
+     Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
+
+     Bash 2 => Concepts : fichier caché, option, RTFM
+     Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
+
+     Bash 3 => Concepts : caractère d'échappement , délimiteur d'argument
+     Bash 3 => Code : echo , \ , \n, \t , > , >> , cat , "", ''
+
+     Bash 4 => Concepts : condition de succès , condition d'échec
+     Bash 4 => Code : mv , cp , ; , && , ||
+
+     Bash 5 => Concepts : permissions et limitations
+     Bash 5 => Code : ls -l , chmod
+
+     Bash 6 => Concepts : donnée , métadonnée
+     Bash 6 => Code : * , ? , touch , chown , chmod
+
+     Bash 7 => Concepts : sortie standard , erreur standard , regroupement de flux
+     Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
+
+     Bash 8 => Concepts : entrée standard , pipe
+     Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
+
+     Bash 9 => Concepts : variable , manipulation de variable , variable d'environnement , script
+     Bash 9 => Code : $ , $PATH , type , printenv
+
+     Bash 10 => Concepts : alias , code retour (exit status) , pager
+     Bash 10 => Code : alias , $PAGER , tail , head , $? , source , less
+
+     Bash 11 => Concepts : condition , comparaison numérique, test logique
+     Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt, -le, -ge
+
+     Bash 12 => Concepts : condition , table de vérité, OR logique, AND logique
+     Bash 12 => Code : if , elif , test , [ '' ] , [ "" ] , $() , ``
+
+     Bash 13 => Concepts : NON, NAND, NOR, comparaison de chaine de caractères, comparaisons multiples
+     Bash 13 => Code : ! , == , != , case , esac
 
 ## Types :
 
