@@ -1,139 +1,150 @@
 # GameScript
 
-## Select your language :
-
-|LANGUAGE|README|AVAILABLE CHAPTERS|AUDIO VERSION|
-|:-----:|:-----:|:-----:|:-----:|
-|English|https://github.com/justUmen/GameScript/blob/master/README.md|7/13|0/13|
-|Français (French)|https://github.com/justUmen/GameScript/blob/master/README_FR.md|13/13|9/13|
-|ខ្មែរ (Khmer)|...|0/13|0/13|
-|ไทย (Thai)|...|0/13|0/13|
-
-GameScript is an interactive script to learn about some computer related subjects with voice recordings and background music.  
-GameScript is written in `bash` and is able to teach you this language. Learning `bash` with GameScript will make you able to understand its source code !  
-GameScript should work with "macOS bash", "Windows 10 bash", "Windows with Cygwin" but "Linux" is recommended. (Native or virtual : virtualbox, vmware...)   
+GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique, avec enregistrements audio et musique de fond.  
+GameScript est écrit en `bash` et peut vous aider à apprendre ce langage. Apprendre `bash` avec GameScript vous permettra donc de comprendre son code source !  
+GameScript devrait fonctionner sur "macOS bash", "Windows 10 bash", "Windows with Cygwin" mais "Linux" est recommandé. (Natif ou virtuel : virtualbox, vmware...)  
 
 ## Demo :
 
 <img src="https://cdn.rawgit.com/justUmen/GameScript/master/GS_usage_2.svg">
 
-## Minimal dependencies :
+## Dépendances minimales :
 
 * bash > version 4
 * wget
 * git
-* mplayer or mpg123 (mplayer is highly recommended !)
+* mplayer ou mpg123 (mplayer est très fortement recommandé !)
 
-Some chapters may have more dependencies to install. (see ALL below)
-Note : macOS users should manually install a bash version 4 or higher. (check current version with `bash --version`)
+Certains chapitres peuvent avoir plus de dépendances. (voir TOUTES ci-dessous)  
+Note : Les utilisateurs de macOS doivent manuellement installer une version de bash supérieure à 4. (Vérifier votre version avec : `bash --version`)  
 
-### Install minimal or ALL dependencies on Debian family (ubuntu, mint, ...)
+### Installer les dépendances minimales ou TOUTES sur Debian family (ubuntu, mint, ...)
 
     apt-get install wget mplayer git
 	apt-get install wget mplayer git tmux youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator toilet
 
-### Install minimal or ALL dependencies on Arch family (manjaro, antergos, ...) - `toilet` in AUR
+### Installer les dépendances minimales ou TOUTES sur Arch (manjaro, antergos, ...) - `toilet` dans l'AUR
 
     pacman -S wget mplayer git
     pacman -S wget mplayer git tmux youtube-dl ffmpeg xclip i3 i3status qutebrowser mousepad leafpad pcmanfm jq feh wmctrl xdotool lxterminal galculator
 
-## Installation of GameScript (from a terminal) :
+## Installation de GameScript (dans un terminal) :
 
-Add `gamescript` alias to your .bashrc file by copy/pasting this command in a bash terminal :
+Ajoutez un alias `gamescript` à votre fichier .bashrc en copie/collant cette commande :
 
     echo 'alias gamescript="mkdir ~/.GameScript 2>/dev/null;wget -q https://raw.githubusercontent.com/justUmen/GameScript/master/gamescript.sh -O ~/.GameScript/gamescript.sh 2>/dev/null;bash ~/.GameScript/gamescript.sh"'>>~/.bashrc; source ~/.bashrc
 
-## Launch of GameScript (from a terminal) :
+## Lancement de GameScript (dans un terminal) :
 
     gamescript
 
-## Example unlock badges on discord and rocketchat : (rocketchat only available in french for now, coming soon...)
+## Exemple des badges sur discord et rocketchat :
 
 <p align="center">
 	<img src="https://cdn.rawgit.com/justUmen/GameScript/master/discord.png">
 	<!--<img src="https://cdn.rawgit.com/justUmen/GameScript/master/rocket.png">-->
 </p>
 
-## [ English ] Chat :
+## [ Français ] Chat :
 
-Your choice, use the web page or application (or nothing :p) :  
+Utilisez la page internet ou l'application Discord (ou ni l'un ni l'autre. :p) :  
 
-|CHAT|OUR CHAT|APPLICATION|
+|CHAT|NOTRE CHAT|APPLICATION|
 |---------|---------|--------|
-|Discord|(https://discord.gg/Dj47Tpf)|https://discordapp.com/download|
+|Discord|(https://discord.gg/25eRgvD)|https://discordapp.com/download|
 
-For example, if you want to install the Discord app on Debian/Ubuntu/Mint 64 bits :
+<!--|RocketChat|(https://rocket.bjornulf.org)|https://github.com/RocketChat/Rocket.Chat.Electron/releases|-->
+
+<!--Par exemple, si vous voulez installer RocketChat 2.13.3 app sur Debian/Ubuntu/Mint 64 bits :
+
+	wget https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/2.13.3/rocketchat_2.13.3_amd64.deb
+	sudo dpkg -i rocketchat_2.13.3_amd64.deb
+-->
+
+Par exemple, si vous voulez installer Discord app sur Debian/Ubuntu/Mint 64 bits :
 
 	wget https://discordapp.com/api/download?platform=linux&format=deb -O discord.deb
 	sudo dpkg -i discord.deb
 
-## Community project :
+## Projet communautaire :
 
-GameScript is a community project in constant evolution, if you see something that can be improved or if you wish to translate some of the content in another language, please contact us.
+GameScript est un projet communautaire en constante évolution, si vous remarquez quelque chose qui pourrait être améliorée ou si vous désirez traduire son contenu dans une autre langue, merci de nous contacter.
 
-### Current list of the lectures available in english :
+### Liste des cours disponibles en français :
 
-|REF|CREATOR|CHAPTER|TEXT TRANSLATION|SOUND|CHAT BADGE|CHAT LINK|WALLPAPER|
-|--------|--------|---------|:-----:|:-----:|:-----:|:-----:|:-----:|
-|s96|[justumen](https://github.com/justUmen)|bash 1|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|[justumen](https://github.com/justUmen)|bash 2|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|[justumen](https://github.com/justUmen)|bash 3|✓ translated by [Altarov](https://www.github.com/Altarov)||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|[justumen](https://github.com/justUmen)|bash 4|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|[justumen](https://github.com/justUmen)|bash 5|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|[justumen](https://github.com/justUmen)|bash 6|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s96|[justumen](https://github.com/justUmen)|bash 7||||||
-|s96|[justumen](https://github.com/justUmen)|bash 8||||||
-|s96|[justumen](https://github.com/justUmen)|bash 9||||||
-|s96|[justumen](https://github.com/justUmen)|bash 10||||||
-|s96|[justumen](https://github.com/justUmen)|bash 11||||||
-|s96|[justumen](https://github.com/justUmen)|bash 12||||||
-|s15|[justumen](https://github.com/justUmen)|sys 1||||||
-|s15|[justumen](https://github.com/justUmen)|sys 2||||||
-|s16|[justumen](https://github.com/justUmen)|i3wm 1|✓||✓|[Discord](https://discord.gg/Dj47Tpf)||
-|s16|[justumen](https://github.com/justUmen)|i3wm 2||||||
+<!--[Rocket+GitHub](https://rocket.bsjornulf.org) ou -->
+|REF|CHAPITRE|TEXTE|SON|BADGE CHAT|LIEN CHAT|WALLPAPER|
+|---------|---------|:-----:|:-----:|:-----:|:-----:|:-----:|
+|s96|bash 1|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/bash_1)|
+|s96|bash 2|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 3|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 4|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 5|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 6|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 7|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 8|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 9|✓|✓|✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 10|✓||✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 11|✓||✓|[Discord](https://discord.gg/25eRgvD)||
+|s96|bash 12||||||
+|s15|sys 1|✓||✓|[Discord](https://discord.gg/25eRgvD)||
+|s15|sys 2||||||
+|s16|i3wm 1|✓||✓|[Discord](https://discord.gg/25eRgvD)|✓[lien](https://github.com/justUmen/WallpaperGenerator/tree/master/Wallpaper/fr/i3wm_1)|
+|s16|i3wm 2||||||
 
-# Bash : Code and concepts by chapter
+Liste des futures sujets : (https://nodebb.bjornulf.org/topic/2/bjornulf-progression-de-mes-objectifs-%C3%A9ducatifs)
 
-    Bash 1 => Concepts : command , argument , relative path , absolute path , folder parent/child , current directory , working directory
-    Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
+# Bash : Code et concepts par chapitre
 
-    Bash 2 => Concepts : hidden file, option, RTFM
-    Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
+     Bash 1 => Concepts : commande , argument , chemin relatif , chemin absolu , dossier parent/enfant , répertoire courant
+     Bash 1 => Code : pwd , ls , cd , .. , mkdir , rm , rmdir
 
-    Bash 3 => Concepts : escape character , delimiters of argument
-    Bash 3 => Code : echo , \ , \n, \t , > , >> , cat , "", ''
+     Bash 2 => Concepts : fichier caché, option, RTFM
+     Bash 2 => Code : ~ , . , ../ , ../.. , ../../ , - , --, man
 
-    Bash 4 => Concepts : conditional success , conditional failure
-    Bash 4 => Code : mv , cp , ; , && , ||
+     Bash 3 => Concepts : caractère d'échappement , délimiteur d'argument
+     Bash 3 => Code : echo , \ , \n, \t , > , >> , cat , "", ''
 
-    Bash 5 => Concepts : permissions and limitations
-    Bash 5 => Code : ls -l , chmod
+     Bash 4 => Concepts : condition de succès , condition d'échec
+     Bash 4 => Code : mv , cp , ; , && , ||
 
-    Bash 6 => Concepts : data , metadata
-    Bash 6 => Code : * , ? , touch , chown , chmod
+     Bash 5 => Concepts : permissions et limitations
+     Bash 5 => Code : ls -l , chmod
 
-    Bash 7 => Concepts : standard output , standard error , flux management
-    Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
+     Bash 6 => Concepts : donnée , métadonnée
+     Bash 6 => Code : * , ? , touch , chown , chmod
 
-    Bash 8 => Concepts : standard input , pipe
-    Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
+     Bash 7 => Concepts : sortie standard , erreur standard , regroupement de flux
+     Bash 7 => Code : 1> , 2> , &> , 1>> , 2>> , &>> , /dev/null , 2>&1 , 1>&2 , ()
 
-    Bash 9 => Concepts : variable , variable control , environment variables , script
-    Bash 9 => Code : $ , $PATH , type , printenv
+     Bash 8 => Concepts : entrée standard , pipe
+     Bash 8 => Code : | , wc , sort , grep , uniq , - , |& , <
 
-    Bash 10 => Concepts : alias , exit status , pager
-    Bash 10 => Code : alias , $PAGER , tail , head , $? , source , less
+     Bash 9 => Concepts : variable , manipulation de variable , variable d'environnement , script
+     Bash 9 => Code : $ , $PATH , type , printenv
 
-    Bash 11 => Concepts : condition , logic test
-    Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt, -le, -ge
+     Bash 10 => Concepts : alias , code retour (exit status) , pager
+     Bash 10 => Code : alias , $PAGER , tail , head , $? , source , less
+
+     Bash 11 => Concepts : condition , comparaison numérique, test logique
+     Bash 11 => Code : read , if , then , else , fi , true , false , [ ] , test , -eq , -lt , -ne , -gt, -le, -ge
+
+     Bash 12 => Concepts : condition , table de vérité, OR logique, AND logique
+     Bash 12 => Code : if , elif , test , [ '' ] , [ "" ] , $() , ``
+
+     Bash 13 => Concepts : NON, NAND, NOR, comparaison de chaine de caractères, comparaisons multiples
+     Bash 13 => Code : ! , == , != , case , esac
 
 ## Types :
 
-* "classic" = default mode, technical content only
-* "story" = learning with stories [ none created for now ]
+A same chapter can have the same content but
 
-## Me
+* "classic" = mode par défaut, uniquement contenu technique
+* "fun" = mode classic avec quelques lignes en plus pour détendre l'atmosphère [ aucun pour l'instant ]
+* "story" = apprendre avec des histoires [ aucun pour l'instant ]
 
-MY PATREON : https://www.patreon.com/justumen (Bonus Patreon Badge)  
-MY PAYPAL : https://www.paypal.me/justumen  
-MY TWITTER : https://twitter.com/justUmen  
+## Moi
+
+MON PATREON : https://www.patreon.com/justumen (Bonus Badge Patreon)  
+MON PAYPAL : https://www.paypal.me/justumen  
+MON TWITTER : https://twitter.com/justUmen  
