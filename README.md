@@ -1,6 +1,6 @@
 # GameScript
 
-More details about this here : [Brainlink GameScript](http://brainlink.fr/)
+More details about this here (sorry french only) : [Brainlink GameScript](http://brainlink.fr/)
 
 GameScript est un script interactif pour apprendre le contenu de mes cours d'informatique, avec enregistrements audio et musique de fond.  
 GameScript est écrit en `bash` et peut vous aider à apprendre ce langage. Apprendre `bash` avec GameScript vous permettra donc de comprendre son code source !  
